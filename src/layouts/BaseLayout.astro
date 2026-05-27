@@ -58,6 +58,9 @@ const serviceSchema = {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   {noIndex && <meta name="robots" content="noindex,nofollow" />}
 
+  <!-- Google Search Console site verification -->
+  <meta name="google-site-verification" content="IbEdRJTvXwFSEJ18axbjZiBWKHgmbUKPQL150eOCIwM" />
+
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
@@ -79,35 +82,18 @@ const serviceSchema = {
 
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- Google tag (gtag.js) — GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QM941210BY"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QM941210BY', { anonymize_ip: true });
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Spring naar hoofdinhoud</a>
   <Header />
   <main id="main">
-    <slot />
-  </main>
-  <Footer />
-  <StickyMobileCTA />
-</body>
-</html>
-
-<style is:global>
-  .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 12px;
-    padding: 8px 16px;
-    background: var(--color-charcoal-dark);
-    color: var(--color-cream);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    z-index: 1000;
-    transition: top 0.2s;
-  }
-  .skip-link:focus {
-    top: 12px;
-    outline: 2px solid var(--color-copper);
-    outline-offset: 2px;
-  }
-</style>
+    
