@@ -1,62 +1,40 @@
 ---
-const accepted = [
-  { num: '5', title: 'Vrijwel nieuwstaat', body: 'Minder dan 30.000 km. Geen krassen of deuken. Volledig originele staat. Interieur als nieuw. Service-historie zonder uitzondering compleet. Zeer zeldzaam in oudere bouwjaren.' },
-  { num: '4.5', title: 'Uitstekende staat', body: 'Onder 100.000 km. Slechts minimale gebruikssporen. Geen reparatie-historie. Interieur in zeer goede staat. Volledige service-historie. Onze voorkeurs-grade voor zeldzame uitvoeringen.' },
-  { num: '4', title: 'Goede staat', body: 'Normale gebruikssporen passend bij km-stand en bouwjaar. Geen accident-historie. Eventueel lichte stenen op voorkant of kleine parkeer-tikjes. Volledig functioneel, mechanisch in orde.' },
-];
-
-const rejected = [
-  { num: '3.5', title: 'Gemiddelde staat', body: 'Zichtbare gebruikssporen, deuken of krassen. Mogelijk minor reparaties nodig. Niet onbruikbaar, maar te risicovol voor onze klant — vaak verborgen issues die pas thuis blijken.' },
-  { num: '3', title: 'Onder gemiddeld', body: 'Duidelijke schade of significante gebruikssporen. Lakwerk inferieur. Onderhoudshistorie incompleet. Geschikt voor opknappers, niet voor wie een goede daily wil rijden.' },
-  { num: 'R / RA', title: 'Reparatie-historie', body: 'R = grote reparatie geregistreerd (vaak chassis-schade). RA = lichte reparatie. In beide gevallen onaanvaardbaar — geen klant betaalt premium voor een auto met geschiedenis van structurele ingrepen.' },
-];
+// D5: GradesSection wordt teaser op homepage; volledige uitleg op /kennisbank/japanse-veiling-grades
 ---
 
-<section class="grades">
+<section class="grades-teaser">
   <div class="container">
-    <div class="grades-header">
+    <div class="teaser-inner">
       <div class="section-eyebrow">Japanse veilingschaal</div>
-      <h2>Conditie-grades <span class="accent">uitgelegd</span>.</h2>
-      <p>Elke auto op een Japanse veiling wordt onafhankelijk gekeurd. De officiële schaal loopt van 1 tot 5, met grade 6 of S voor (vrijwel) nieuwstaat, plus letter-codes voor reparatie-historie (R/RA). Wij accepteren alleen <strong>4 of hoger</strong>. Hieronder zes grades — drie die we sourcen, drie die we afwijzen.</p>
-    </div>
-    <div class="grades-grid">
-      {accepted.map((g) => (
-        <article class="grade-card accepted">
-          <span class="grade-tag ok">Wij sourcen</span>
-          <div class="grade-num">{g.num}</div>
-          <h4>{g.title}</h4>
-          <p>{g.body}</p>
-        </article>
-      ))}
-      {rejected.map((g) => (
-        <article class="grade-card rejected">
-          <span class="grade-tag no">Wij weigeren</span>
-          <div class="grade-num">{g.num}</div>
-          <h4>{g.title}</h4>
-          <p>{g.body}</p>
-        </article>
-      ))}
+      <h2>Wij accepteren alleen <span class="accent">grade 4 of hoger</span>.</h2>
+      <p class="teaser-body">Elke auto op een Japanse veiling wordt onafhankelijk gekeurd. De schaal loopt van 1 tot 5, met grade 6 of S voor (vrijwel) nieuwstaat en letter-codes (R, RA) voor reparatie-historie. Wij sourcen uitsluitend <strong>4, 4.5 of 5</strong> zonder R/RA-codes — daaronder beginnen risico's op verborgen issues sterk toe te nemen.</p>
+      <a href="/kennisbank/japanse-veiling-grades" class="teaser-link">Lees de volledige grade-uitleg <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
 <style>
-  .grades { padding: var(--space-section-top) 0 var(--space-section-bottom); background: var(--color-white); }
-  .grades-header { max-width: 720px; margin-bottom: 48px; }
-  .grades-header h2 { font-size: 56px; margin-bottom: 20px; font-weight: 600; }
-  .grades-header p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.6; }
-  .grades-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .grade-card { background: var(--color-cream); padding: 32px 28px; border-left: 3px solid var(--color-copper); }
-  .grade-card.accepted { border-left-color: #1F4F30; }
-  .grade-card.rejected { border-left-color: #722F37; opacity: 0.85; }
-  .grade-tag { display: inline-block; padding: 4px 12px; background: var(--color-white); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px; font-weight: 500; }
-  .grade-tag.ok { color: #1F4F30; }
-  .grade-tag.no { color: #722F37; }
-  .grade-num { font-family: var(--font-serif); font-size: 48px; font-weight: 500; color: var(--color-charcoal-dark); margin-bottom: 6px; line-height: 1; }
-  .grade-card h4 { font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.01em; }
-  .grade-card p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.55; }
+  .grades-teaser { padding: var(--space-section-top) 0 var(--space-section-bottom); background: var(--color-white); }
+  .teaser-inner { max-width: 760px; }
+  .grades-teaser h2 { font-size: 48px; margin-bottom: 24px; font-weight: 600; line-height: 1.1; }
+  .teaser-body { font-size: 17px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 24px; }
+  .teaser-body strong { color: var(--color-text-primary); font-weight: 600; }
+  .teaser-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-copper);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: gap 0.2s;
+  }
+  .teaser-link:hover { gap: 14px; }
+  .teaser-link .arrow { font-size: 16px; }
 
   @media (max-width: 768px) {
-    .grades-grid { grid-template-columns: 1fr; }
+    .grades-teaser h2 { font-size: 32px; }
   }
 </style>

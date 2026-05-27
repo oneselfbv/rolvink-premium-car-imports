@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'LHD versus RHD' },
+];
+
+const publishedDate = '2026-05-27';
+const updatedDate = '2026-05-27';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LHD versus RHD — wat de groene markering op Japanse veilingen betekent',
+  description: 'Waarom links- of rechtsgestuurd cruciaal is bij Japanse imports, hoe veilinghuizen LHD-units markeren, en welke modellen sterk in LHD vertegenwoordigd zijn.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/lhd-rhd-groene-markering' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="LHD versus RHD — de groene markering op Japanse veilingen | Rolvink"
+  description="Wat is LHD versus RHD, waarom is het cruciaal bij Japanse imports, en hoe markeren veilinghuizen LHD-units? Onze ervaring met de groene markering op JCD."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Cornerstone — Markt</div>
+        <h1>LHD versus RHD — de <span class="accent">groene markering</span>.</h1>
+        <p class="lead">Waarom links- of rechtsgestuurd het verschil maakt tussen "geschikt voor de Nederlandse weg" en "fundamenteel onbruikbaar zonder verbouwing", hoe Japanse veilinghuizen LHD-units markeren, en welke modellen daar sterk in vertegenwoordigd zijn.</p>
+        <div class="article-meta">
+          <span>Gepubliceerd: 27 mei 2026</span>
+          <span>·</span>
+          <span>Leestijd: ongeveer 6 minuten</span>
+        </div>
+      </header>
+
+      <section class="content-section">
+        <h2>De basis — wat zijn LHD en RHD?</h2>
+        <p><strong>LHD</strong> staat voor <em>Left Hand Drive</em>: het stuur zit aan de linkerkant van de auto. Dit is de standaard in continentaal Europa, Noord- en Zuid-Amerika, het grootste deel van Azië en het grootste deel van Afrika. Auto's die in Nederland geregistreerd worden zijn LHD.</p>
+        <p><strong>RHD</strong> staat voor <em>Right Hand Drive</em>: het stuur zit rechts. Dit is de standaard in het Verenigd Koninkrijk, Ierland, Australië, Nieuw-Zeeland, India, Zuid-Afrika, Japan en een aantal voormalige Britse koloniën. Een RHD-auto kan in Nederland in principe ingeschreven worden — het is wettelijk toegestaan — maar levert in de praktijk ergonomische beperkingen op (afrekenen bij tolpoortjes, inhalen op tweebaanswegen, parkeerautomaten).</p>
+        <p>Voor onze service is dit eenduidig: wij sourcen uitsluitend <strong>LHD-voertuigen</strong>. Geen verbouwingen, geen compromissen.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>De Japanse paradox — overwegend RHD, met een LHD-niche</h2>
+        <p>Japan rijdt links en gebruikt dus RHD-auto's. Toch zit er in de Japanse markt een uniek nicheaanbod aan LHD-voertuigen die ooit als nieuw werden geïmporteerd door enthusiast-eigenaren, expats, of voor specifieke doeleinden. Een Porsche 911 LHD in Japan is geen RHD-conversie — het is een originele linksgestuurde uitvoering die ergens in de jaren '90, 2000 of 2010 als nieuw is aangekocht en sindsdien in Japan heeft gereden.</p>
+        <p>Voor de Europese liefhebber maakt dit Japan interessant: een Mercedes SL R230 LHD met 50.000 km en complete service-historie is in Duitsland zelf zeldzaam in deze conditie, maar in Japan periodiek beschikbaar via veilingen. Dezelfde dynamiek geldt voor 911-uitvoeringen, AMG-modellen, M-uitvoeringen, RS-Audi's en bepaalde klassiekers.</p>
+        <p>LHD blijft binnen Japan een minderheid van het aanbod — typisch 1-3% van de totale auctie-volumes. Dat maakt LHD-sourcing een kwestie van geduld, niet zoeken-en-bieden.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>De groene markering — hoe Japanse veilinghuizen LHD aangeven</h2>
+        <p>Verschillende Japanse veilinghuizen markeren LHD-units op hun online auctie-platforms. De meest herkenbare visualisatie is een <strong>groene achtergrondkleur</strong> in de resultatenlijst — een directe visuele indicator voor de bieder dat het om een linksgestuurde auto gaat.</p>
+        <p>Op het platform van <strong>Japan Car Direct (JCD)</strong> bijvoorbeeld worden LHD-rijen weergegeven met een lichte groene achtergrond (CSS-kleur rgb(210, 237, 204) in de HTML van het platform). Voor wie veilingstatistieken doorbladert is dit visueel direct duidelijk: de groen-gemarkeerde rijen zijn LHD, de andere zijn RHD.</p>
+        <p>Andere markeerwijzen die voorkomen:</p>
+        <ul class="bullet-list">
+          <li><strong>Tekstuele aanduiding "左H" of "左ハンドル"</strong> — Japans voor "linkerhandel". Te zien in modelnaam-velden op USS, JU en JAA.</li>
+          <li><strong>"LHD" of "LEFT STEERING WHEEL"</strong> — Engelse aanduiding op auction sheets gericht op internationale bieders.</li>
+          <li><strong>Filter "left-hand drive only"</strong> — sommige platforms bieden een directe filter, alhoewel het volume aan resultaten daarmee fors krimpt.</li>
+        </ul>
+        <p>Voor onze sourcing is de combinatie van groen-gemarkeerde rij + bevestiging in de auction sheet (linker-stuur expliciet vermeld) de standaard verificatie. Eén bron is niet genoeg — wij toetsen altijd minimaal twee.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Welke modellen sterk in LHD vertegenwoordigd zijn</h2>
+        <p>Uit onze marktanalyse over een aantal weken JCD-statistieken (mei 2026) ontstaat het volgende beeld over LHD-volumes per merk en segment. Indicatief, niet uitputtend.</p>
+
+        <h3>Porsche</h3>
+        <p>Verreweg het sterkst vertegenwoordigde merk in Japanse LHD-aanbieding. 911 in alle generaties — 993, 996, 997, 991, 992 — verschijnt regelmatig in LHD. Cayman en Boxster (987, 981, 718) idem. Cayenne en Macan zijn schaarser maar komen voor. Klassieke air-cooled 911's (964, 993) zijn premium in LHD en gewild bij Europese liefhebbers.</p>
+
+        <h3>Mercedes-Benz</h3>
+        <p>SL-cabrio's (R230, R231) zijn het dominante LHD-segment voor Mercedes in Japan. AMG-uitvoeringen (E55, E63, S63, SL55, SL63, G63) verschijnen periodiek. Klassiekers (R107, R129 cabrio, W124 sedan/wagon, W124 Cosworth) zijn schaars maar zeer gewild. Standaard E-Klasse W212/W213 sedan in LHD is veel zeldzamer — niet de route voor een doorsnee daily.</p>
+
+        <h3>BMW</h3>
+        <p>M-Performance (M2, M3, M4, M5, M6) in LHD zijn periodiek beschikbaar, vooral in 6- en 8-cilinder uitvoeringen. Standaard 3- en 5-Serie in LHD is schaars; meestal gaat het om M-Sport packs of speciale uitvoeringen.</p>
+
+        <h3>Audi</h3>
+        <p>RS-uitvoeringen (RS4, RS6, RS7) verschijnen periodiek in LHD. Standaard A6/A7/A8 in LHD is zeer zeldzaam in het Japanse aanbod.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Waarom is LHD-aanbod in Japan zo schaars?</h2>
+        <p>De LHD-niche in Japan is per definitie klein omdat de markt overwegend RHD is. De auto's die ooit als LHD in Japan zijn geïmporteerd waren doorgaans premium-uitvoeringen voor enthusiast-eigenaren — niet voor het massa-publiek. Het resultaat: het LHD-aanbod is structureel gericht op performance, klassiekers en bijzondere uitvoeringen.</p>
+        <p>Dat verklaart ook de prijsdynamiek: LHD-units in Japan worden vaak gehouden door liefhebbers die er aan gehecht zijn, en als ze worden verkocht trekt dit Europese kopers aan die de LHD-zeldzaamheid waarderen. De prijzen liggen daarom vaak iets boven vergelijkbare RHD-units, maar nog steeds significant onder Europees equivalent.</p>
+        <p>Voor onze klanten betekent dit: LHD-sourcing uit Japan is een geduldig spel. We screenen wekelijks de veilingen op kandidaten die aan het profiel voldoen, en wachten op het juiste exemplaar in plaats van te forceren.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Wat wij niet doen — RHD-conversies</h2>
+        <p>Een belangrijke nuance: er bestaan bedrijven die RHD-auto's verbouwen naar LHD. Wij doen daar niet aan mee, om twee redenen.</p>
+        <p>Ten eerste: de verbouwing is technisch ingrijpend (stuurinrichting, dashboard, pedaalstelling, ruitwissers, ventilatie, soms airbags) en gaat altijd ten koste van originaliteit. Verzekeraars kunnen aanvullende vragen stellen, en bij doorverkoop is de transparantie van de verbouwing een grote disclosure-verplichting.</p>
+        <p>Ten tweede: voor een liefhebbersauto telt originaliteit. Een verbouwde Porsche 911 verliest zijn matching numbers-status zodra de stuurinrichting is omgezet. Voor onze klanten is dat een onaanvaardbare concessie.</p>
+        <p>Wij sourcen alleen originele LHD-uitvoeringen. Geduld in plaats van compromis.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een specifieke LHD-uitvoering?</h2>
+        <p>Vertel ons welk model, welke generatie en welke specs — wij screenen wekelijks de Japanse veilingen en melden ons zodra er een match opduikt.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/japanse-veiling-grades">Japanse auction grades uitgelegd</a></li>
+          <li><a href="/bron/japan">Sourcing uit Japan — wat we typisch sourcen</a></li>
+          <li><a href="/kennisbank/faq-japan">FAQ — Auto importeren uit Japan</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 48px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list { padding-left: 24px; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .bullet-list em { font-style: italic; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+  }
+</style>

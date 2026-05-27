@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'RDW-keuring voor import' },
+];
+
+const publishedDate = '2026-05-27';
+const updatedDate = '2026-05-27';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'RDW-keuring voor geïmporteerde auto — stappenplan 2026',
+  description: 'Hoe verloopt de RDW-keuring bij een import-auto? EU-typegoedkeuring, CoC, individuele goedkeuring, identificatie, doorlooptijd en onze werkwijze.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/rdw-keuring-import' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="RDW-keuring voor import-auto — stappenplan 2026 | Rolvink"
+  description="Hoe verloopt de RDW-keuring bij import? EU-typegoedkeuring, CoC-document, individuele goedkeuring, doorlooptijd en valkuilen."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Cornerstone — Proces</div>
+        <h1>RDW-keuring voor import — <span class="accent">stappenplan 2026</span>.</h1>
+        <p class="lead">Wat de RDW precies controleert, welke documenten u nodig heeft, wanneer een Certificaat van Overeenstemming (CoC) vereist is, en hoe de keuring per herkomst (Duitsland of Japan) verschilt.</p>
+        <div class="article-meta">
+          <span>Gepubliceerd: 27 mei 2026</span>
+          <span>·</span>
+          <span>Leestijd: ongeveer 7 minuten</span>
+        </div>
+      </header>
+
+      <div class="disclaimer">
+        <strong>Bron-waarschuwing.</strong> RDW-procedures, kosten en doorlooptijden wijzigen regelmatig. Dit artikel beschrijft de hoofdlijnen zoals die in 2026 gelden voor een typische premium-import van een gangbaar EU-merk. Controleer voor uw specifieke geval altijd <a href="https://www.rdw.nl" target="_blank" rel="noopener">RDW.nl</a> of vraag ons om een actuele inschatting voor uw kandidaatauto.
+      </div>
+
+      <nav class="toc">
+        <h2>In dit artikel</h2>
+        <ol>
+          <li><a href="#wat-doet-rdw">Wat doet de RDW precies?</a></li>
+          <li><a href="#typegoedkeuring">EU-typegoedkeuring versus individuele goedkeuring</a></li>
+          <li><a href="#coc">Het Certificaat van Overeenstemming (CoC)</a></li>
+          <li><a href="#documenten">Welke documenten u nodig heeft</a></li>
+          <li><a href="#stappen">Het RDW-traject in vijf stappen</a></li>
+          <li><a href="#duitsland-japan">RDW per herkomst — Duitsland versus Japan</a></li>
+          <li><a href="#valkuilen">Veelgemaakte fouten</a></li>
+          <li><a href="#werkwijze">Hoe wij het RDW-traject regelen</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-doet-rdw" class="content-section">
+        <h2>Wat doet de RDW precies?</h2>
+        <p>De <strong>Rijksdienst voor het Wegverkeer (RDW)</strong> is de Nederlandse instantie die kentekenregistratie en technische geschiktheid van voertuigen beoordeelt. Voor een geïmporteerde auto vervult de RDW drie functies tegelijk: <strong>identificatie</strong> (controle van chassisnummer en originele documenten), <strong>technische keuring</strong> (vergelijkbaar met APK), en <strong>typegoedkeuring-validatie</strong> (matcht het voertuig met een Europese typegoedkeuring of moet het individueel goedgekeurd worden?).</p>
+        <p>Voor Duitse premium-auto's (BMW, Mercedes-Benz, Audi, Porsche) verloopt het proces doorgaans soepel — die merken hebben Europese typegoedkeuring sinds 1996. Voor Japanse imports — ook van Europese merken — kan het iets meer werk vragen, omdat een specifieke uitvoering soms niet onder de Europese typegoedkeuring valt en aanvullende stappen nodig zijn.</p>
+      </section>
+
+      <section id="typegoedkeuring" class="content-section">
+        <h2>EU-typegoedkeuring versus individuele goedkeuring</h2>
+        <p>Een Europese auto wordt vrijwel altijd gebouwd onder een <strong>EU-typegoedkeuring</strong> — een unieke goedkeuringscode die geldt voor een hele serie identieke voertuigen. De fabrikant heeft die goedkeuring aangevraagd bij een EU-keuringsinstantie, en de auto valt er automatisch onder zolang de uitvoering matcht.</p>
+        <p>Bij import komt dit kritiek aan: een Mercedes E-Klasse W212 uit Duitsland heeft één-op-één dezelfde typegoedkeuring als een NL-exemplaar. De RDW herkent dat, en de keuring verloopt soepel. Maar een Japanse LHD-versie van diezelfde W212 — die ooit als nieuw naar Japan is geëxporteerd — kan onder een afwijkende typegoedkeuring vallen, of zelfs onder een Japans certificeringsregime. Dan is <strong>individuele goedkeuring</strong> nodig.</p>
+        <p>Individuele goedkeuring betekent dat de RDW de auto behandelt als uniek voertuig: emissies meten, verlichting checken, remmen testen, het hele protocol. Kost meer tijd (typisch 2-4 extra weken) en meer geld (€300-€800 extra), maar levert wel het gewenste eindresultaat. Voor onze klanten betekent dit: wij toetsen vóór bod of een Japanse kandidaat onder EU-typegoedkeuring valt, en bouwen de aanvullende kosten in de landed-cost-prognose in.</p>
+      </section>
+
+      <section id="coc" class="content-section">
+        <h2>Het Certificaat van Overeenstemming (CoC)</h2>
+        <p>Het <strong>Certificate of Conformity</strong> (CoC) is een fabrieksdocument dat verklaart dat de specifieke auto overeenkomt met een geregistreerde EU-typegoedkeuring. Voor sommige importprocedures is dit document vereist; voor andere niet.</p>
+        <p>De praktijk in 2026:</p>
+        <ul class="bullet-list">
+          <li><strong>Duitse premium-auto's vanaf 1996</strong> — meestal is het Duitse kentekenbewijs (Fahrzeugschein deel I en Fahrzeugbrief deel II) voldoende. CoC niet vereist.</li>
+          <li><strong>Specifieke uitvoeringen of bouwjaren waar de RDW twijfelt</strong> — een CoC kan op verzoek worden aangeleverd. Bij de fabrikant aan te vragen via merk-importeur. Kosten typisch €120-€300 en duurt 2-6 weken.</li>
+          <li><strong>Japanse LHD-imports</strong> — een CoC is hier vaak niet beschikbaar omdat de auto buiten de EU is verkocht. Individuele goedkeuring volgt dan.</li>
+        </ul>
+        <p>Wij toetsen voor elke kandidaatauto of een CoC mogelijk nodig is, en regelen de aanvraag indien gewenst. Niet alle auto's vragen om dit document — voor de meeste BMW/Mercedes/Audi/Porsche van na 2010 verloopt het RDW-traject ook zonder CoC moeiteloos.</p>
+      </section>
+
+      <section id="documenten" class="content-section">
+        <h2>Welke documenten u nodig heeft</h2>
+        <p>De basisset voor een RDW-aanmelding van een import-auto bestaat uit:</p>
+        <ul class="bullet-list">
+          <li><strong>Origineel kentekenbewijs van het herkomstland</strong> — voor Duitsland is dat de <em>Fahrzeugschein</em> (deel I) en <em>Fahrzeugbrief</em> (deel II); voor Japan een geëxporteerde versie van het oude kenteken plus exportcertificaat.</li>
+          <li><strong>Identiteitsbewijs van de nieuwe eigenaar</strong> — paspoort, ID-kaart of rijbewijs.</li>
+          <li><strong>Aankoopfactuur</strong> — van de Duitse dealer of de Japanse veiling/agent.</li>
+          <li><strong>Bewijs van douane-inklaring</strong> — voor niet-EU-imports (Japan). Voor Duitsland niet nodig (EU-binnenmarkt).</li>
+          <li><strong>BTW-aangifte</strong> — voor "nieuwe" auto's (jonger dan 6 maanden of minder dan 6.000 km gereden).</li>
+          <li><strong>CoC of Duits TÜV-rapport</strong> — afhankelijk van uitvoering en bouwjaar, optioneel maar versnelt het proces.</li>
+        </ul>
+        <p>Wij verzamelen, controleren en presenteren deze documenten als onderdeel van onze service — u hoeft hier zelf niets aan te leveren behalve uw identiteitsbewijs.</p>
+      </section>
+
+      <section id="stappen" class="content-section">
+        <h2>Het RDW-traject in vijf stappen</h2>
+        <ol class="step-list">
+          <li>
+            <h3>1. Aanmelding en afspraak</h3>
+            <p>Na aankomst van de auto in Welsum melden wij de import aan bij de RDW en plannen een keuringsafspraak op een RDW-keuringsstation. Doorlooptijd tot afspraak: 1-3 weken afhankelijk van drukte. Wij plannen indien mogelijk al vóór de aankomst.</p>
+          </li>
+          <li>
+            <h3>2. Voorbereiding en eventuele aanpassingen</h3>
+            <p>Voor Japanse imports controleren wij of EU-compliance aanpassingen nodig zijn: mistlicht achter, kentekenverlichting, eventueel afstelling van knipperlichten (Japan staat oranje achter knipperlichten toe; in NL is rood verplicht). Voor Duitse auto's zijn aanpassingen zelden nodig.</p>
+          </li>
+          <li>
+            <h3>3. Identificatie en technische keuring</h3>
+            <p>Op het RDW-keuringsstation: controle van chassisnummer, vergelijking met documenten, technische inspectie (remmen, banden, verlichting, sturen, emissies). Duurt ongeveer 30-45 minuten per voertuig. Wij begeleiden u of voeren de keuring zelf uit.</p>
+          </li>
+          <li>
+            <h3>4. BPM-aangifte</h3>
+            <p>Op basis van de RDW-bevindingen wordt de BPM-aangifte ingediend bij de Belastingdienst. Hier kiezen wij tussen koerslijst, DRZ-taxatie of forfaitaire methode — zie onze <a href="/kennisbank/bpm-importauto-2026">BPM-gids</a>. Doorlooptijd 5-15 werkdagen.</p>
+          </li>
+          <li>
+            <h3>5. Kentekening en kentekenplaten</h3>
+            <p>Na goedkeuring en BPM-betaling wordt het Nederlandse kenteken toegewezen. De kentekenplaten worden gemonteerd, het oude buitenlandse kenteken wordt fysiek verwijderd. De auto is dan officieel geregistreerd in Nederland.</p>
+          </li>
+        </ol>
+        <p>Totale doorlooptijd RDW + BPM + kentekening: typisch 2-5 weken, afhankelijk van locatie, drukte bij keuringstations en gekozen BPM-methode.</p>
+      </section>
+
+      <section id="duitsland-japan" class="content-section">
+        <h2>RDW per herkomst — Duitsland versus Japan</h2>
+
+        <h3>Duitse imports</h3>
+        <p>Praktisch altijd onder EU-typegoedkeuring. CoC zelden nodig. Aanpassingen zelden nodig. Doorlooptijd 2-3 weken realistisch. Soepel proces voor BMW/Mercedes/Audi/Porsche van na 1996.</p>
+
+        <h3>Japanse LHD-imports</h3>
+        <p>Variabel. Voor exemplaren die ooit als nieuw naar Japan zijn geëxporteerd door de Europese fabrikant valt het vaak nog onder EU-typegoedkeuring. Voor specifiek Japan-geproduceerde varianten kan individuele goedkeuring nodig zijn. Aanpassingen voor mistlicht/knipperlichten zijn vaak nodig. Doorlooptijd 3-5 weken realistisch.</p>
+
+        <p>Wij toetsen vóór bod welk regime van toepassing is — die informatie zit in onze pre-bid prognose, zodat er geen verrassingen ontstaan na aankomst.</p>
+      </section>
+
+      <section id="valkuilen" class="content-section">
+        <h2>Veelgemaakte fouten</h2>
+        <ul class="pitfall-list">
+          <li><strong>RDW-afspraak te laat plannen</strong> — bij drukte loopt de wachttijd tot drie weken. Wij plannen indien mogelijk al vóór aankomst.</li>
+          <li><strong>EU-compliance aanpassingen vergeten</strong> — mistlicht achter en kentekenverlichting zijn de meest voorkomende issues bij Japanse imports. Bij gebrek hieraan: afkeuring en herhaal-afspraak nodig.</li>
+          <li><strong>BPM aangeven na kentekening</strong> — de aangifte moet vóór toelating tot het Nederlandse kenteken plaatsvinden. Andersom is administratief omslachtig.</li>
+          <li><strong>Onvolledige documenten</strong> — een ontbrekend Fahrzeugbrief of een onvertaald Japans exportcertificaat kan de keuring een week vertragen.</li>
+          <li><strong>Aannemen dat alles soepel verloopt</strong> — voor specifieke uitvoeringen (oudere modellen, aftermarket modificaties) kan de RDW aanvullende vragen stellen. Wij toetsen dit vooraf.</li>
+        </ul>
+      </section>
+
+      <section id="werkwijze" class="content-section">
+        <h2>Hoe wij het RDW-traject regelen</h2>
+        <p>Bij elke import voeren wij het volledige RDW-traject namens u uit. Wat dat in de praktijk betekent:</p>
+        <ol class="step-list">
+          <li>
+            <h3>Pre-bid toets op typegoedkeuring</h3>
+            <p>Voor elke kandidaatauto controleren wij of EU-typegoedkeuring van toepassing is. Bij twijfel: extra werk wordt vooraf in de prognose meegenomen.</p>
+          </li>
+          <li>
+            <h3>Documenten verzamelen en vertalen</h3>
+            <p>Wij verzamelen alle Duitse of Japanse documenten, vertalen ze waar nodig, en presenteren een complete set aan de RDW.</p>
+          </li>
+          <li>
+            <h3>Afspraak inplannen en aanpassingen voorbereiden</h3>
+            <p>RDW-afspraak vroegtijdig boeken; eventuele EU-compliance aanpassingen vóór de keuring uitvoeren bij onze partner-werkplaats.</p>
+          </li>
+          <li>
+            <h3>Begeleiding tijdens de keuring</h3>
+            <p>Wij rijden de auto naar het keuringsstation en zijn aanwezig bij identificatie en inspectie. Bij eventuele aanvullende vragen reageren we direct.</p>
+          </li>
+          <li>
+            <h3>BPM en kentekenregistratie</h3>
+            <p>Direct na goedkeuring dienen wij BPM-aangifte in (via de meest voordelige methode) en regelen kentekenplaten. U ontvangt het kenteken op de afgesproken leveringsdatum.</p>
+          </li>
+        </ol>
+        <p>Volledige werkwijze in onze acht stappen vindt u op <a href="/werkwijze">de werkwijze-pagina</a>.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Vragen over RDW voor uw kandidaatauto?</h2>
+        <p>Stuur ons het merk, model en bouwjaar — wij geven u een inschatting van het RDW-traject binnen 24 uur.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/werkwijze">Onze werkwijze in 8 stappen</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .disclaimer a { color: var(--color-copper); text-decoration: underline; }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list { padding-left: 24px; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .bullet-list em { font-style: italic; }
+
+  .step-list { padding-left: 0; list-style: none; }
+  .step-list li { padding: 20px 0; border-bottom: 1px solid var(--color-border-soft); }
+  .step-list li:last-child { border-bottom: none; }
+
+  .pitfall-list { padding-left: 24px; }
+  .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .pitfall-list strong { color: var(--color-text-primary); }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+  }
+</style>

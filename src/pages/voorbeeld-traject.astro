@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Voorbeeld-traject' },
+];
+---
+
+<BaseLayout
+  title="Voorbeeld-traject — wat kost een import via Rolvink? | Rolvink Premium Car Imports"
+  description="Een volledig sourcing-traject doorgerekend. Aankoopprijs, transport, BPM, RDW, onze fee — alle posten transparant uitgesplitst voor een concrete Mercedes E300 W212 case."
+>
+  <section class="voorbeeld-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">Voorbeeld-traject</div>
+      <h1>Wat kost een <span class="accent">import-traject</span>?</h1>
+      <p class="lead">Eén concrete case, volledig doorgerekend. Van hammerprijs op de Japanse veiling tot aflevering aan uw oprit in Welsum. Alle posten, geen verborgen marges.</p>
+
+      <div class="disclaimer">
+        <strong>Wat dit is — en wat het niet is.</strong> Onderstaande berekening is een <em>voorbeeldcase</em> met een fictief gekozen voertuig om de structuur van een typisch traject inzichtelijk te maken. Werkelijke bedragen variëren per individuele auto, wisselkoers, BPM-methode, RDW-doorlooptijd en eventuele extra werkzaamheden. Bedragen zijn afgerond op tientallen euro's. Voor uw eigen zoekopdracht maken wij een onderbouwde landed-cost-prognose vóór bod — dit is geen tarievenlijst.
+      </div>
+
+      <section class="case-vehicle">
+        <h2>Het voertuig in deze case</h2>
+        <dl class="vehicle-spec">
+          <div><dt>Merk &amp; model</dt><dd>Mercedes-Benz E300 4MATIC Avantgarde (W212)</dd></div>
+          <div><dt>Bouwjaar</dt><dd>2014</dd></div>
+          <div><dt>Motor</dt><dd>3.5L V6 benzine, 252 pk</dd></div>
+          <div><dt>Kilometerstand</dt><dd>48.000 km (laag)</dd></div>
+          <div><dt>Conditie</dt><dd>JCD-grade 4 (goed)</dd></div>
+          <div><dt>Herkomst</dt><dd>Japanse veiling — LHD-uitvoering</dd></div>
+          <div><dt>Hammerprijs</dt><dd>¥1.040.000 (~€6.150 bij koers 169 ¥/€)</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-table">
+        <h2>De volledige opbouw</h2>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Categorie</th><th>Post</th><th>Bedrag</th></tr>
+          </thead>
+          <tbody>
+            <tr class="cat-header"><td colspan="3">1. Aankoop in Japan</td></tr>
+            <tr><td></td><td>Hammerprijs veiling</td><td>€ 6.150</td></tr>
+            <tr><td></td><td>Auction-huis fees + commission</td><td>€ 480</td></tr>
+            <tr><td></td><td>Binnenlands transport JP + exportkeuring</td><td>€ 720</td></tr>
+
+            <tr class="cat-header"><td colspan="3">2. Zeevracht en aankomst</td></tr>
+            <tr><td></td><td>RoRo Yokohama → Rotterdam (incl. transit-verzekering)</td><td>€ 1.000</td></tr>
+            <tr><td></td><td>Douane-expediteur + papierwerk NL</td><td>€ 400</td></tr>
+
+            <tr class="cat-subtotal"><td></td><td><strong>CIF-waarde (basis voor douane)</strong></td><td><strong>€ 8.750</strong></td></tr>
+
+            <tr class="cat-header"><td colspan="3">3. Belastingen</td></tr>
+            <tr><td></td><td>Invoerrechten 10% over CIF (HS 8703)</td><td>€ 875</td></tr>
+            <tr><td></td><td>BTW 21% over (CIF + invoerrechten)</td><td>€ 2.021</td></tr>
+            <tr><td></td><td>BPM via koerslijst-methode (V6, 2014, leeftijdsafschrijving ~85%)</td><td>€ 1.150</td></tr>
+
+            <tr class="cat-header"><td colspan="3">4. NL-formaliteiten en voorbereiding</td></tr>
+            <tr><td></td><td>RDW-keuring + identificatie + kentekenkosten</td><td>€ 450</td></tr>
+            <tr><td></td><td>EU-compliance aanpassingen (kentekenverlichting, mistlicht achter)</td><td>€ 280</td></tr>
+            <tr><td></td><td>Reconditionering + poetsbeurt</td><td>€ 320</td></tr>
+
+            <tr class="cat-header"><td colspan="3">5. Onze service-fee</td></tr>
+            <tr><td></td><td>Sourcing-fee (intake, zoekopdracht, biedstrategie, agent in Japan)</td><td>€ 1.250</td></tr>
+            <tr><td></td><td>Operationele fee (3% over CIF, transport en NL-traject)</td><td>€ 460</td></tr>
+
+            <tr class="cat-total"><td></td><td><strong>Totale landed cost — all-in</strong></td><td><strong>€ 15.556</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="table-note"><em>Alle bedragen indicatief, gebaseerd op koers en tarieven mei 2026. BPM via koerslijst-methode (zie ook onze <a href="/kennisbank/bpm-importauto-2026">BPM-gids</a>); forfait zou €1.400 zijn, DRZ-taxatie ~€1.250. Wij rekenen alle drie methoden door en kiezen de gunstigste.</em></p>
+      </section>
+
+      <section class="case-explain">
+        <h2>Toelichting per categorie</h2>
+
+        <h3>1. Aankoop in Japan — €7.350</h3>
+        <p>Hammerprijs is de prijs die op de veiling-klok valt. Daarbovenop komen <strong>auction-huis fees</strong> (typisch 4-8% van hammer), <strong>commission</strong> van onze Japanse agent, en <strong>binnenlands transport</strong> van de veilinglocatie naar de exporthaven (vaak Yokohama of Kobe) inclusief exportkeuring en de-registratie van het Japanse kenteken.</p>
+
+        <h3>2. Zeevracht en aankomst — €1.400</h3>
+        <p><strong>RoRo</strong> (Roll-on Roll-off) is de standaard methode voor auto-transport over zee — de auto wordt op eigen wielen het schip op- en afgereden. Duurt gemiddeld 5-6 weken Yokohama naar Rotterdam, soms uitlopend tot 7-8 weken bij seizoenseffect. Transit-verzekering zit standaard in onze tarief. <strong>Douane-expediteur</strong> handelt de inklaring in Rotterdam af.</p>
+
+        <h3>3. Belastingen — €4.046</h3>
+        <p><strong>Invoerrechten</strong> 10% over CIF-waarde (HS-code 8703 voor personenauto's). <strong>BTW</strong> 21% over CIF + invoerrechten — let op: dit geldt voor "nieuwe" import; voor gebruikte auto's uit Duitsland zou dit nul zijn omdat de Duitse BTW al is voldaan. Voor Japan altijd verschuldigd. <strong>BPM</strong> via koerslijst, DRZ-taxatie of forfait — wij kiezen de gunstigste methode. Voor deze W212 is koerslijst het voordeligst (€1.150).</p>
+
+        <h3>4. NL-formaliteiten en voorbereiding — €1.050</h3>
+        <p>De auto gaat door de RDW-keuring inclusief identificatie en APK. <strong>EU-compliance aanpassingen</strong> kunnen nodig zijn voor Japanse imports — bijvoorbeeld een tweede mistlicht achter, of een aanpassing aan kentekenverlichting. De <strong>reconditionering</strong> bevat een professionele poetsbeurt en eventuele kleine cosmetische correcties.</p>
+
+        <h3>5. Onze service-fee — €1.710</h3>
+        <p>De <strong>sourcing-fee</strong> dekt het complete voortraject: intake-gesprek, profiel-uitwerking, wekelijkse veiling-screening, vertaling van auction sheets, advies over biedstrategie, en bod-coördinatie met onze Japanse agent. De <strong>operationele fee</strong> (3% over CIF + transport + NL-werkzaamheden) dekt de afhandeling van transport, inklaring, RDW-coördinatie en aflevering. Geen verborgen percentages bovenop hammerprijs, geen marge op brandstofkosten.</p>
+      </section>
+
+      <section class="case-variants">
+        <h2>Wanneer wijken werkelijke cijfers af?</h2>
+        <ul class="variant-list">
+          <li><strong>Andere wisselkoers</strong> — een ±5% beweging op de yen-euro koers verandert de hammerprijs-omrekening direct. Wij hanteren conservatieve bid-grenzen die ±3% afdekken; bij grotere bewegingen wachten we op stabilisatie.</li>
+          <li><strong>Hogere of lagere hammerprijs</strong> — de basis verandert. Alle proportionele kosten (BTW, fees) verschuiven mee.</li>
+          <li><strong>Zwaardere BPM</strong> — voor V8-uitvoeringen of jongere auto's met hoge CO₂ kan BPM €2.000-€4.000 hoger uitkomen. Zie onze <a href="/kennisbank/bpm-importauto-2026">BPM-gids 2026</a> voor de drie methoden en wanneer welke voordelig is.</li>
+          <li><strong>Duitsland-route i.p.v. Japan</strong> — geen RoRo (€1.000 weg), wel persoonlijke bezichtiging (€280-€450 inclusief reisdag). Geen invoerrechten en geen extra Nederlandse BTW omdat het EU-binnenmarkt is. Andere kostenstructuur, vergelijkbare totaalwaarde.</li>
+          <li><strong>Klassieker boven 25 of 40 jaar</strong> — verlaagd BPM-regime of volledige vrijstelling. Voor klassiekers zijn bovendien verlaagde invoerrechten van toepassing onder bepaalde voorwaarden (HS-code 9705). Kan duizenden euro's schelen.</li>
+          <li><strong>Aanvullende werkzaamheden</strong> — keramische coating, lederrenovatie, specifieke modificaties zijn optioneel en lopen apart via geselecteerde detailing-partners. Geen marge op onze fee.</li>
+        </ul>
+      </section>
+
+      <section class="case-promise">
+        <h2>Onze belofte rond transparantie</h2>
+        <p>Vóór elk bod ontvangt u een onderbouwde landed-cost-prognose voor uw specifieke kandidaatauto — met dezelfde structuur als hierboven. Onze service-fee staat van begin tot eind vast op het bedrag dat in uw opdrachtbevestiging is afgesproken; geen percentages die later opduiken. Wisselkoersrisico, BPM-uitkomst en RDW-doorlooptijd communiceren wij eerlijk als variabel — en u krijgt voor elke variabel een conservatieve bandbreedte aangereikt.</p>
+        <p>Dat is wat wij bedoelen met <em>transparantie zonder verborgen marges</em>: niet "u krijgt geen rekening", maar "u krijgt elke rekening op tafel".</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Landed cost voor úw zoekopdracht?</h2>
+        <p>Vertel ons wat u zoekt — wij maken een onderbouwde prognose met dezelfde structuur als deze voorbeeldcase.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .voorbeeld-page { padding: 64px 0 96px; }
+  .voorbeeld-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; max-width: 760px; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); max-width: 720px; margin-bottom: 32px; line-height: 1.65; }
+
+  .disclaimer {
+    max-width: 760px;
+    padding: 18px 22px;
+    margin-bottom: 48px;
+    background: var(--color-cream-warm);
+    border-left: 3px solid var(--color-copper);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .disclaimer em { font-style: italic; }
+
+  .case-vehicle, .case-table, .case-explain, .case-variants, .case-promise {
+    max-width: 760px;
+    margin-bottom: 56px;
+  }
+  .voorbeeld-page h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.15;
+  }
+  .voorbeeld-page h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 8px;
+  }
+  .voorbeeld-page p {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .voorbeeld-page a { color: var(--color-copper); text-decoration: underline; }
+  .voorbeeld-page strong { color: var(--color-text-primary); font-weight: 600; }
+  .voorbeeld-page em { font-style: italic; }
+
+  .vehicle-spec {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border-medium);
+  }
+  .vehicle-spec > div {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+    align-items: baseline;
+  }
+  .vehicle-spec dt {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+  }
+  .vehicle-spec dd {
+    font-size: 16px;
+    color: var(--color-text-primary);
+  }
+
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .cost-table th {
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+  .cost-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-border-soft);
+    color: var(--color-text-secondary);
+  }
+  .cost-table tbody tr.cat-header td {
+    background: var(--color-cream-warm);
+    color: var(--color-copper);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .cost-table tbody tr.cat-subtotal td {
+    background: rgba(184,115,51,0.08);
+    color: var(--color-text-primary);
+  }
+  .cost-table tbody tr.cat-total td {
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 16px;
+  }
+  .cost-table tbody td:nth-child(3),
+  .cost-table thead th:nth-child(3) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .cost-table tbody td:first-child {
+    width: 24px;
+    padding: 10px 0;
+  }
+  .table-note {
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+    padding: 12px 16px;
+    background: var(--color-cream-warm);
+    border-left: 2px solid var(--color-copper);
+  }
+  .table-note a { color: var(--color-copper); }
+
+  .variant-list { padding-left: 24px; }
+  .variant-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .variant-list strong { color: var(--color-text-primary); }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  @media (max-width: 768px) {
+    .voorbeeld-page h1 { font-size: 36px; }
+    .voorbeeld-page h2 { font-size: 24px; }
+    .vehicle-spec > div { grid-template-columns: 1fr; gap: 4px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 8px; }
+    .page-cta { padding: 36px 24px; }
+  }
+</style>

@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'BMW 5-Serie F10/G30 koopgids' },
+];
+
+const publishedDate = '2026-05-27';
+const updatedDate = '2026-05-27';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'BMW 5-Serie F10/G30 — koopgids voor import 2026',
+  description: 'Motorvarianten, sweet-spot uitvoeringen, bekende valkuilen, typische landed cost en checkpoints voor F10 (2010-2017) en G30 (2017-2023).',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-5-serie-f10-g30' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="BMW 5-Serie F10/G30 koopgids voor import — Rolvink"
+  description="Welke 5-Serie uitvoering kiezen voor import? Motorvarianten, valkuilen, sweet spots en typische landed cost voor F10 (2010-2017) en G30 (2017-2023)."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Modelgids</div>
+        <h1>BMW 5-Serie — <span class="accent">F10 en G30</span>.</h1>
+        <p class="lead">Welke uitvoering past bij welk profiel, wat zijn de bekende valkuilen per motorvariant, en wat kost een goede F10 of G30 landed in Welsum? Onze koopgids voor de twee meest sourcing-relevante generaties.</p>
+        <div class="article-meta">
+          <span>Gepubliceerd: 27 mei 2026</span>
+          <span>·</span>
+          <span>Leestijd: ongeveer 8 minuten</span>
+        </div>
+      </header>
+
+      <nav class="toc">
+        <h2>In deze gids</h2>
+        <ol>
+          <li><a href="#overzicht">F10 en G30 in vogelvlucht</a></li>
+          <li><a href="#motoren-f10">Motorvarianten F10 (2010-2017)</a></li>
+          <li><a href="#motoren-g30">Motorvarianten G30 (2017-2023)</a></li>
+          <li><a href="#valkuilen">Bekende valkuilen per generatie</a></li>
+          <li><a href="#sweet-spot">Sweet-spot uitvoeringen</a></li>
+          <li><a href="#landed-cost">Typische landed cost</a></li>
+          <li><a href="#auction-sheet">Wat te checken op het auction sheet</a></li>
+          <li><a href="#duitsland-japan">F10/G30 — Duitsland of Japan?</a></li>
+        </ol>
+      </nav>
+
+      <section id="overzicht" class="content-section">
+        <h2>F10 en G30 in vogelvlucht</h2>
+        <p>De BMW 5-Serie is in de afgelopen vijftien jaar in twee generaties op de markt geweest die voor onze sourcing-service relevant zijn: <strong>F10</strong> (productie 2010-2017) en <strong>G30</strong> (productie 2017-2023, voor de huidige G60-generatie). Beide generaties zijn beschikbaar als sedan en als Touring (estate). Sedan-volumes zijn structureel hoger; Touring-aanbod is met name in Duitsland ruim.</p>
+        <p>De F10 was BMW's eerste 5-Serie met een nadrukkelijker comfort-georiënteerde rij-karakter — softere veringsafstelling, meer luxe-uitvoeringen, eerste generatie met serieuze instap-elektronica. De G30 die in 2017 volgde scherpte het sportievere karakter weer aan, met snellere elektronica, betere infotainment (iDrive 7), en een efficiëntere motorenlijn.</p>
+        <p>Voor de Nederlandse importmarkt zijn beide generaties realistisch — F10 voor wie value-for-money zoekt, G30 voor wie modernere techniek wil maar nog ruim onder de catalogusprijs van een nieuwe G60 wil blijven.</p>
+      </section>
+
+      <section id="motoren-f10" class="content-section">
+        <h2>Motorvarianten F10 (2010-2017)</h2>
+
+        <h3>520i / 528i (4-cilinder turbo)</h3>
+        <p>Instap-benzine, 2.0L viercilinder turbo (N20-blok). Comfortabel, zuinig, maar mist de typische 5-Serie-souplesse die je van een zes-cilinder gewend bent. <strong>Aandachtspunt:</strong> de N20-motor heeft een bekend timing chain-issue uit de vroege jaren (2011-2013 productie) dat in latere builds (2014+) grotendeels is opgelost. Onder ~150.000 km is risico beperkt, daarboven wordt het een gokje.</p>
+
+        <h3>530i / 535i / 540i (6-cilinder turbo)</h3>
+        <p><strong>Onze voorkeur binnen het F10-segment.</strong> De N55-blok in 535i/540i is een van de meest doorontwikkelde turbo-zessen die BMW heeft gemaakt — soepel, betrouwbaar boven 200.000 km mits goed onderhouden, lekker karakter. 528i met N55 (sommige bouwjaren) is een verstandige value-buy. 530i bestaat vooral als latere LCI-uitvoering (2014+).</p>
+
+        <h3>530d / 535d / 525d (diesel zes)</h3>
+        <p>De N57-diesel-zes is een legendarische motor — moeiteloos boven 300.000 km mits regelmatig onderhoud. <strong>Aandachtspunt:</strong> de EGR-koelersystemen kennen op vroege F10's (2011-2014) corrosie-issues die in extreme gevallen tot motorbrand hebben geleid. BMW heeft een terugroepactie uitgevoerd; controleer dat deze is uitgevoerd. Voor Nederlandse milieuzones is een dieselen van vóór 2013 beperkend (geen toegang tot bepaalde steden) — kies voor stadsgebruik liever benzine.</p>
+
+        <h3>550i (V8 twin-turbo)</h3>
+        <p>De N63-V8 zit alleen in de 550i (en M5/M550i). Levert geweldig performance maar staat bekend om hoge onderhoudskosten — kettingen, distributiekoppelingen, klepafdichtingen kunnen rond 100.000 km issues opleveren. Voor liefhebbers met budget voor onderhoud is dit een fantastische daily; voor wie kostenbewust wil rijden niet ons advies.</p>
+
+        <h3>M5 (S63 V8 twin-turbo)</h3>
+        <p>De F10 M5 is een eigen verhaal — performance-icoon, 560-625 pk afhankelijk van bouwjaar/competition. Onze sourcing daarvoor verloopt vaak via Japan (LHD-aanbod sterk vertegenwoordigd). Onderhoud is BMW-M-niveau qua kosten; geen daily voor budget-bewust gebruik.</p>
+      </section>
+
+      <section id="motoren-g30" class="content-section">
+        <h2>Motorvarianten G30 (2017-2023)</h2>
+
+        <h3>520i / 530i (4-cilinder turbo, B48-blok)</h3>
+        <p>De B48-blok is BMW's modernere viercilinder en is structureel betrouwbaarder dan de oudere N20. 530i levert 252 pk, prima daily-performance. Voor zuinige rijders met regelmatig snelweg-werk is dit de logische instap. Onderhoud relatief goedkoop binnen het premium-segment.</p>
+
+        <h3>540i (6-cilinder turbo, B58-blok)</h3>
+        <p><strong>Onze voorkeur binnen het G30-segment.</strong> De B58-blok is de opvolger van N55 en wordt door BMW-specialisten algemeen gezien als één van de meest betrouwbare moderne BMW-motoren. 340 pk soepel beschikbaar, lineair vermogen, weinig bekende structurele issues. Gepaard met xDrive (4-wielaandrijving) een uitstekende allround-uitvoering.</p>
+
+        <h3>530d / 540d (6-cilinder diesel)</h3>
+        <p>De B57-diesel is moderner en zuiniger dan de N57. AdBlue-systeem (verplicht voor Euro 6d-temp). Voor lange-afstand-rijders nog steeds een uitstekende keuze, alhoewel diesel-restwaarde in NL onder druk staat. Voor stadsgebruik liever benzine.</p>
+
+        <h3>530e (plug-in hybride)</h3>
+        <p>252 pk combineerd vermogen, 50+ km elektrisch bereik. BPM-vrij voor 2026 op moment van schrijven (controleer actuele regeling). Aantrekkelijk voor wie elektrisch wil voor stadsgebruik én combustion voor lange afstanden. Aandachtspunt: accu-degradatie bij oudere exemplaren — vraag bij aankoop een capaciteit-test.</p>
+
+        <h3>M550i (V8) en M5 F90 (S63B44T4 V8 biturbo)</h3>
+        <p>Performance-segment G30. M550i is de gemakkelijker daily, M5 F90 is de pure sport. Beide via Japan vaak in LHD-aanbod beschikbaar. Onderhoud premium-niveau; voor liefhebbers met budget een fantastische match.</p>
+      </section>
+
+      <section id="valkuilen" class="content-section">
+        <h2>Bekende valkuilen per generatie</h2>
+        <ul class="pitfall-list">
+          <li><strong>F10 vroege N20 timing chain</strong> — bouwjaar 2011-2013. Bij km-stand boven 150.000 zonder vervanging: risicovol. Vraag onderhoudsdocumentatie expliciet uit.</li>
+          <li><strong>F10 N57 EGR-cooler issue</strong> — diesel-versies 2011-2014. Controleer of terugroepactie is uitgevoerd; staat in onderhoudshistorie of via VIN bij BMW-dealer te checken.</li>
+          <li><strong>F10 elektronica-issues</strong> — vroege iDrive (2010-2012) en parkeersensoren kunnen kuren krijgen. Met goed onderhoud overkomelijk, maar lastig oplosbaar zonder dealer-diagnose.</li>
+          <li><strong>F10 luchtveerbreuk</strong> — sommige uitvoeringen hebben luchtvering achter. Bij 150.000+ km is een breuk niet ongebruikelijk; vervanging kost €1.500-€2.500.</li>
+          <li><strong>G30 brand-new injectoren</strong> — vroege G30 (2017-2018) heeft op B58-versies enkele bekende injector-issues. Met software-update vaak opgelost.</li>
+          <li><strong>G30 iDrive 7 versus 8</strong> — facelift in 2020 bracht iDrive 7; oudere systemen zijn niet upgradebaar. Voor wie modernere infotainment wil: kies een LCI-uitvoering (2020+).</li>
+          <li><strong>Beide generaties: km-fraude</strong> — Duitse occasions zijn historisch gevoelig voor terugzetten. Verifieer km-stand via service-historie, dealer-stempels en eventueel via een onafhankelijke check.</li>
+        </ul>
+      </section>
+
+      <section id="sweet-spot" class="content-section">
+        <h2>Sweet-spot uitvoeringen</h2>
+
+        <h3>F10 — onze top-3</h3>
+        <ol class="recommendation-list">
+          <li><strong>F10 535i / 540i LCI (2014-2017)</strong> — N55-zes, post-facelift, volledige onderhoudshistorie. Sweet spot qua prijs-kwaliteit. Typische km bij sourcing: 120.000-160.000.</li>
+          <li><strong>F10 530d LCI (2014-2017)</strong> — N57 zonder vroege issues, EGR-actie uitgevoerd. Voor langeafstand-rijders ideaal.</li>
+          <li><strong>F10 528i LCI (2014-2017)</strong> — 4-cilinder N20 in post-facelift met opgeloste issues. Value buy voor wie premium uitstraling zonder zes-cilinder budget wil.</li>
+        </ol>
+
+        <h3>G30 — onze top-3</h3>
+        <ol class="recommendation-list">
+          <li><strong>G30 540i xDrive (2017-2023)</strong> — B58-zes met 4WD. De alleskunner; daily, weekend, lange afstand. Onze meest aanbevolen import.</li>
+          <li><strong>G30 530i Luxury Line LCI (2020+)</strong> — modernere iDrive 8, B48-blok, comfortabele uitvoering. Goede prijs-positie.</li>
+          <li><strong>G30 540d xDrive (2017-2021)</strong> — voor diesel-liefhebbers met langeafstand-profiel. Combineert kracht met efficiëntie.</li>
+        </ol>
+      </section>
+
+      <section id="landed-cost" class="content-section">
+        <h2>Typische landed cost</h2>
+        <p>Indicatieve landed cost (Duitsland-route) voor goede exemplaren van onze sweet-spot uitvoeringen:</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Uitvoering</th><th>Bouwjaar</th><th>Km-stand</th><th>Landed cost indicatief</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>F10 528i Luxury</td><td>2015</td><td>130.000</td><td>€ 18.500 — € 21.000</td></tr>
+            <tr><td>F10 535i M-Sport</td><td>2015</td><td>120.000</td><td>€ 22.500 — € 26.000</td></tr>
+            <tr><td>F10 530d xDrive</td><td>2015</td><td>140.000</td><td>€ 19.500 — € 23.000</td></tr>
+            <tr><td>G30 530i Luxury</td><td>2019</td><td>90.000</td><td>€ 28.500 — € 32.500</td></tr>
+            <tr><td>G30 540i xDrive M-Sport</td><td>2019</td><td>85.000</td><td>€ 36.000 — € 41.000</td></tr>
+            <tr><td>G30 540d xDrive</td><td>2019</td><td>110.000</td><td>€ 34.000 — € 38.500</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note"><em>Cijfers indicatief, gebaseerd op Duitse vraagprijzen voorjaar 2026 plus volledige Rolvink-landed-cost (BPM, RDW, transport, fee). Werkelijke uitkomst varieert met uitvoering, km, conditie, optiepakket. Japan-route levert vergelijkbare landed cost voor M-modellen; voor standaard 528i/530i/540i is Duitsland efficiënter.</em></p>
+      </section>
+
+      <section id="auction-sheet" class="content-section">
+        <h2>Wat te checken op het auction sheet</h2>
+        <p>Voor zowel Japanse veiling-aankoop als Duitse dealer-aankoop hanteren wij dezelfde checklist:</p>
+        <ul class="bullet-list">
+          <li><strong>Volledige onderhoudshistorie</strong> — BMW-dealer-stempels of erkende specialist. Geen geschiedenis betekent geen bod.</li>
+          <li><strong>EGR-actie uitgevoerd</strong> (voor N57 diesels 2011-2014) — vermelding op service-records of via VIN-check bij dealer.</li>
+          <li><strong>Geen accident-codes</strong> — op Japanse auction sheets: geen R, RA, A of XX. Op Duitse TÜV-rapporten: geen "Unfallfahrzeug" of "Vorschaden".</li>
+          <li><strong>Km-stand consistent</strong> — vergelijking met service-stempels, eventueel HU-rapport bij Duitse aankoop, Japanse Shaken-historie bij Japanse aankoop.</li>
+          <li><strong>Originele specs</strong> — geen aftermarket-tuning, geen "remap" zonder documentatie. Voor M-modellen extra kritisch.</li>
+          <li><strong>Conditie luchtvering (indien aanwezig)</strong> — bij &gt; 150.000 km expliciet uitvragen.</li>
+          <li><strong>iDrive-versie</strong> — relevant voor G30; bepaalt of Apple CarPlay en moderne software-updates beschikbaar zijn.</li>
+        </ul>
+      </section>
+
+      <section id="duitsland-japan" class="content-section">
+        <h2>F10/G30 — Duitsland of Japan?</h2>
+        <p>Voor het standaard 5-Serie segment is <strong>Duitsland verreweg de logische bron</strong>. Het aanbod is overweldigend ruim, de doorlooptijd is kort, persoonlijke bezichtiging is standaard, en de prijszetting is competitief. Een 530i, 540i of 530d uit Duitsland is structureel betrouwbaarder ingekocht dan via Japan.</p>
+        <p>Japan komt in beeld bij <strong>M-uitvoeringen</strong> (M5 F10/F90, M550i G30) waar het Japanse LHD-aanbod sterk vertegenwoordigd is en de km-stand vaak lager ligt dan bij Europees equivalent. Voor een 5-Serie M-Sport pack met specifieke specs uit Japan kan zinvol zijn — voor een standaard 5-Serie is het overkill.</p>
+        <p>Lees ook onze cornerstones over <a href="/kennisbank/auto-importeren-duitsland">auto importeren uit Duitsland</a> en <a href="/kennisbank/auto-importeren-japan">uit Japan</a> voor de volledige proces-uitleg.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een specifieke F10 of G30?</h2>
+        <p>Vertel ons uitvoering, motorvariant, jaar en budget — wij screenen mobile.de, autoscout24.de en de Japanse veilingen wekelijks.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/merk/bmw">Onze BMW-focus</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list, .pitfall-list { padding-left: 24px; }
+  .bullet-list li, .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong, .pitfall-list strong { color: var(--color-text-primary); }
+
+  .recommendation-list { padding-left: 24px; counter-reset: rec; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .recommendation-list strong { color: var(--color-text-primary); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .table-note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper); }
+  .table-note em { font-style: italic; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
