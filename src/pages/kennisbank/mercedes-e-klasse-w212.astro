@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Mercedes E-Klasse W212 koopgids' },
+];
+
+const publishedDate = '2026-05-27';
+const updatedDate = '2026-05-27';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Mercedes E-Klasse W212 — koopgids voor import 2026',
+  description: 'Motorvarianten, sweet-spot uitvoeringen, bekende valkuilen, typische landed cost en wat te checken vóór bod bij een W212 (2009-2016).',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/mercedes-e-klasse-w212' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Mercedes E-Klasse W212 koopgids voor import — Rolvink"
+  description="Welke W212 uitvoering kiezen voor import? Motorvarianten, valkuilen, sweet spots en typische landed cost voor de generatie 2009-2016, pre-facelift en facelift."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Modelgids</div>
+        <h1>Mercedes E-Klasse — <span class="accent">W212</span>.</h1>
+        <p class="lead">De vierde generatie E-Klasse (2009-2016) is onze meest gevraagde sedan-import. Welke uitvoering past bij welk profiel, wat zijn de aandachtspunten per motorblok, en wat kost een goede W212 landed in Welsum?</p>
+        <div class="article-meta">
+          <span>Gepubliceerd: 27 mei 2026</span>
+          <span>·</span>
+          <span>Leestijd: ongeveer 8 minuten</span>
+        </div>
+      </header>
+
+      <div class="disclaimer">
+        <strong>Modelinformatie is observatie, geen technisch advies.</strong> De aandachtspunten in deze gids zijn samengesteld op basis van openbare bronnen (Mercedes-fora, MB-specialisten, onafhankelijke werkplaatsrapporten) en onze eigen veilingobservaties. Specifieke issues kunnen per individueel exemplaar verschillen. Voor concrete diagnoses raadpleeg altijd een gespecialiseerde Mercedes-werkplaats. Landed-cost-cijfers zijn indicatief; BPM, koers en uitvoering kunnen significant afwijken.
+      </div>
+
+      <nav class="toc">
+        <h2>In deze gids</h2>
+        <ol>
+          <li><a href="#overzicht">W212 in vogelvlucht</a></li>
+          <li><a href="#motoren">Motorvarianten en uitvoeringen</a></li>
+          <li><a href="#valkuilen">Bekende valkuilen per uitvoering</a></li>
+          <li><a href="#sweet-spot">Sweet-spot uitvoeringen</a></li>
+          <li><a href="#auction-sheet">Wat te checken vóór bod</a></li>
+          <li><a href="#landed-cost">Typische landed cost — Japan vs Duitsland</a></li>
+          <li><a href="#duitsland-japan">W212 — Duitsland of Japan?</a></li>
+        </ol>
+      </nav>
+
+      <section id="overzicht" class="content-section">
+        <h2>W212 in vogelvlucht</h2>
+        <p>De Mercedes E-Klasse W212 is geproduceerd van 2009 tot 2016, als opvolger van de W211 en voorganger van de W213. Beschikbaar als <strong>sedan (W212)</strong>, <strong>estate (S212)</strong>, <strong>coupé (C207)</strong> en <strong>cabrio (A207)</strong>. Voor onze sourcing-service is de sedan veruit het meest gevraagde formaat, gevolgd door estate op afstand.</p>
+        <p>De productieperiode kent twee duidelijke fases: <strong>pre-facelift</strong> (2009-2013) met de kenmerkende viergeleede dagrijverlichting en 5G-Tronic op de lichte uitvoeringen, en <strong>facelift</strong> (2013-2016) met geheel vernieuwd front, doorlopende LED-banen, verbeterde infotainment (COMAND Online), en 7G-Tronic standaard op vrijwel alle uitvoeringen.</p>
+        <p>De facelift is voor onze klanten de logische keuze: visueel moderner, technologisch verder, en typisch op de markt voor 8-12 jaar oud — sweet spot qua leeftijdsafschrijving voor BPM en qua liefhebbersmarkt voor herverkoopwaarde. Pre-facelift kan rendabel zijn voor wie kostenbewust wil instappen, maar accepteer dan een ouder dashboard en oudere transmissie.</p>
+      </section>
+
+      <section id="motoren" class="content-section">
+        <h2>Motorvarianten en uitvoeringen</h2>
+
+        <h3>E200 / E250 CGI (4-cilinder benzine)</h3>
+        <p>1.8L turbo, 184 pk (E200) of 211 pk (E250). De zuinigste benzine-instap. <strong>Voordelen:</strong> laagste BPM van de benzine-lijn, soepel rijgevoel in stadsverkeer, gangbaar 8-9 L/100 km. <strong>Nadelen:</strong> mist het V6-karakter dat de W212 op de Autobahn typeert; klinkt minder waardig dan een grotere motor. <strong>Sweet spot:</strong> 2013-2015 E250 CGI Avantgarde, ~100-140K km, conditie 4+. Voor wie de E-Klasse-uitstraling wil zonder V6-budget — verstandige value-buy.</p>
+
+        <h3>E300 (V6 benzine)</h3>
+        <p>3.5L V6 (M276-blok), 252 pk gekoppeld aan 7G-Tronic. <strong>Onze meest aanbevolen W212-uitvoering.</strong> Soepele zes-cilinder die past bij de E-Klasse-DNA: comfortabel, geluidsarm, met genoeg trekkracht voor lange snelweg-ritten. <strong>Voordelen:</strong> evenwicht tussen BPM (typisch €1.150-€1.600 via koerslijst) en rij-ervaring; M276 is goed doorontwikkeld en gangbaar onderhoud bij elke Mercedes-specialist. <strong>Nadelen:</strong> verbruik 10-12 L/100 km bij gemiddelde stijl, niet de zuinigste keuze. <strong>Sweet spot:</strong> 2012-2014 E300 Avantgarde, AMG-Line, ~90-130K km.</p>
+
+        <h3>E350 (V6 benzine)</h3>
+        <p>3.5L V6, 306 pk. Sportievere versie van het E300-blok, met scherpere afstelling van de 7G-Tronic en standaard meer optie-pakketten. <strong>Voordelen:</strong> krachtigere rij-ervaring, gewild in liefhebbersmarkt. <strong>Nadelen:</strong> hogere BPM (typisch €1.700-€2.200), iets meer verbruik dan E300. <strong>Sweet spot:</strong> 2014-2015 E350 Avantgarde of Sport, ~70-120K km. Voor wie performance boven brandstof-zuinigheid stelt.</p>
+
+        <h3>E300 / E350 4MATIC (V6 met 4-wielaandrijving)</h3>
+        <p>Wij <strong>raden 4MATIC-uitvoeringen doorgaans af voor import</strong>. Niet vanwege de techniek (4MATIC is uitstekend en betrouwbaar), maar vanwege de BPM-kostenstructuur: een 4MATIC V6 wordt zwaarder gerekend dan een achterwielaangedreven equivalent. Voor een 2014 E300 4MATIC komt BPM typisch €1.800-€2.400 hoger uit dan een vergelijkbare E300 RWD. Tenzij de klant expliciet 4MATIC nodig heeft (winter-locaties, aanhanger-trekken), is dit een belastingpost zonder voldoende rij-meerwaarde.</p>
+
+        <h3>E400 (V6 biturbo)</h3>
+        <p>Vanaf facelift 2013, 3.0L V6 biturbo (M276 met turbo), 333 pk. Krachtiger dan E350 met vergelijkbaar verbruik. <strong>Aandachtspunt:</strong> biturbo-systeem heeft hogere onderhoudskosten dan atmosferische V6; bij 150K+ km moeten beide turbo's gecheckt worden. BPM is fors. Voor liefhebbers met onderhoudsbudget — geen daily voor de prijsbewuste rijder.</p>
+
+        <h3>E63 AMG (V8 biturbo)</h3>
+        <p>Performance-segment, 5.5L V8 biturbo (M157), 525-585 pk afhankelijk van bouwjaar en pakketten. <strong>Onze positie:</strong> alleen op aanvraag voor specifieke klanten. BPM is extreem hoog (€4.000-€6.000+), het LHD-aanbod in Japan is dun (1-2 exemplaren per maand piek), en onderhoud is AMG-niveau qua kosten. Voor liefhebbers met budget en duidelijke voorkeur — een prachtige machine, maar geen value-buy.</p>
+
+        <h3>E-diesels (E250 BlueTEC, E350 BlueTEC)</h3>
+        <p>Diesel-versies (OM651 4-cilinder voor E200/E220/E250, OM642 V6 voor E350). <strong>Aandachtspunt:</strong> Nederlandse milieuzones zijn restrictiever voor diesels van vóór 2013. Voor stadsgebruik nu beperkt; voor lange-afstand-rijders nog steeds rendabel mits Euro 6. <strong>Aanbeveling:</strong> facelift 2013+ Euro 6 diesels zijn nog werkbaar; pre-facelift dieselen liever overslaan tenzij verkooper in landelijk gebied.</p>
+      </section>
+
+      <section id="valkuilen" class="content-section">
+        <h2>Bekende valkuilen per uitvoering</h2>
+        <ul class="pitfall-list">
+          <li><strong>Airmatic / Airbody Control luchtvering</strong> — sommige uitvoeringen met luchtvering achter (vooral E63 AMG, Avantgarde-pakketten). Bij 150K+ km is een breuk van luchtbalg geen uitzondering; vervanging €1.500-€2.500. Vraag bij aankoop expliciet of de luchtvering recent is vervangen.</li>
+          <li><strong>COMAND Online stoten</strong> — pre-facelift (2009-2012) heeft beperkter infotainment dat vandaag oudbollig aanvoelt; geen CarPlay, beperkte navigatie-kaart-updates. Facelift COMAND is moderner maar kan stilstaan bij specifieke firmware-versies. Update door Mercedes-dealer mogelijk.</li>
+          <li><strong>M276 V6 (E300/E350) — kettinggeleider</strong> — geluidssensoren rapporteren soms kettingrammel bij koude start na 200K km. Zelden direct kritisch maar wel een onderhoudspunt om mee te tellen voor de toekomst.</li>
+          <li><strong>OM651 diesel — injector-coding</strong> — bij hoge km kunnen één of meer injectors fout-gecodeerd raken, met startproblemen of verminderde prestaties tot gevolg. Voor diesels &gt; 200K km expliciet diagnose laten doen.</li>
+          <li><strong>Stalen leidingen onderkant (Duitse cars)</strong> — bij 120K+ km en blootstelling aan wegpekel kunnen rem- en brandstofleidingen corrosie tonen. Voor Japanse imports nauwelijks een issue (geen pekel); voor Duitse exemplaren controleren bij bezichtiging.</li>
+          <li><strong>Achterklep-elektronica (estate S212)</strong> — automatische achterklep kan kabelboom-issues krijgen waardoor hij niet meer opent. Vervanging kabelboom €600-€900.</li>
+          <li><strong>Stoel-bekleding leder (lichte kleuren)</strong> — leder in lichte kleuren toont sneller slijtage. Voor Japanse imports met lichte interieurs (off-white, beige) extra kritisch checken op vlekken en zitkussen-vervorming.</li>
+          <li><strong>Navi-firmware Japans</strong> — bij Japanse LHD-import is de navigatie-firmware vaak in Japanse karakters. Update naar Europese kaarten/taal kost typisch €150-€350 bij Mercedes-dealer.</li>
+        </ul>
+      </section>
+
+      <section id="sweet-spot" class="content-section">
+        <h2>Sweet-spot uitvoeringen</h2>
+        <p>Op basis van onze JCD-observaties en Marktplaats-analyse zijn dit onze top-3 W212-uitvoeringen voor import:</p>
+        <ol class="recommendation-list">
+          <li><strong>E300 Avantgarde — facelift (2013-2015)</strong> — M276 V6, comfortabel, BPM-vriendelijk via koerslijst, gevraagd in NL-tweedehandsmarkt. <em>Onze meest aanbevolen import.</em> Typische km bij sourcing: 80.000-130.000.</li>
+          <li><strong>E250 CGI Avantgarde — facelift (2013-2015)</strong> — 4-cilinder turbo, laagste BPM van de benzine-lijn, zuinig, voor wie premium-uitstraling zoekt zonder V6-budget. Typische km: 100.000-150.000.</li>
+          <li><strong>E350 Sport / AMG-Line — facelift (2014-2015)</strong> — voor liefhebbers van het V6-karakter met sportievere uitvoering. Hogere BPM dan E300 maar pittiger karakter. Typische km: 70.000-120.000.</li>
+        </ol>
+        <p><strong>Aanbevelingen voor estate (S212):</strong> dezelfde uitvoeringen, maar het Japans LHD-aanbod is voor estate praktisch nul (~4 stuks per 5 weken voor de hele E-Klasse Wagon-lijn). Voor estate is Duitsland verreweg de juiste route.</p>
+      </section>
+
+      <section id="auction-sheet" class="content-section">
+        <h2>Wat te checken vóór bod</h2>
+
+        <h3>Op het Japanse veilingsheet</h3>
+        <ul class="bullet-list">
+          <li>Grade ≥ 4, geen R/RA/A/X-codes (zie onze <a href="/kennisbank/japanse-veiling-grades">grades-uitleg</a>)</li>
+          <li>Inspectiesheet van USS, JU, JAA of CAA — geen onbekende veilinghuizen</li>
+          <li>Kilometerstand consistent met service-stempels en Shaken-historie</li>
+          <li>Aanvullende notities op het sheet door inspecteur — vragen om vertaling</li>
+          <li>Foto's van interieur (lichte kleuren), wielkasten (roest is zeldzaam in JP maar check), motorruimte</li>
+          <li>Specifieke uitvoering bevestigd: E250 CGI vs E300 vs E350 staat in modelnaam-veld</li>
+        </ul>
+
+        <h3>Op het Duitse dossier</h3>
+        <ul class="bullet-list">
+          <li>Volledige Scheckheft (onderhoudsboekje) bij Mercedes-dealer of erkende specialist</li>
+          <li>Recent TÜV-rapport (Hauptuntersuchung) — geen "erhebliche Mängel"</li>
+          <li>Originele Fahrzeugbrief (deel II) en Fahrzeugschein (deel I)</li>
+          <li>HU-database-check op accident-historie</li>
+          <li>WIS-checkrapport bij Mercedes-dealer voor onderhoudsmeldingen en terugroepacties</li>
+          <li>Voor 4MATIC-uitvoeringen: BPM-impact vooraf doorrekenen — vraag ons om prognose</li>
+        </ul>
+
+        <h3>Bij persoonlijke bezichtiging (Duitsland-route)</h3>
+        <ul class="bullet-list">
+          <li>Lakkleurmeting op alle panelen — verschil &gt; 0.05 mm wijst op lakwerk</li>
+          <li>Onderzijde fotograferen voor roest-detectie</li>
+          <li>Test alle elektrische functies (stoelen, ramen, dak, achterklep)</li>
+          <li>Test 7G-Tronic in alle standen — soepel schakelen?</li>
+          <li>OBD-diagnose op opgeslagen foutcodes — geen permanente codes acceptabel</li>
+          <li>Probeer Airmatic (indien aanwezig) op verschillende hoogtes</li>
+        </ul>
+      </section>
+
+      <section id="landed-cost" class="content-section">
+        <h2>Typische landed cost — Japan vs Duitsland</h2>
+        <p>Indicatieve landed cost voor een 2014 E300 Avantgarde, 90.000 km, conditie 4+ — vergeleken tussen beide routes. Inclusief Rolvink sourcing- en operationele fee.</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Kostenpost</th><th>Japan-route</th><th>Duitsland-route</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Aankoopprijs / hamerprijs</td><td>€ 6.150</td><td>€ 15.500</td></tr>
+            <tr><td>Veilingfees + JP transport / DEKRA-rapport + DE transport</td><td>€ 1.200</td><td>€ 730</td></tr>
+            <tr><td>RoRo zeevracht JP→Rotterdam</td><td>€ 1.000</td><td>n.v.t.</td></tr>
+            <tr><td>Douane-afhandeling</td><td>€ 400</td><td>n.v.t.</td></tr>
+            <tr><td>Invoerrechten 10% (alleen JP)</td><td>€ 875</td><td>€ 0</td></tr>
+            <tr><td>BTW 21% (alleen JP, niet-EU)</td><td>€ 2.021</td><td>€ 0</td></tr>
+            <tr><td>BPM (V6, 2014, via koerslijst)</td><td>€ 1.150</td><td>€ 1.150</td></tr>
+            <tr><td>RDW + kentekening + EU-compliance</td><td>€ 730</td><td>€ 450</td></tr>
+            <tr><td>Reconditionering + navi-update</td><td>€ 470</td><td>€ 350</td></tr>
+            <tr><td>Rolvink fee (sourcing + operationeel)</td><td>€ 1.710</td><td>€ 1.610</td></tr>
+            <tr class="cat-total"><td><strong>Totale landed cost</strong></td><td><strong>€ 15.706</strong></td><td><strong>€ 19.790</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="table-note"><em>Cijfers indicatief. Japan-route in dit voorbeeld €4.000 goedkoper landed, maar 8-10 weken langere doorlooptijd en geen persoonlijke bezichtiging vóór bod. Duitsland-route heeft hogere aankoopprijs maar snellere doorlooptijd en directe inspectie. Per case maken wij een onderbouwde prognose.</em></p>
+      </section>
+
+      <section id="duitsland-japan" class="content-section">
+        <h2>W212 — Duitsland of Japan?</h2>
+        <p>Voor de W212 sedan zijn beide routes realistisch — de keuze hangt af van wat u zoekt:</p>
+
+        <h3>Kies Duitsland als…</h3>
+        <ul class="bullet-list">
+          <li>U binnen 4-6 weken in de auto wilt rijden</li>
+          <li>Persoonlijke bezichtiging vóór bod belangrijk is</li>
+          <li>U kiest voor een estate (S212) — Japan-aanbod LHD-estate is praktisch nul</li>
+          <li>U specifiek 4MATIC zoekt (Japan-aanbod 4MATIC LHD is dun)</li>
+          <li>U BPM-optimalisatie via koerslijst belangrijk vindt — Duitse exemplaren laten zich vaker rond cleaner referenties taxeren</li>
+        </ul>
+
+        <h3>Kies Japan als…</h3>
+        <ul class="bullet-list">
+          <li>U lage kilometerstanden boven alles wil (≤80K km voor een 2013-2015)</li>
+          <li>U landed cost wil drukken en 10-14 weken doorlooptijd kunt afwachten</li>
+          <li>U specifiek een AMG-uitvoering (E63 AMG) zoekt — beperkt maar wel beschikbaar</li>
+          <li>U klassiekere optie-pakketten zoekt (lichte interieurs, specifieke wielmaten) die in Europa zeldzaam zijn</li>
+        </ul>
+
+        <p>Voor de meeste W212-zoekopdrachten — een goede daily, standaard uitvoering, met snelheid — is Duitsland onze aanbeveling. Voor liefhebbers met geduld en zoek naar specifieke lage-km exemplaren komt Japan in beeld.</p>
+        <p>Lees ook onze cornerstones over <a href="/kennisbank/auto-importeren-duitsland">importeren uit Duitsland</a> en <a href="/kennisbank/auto-importeren-japan">uit Japan</a> voor de volledige proces-uitleg, en de <a href="/kennisbank/bpm-importauto-2026">BPM-gids</a> voor de drie taxatie-methoden.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een specifieke W212?</h2>
+        <p>Vertel ons uitvoering, jaar, kleur en optiepakket — wij screenen de Japanse veilingen wekelijks en mobile.de/autoscout24.de dagelijks.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/kennisbank/bmw-5-serie-f10-g30">BMW 5-Serie F10/G30 — koopgids</a></li>
+          <li><a href="/merk/mercedes-benz">Onze Mercedes-Benz focus</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list, .pitfall-list { padding-left: 24px; }
+  .bullet-list li, .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong, .pitfall-list strong { color: var(--color-text-primary); }
+  .bullet-list em, .pitfall-list em { font-style: italic; }
+
+  .recommendation-list { padding-left: 24px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .recommendation-list strong { color: var(--color-text-primary); }
+  .recommendation-list em { font-style: italic; color: var(--color-copper); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:nth-child(2),
+  .cost-table tbody tr td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cost-table tbody tr.cat-total td { background: var(--color-charcoal-dark); color: var(--color-cream); padding-top: 14px; padding-bottom: 14px; font-size: 15px; }
+
+  .table-note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper); }
+  .table-note em { font-style: italic; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
