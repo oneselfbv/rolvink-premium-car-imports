@@ -18,11 +18,9 @@ const {
   noIndex = false,
 } = Astro.props;
 
-// Canonical: zonder trailing slash, gebaseerd op de site-config
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonicalURL = new URL(pathname, Astro.site).toString().replace(/\/$/, '');
 
-// Schema's
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -61,7 +59,6 @@ const serviceSchema = {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   {noIndex && <meta name="robots" content="noindex,nofollow" />}
 
-  <!-- Google Search Console site verification -->
   <meta name="google-site-verification" content="IbEdRJTvXwFSEJ18axbjZiBWKHgmbUKPQL150eOCIwM" />
 
   <title>{title}</title>
@@ -86,7 +83,6 @@ const serviceSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
-  <!-- Google tag (gtag.js) — GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QM941210BY"></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
@@ -96,4 +92,33 @@ const serviceSchema = {
   </script>
 </head>
 <body>
-  <a href="
+  <a href="#main" class="skip-link">Spring naar hoofdinhoud</a>
+  <Header />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+  <StickyMobileCTA />
+</body>
+</html>
+
+<style is:global>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 12px;
+    padding: 8px 16px;
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 1000;
+    transition: top 0.2s;
+  }
+  .skip-link:focus {
+    top: 12px;
+    outline: 2px solid var(--color-copper);
+    outline-offset: 2px;
+  }
+</style>
