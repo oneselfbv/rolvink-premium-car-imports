@@ -29,7 +29,11 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
         <div class="contact-block">
           <h3>Bezoek</h3>
           <p>Op afspraak in Welsum (gemeente Olst-Wijhe). Reserveer minimaal 48 uur vooruit.</p>
-          <span style="font-size: 14px; color: var(--color-text-tertiary);">Adres op afspraak gedeeld</span>
+          <address style="font-style: normal; font-size: 14px; color: var(--color-text-secondary); line-height: 1.6;">
+            Veldweg 15<br/>
+            8196 KS Welsum<br/>
+            Nederland
+          </address>
         </div>
       </div>
     </div>
@@ -45,8 +49,4 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
   .contact-block h3 { font-size: 22px; margin-bottom: 12px; font-weight: 600; }
   .contact-block p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 24px; }
 
-  @media (max-width: 768px) {
-    .contact-grid { grid-template-columns: 1fr; }
-    .contact-page h1 { font-size: 40px; }
-  }
-</style>
+  @media (max-width: 7
