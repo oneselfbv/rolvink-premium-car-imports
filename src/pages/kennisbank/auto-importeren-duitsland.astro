@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Auto importeren uit Duitsland' },
+];
+
+const publishedDate = '2026-05-27';
+const updatedDate = '2026-05-27';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Auto importeren uit Duitsland in 2026 — Complete gids',
+  description: 'Stap-voor-stap proces, kosten, BPM, RDW, doorlooptijd en valkuilen bij het importeren van een Duitse premium-auto naar Nederland.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: {
+    '@type': 'Person',
+    name: 'Theo Rolvink',
+    url: 'https://www.rolvinkpremiumcarimports.nl/over',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Rolvink Premium Car Imports',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg',
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/auto-importeren-duitsland',
+  },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Auto importeren uit Duitsland in 2026 — Complete gids | Rolvink"
+  description="Hoe werkt auto importeren uit Duitsland? Stappen, kosten, BPM, RDW, doorlooptijd en de valkuilen die wij zien als sourcing-specialist."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Cornerstone — Proces</div>
+        <h1>Auto importeren uit Duitsland in <span class="accent">2026</span>.</h1>
+        <p class="lead">Het complete proces — van een vondst op mobile.de tot een Nederlandse kentekenplaat. Welke stappen, welke kosten, welke doorlooptijd, en welke valkuilen wij als sourcing-specialist regelmatig zien.</p>
+        <div class="article-meta">
+          <span>Gepubliceerd: 27 mei 2026</span>
+          <span>·</span>
+          <span>Leestijd: ongeveer 8 minuten</span>
+        </div>
+      </header>
+
+      <nav class="toc">
+        <h2>In dit artikel</h2>
+        <ol>
+          <li><a href="#waarom-duitsland">Waarom een auto uit Duitsland importeren?</a></li>
+          <li><a href="#markt">De Duitse automarkt in vogelvlucht</a></li>
+          <li><a href="#tuv">TÜV en wat dat voor de koper betekent</a></li>
+          <li><a href="#stappen">Het importproces in zes stappen</a></li>
+          <li><a href="#kosten">Realistische kosten — voorbeeld doorgerekend</a></li>
+          <li><a href="#valkuilen">Veelgemaakte fouten en hoe je ze voorkomt</a></li>
+          <li><a href="#wanneer">Duitsland of Japan — welke route past bij wat u zoekt?</a></li>
+          <li><a href="#vragen">Veelgestelde vragen</a></li>
+        </ol>
+      </nav>
+
+      <section id="waarom-duitsland" class="content-section">
+        <h2>Waarom een auto uit Duitsland importeren?</h2>
+        <p>Duitsland is voor BMW, Mercedes-Benz, Audi en Porsche de thuismarkt. Wat dat in de praktijk betekent: het aanbod is structureel groter, breder en in veel gevallen scherper geprijsd dan in Nederland. Een 5-Serie Touring, een S-Klasse, een Cayenne of een RS6 vind je in Duitsland in tientallen uitvoeringen tegelijk — met de optiepakketten en kleurcombinaties die je in NL-aanbod zelden tegenkomt.</p>
+        <p>Daar komen drie structurele voordelen bij. <strong>EU-binnenmarkt</strong>: geen invoerrechten en — voor gebruikte auto's — geen extra Nederlandse BTW, omdat de Duitse BTW al is voldaan. <strong>Korte lijnen</strong>: een doorlooptijd van twee tot vier weken is realistisch, in plaats van de twaalf tot veertien weken die de Japan-route vraagt. En <strong>persoonlijke bezichtiging vóór bod</strong> hoort er standaard bij — een dagje in Beieren of Nordrhein-Westfalen is geen luxe maar de regel.</p>
+        <p>De Duitse route is daarmee de logische keuze voor wie weet wat hij wil en het beschikbaar wil hebben. Een dagelijkse rijder, een gezinsauto, een specifieke uitvoering die in Nederland niet snel langs komt — Duitsland is daarvoor het volledige spectrum binnen onze vier merken.</p>
+      </section>
+
+      <section id="markt" class="content-section">
+        <h2>De Duitse automarkt in vogelvlucht</h2>
+        <p>Vrijwel alle gebruikte premium-auto's in Duitsland worden verhandeld via twee dominante portals: <strong>mobile.de</strong> en <strong>autoscout24.de</strong>. Samen vertegenwoordigen ze enkele honderdduizenden actuele aanbiedingen. Daarboven bewegen merkdealers (BMW Niederlassung, Mercedes-Benz Vertretung), grote multibrand-dealers en gespecialiseerde handelaren voor klassiekers en performance-uitvoeringen.</p>
+        <p>Wij werken consequent met <strong>erkende dealers</strong> en gespecialiseerde handelaren — niet met particuliere verkopers via Kleinanzeigen. Het verschil zit in juridische bescherming en documentatieplicht: een B2C-aankoop bij een erkende Duitse dealer levert standaard een schriftelijke garantie van twaalf maanden op en een verifieerbare historie. Bij particuliere verkoop verdwijnt die laag en wordt de aankoop een Privatverkauf onder Duits recht — een wezenlijk ander risicoprofiel.</p>
+        <p>De keuze van de bron is daarmee al de helft van de risico-afweging. Voor onze klanten betekent dit: een gericht voorgeselecteerd lijstje, geen drijfnet over heel mobile.de.</p>
+      </section>
+
+      <section id="tuv" class="content-section">
+        <h2>TÜV en wat dat voor de koper betekent</h2>
+        <p><strong>TÜV</strong> staat voor <em>Technischer Überwachungsverein</em> en is de Duitse equivalent van onze APK, alleen strenger. Elke twee jaar moet een Duitse auto langs de <em>Hauptuntersuchung</em> (HU): een verplichte technische keuring waarbij onder andere remmen, uitlaatgassen, ophanging, verlichting, banden en chassisstructuur worden gecontroleerd. Bij elk falen wordt een gedetailleerd protocol opgesteld; bij goedkeuring komt er een sticker op het kenteken met de uiterste keuringsdatum.</p>
+        <p>Voor ons als sourcing-specialist is een geldig HU-rapport een minimumvoorwaarde. Een Duitse auto zonder recente Hauptuntersuchung — of met een net-verlopen sticker — kopen we niet. Daarnaast vragen wij in veel gevallen een aanvullende <strong>DEKRA- of KÜS-inspectie</strong> aan: een onafhankelijke pre-purchase check waarbij een tweede keurmeester de auto van bovenaf en onderop onder de loep neemt. Voor een paar honderd euro krijg je een gedetailleerd technisch rapport waarin onverwachte slijtage, sporen van schadeherstel of onderhoudsachterstand zichtbaar worden.</p>
+        <p>Dit is het verschil tussen een Duitse import die soepel door de Nederlandse RDW gaat, en eentje die over twee maanden duizenden euro's aan onverwachte reparaties oplevert.</p>
+      </section>
+
+      <section id="stappen" class="content-section">
+        <h2>Het importproces in zes stappen</h2>
+        <ol class="step-list">
+          <li>
+            <h3>1. Profiel vastleggen</h3>
+            <p>We werken een gedetailleerde zoekopdracht uit: merk, model, uitvoering, bouwjaar, kilometerstand, kleur, optiepakket, must-haves en deal-breakers. Pas na expliciete goedkeuring start de actieve zoektocht op mobile.de, autoscout24.de en onze netwerkpartners.</p>
+          </li>
+          <li>
+            <h3>2. Kandidaten voorstellen</h3>
+            <p>Wekelijks sturen we voorgeselecteerde kandidaten met volledige documentatie: foto's, Duitse Fahrzeugschein (deel I), Fahrzeugbrief (deel II), TÜV-rapport, onderhoudshistorie, onze duiding en een geschatte landed cost. U beslist of we doorgaan met bezichtiging — geen actie zonder uw groen licht.</p>
+          </li>
+          <li>
+            <h3>3. Bezichtiging en aankoop in Duitsland</h3>
+            <p>Voor elke serieuze kandidaat rijden wij naar Duitsland voor persoonlijke bezichtiging. Indien nodig laten wij een DEKRA- of KÜS-rapport opmaken vóór bod. Onderhandeling vindt direct ter plaatse plaats; betaling gebeurt na uw goedkeuring via SEPA-bankoverschrijving naar de dealer. Eindprijs blijft transparant gerapporteerd.</p>
+          </li>
+          <li>
+            <h3>4. Transport naar Nederland</h3>
+            <p>De auto wordt afgemeld bij het Duitse Kfz-Zulassungsstelle (de <em>Stilllegung</em>) en via export-kentekenplaten of een transportpartner naar Welsum gebracht. Reken op 2-5 dagen. Tijdens transit ontvangt u tussentijdse updates.</p>
+          </li>
+          <li>
+            <h3>5. RDW + BPM + kentekenregistratie</h3>
+            <p>Na aankomst in Welsum starten de Nederlandse formaliteiten: eventuele reconditionering, voorbereiding voor de RDW-keuring, BPM-aangifte via koerslijst, DRZ-taxatie of forfait — wij kiezen per auto de gunstigste methode — en kentekenregistratie. Voor Duitse cars met EU-typegoedkeuring (vrijwel alle BMW/Mercedes/Audi/Porsche vanaf 1996) verloopt de RDW-keuring doorgaans soepel. Doorlooptijd: circa 2-5 weken, afhankelijk van RDW-beschikbaarheid.</p>
+          </li>
+          <li>
+            <h3>6. Aflevering aan huis</h3>
+            <p>Zodra het Nederlandse kenteken er is, plannen we een persoonlijke aflevering bij u thuis of op een gekozen locatie tot 200 kilometer vanaf Welsum. Tijdens de overdracht nemen we de auto, het dashboard en alle papieren met u door — inclusief de Duitse Fahrzeugbrief, het CoC (indien aanwezig) en de complete onderhoudshistorie.</p>
+          </li>
+        </ol>
+        <p>De volledige werkwijze staat in detail beschreven op onze <a href="/werkwijze">werkwijze-pagina</a>.</p>
+      </section>
+
+      <section id="kosten" class="content-section">
+        <h2>Realistische kosten — voorbeeld doorgerekend</h2>
+        <p>Voor een concreet beeld nemen we een veel voorkomende case: een BMW 530i F10 Luxury Line uit 2014, 130.000 kilometer, volledige BMW-onderhoudshistorie, gekocht bij een erkende BMW-dealer in Bayern voor een vraagprijs van € 17.500 (na onderhandeling).</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Kostenpost</th><th>Bedrag</th><th>Toelichting</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Aankoopprijs Duitse dealer</td><td>€ 17.500</td><td>Inclusief Duitse BTW (19%) — al voldaan</td></tr>
+            <tr><td>DEKRA pre-purchase inspectie</td><td>€ 280</td><td>Onafhankelijke technische check vóór bod</td></tr>
+            <tr><td>Transport DE → Welsum</td><td>€ 450</td><td>Auto-transporter, één-op-één, verzekerd</td></tr>
+            <tr><td><strong>Subtotaal vóór NL-belastingen</strong></td><td><strong>€ 18.230</strong></td><td>Geen invoerrechten — EU-binnenmarkt</td></tr>
+            <tr><td>Nederlandse BTW</td><td>€ 0</td><td>Auto kwalificeert als "gebruikt" (&gt;6.000 km én &gt;6 mnd)</td></tr>
+            <tr><td>BPM</td><td>€ 2.150</td><td>2014 benzine 2.0L turbo, leeftijdsafschrijving ~88%, via koerslijst</td></tr>
+            <tr><td>RDW + identificatie + kenteken</td><td>€ 450</td><td>Inclusief APK</td></tr>
+            <tr><td>Reconditionering + transport NL</td><td>€ 350</td><td>Poetsbeurt, eventuele kleine herstellingen</td></tr>
+            <tr><td><strong>Totale landed cost</strong></td><td><strong>€ 21.180</strong></td><td>All-in tot aan uw oprit</td></tr>
+          </tbody>
+        </table>
+        <p class="note"><em>Bovenstaande cijfers zijn een indicatief scenario. Werkelijke kosten variëren met onderhandelingsruimte bij de Duitse dealer, exacte CO₂-uitstoot, BPM-methode (koerslijst / DRZ-taxatie / forfait) en eventuele EU-compliance-aanpassingen. Wij leveren vóór elk bod een onderbouwde landed-cost-prognose per individuele auto. BPM-tarieven worden jaarlijks bijgewerkt door de Belastingdienst.</em></p>
+        <p>Voor een gedetailleerde uitleg van BPM-berekening voor importauto's verwijzen we naar onze toekomstige kennisbank-pagina. Vragen over een specifieke uitvoering kunt u altijd stellen via <a href="/contact">de contactpagina</a>.</p>
+      </section>
+
+      <section id="valkuilen" class="content-section">
+        <h2>Veelgemaakte fouten en hoe je ze voorkomt</h2>
+        <p>Bij particulieren die op eigen houtje importeren of bij minder zorgvuldige tussenpersonen zien we een aantal terugkerende valkuilen:</p>
+        <ul class="pitfall-list">
+          <li><strong>Geen persoonlijke bezichtiging</strong> — een auto kopen op basis van foto's en een telefoongesprek is in deze prijsklasse geen verstandige keuze. Wij rijden voor elke kandidaat naar Duitsland. Het kost een dag; het bespaart soms duizenden euro's aan reparaties achteraf.</li>
+          <li><strong>Geen TÜV-rapport opvragen</strong> — een verlopen of recent gedeelde HU kan wijzen op gebreken die de verkoper liever niet op papier wil. Zonder geldig HU-document bieden wij niet.</li>
+          <li><strong>Kilometerfraude onderschatten</strong> — Duitse occasions zijn historisch gevoelig voor terugzetten van de teller (door brancheorganisaties geschat op circa één op de drie occasions — cijfer wisselt per bron en jaar, en is omstreden). Wij verifiëren km-stand via service-historie, BMW/Mercedes/Audi/Porsche-dealerstempels en onafhankelijke databases. Bij twijfel: walk-away.</li>
+          <li><strong>Aankoop bij particulier zonder garantie</strong> — een aankoop op Kleinanzeigen lijkt aantrekkelijk maar levert geen schriftelijke garantie, geen B2C-bescherming, en weinig juridische grond bij latere gebreken. Wij werken alleen met erkende dealers waar de Duitse consumentenbescherming geldt.</li>
+          <li><strong>BPM onderschatten</strong> — de forfaitaire BPM-tabel werkt nadelig voor jonge, krachtige auto's. Voor V8-uitvoeringen of zware SUV's kan BPM honderden tot duizenden euro's hoger uitvallen dan verwacht. Wij maken vóór elk bod een onderbouwde berekening volgens koerslijst, DRZ-taxatie en forfait, en kiezen de gunstigste route.</li>
+          <li><strong>Aanname dat alles soepel door RDW gaat</strong> — voor Duitse cars met EU-typegoedkeuring klopt dat doorgaans, maar specifieke uitvoeringen, na-market modificaties of ontbrekende CoC-documenten kunnen voor vertraging zorgen. Wij toetsen elke kandidaat vooraf op RDW-haalbaarheid.</li>
+        </ul>
+      </section>
+
+      <section id="wanneer" class="content-section">
+        <h2>Duitsland of Japan — welke route past bij wat u zoekt?</h2>
+        <p>Beide bronmarkten hebben hun eigen sterktes. Duitsland biedt het volledige aanbod binnen onze vier merken, korte doorlooptijd en directe bezichtiging. Japan is de route voor specifieke performance-uitvoeringen, klassiekers en lage-km exemplaren die in Europa zeldzaam zijn geworden — maar vraagt twaalf tot veertien weken doorlooptijd en biedt geen persoonlijke bezichtiging vóór bod.</p>
+        <p>Vuistregel: zoekt u een <strong>moderne daily driver, een gezinsestate, een specifieke uitvoering die in Nederland niet beschikbaar is</strong>, dan is Duitsland de slimmere keuze. Zoekt u een <strong>911 in lage km, een AMG-uitvoering, een W124 Cosworth of een specifieke M-modellen-generatie die in Europa nauwelijks nog te vinden is</strong>, dan loont het de wachttijd van de Japan-route. In het intake-gesprek bepalen we samen welke route past bij uw zoekopdracht — soms is het ook beide tegelijk verkennen.</p>
+        <p>Een gedetailleerde vergelijking en de specifieke Japan-route staat beschreven in onze <a href="/kennisbank/auto-importeren-japan">cornerstone over Japan-import</a> en op de pagina <a href="/bron/japan">Sourcing uit Japan</a>.</p>
+      </section>
+
+      <section id="vragen" class="content-section">
+        <h2>Veelgestelde vragen</h2>
+        <p>Een uitgebreide FAQ met dertien vragen over het Duitsland-traject (BTW, BPM, RDW, TÜV, garantie, kilometerfraude en specifieke procedures) vindt u op onze <a href="/kennisbank/faq-duitsland">FAQ — Auto importeren uit Duitsland</a>. Voor vragen die daar niet in staan: <a href="/contact">neem contact op</a> voor een vrijblijvend intake-gesprek.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Klaar voor uw volgende?</h2>
+        <p>Vertel ons wat u zoekt. Een vrijblijvend intake-gesprek is het begin.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 48px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .step-list { padding-left: 0; list-style: none; counter-reset: step; }
+  .step-list li { padding: 20px 0; border-bottom: 1px solid var(--color-border-soft); }
+  .step-list li:last-child { border-bottom: none; }
+
+  .pitfall-list { padding-left: 24px; }
+  .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .pitfall-list strong { color: var(--color-text-primary); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:nth-child(2) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper); }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
