@@ -1,0 +1,369 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'BPM voor importauto\'s 2026' },
+];
+
+const publishedDate = '2026-05-27';
+const updatedDate = '2026-05-27';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'BPM voor importauto\'s — complete gids 2026',
+  description: 'Hoe BPM werkt bij auto-import. Berekening, drie methoden (forfait, koerslijst, DRZ-taxatie), oldtimer-vrijstelling en concrete voorbeelden voor 2026.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: {
+    '@type': 'Person',
+    name: 'Theo Rolvink',
+    url: 'https://www.rolvinkpremiumcarimports.nl/over',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Rolvink Premium Car Imports',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg',
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bpm-importauto-2026',
+  },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="BPM voor importauto's — complete gids 2026 | Rolvink"
+  description="Hoe BPM werkt bij auto-import uit Japan en Duitsland. Drie berekeningsmethoden, tarieven, oldtimer-vrijstelling en concrete voorbeelden voor 2026."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Cornerstone — Belasting</div>
+        <h1>BPM voor importauto's — <span class="accent">complete gids 2026</span>.</h1>
+        <p class="lead">Hoe BPM wordt berekend, welke drie methoden u mag kiezen, welke vrijstellingen er zijn, en wat dit concreet betekent voor de eindprijs van een Duitse premium-import. Met voorbeeldberekeningen voor één auto via alle drie methoden, zodat de keuze tastbaar wordt.</p>
+        <div class="article-meta">
+          <span>Gepubliceerd: 27 mei 2026</span>
+          <span>·</span>
+          <span>Leestijd: ongeveer 9 minuten</span>
+        </div>
+      </header>
+
+      <div class="disclaimer">
+        <strong>Belangrijk vooraf.</strong> BPM-regelgeving wijzigt regelmatig (jaarlijks via het Belastingplan, soms tussentijds). Tarieven en methoden in dit artikel zijn een uitleg van het systeem zoals dat in 2026 geldt. Voorbeeldbedragen zijn indicatief en wijken in de praktijk per voertuig af op basis van exacte CO₂, kilometerstand, conditie en gekozen taxatiemethode. Controleer voor uw specifieke geval altijd de actuele tarieven bij de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a> of vraag ons om een onderbouwde prognose vóór bod. Dit artikel is geen fiscaal advies.
+      </div>
+
+      <nav class="toc">
+        <h2>In dit artikel</h2>
+        <ol>
+          <li><a href="#wat-is-bpm">Wat is BPM precies?</a></li>
+          <li><a href="#hoe-berekend">Hoe wordt BPM berekend?</a></li>
+          <li><a href="#drie-methoden">Drie methoden: forfait, koerslijst, DRZ-taxatie</a></li>
+          <li><a href="#vrijstellingen">Vrijstellingen en verlaagde tarieven</a></li>
+          <li><a href="#voorbeeld">Een concreet voorbeeld: dezelfde auto, drie methoden</a></li>
+          <li><a href="#extra-voorbeelden">Twee extra voorbeelden — 996 en M5 F10</a></li>
+          <li><a href="#fouten">Veelgemaakte fouten bij BPM-aangifte</a></li>
+          <li><a href="#werkwijze">Hoe wij BPM voor u inschatten</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-is-bpm" class="content-section">
+        <h2>Wat is BPM precies?</h2>
+        <p>BPM staat voor <strong>Belasting van Personenauto's en Motorrijwielen</strong>. Het is een eenmalige Nederlandse belasting die wordt geheven bij de eerste kentekenregistratie van een personenauto in het Nederlandse register. Wie een auto importeert — uit Duitsland, Japan, België of elders — betaalt BPM voordat het kenteken wordt afgegeven.</p>
+        <p>Naast aankoopprijs, BTW (voor "nieuw" gekwalificeerde auto's) en transportkosten is BPM voor importauto's vaak één van de grootste posten op de eindafrekening. Voor moderne premium-modellen ligt de uitkomst indicatief tussen <strong>€1.500 en €4.000</strong>, maar zware V8-uitvoeringen of jonge auto's kunnen significant hoger uitkomen. Voor oldtimers van 40 jaar of ouder geldt vaak volledige vrijstelling.</p>
+        <p>Een onderbouwde BPM-prognose vóór bod is daarmee essentieel. Wie 's avonds biedt op een Japanse veiling zonder BPM-berekening, riskeert dat een geslaagd bod alsnog onrendabel uitpakt.</p>
+      </section>
+
+      <section id="hoe-berekend" class="content-section">
+        <h2>Hoe wordt BPM berekend?</h2>
+        <p>De berekening volgt drie stappen. Eerst wordt de <strong>bruto BPM</strong> bepaald op basis van CO₂-uitstoot. Vervolgens wordt een <strong>afschrijving</strong> toegepast op basis van de leeftijd van de auto (oudere auto's krijgen lagere BPM). De gekozen <strong>taxatiemethode</strong> bepaalt vervolgens hoe de eindwaarde wordt vastgesteld.</p>
+
+        <h3>Stap 1 — Bruto BPM via CO₂-staffel</h3>
+        <p>De Nederlandse BPM wordt sinds een aantal jaren primair berekend op basis van CO₂-uitstoot in gram per kilometer (gemeten volgens WLTP-protocol voor nieuwere auto's, NEDC voor oudere). Hoe hoger de uitstoot, hoe steiler het tarief loopt:</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>CO₂-uitstoot (g/km)</th><th>Tarief per gram (indicatief 2026)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0 — 79</td><td>€ 2</td></tr>
+            <tr><td>80 — 104</td><td>€ 72</td></tr>
+            <tr><td>105 — 130</td><td>€ 120</td></tr>
+            <tr><td>131 — 156</td><td>€ 186</td></tr>
+            <tr><td>157 — en hoger</td><td>€ 556</td></tr>
+          </tbody>
+        </table>
+        <p class="note"><em>Indicatieve staffel gebaseerd op het systeem zoals gehanteerd in 2026 — exacte grenswaarden en tarieven worden jaarlijks via het Belastingplan herzien. Raadpleeg de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a> voor de actuele cijfers.</em></p>
+        <p>Het tarief is progressief — een auto met 175 g/km valt grotendeels in de hoogste staffel en levert daardoor een veel hogere bruto BPM op dan een auto met 110 g/km. Dat verklaart waarom V6- en V8-uitvoeringen substantieel duurder zijn dan een 4-cilinder turbo met dezelfde catalogusprijs.</p>
+
+        <h3>Stap 2 — Leeftijdsafschrijving</h3>
+        <p>De bruto BPM wordt vervolgens verminderd op basis van de leeftijd van de auto. Hoe ouder, hoe meer er wordt afgeschreven:</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Leeftijd</th><th>Afschrijving indicatief</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0 — 1 jaar</td><td>circa 0 — 24%</td></tr>
+            <tr><td>1 — 3 jaar</td><td>circa 24 — 42%</td></tr>
+            <tr><td>3 — 5 jaar</td><td>circa 42 — 56%</td></tr>
+            <tr><td>5 — 9 jaar</td><td>circa 56 — 75%</td></tr>
+            <tr><td>9 — 15 jaar</td><td>circa 75 — 90%</td></tr>
+            <tr><td>15+ jaar</td><td>circa 90% en hoger</td></tr>
+          </tbody>
+        </table>
+        <p>Een auto van twaalf jaar oud betaalt typisch nog maar ~10% van de oorspronkelijke bruto BPM. Vandaar dat youngtimers (15-25 jaar) een aantrekkelijke import-categorie kunnen zijn, en oldtimers (>25 jaar) helemaal.</p>
+
+        <h3>Stap 3 — Eindwaarde via gekozen methode</h3>
+        <p>De vraag is hoe de eindwaarde van uw specifieke auto wordt vastgesteld. Hier komen de <strong>drie methoden</strong> in beeld die u mag kiezen — en daar zit voor importauto's vaak honderden tot duizenden euro's verschil in.</p>
+      </section>
+
+      <section id="drie-methoden" class="content-section">
+        <h2>Drie methoden: forfait, koerslijst, DRZ-taxatie</h2>
+        <p>Sinds wetswijzigingen in de afgelopen jaren mag de aangever bij BPM-aangifte zelf kiezen welke van drie methoden hij toepast. Elke methode levert een andere eindwaarde op. De Belastingdienst accepteert alle drie, mits correct onderbouwd.</p>
+
+        <h3>Methode 1 — Forfaitaire afschrijving</h3>
+        <p>De simpelste route. U gebruikt de wettelijke afschrijvingstabel (zie stap 2 hierboven) op basis van leeftijd. Geen taxatie, geen documenten — gewoon leeftijd × tarief. <strong>Voordeel:</strong> snel en gratis. <strong>Nadeel:</strong> de tabel rekent met een standaard-afschrijving die niet altijd in uw voordeel uitpakt — voor zeldzame of waardevaste modellen ligt de werkelijke afschrijving vaak hoger dan de tabel, en betaalt u dus relatief méér BPM dan strikt nodig.</p>
+
+        <h3>Methode 2 — Koerslijst (X-Ray of Eurotax/Autotelex)</h3>
+        <p>U baseert de eindwaarde op een commerciële koerslijst zoals <strong>X-Ray</strong> of <strong>Eurotax</strong> (ook bekend als Autotelex). Deze koerslijsten geven per model, uitvoering en bouwjaar een handelswaarde gebaseerd op de actuele tweedehandsmarkt. De Belastingdienst accepteert deze waardes als geldige onderbouwing.</p>
+        <p><strong>Voordeel:</strong> vaak voordeligst voor jonge premium-auto's met snelle waardedaling (denk aan 2-5 jaar oude AMG of M-uitvoeringen). De handelswaarde uit de koerslijst ligt vaak onder wat de forfaitaire tabel zou suggereren, met lagere BPM tot gevolg. <strong>Nadeel:</strong> u moet de koerslijst-rapportage opvragen (kosten typisch €30-€80) en correct uitlezen — niet alle uitvoeringen staan even precies in de lijst.</p>
+
+        <h3>Methode 3 — DRZ-taxatie</h3>
+        <p>U laat een onafhankelijke taxateur (erkend door de <em>Dienst Roerende Zaken</em>) een fysieke taxatie maken. De taxateur bekijkt de auto, beoordeelt conditie, kilometerstand, originaliteit, en stelt een marktwaarde vast. Die waarde wordt gebruikt als basis voor de eindwaarde.</p>
+        <p><strong>Voordeel:</strong> bij zeldzame uitvoeringen, beschadigde auto's of voertuigen met afwijkende historie kan een DRZ-taxatie significant lager uitkomen dan forfait of koerslijst — en dus tot duizenden euro's bespaarde BPM leiden. <strong>Nadeel:</strong> kost €200-€400, duurt 5-10 werkdagen, en de uitkomst is per definitie onzeker tot het taxatierapport binnen is.</p>
+
+        <p><strong>De praktijk:</strong> voor een doorsnee jonge premium-auto is de <em>koerslijst-methode</em> vaak het gunstigste. Voor een twaalf jaar oude auto in nette staat is <em>forfait</em> meestal voldoende. Voor klassiekers, schadeauto's of zeer zeldzame uitvoeringen loont een <em>DRZ-taxatie</em> de moeite. Wij rekenen voor elke kandidaatauto alle drie methoden door en kiezen de gunstigste.</p>
+      </section>
+
+      <section id="vrijstellingen" class="content-section">
+        <h2>Vrijstellingen en verlaagde tarieven</h2>
+
+        <h3>Volledig elektrische auto's</h3>
+        <p>Volledig elektrische voertuigen zijn op het moment van schrijven nog BPM-vrij. Het kabinet heeft aangekondigd dat dit op termijn verandert (gefaseerde invoering van een gewichtsgebaseerde BPM voor EV's vanaf 2026/2027), dus controleer de actuele regeling vóór bod. Voor het importeren van een Porsche Taycan of BMW i5 maakt dit substantieel verschil.</p>
+
+        <h3>Oldtimer- en youngtimerregeling</h3>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Leeftijd</th><th>BPM-regeling</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Onder 25 jaar</td><td>Volledige BPM volgens normale berekening</td></tr>
+            <tr><td>25 — 40 jaar</td><td>Sterk verlaagd via maximale forfaitaire afschrijving</td></tr>
+            <tr><td>40 jaar en ouder</td><td>Volledige vrijstelling (mits aan oldtimerregeling wordt voldaan)</td></tr>
+          </tbody>
+        </table>
+        <p>Een Porsche 993 uit 1996 valt vanaf 2026 net binnen de 40-jaarsgrens nog niet, maar zit wel in het sterk verlaagde regime. Een Mercedes R107 SL uit 1985 is volledig vrijgesteld. Voor klassiekers vlak onder de 25-jaarsgrens loont het soms om de aankoop een paar maanden uit te stellen — €2.000 BPM-besparing voor een half jaar wachten is geen uitzondering.</p>
+      </section>
+
+      <section id="voorbeeld" class="content-section">
+        <h2>Een concreet voorbeeld: dezelfde auto, drie methoden</h2>
+        <p>Om de keuze tussen de drie methoden tastbaar te maken: een <strong>Mercedes E300 W212 4MATIC Avantgarde, bouwjaar 2014, V6 benzine, 175 g/km CO₂, 130.000 km, conditie nett</strong>. Stel dat u deze auto importeert uit Duitsland of Japan en BPM-aangifte moet doen in 2026.</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Methode</th><th>Indicatieve BPM</th><th>Kosten methode</th><th>Wanneer gunstig</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Forfaitaire afschrijving</td>
+              <td>€ 1.450</td>
+              <td>€ 0</td>
+              <td>Standaard, snelle aanvraag</td>
+            </tr>
+            <tr>
+              <td>Koerslijst (X-Ray)</td>
+              <td>€ 1.150</td>
+              <td>€ 60</td>
+              <td>Jonge premium met snelle waardedaling</td>
+            </tr>
+            <tr>
+              <td>DRZ-taxatie</td>
+              <td>€ 1.250</td>
+              <td>€ 280</td>
+              <td>Bij afwijkende conditie of zeldzame uitvoering</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note"><em>Bovenstaande bedragen zijn uitsluitend illustratief om de relatieve verhouding tussen de drie methoden te laten zien. Werkelijke uitkomsten kunnen per voertuig €200 tot €1.500 afwijken op basis van exacte CO₂-meting, kilometerstand, geconstateerde conditie en het jaar van aangifte. Wij maken vóór elk bod een onderbouwde berekening per individuele auto.</em></p>
+        <p>In dit voorbeeld is de koerslijst-methode het gunstigst — netto €240 voordeel ten opzichte van forfait, na aftrek van de koerslijst-kosten. De DRZ-taxatie zou alleen lonen bij een afwijkende conditie of een uitvoering die in de koerslijst onderbedeeld staat. Voor een doorsnee W212 is forfait of koerslijst de juiste keuze.</p>
+      </section>
+
+      <section id="extra-voorbeelden" class="content-section">
+        <h2>Twee extra voorbeelden — 996 en M5 F10</h2>
+
+        <h3>Porsche 911 996 Carrera S, bouwjaar 2003</h3>
+        <p>Klassieker-segment. CO₂ rond 262 g/km, leeftijd in 2026 is 23 jaar — net buiten de 25-jaarsgrens van het sterk verlaagde regime. De forfaitaire afschrijving loopt al richting 90%, waardoor de bruto BPM grotendeels wegvalt. Voor deze auto verwachten we indicatief <strong>€700 — €1.100 BPM</strong>, afhankelijk van methode. Wachten tot 2028 (bouwjaar +25) levert volledige vrijstelling-light op en kan honderden euro's schelen — een afweging die we per geval maken.</p>
+
+        <h3>BMW M5 F10 Competition, bouwjaar 2014</h3>
+        <p>Het andere uiterste: V8 biturbo met 232 g/km CO₂, hoge cataloguswaarde (€128.000+), leeftijd 12 jaar. De bruto BPM is fors door de hoge CO₂-staffel; na 88% afschrijving blijft toch een substantieel bedrag staan. Indicatief <strong>€2.000 — €2.500 BPM</strong>, met de koerslijst-methode meestal het voordeligst omdat een M5 F10 een steile waardedaling kent. Voor liefhebbers wel: dit is exact het soort auto waarbij de Japan-route een rijker aanbod heeft met lagere km.</p>
+      </section>
+
+      <section id="fouten" class="content-section">
+        <h2>Veelgemaakte fouten bij BPM-aangifte</h2>
+        <ul class="pitfall-list">
+          <li><strong>CO₂ uit het verkooppakket halen in plaats van het officiële RDW-bestand</strong> — verkoopfolders ronden vaak naar beneden af, of vermelden de zuinigste variant. Voor BPM telt het officiële CO₂-cijfer van die specifieke uitvoering uit fabrieksdocumentatie of het RDW-voertuigbestand.</li>
+          <li><strong>Forfaitaire tabel gebruiken voor een uitvoering met snellere waardedaling</strong> — voor jonge premium-modellen ligt de werkelijke handelswaarde vaak onder de tabel; de koerslijst is dan voordeliger.</li>
+          <li><strong>Verkeerde brandstofcategorie aangeven</strong> — diesel, benzine, hybride en plug-in worden anders behandeld. Een hybride-correctie achteraf is administratief omslachtig.</li>
+          <li><strong>BPM-aangifte ná kentekening doen</strong> — de aangifte moet altijd vóór toelating tot het kenteken. Andersom is de auto strikt genomen onverzekerbaar en onbruikbaar op de weg.</li>
+          <li><strong>Vergeten te kijken naar youngtimer/oldtimer-grens</strong> — een auto van 24 jaar en 10 maanden valt nog onder volledige BPM; twee maanden wachten kan substantieel schelen.</li>
+          <li><strong>Geen buffer aanhouden</strong> — de Belastingdienst kan aanvullende informatie opvragen of een lagere eindwaarde betwisten. Reken vooraf op +10% reserve.</li>
+        </ul>
+      </section>
+
+      <section id="werkwijze" class="content-section">
+        <h2>Hoe wij BPM voor u inschatten</h2>
+        <p>Bij elke kandidaatauto maken wij vóór bod een onderbouwde BPM-prognose volgens een vaste werkwijze:</p>
+        <ol class="step-list">
+          <li>
+            <h3>1. CO₂-uitstoot opvragen uit officiële fabrieksdocumentatie</h3>
+            <p>Niet uit het verkooppakket of de Duitse Fahrzeugschein-samenvatting, maar uit de RDW-database of de fabrieksspecificatie voor die exacte uitvoering. Dit voorkomt verrassingen achteraf.</p>
+          </li>
+          <li>
+            <h3>2. Drie methoden parallel doorrekenen</h3>
+            <p>We berekenen forfait, koerslijst (via X-Ray of Eurotax) en bij zeldzame uitvoeringen een schatting van een DRZ-taxatie. De gunstigste wordt aanbevolen, met onderbouwing waarom.</p>
+          </li>
+          <li>
+            <h3>3. Conservatieve buffer toevoegen</h3>
+            <p>Standaard +10% reserve op de uitkomst om te bufferen tegen onverwachte Belastingdienst-correcties. Voor risicovollere aanvragen (klassiekers, atypische uitvoeringen) gaan we tot +15%.</p>
+          </li>
+          <li>
+            <h3>4. Voorlegging vóór bod</h3>
+            <p>U ontvangt de BPM-prognose samen met de landed-cost-berekening, voordat we überhaupt bieden. Geen verrassingen na de hammer-down.</p>
+          </li>
+        </ol>
+        <p>Wij garanderen geen exacte uitkomst — BPM blijft maatwerk en de Belastingdienst heeft het laatste woord. Wel garanderen we een zorgvuldig onderbouwde prognose vóór elke bod-beslissing. De volledige werkwijze rondom BPM en RDW staat beschreven in <a href="/werkwijze">onze werkwijze, stap 6</a>.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>BPM-berekening voor een specifieke auto?</h2>
+        <p>Stuur ons het merk, model, bouwjaar en CO₂-cijfer — wij maken een onderbouwde prognose volgens alle drie methoden.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/faq-japan">FAQ — Auto importeren uit Japan</a></li>
+          <li><a href="/kennisbank/faq-duitsland">FAQ — Auto importeren uit Duitsland</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer {
+    max-width: 760px;
+    padding: 18px 22px;
+    margin-bottom: 48px;
+    background: var(--color-cream-warm);
+    border-left: 3px solid var(--color-copper);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .disclaimer a { color: var(--color-copper); text-decoration: underline; }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .step-list { padding-left: 0; list-style: none; counter-reset: step; }
+  .step-list li { padding: 20px 0; border-bottom: 1px solid var(--color-border-soft); }
+  .step-list li:last-child { border-bottom: none; }
+
+  .pitfall-list { padding-left: 24px; }
+  .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .pitfall-list strong { color: var(--color-text-primary); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:nth-child(2),
+  .cost-table tbody tr td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cost-table tbody tr td:last-child { text-align: left; white-space: normal; }
+
+  .note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper); }
+  .note a { color: var(--color-copper); text-decoration: underline; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related {
+    max-width: 760px;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border-medium);
+  }
+  .related h3 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 16px;
+  }
+  .related ul {
+    list-style: none;
+    padding: 0;
+  }
+  .related li {
+    padding: 8px 0;
+  }
+  .related a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
