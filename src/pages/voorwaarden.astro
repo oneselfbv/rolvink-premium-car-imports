@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Voorwaarden' },
+];
+
+const lastUpdated = '27 mei 2026';
+---
+
+<BaseLayout
+  title="Algemene voorwaarden — Rolvink Premium Car Imports"
+  description="Algemene voorwaarden voor sourcing- en importopdrachten via Rolvink Premium Car Imports."
+>
+  <section class="legal-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">Voorwaarden</div>
+      <h1>Algemene voorwaarden</h1>
+      <p class="lead">Deze voorwaarden zijn van toepassing op alle sourcing- en importopdrachten van Rolvink Premium Car Imports. Bij het verstrekken van een opdracht gaat u akkoord met onderstaande voorwaarden.</p>
+      <p class="updated">Laatst bijgewerkt: {lastUpdated}</p>
+
+      <div class="content">
+        <h2>1. Definities</h2>
+        <p><strong>Opdrachtnemer:</strong> Rolvink Premium Car Imports, gevestigd te Welsum.<br/>
+        <strong>Opdrachtgever:</strong> de natuurlijke persoon of rechtspersoon die een sourcing-opdracht verstrekt.<br/>
+        <strong>Opdracht:</strong> de schriftelijke opdracht tot het zoeken, beoordelen en eventueel importeren van een specifiek voertuig of type voertuig.</p>
+
+        <h2>2. Aanbod en aanvaarding</h2>
+        <p>Een intake-gesprek is altijd vrijblijvend. Een opdracht komt pas tot stand na schriftelijke bevestiging door beide partijen, waarin het zoekprofiel en de tariefstructuur staan vastgelegd.</p>
+
+        <h2>3. Sourcing-traject</h2>
+        <p>Opdrachtnemer verplicht zich tot een inspanningsverbintenis: gericht zoeken naar voertuigen die binnen het overeengekomen profiel vallen. Er kan geen garantie worden gegeven over de termijn waarbinnen een geschikt exemplaar wordt gevonden.</p>
+
+        <h2>4. Tarieven en betaling</h2>
+        <p>Tarieven worden per opdracht vooraf afgesproken en bestaan uit een sourcing-fee, transport- en importkosten, BPM, RDW-kosten en eventuele reconditionering. Alle bedragen zijn inclusief btw tenzij anders vermeld.</p>
+        <p>Betaling vindt plaats in twee termijnen: aanbetaling bij hammerprijs/aankoop, eindafrekening bij aflevering. Betaaltermijn is 7 dagen na factuurdatum.</p>
+
+        <h2>5. Aankoop en eigendomsovergang</h2>
+        <p>De auto wordt op naam van opdrachtgever ingeklaard en geregistreerd. Eigendomsovergang vindt plaats op moment van aflevering en volledige betaling.</p>
+
+        <h2>6. Risico tijdens transport</h2>
+        <p>Internationale zee- en wegtransport vindt plaats onder verzekering van de transporteur. Opdrachtnemer treedt op als coördinator maar is niet aansprakelijk voor schade ontstaan tijdens transport, behoudens grove nalatigheid.</p>
+
+        <h2>7. Conditie en garantie</h2>
+        <p>Voertuigen worden geleverd in de staat zoals beschreven in het veilingsheet of dealer-rapport, met de duiding zoals besproken vóór de aankoopbeslissing. Opdrachtnemer geeft geen aanvullende garantie op gebruikte auto's; eventuele fabrieks- of dealergarantie blijft van toepassing waar geldig.</p>
+
+        <h2>8. Ontbinding</h2>
+        <p>Opdrachtgever kan een opdracht kosteloos annuleren tot het moment dat een hammerprijs is geboden op een specifiek voertuig. Na hammerprijs is de aankoop bindend en kunnen reeds gemaakte kosten worden doorberekend.</p>
+
+        <h2>9. Aansprakelijkheid</h2>
+        <p>De aansprakelijkheid van opdrachtnemer is beperkt tot het bedrag van de sourcing-fee, behoudens opzet of grove nalatigheid. Opdrachtnemer is niet aansprakelijk voor indirecte schade, gevolgschade of gederfde winst.</p>
+
+        <h2>10. Toepasselijk recht</h2>
+        <p>Op deze voorwaarden is Nederlands recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechter in het arrondissement Overijssel.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page { padding: 64px 0 96px; }
+  .legal-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.1; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 16px; line-height: 1.6; }
+  .updated { font-size: 13px; color: var(--color-text-tertiary); margin-bottom: 48px; }
+  .content { max-width: 720px; }
+  .content h2 { font-size: 22px; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
+  .content p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content a { color: var(--color-copper); text-decoration: underline; }
+  .content strong { color: var(--color-text-primary); font-weight: 600; }
+
+  @media (max-width: 768px) {
+    .legal-page h1 { font-size: 36px; }
+  }
+</style>

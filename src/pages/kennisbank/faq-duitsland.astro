@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'FAQ — Auto importeren uit Duitsland' },
+];
+
+const faqs = [
+  {
+    q: 'Hoe lang duurt het om een auto uit Duitsland te importeren?',
+    a: 'De Duitsland-route is aanzienlijk sneller dan Japan: reken op 2 tot 4 weken vanaf koopovereenkomst tot Nederlandse kentekenplaat. Transport binnen Europa duurt 2-5 dagen, RDW-keuring en BPM-aangifte 2-3 weken inclusief eventuele aanpassingen voor EU-compliance.',
+  },
+  {
+    q: 'Hoeveel extra kost een auto importeren uit Duitsland?',
+    a: 'Bovenop de Duitse vraagprijs komen: transport naar Nederland (€300-500), BPM (variabel, vaak €1.500-4.000 afhankelijk van CO₂ en leeftijd), RDW-keuring + kentekenregistratie (~€450), en eventueel reconditionering. Geen invoerrechten of extra btw — dit is intracommunautair verkeer binnen de EU.',
+  },
+  {
+    q: 'Hoe weet ik of de Duitse onderhoudshistorie compleet is?',
+    a: 'Wij eisen volledige onderhoudshistorie als koopvoorwaarde: gestempeld onderhoudsboekje of digitale records (DSB/iSB voor Mercedes, BMW Online voor BMW), TÜV-rapporten van de afgelopen 4-6 jaar, en bij voorkeur een Carfax/Autocheck-rapport. Bij ontbrekende historie loopt u doe-het-zelf-import niet aan, wij ook niet.',
+  },
+  {
+    q: 'Is BPM in Nederland hoger voor Duitse imports?',
+    a: 'Nee, het BPM-tarief is identiek voor alle imports — of de auto nu uit Duitsland, Japan of een Nederlandse dealer komt. De grondslag is CO₂-emissie en leeftijd; jongere of CO₂-rijke auto\'s kosten meer BPM. Voor jong-gebruikte auto\'s onder 5 jaar kan BPM een fors deel van de import-economics uitmaken.',
+  },
+  {
+    q: 'Moet ik btw betalen over een Duitse auto?',
+    a: 'Als particulier koopt u inclusief Duitse btw (19%), die niet teruggevraagd kan worden. Er wordt geen Nederlandse btw bovenop geheven; dit is een intracommunautaire transactie zonder dubbele btw. Voor bedrijven is een btw-shifted aankoop met margeregeling soms mogelijk; dit hangt af van de Duitse verkoper.',
+  },
+  {
+    q: 'Kan ik de auto in Duitsland zelf bezichtigen vóór de koop?',
+    a: 'Absoluut, dat raden we sterk aan voor jongere/duurdere auto\'s. Wij rijden mee of laten een lokale TÜV-taxateur de auto inspecteren. De kosten van een professioneel inspectierapport (€150-300) verdienen zich vaak terug in onderhandelingsruimte of het voorkomen van een verkeerde aankoop.',
+  },
+  {
+    q: 'Wat is het verschil tussen TÜV en RDW?',
+    a: 'TÜV is de Duitse periodieke keuringsinstantie, RDW de Nederlandse. Een geldige TÜV uit Duitsland wordt niet automatisch erkend door RDW: na import moet de auto altijd door RDW gekeurd worden voor een Nederlands kenteken. Een recente TÜV is wel een goed signaal van technische conditie.',
+  },
+  {
+    q: 'Welke documenten heb ik nodig om te importeren?',
+    a: 'Zulassungsbescheinigung Teil I en II (kentekenbewijs), aankoopfactuur, COC-verklaring (Certificate of Conformity, bewijst Europese typegoedkeuring), TÜV-rapport en onderhoudshistorie. Als de COC ontbreekt is RDW-keuring duurder en duurt langer.',
+  },
+  {
+    q: 'Wat zijn de typische marges op een Duitse import?',
+    a: 'Voor handelaars liggen marges op de Duitsland-route doorgaans tussen 14-18% bruto, soms 20% bij goede inkoop. Voor particulieren die zelf importeren is de besparing ten opzichte van NL-prijs typisch €1.500-4.000 per auto, afhankelijk van model en hoeveel werk u zelf doet versus uitbesteedt.',
+  },
+  {
+    q: 'Welke modellen zijn typisch goedkoper in Duitsland?',
+    a: 'Vooral courante Duitse premium: BMW 5/7-Serie, Mercedes E-Klasse/S-Klasse, Audi A6/A8 en Porsche Cayenne. Het ruime Duitse aanbod drukt prijzen, terwijl het Nederlandse aanbod beperkt is en hoger geprijsd. AMG-uitvoeringen, M-Sport en specifieke optie-pakketten zijn vaak alleen in Duitsland in volume te vinden.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="FAQ — Auto importeren uit Duitsland | Rolvink Premium Car Imports"
+  description="Veelgestelde vragen over auto importeren uit Duitsland: doorlooptijd, kosten, BPM, RDW, TÜV, btw en typische marges."
+>
+  <section class="faq-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">FAQ</div>
+      <h1>Auto importeren <span class="accent">uit Duitsland</span>.</h1>
+      <p class="lead">De meest gestelde vragen over het Duitsland-traject — doorlooptijd, kosten, RDW, btw en marges. Helder en eerlijk beantwoord.</p>
+
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary><span>{f.q}</span><span class="toggle" aria-hidden="true">+</span></summary>
+            <div class="faq-answer"><p>{f.a}</p></div>
+          </details>
+        ))}
+      </div>
+
+      <div class="page-cta">
+        <a href="/contact" class="page-cta-btn">
+          Geen antwoord op uw vraag? Plan een gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<style>
+  .faq-page { padding: 64px 0 96px; }
+  .faq-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 56px; line-height: 1.6; }
+  .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--color-border-medium); margin-bottom: 56px; }
+  .faq-item { background: var(--color-white); }
+  .faq-item summary { padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 16px; font-weight: 500; color: var(--color-text-primary); list-style: none; gap: 24px; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item .toggle { color: var(--color-copper); font-size: 22px; font-weight: 400; line-height: 1; transition: transform 0.2s; }
+  .faq-item[open] .toggle { transform: rotate(45deg); }
+  .faq-answer { padding: 0 24px 22px; }
+  .faq-answer p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; max-width: 720px; }
+
+  .page-cta { padding: 36px 28px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .faq-page h1 { font-size: 36px; }
+    .faq-item summary { font-size: 15px; padding: 18px 20px; }
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Selectie' },
+];
+
+const wel = [
+  { title: 'BMW', body: '5-Serie F10/G30, 6-Serie F12/F13, 7-Serie, M-Performance (M3/M5), X-Series (X3/X5/X6). Voorkeur voor benzine 6-cilinder en V8, optioneel xDrive.' },
+  { title: 'Mercedes-Benz', body: 'E-Klasse W211/W212/W213 (sedan + estate), S-Klasse W221/W222, CLS W219/W218, SL R230/R231, AMG-uitvoeringen, G-Klasse op aanvraag.' },
+  { title: 'Audi', body: 'A6/A7 C7/C8, A8, RS-uitvoeringen, Q7. Voorkeur voor quattro-uitvoeringen met volledige onderhoudshistorie.' },
+  { title: 'Porsche', body: '911 (996/997/991/992), Cayman/Boxster (987/981/718), Cayenne en Macan in S- en Turbo-uitvoering. Klassiek 993 op aanvraag.' },
+];
+
+const niet = [
+  { title: 'Geen accident-historie', body: 'R-, RA- of XX-codes op het Japanse veiling-sheet of accident-history op een Duits TÜV-rapport zijn een directe afwijzing.' },
+  { title: 'Geen grade onder 4', body: 'Op de Japanse 1-5 conditieschaal accepteren wij uitsluitend 4, 4.5 of 5. Onder die grens komt geen auto in ons aanbod.' },
+  { title: 'Geen onbekende historie', body: 'Geen onderhoudsboekje, geen complete service-records, geen herleidbare eigenarengeschiedenis — wij gaan niet bieden.' },
+  { title: 'Geen volume-segmenten', body: 'A-Klasse, 1-Serie, A3, kei-cars, MPV\'s en standaard-diesels vallen buiten onze focus. Daar zijn andere specialisten beter in.' },
+];
+---
+
+<BaseLayout
+  title="Selectie — Wat wij sourcen | Rolvink Premium Car Imports"
+  description="Welke Duitse premium-auto's wij wel en niet sourcen. BMW, Mercedes-Benz, Audi, Porsche. Strikte criteria op conditie, historie en uitvoering."
+>
+  <section class="selectie-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">Selectie</div>
+      <h1>Onze <span class="accent">selectiecriteria</span>.</h1>
+      <p class="lead">Wij beperken ons bewust tot vier merken en strikte kwaliteitseisen. Hieronder transparant wat we wél en niet sourcen — zodat u snel weet of we een match zijn.</p>
+
+      <h2>Wat wij wél sourcen</h2>
+      <div class="grid">
+        {wel.map((item) => (
+          <div class="card card-wel">
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 style="margin-top: 72px;">Waar wij categorisch nee tegen zeggen</h2>
+      <div class="grid">
+        {niet.map((item) => (
+          <div class="card card-niet">
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="page-cta">
+        <a href="/contact" class="page-cta-btn">
+          Bespreek uw zoekopdracht
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Vrijblijvend intake-gesprek — binnen 24 uur reactie.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .selectie-page { padding: 64px 0 96px; }
+  .selectie-page h1 { font-size: 64px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .selectie-page h2 { font-size: 28px; font-weight: 600; margin-bottom: 28px; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 64px; line-height: 1.6; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card { background: var(--color-white); padding: 28px 28px; border-left: 3px solid var(--color-copper); }
+  .card-niet { border-left-color: var(--color-text-tertiary); }
+  .card h3 { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+
+  .page-cta { margin-top: 64px; padding: 48px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 13px; color: rgba(245, 241, 234, 0.7); }
+
+  @media (max-width: 768px) {
+    .selectie-page h1 { font-size: 40px; }
+    .grid { grid-template-columns: 1fr; }
+    .page-cta { padding: 36px 24px; }
+  }
+</style>
