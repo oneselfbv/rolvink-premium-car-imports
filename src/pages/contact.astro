@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+---
+
+<BaseLayout
+  title="Contact — Rolvink Premium Car Imports"
+  description="Neem direct contact op via WhatsApp of e-mail voor een vrijblijvend intake-gesprek."
+>
+  <section class="contact-page">
+    <div class="container">
+      <div class="section-eyebrow">Contact</div>
+      <h1>Een gesprek begint hier.</h1>
+      <p class="lead">Vrijblijvend intake-gesprek over wat u zoekt, hoe wij werken, en wat realistisch is qua tijd en kosten. Geen verkoopdruk — gewoon een rustig gesprek.</p>
+
+      <div class="contact-grid">
+        <div class="contact-block">
+          <h3>WhatsApp</h3>
+          <p>Snelste manier om in contact te komen. Stuur uw vraag, ik reageer binnen 24 uur.</p>
+          <WhatsAppButton label="Begin gesprek" />
+        </div>
+
+        <div class="contact-block">
+          <h3>E-mail</h3>
+          <p>Voor uitgebreide vragen of bijgevoegde documenten.</p>
+          <a href="mailto:contact@rolvinkpremiumcarimports.nl" class="cta">E-mail Theo<span class="arrow">→</span></a>
+        </div>
+
+        <div class="contact-block">
+          <h3>Bezoek</h3>
+          <p>Op afspraak in Welsum (gemeente Olst-Wijhe). Reserveer minimaal 48 uur vooruit.</p>
+          <span style="font-size: 14px; color: var(--color-text-tertiary);">Adres op afspraak gedeeld</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-page { padding: 80px 0 80px; }
+  .contact-page h1 { font-size: 64px; font-weight: 600; margin-bottom: 24px; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 64px; line-height: 1.6; }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .contact-block { background: var(--color-white); padding: 40px 32px; border-left: 3px solid var(--color-copper); }
+  .contact-block h3 { font-size: 22px; margin-bottom: 12px; font-weight: 600; }
+  .contact-block p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 24px; }
+
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-page h1 { font-size: 40px; }
+  }
+</style>

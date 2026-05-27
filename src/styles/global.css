@@ -1,0 +1,237 @@
+/* Rolvink Premium Car Imports — Design System
+   Charcoal #2A2A2A · Burnt copper #B87333 · Cream #F5F1EA
+   Cinzel (serif display) · Inter Tight (sans display) · Inter (body) */
+
+:root {
+  /* Colors */
+  --color-charcoal: #2A2A2A;
+  --color-charcoal-dark: #1F1F1F;
+  --color-copper: #B87333;
+  --color-copper-dark: #6B5A3A;
+  --color-cream: #F5F1EA;
+  --color-cream-warm: #EFE9DD;
+  --color-white: #FFFFFF;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  --color-text-tertiary: #6B6B6B;
+  --color-border-soft: rgba(0, 0, 0, 0.08);
+  --color-border-medium: rgba(0, 0, 0, 0.12);
+
+  /* Spacing scale */
+  --space-section-top: 80px;
+  --space-section-bottom: 40px;
+  --space-hero-top: 56px;
+  --space-container: 48px;
+
+  /* Container */
+  --container-max: 1280px;
+
+  /* Typography */
+  --font-serif: 'Cinzel', 'Times New Roman', serif;
+  --font-display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-cream);
+  color: var(--color-text-primary);
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+ul, ol { list-style: none; }
+
+/* Layout primitives */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-container);
+}
+
+.accent { color: var(--color-copper); }
+
+/* Topbar */
+.topbar {
+  background: var(--color-charcoal-dark);
+  color: var(--color-cream);
+  font-size: 12px;
+  padding: 10px 0;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar a { color: var(--color-copper); font-weight: 500; }
+
+/* Header */
+.site-header {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-border-soft);
+  position: sticky;
+  top: 0;
+  background: rgba(245, 241, 234, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+.site-header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-header nav ul {
+  display: flex;
+  gap: 36px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.site-header nav a:hover { color: var(--color-copper); }
+
+/* Section eyebrow / labels */
+.section-eyebrow {
+  color: var(--color-copper);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Buttons — editorial line style */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--color-charcoal-dark);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 14px 0;
+  font-family: var(--font-body);
+}
+.cta::after {
+  content: "";
+  display: inline-block;
+  width: 56px;
+  height: 1px;
+  background: var(--color-copper);
+  margin: 0 16px;
+}
+.cta .arrow {
+  color: var(--color-copper);
+  font-size: 14px;
+  font-weight: 500;
+}
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  color: var(--color-charcoal-dark);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-charcoal-dark);
+}
+
+/* On dark backgrounds */
+.dark-section .cta { color: var(--color-cream); }
+.dark-section .cta::after { background: var(--color-copper); }
+.dark-section .cta .arrow { color: var(--color-copper); }
+
+/* WhatsApp button (header) */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--color-copper);
+  color: var(--color-copper);
+  background: transparent;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.whatsapp-btn:hover { background: rgba(184, 115, 51, 0.05); }
+.whatsapp-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-copper);
+  flex-shrink: 0;
+}
+
+/* Footer */
+footer.site-footer {
+  background: var(--color-cream);
+  color: var(--color-text-primary);
+  padding: 80px 0 32px;
+  border-top: 1px solid var(--color-border-soft);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+}
+footer h4 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--color-copper);
+}
+footer ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+.footer-bottom {
+  border-top: 1px solid var(--color-border-soft);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  :root {
+    --space-container: 24px;
+  }
+  .site-header nav ul { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  h1 { font-size: 48px !important; }
+  h2 { font-size: 40px !important; }
+}

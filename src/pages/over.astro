@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Over Theo Rolvink — Rolvink Premium Car Imports"
+  description="Persoonlijke sourcing-consultancy voor Duitse premium-auto's, vanuit Welsum. Het verhaal achter Rolvink Premium Car Imports."
+>
+  <section class="over-page">
+    <div class="container">
+      <div class="section-eyebrow">Over</div>
+      <h1>Theo Rolvink</h1>
+      <p class="lead">Een persoonlijke sourcing-consultancy is per definitie afhankelijk van de persoon. Hier het verhaal.</p>
+
+      <article class="prose">
+        <p>Ik ben Theo Rolvink, oprichter van Rolvink Premium Car Imports. Vanuit een vintage schuur in Welsum (gemeente Olst-Wijhe) bouw ik een persoonlijke sourcing-service voor Duitse premium-auto's — BMW, Mercedes-Benz, Audi en Porsche, gesourced uit Europa en Japan.</p>
+
+        <p>Het idee ontstond uit frustratie met de huidige import-markt. Aan de ene kant grote portals waar honderden auto's door elkaar staan zonder selectie of context. Aan de andere kant lokale dealers met beperkt aanbod en weinig transparantie over herkomst en kosten. Geen van beide voelde als hoe een serieuze auto-aankoop zou moeten verlopen.</p>
+
+        <p>Rolvink Premium Car Imports staat voor het tegenovergestelde: <strong>kleinschalig, persoonlijk, gespecialiseerd</strong>. Maximaal twaalf auto's per jaar. Vier merken waar ik echt in geloof. Twee bronmarkten waar ik bewust voor kies — Europa voor snelheid en bekendheid, Japan voor zeldzaamheid en lage kilometerstanden.</p>
+
+        <h2>Wat u krijgt</h2>
+
+        <p>Persoonlijke begeleiding van eerste gesprek tot levering aan huis. Transparantie over elke kostenpost — geen verborgen marges. Eerlijke beoordeling van wat een specifieke uitvoering werkelijk waard is en welke valkuilen ik zie. Een directe lijn met mij, geen call-center.</p>
+
+        <h2>Wat ik niet ben</h2>
+
+        <p>Geen gevestigde grote speler met "decades of experience" — die claim past niet bij wie ik ben en hoe ik werk. Wel iemand die obsessief research doet, transparant communiceert, en alleen auto's aanraakt die door mij persoonlijk zijn beoordeeld.</p>
+
+        <p>De rest is een gesprek waard.</p>
+
+        <p class="signature">— Theo Rolvink, Welsum</p>
+      </article>
+
+      <div style="margin-top: 64px;">
+        <a href="/contact" class="cta">Plan een gesprek<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .over-page { padding: 80px 0 80px; }
+  .over-page h1 { font-family: var(--font-serif); font-size: 88px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 16px; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 56px; line-height: 1.5; font-style: italic; font-family: 'EB Garamond', serif; font-size: 22px; }
+  .prose { max-width: 680px; }
+  .prose p { font-size: 17px; line-height: 1.7; color: var(--color-text-primary); margin-bottom: 24px; }
+  .prose h2 { font-size: 28px; margin: 48px 0 16px; font-weight: 600; }
+  .prose strong { font-weight: 600; color: var(--color-charcoal-dark); }
+  .signature { font-family: var(--font-serif); font-size: 16px; color: var(--color-copper); margin-top: 40px; letter-spacing: 0.04em; }
+
+  @media (max-width: 768px) {
+    .over-page h1 { font-size: 56px; }
+  }
+</style>

@@ -1,0 +1,5 @@
+<svg viewBox="0 0 160 220" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 10 10 L 150 10 L 150 110 Q 150 175 115 195 Q 80 210 45 195 Q 10 175 10 110 Z" fill="#2A2A2A" stroke="#B87333" stroke-width="1.2" />
+  <path d="M 20 20 L 140 20 L 140 108 Q 140 166 113 184 Q 80 197 47 184 Q 20 166 20 108 Z" fill="none" stroke="#B87333" stroke-width="0.5" />
+  <text x="80" y="118" fill="#B87333" font-family="Cinzel, 'Times New Roman', serif" font-size="80" font-weight="500" text-anchor="middle">R</text>
+</svg>

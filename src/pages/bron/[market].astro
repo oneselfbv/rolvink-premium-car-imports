@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { market: 'europa' },
+      props: {
+        name: 'Europa',
+        tagline: 'Korte lijnen, volledige historie',
+        timing: '2 — 4 weken doorlooptijd',
+        description: 'Bij sourcing uit Europa — hoofdzakelijk Duitsland — werken wij met bekende dealers en TÜV-taxateurs in onze netwerk. Persoonlijke bezichtiging vóór bod is standaard. Wij selecteren uitsluitend exemplaren met volledige onderhoudshistorie.',
+        bullets: [
+          'Volledige onderhoudshistorie verplicht — geen uitzonderingen',
+          'Bekende dealers en TÜV-taxateurs in netwerk',
+          'Persoonlijke bezichtiging vóór bod',
+          'Snelle import — geen oceaan-transport',
+          'Geen invoerrechten — EU-binnenmarkt',
+        ],
+      },
+    },
+    {
+      params: { market: 'japan' },
+      props: {
+        name: 'Japan',
+        tagline: 'Zeldzaam, lage km, droog klimaat',
+        timing: '12 — 14 weken doorlooptijd',
+        description: 'Japan kent een unieke combinatie van zeer lage kilometerstanden, droger klimaat zonder strooizout, strenge tweejaarlijkse Shaken-keuringen, en een schat aan zeldzame LHD-uitvoeringen die ooit als nieuw werden geïmporteerd. Wij sourcen via gevestigde Japanse veilinghuizen.',
+        bullets: [
+          'Gemiddeld 40-60% lagere km dan EU-aanbod',
+          'Geen pekelcorrosie — drogere klimaat',
+          'Officiële JCD/USS-conditie inspectie 4+',
+          'Toegang tot zeldzame LHD-uitvoeringen',
+          'Geschikt voor zoekers van het bijzondere',
+        ],
+      },
+    },
+  ];
+}
+
+const { name, tagline, timing, description, bullets } = Astro.props;
+---
+
+<BaseLayout
+  title={`Sourcing uit ${name} — Rolvink Premium Car Imports`}
+  description={`Persoonlijke sourcing van Duitse premium-auto's uit ${name}. ${tagline}.`}
+>
+  <section class="market-hero">
+    <div class="container">
+      <div class="section-eyebrow">Wij sourcen uit</div>
+      <h1>{name}</h1>
+      <p class="tagline">{tagline}</p>
+      <p class="timing">{timing}</p>
+      <p class="description">{description}</p>
+
+      <ul class="bullets">
+        {bullets.map((b) => <li>{b}</li>)}
+      </ul>
+
+      <div style="margin-top: 48px;">
+        <a href="/contact" class="cta">Start zoekopdracht<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .market-hero { padding: 80px 0 80px; }
+  .market-hero h1 { font-family: var(--font-serif); font-size: 88px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 12px; }
+  .tagline { font-size: 22px; color: var(--color-copper); margin-bottom: 8px; font-style: italic; font-family: 'EB Garamond', serif; }
+  .timing { font-size: 14px; color: var(--color-text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; }
+  .description { font-size: 17px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 40px; line-height: 1.6; }
+  .bullets { max-width: 680px; }
+  .bullets li { padding: 14px 0; font-size: 16px; display: flex; gap: 14px; align-items: start; border-bottom: 1px solid var(--color-border-soft); }
+  .bullets li::before { content: "→"; color: var(--color-copper); font-weight: 600; }
+
+  @media (max-width: 768px) {
+    .market-hero h1 { font-size: 56px; }
+  }
+</style>

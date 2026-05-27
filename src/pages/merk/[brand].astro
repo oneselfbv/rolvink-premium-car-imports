@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { brand: 'bmw' },
+      props: {
+        name: 'BMW',
+        tagline: 'Sportief premium, dynamisch karakter',
+        description: 'Onze BMW sourcing-pagina is in opbouw. Voor specifieke modellen (5-Serie, M-Performance, X-Series) — neem direct contact op voor een persoonlijke zoekopdracht.',
+        coreModels: ['5-Serie F10/G30', 'M5 / M-Performance', 'X-Series'],
+      },
+    },
+    {
+      params: { brand: 'mercedes-benz' },
+      props: {
+        name: 'Mercedes-Benz',
+        tagline: 'Comfort, prestige en techniek',
+        description: 'Onze Mercedes-Benz sourcing-pagina is in opbouw. Voor specifieke modellen (E-Klasse, CLS, SL, AMG) — neem direct contact op voor een persoonlijke zoekopdracht.',
+        coreModels: ['E-Klasse W212/W213', 'SL R230/R231', 'CLS W219/W218', 'AMG-uitvoeringen'],
+      },
+    },
+    {
+      params: { brand: 'audi' },
+      props: {
+        name: 'Audi',
+        tagline: 'Quattro, RS en S-precisie',
+        description: 'Onze Audi sourcing-pagina is in opbouw. Wij focussen op S- en RS-uitvoeringen (RS6, RS7, RS Q8) — neem direct contact op voor een persoonlijke zoekopdracht.',
+        coreModels: ['RS6 Avant C7/C8', 'RS7 Sportback', 'RS Q8', 'S-uitvoeringen'],
+      },
+    },
+    {
+      params: { brand: 'porsche' },
+      props: {
+        name: 'Porsche',
+        tagline: 'De referentie in sportwagens',
+        description: 'Onze Porsche sourcing-pagina is in opbouw. Voor 911 (996/997/991/992), 718 Boxster/Cayman, Cayenne en Macan — neem direct contact op voor een persoonlijke zoekopdracht.',
+        coreModels: ['911 996/997/991/992', '718 Boxster / Cayman', 'Cayenne GTS/Turbo', 'Macan GTS/Turbo'],
+      },
+    },
+  ];
+}
+
+const { name, tagline, description, coreModels } = Astro.props;
+---
+
+<BaseLayout
+  title={`${name} sourcen — Rolvink Premium Car Imports`}
+  description={`Persoonlijke sourcing van ${name} uit Europa en Japan. ${tagline}.`}
+>
+  <section class="brand-hero">
+    <div class="container">
+      <div class="section-eyebrow">Onze focus</div>
+      <h1>{name}</h1>
+      <p class="tagline">{tagline}</p>
+      <p class="description">{description}</p>
+
+      <h2 class="models-title">Kern-uitvoeringen die wij sourcen</h2>
+      <ul class="models-list">
+        {coreModels.map((m) => <li>{m}</li>)}
+      </ul>
+
+      <div style="margin-top: 48px;">
+        <a href="/contact" class="cta">Start zoekopdracht<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .brand-hero { padding: 80px 0 80px; }
+  .brand-hero h1 { font-family: var(--font-serif); font-size: 88px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 12px; }
+  .tagline { font-size: 22px; color: var(--color-copper); margin-bottom: 32px; font-style: italic; font-family: 'EB Garamond', serif; }
+  .description { font-size: 17px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 56px; line-height: 1.6; }
+  .models-title { font-size: 24px; margin-bottom: 24px; font-weight: 600; }
+  .models-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 720px; }
+  .models-list li { padding: 16px 20px; background: var(--color-white); border-left: 3px solid var(--color-copper); font-family: var(--font-serif); font-size: 16px; }
+
+  @media (max-width: 768px) {
+    .brand-hero h1 { font-size: 56px; }
+    .models-list { grid-template-columns: 1fr; }
+  }
+</style>

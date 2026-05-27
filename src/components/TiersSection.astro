@@ -1,0 +1,68 @@
+---
+const deBullets = [
+  { bold: 'Volledige onderhoudshistorie verplicht', extra: ' — geen uitzonderingen' },
+  { bold: '', extra: 'Bekende dealers en TÜV-taxateurs in netwerk' },
+  { bold: '', extra: 'Persoonlijke bezichtiging vóór bod' },
+  { bold: '', extra: 'Snelle import — geen oceaan-transport' },
+  { bold: '', extra: 'Geen invoerrechten — EU-binnenmarkt' },
+];
+const jpBullets = [
+  'Gemiddeld 40-60% lagere km dan EU-aanbod',
+  'Geen pekelcorrosie — drogere klimaat',
+  'Officiële JCD/USS-conditie inspectie 4+',
+  'Toegang tot zeldzame LHD-uitvoeringen',
+  'Geschikt voor zoekers van het bijzondere',
+];
+---
+
+<section class="tiers">
+  <div class="container">
+    <div class="section-eyebrow">Onze bronnen</div>
+    <h2>Uit <span class="accent">Duitsland</span> of <span class="accent">Japan</span>.<br/>Wat past bij u?</h2>
+    <p class="tiers-intro">Beide markten hebben hun eigen kwaliteiten. Het juiste antwoord hangt af van uw wensen, de uitvoering die u zoekt en hoeveel tijd u heeft. We adviseren in het eerste gesprek welke route bij uw zoekopdracht past.</p>
+    <div class="tier-grid">
+      <article class="tier">
+        <div class="tier-tag">Uit Duitsland</div>
+        <h3>Ruim aanbod, korte lijnen</h3>
+        <div class="tier-time">2 — 4 weken doorlooptijd</div>
+        <p class="tier-desc">De Duitse premium-markt biedt het ruimste aanbod van BMW, Mercedes-Benz, Audi en Porsche. <strong>Wij selecteren uitsluitend exemplaren met volledige onderhoudshistorie</strong> en goed gedocumenteerde herkomst. Persoonlijke bezichtiging vóór bod is standaard.</p>
+        <ul class="tier-features">
+          {deBullets.map((b) => (
+            <li>{b.bold && <strong>{b.bold}</strong>}{b.extra}</li>
+          ))}
+        </ul>
+      </article>
+      <article class="tier featured">
+        <div class="tier-tag">Uit Japan</div>
+        <h3>Zeldzame uitvoeringen, lage km</h3>
+        <div class="tier-time">12 — 14 weken doorlooptijd</div>
+        <p class="tier-desc">Japan kent een unieke combinatie van zeer lage kilometerstanden, droger klimaat zonder strooizout, strenge tweejaarlijkse Shaken-keuringen, en een schat aan zeldzame LHD-uitvoeringen die ooit als nieuw werden geïmporteerd.</p>
+        <ul class="tier-features">
+          {jpBullets.map((b) => <li>{b}</li>)}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tiers { padding: var(--space-section-top) 0 var(--space-section-bottom); }
+  .tiers h2 { font-size: 64px; margin-bottom: 24px; max-width: 720px; font-weight: 600; }
+  .tiers-intro { font-size: 17px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 48px; line-height: 1.55; }
+  .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .tier { padding: 56px 48px; border: 1px solid var(--color-border-medium); background: var(--color-white); }
+  .tier.featured { background: var(--color-charcoal-dark); color: var(--color-cream); border: 1px solid var(--color-charcoal-dark); }
+  .tier-tag { display: inline-block; padding: 5px 12px; border: 1px solid var(--color-copper); color: var(--color-copper); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 36px; }
+  .tier h3 { font-size: 36px; margin-bottom: 12px; font-weight: 600; }
+  .tier-time { font-size: 15px; color: var(--color-copper); margin-bottom: 28px; font-weight: 500; }
+  .tier-desc { font-size: 15px; margin-bottom: 36px; color: var(--color-text-secondary); }
+  .tier.featured .tier-desc { color: rgba(245,241,234,0.7); }
+  .tier-features li { padding: 14px 0; font-size: 14px; display: flex; gap: 14px; align-items: start; border-bottom: 1px solid rgba(0,0,0,0.06); font-weight: 400; }
+  .tier.featured .tier-features li { border-bottom: 1px solid rgba(184,115,51,0.15); color: rgba(245,241,234,0.85); }
+  .tier-features li::before { content: "→"; color: var(--color-copper); font-weight: 600; }
+
+  @media (max-width: 768px) {
+    .tier-grid { grid-template-columns: 1fr; }
+    .tiers h2 { font-size: 40px; }
+  }
+</style>

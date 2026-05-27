@@ -1,0 +1,19 @@
+---
+// Horizontal lockup — mark on left, wordmark right
+// Use in header, email signatures, business cards
+interface Props {
+  width?: number;
+  variant?: 'on-cream' | 'on-dark';
+}
+const { width = 240, variant = 'on-cream' } = Astro.props;
+const shieldFill = variant === 'on-dark' ? '#F5F1EA' : '#2A2A2A';
+const monogramFill = variant === 'on-dark' ? '#2A2A2A' : '#B87333';
+const wordmark = variant === 'on-dark' ? '#F5F1EA' : '#2A2A2A';
+---
+<svg viewBox="0 0 380 100" xmlns="http://www.w3.org/2000/svg" width={width} aria-label="Rolvink Premium Car Imports">
+  <path d="M 15 18 L 15 60 Q 15 88 50 102 Q 85 88 85 60 L 85 18 Z" fill={shieldFill} stroke="#B87333" stroke-width="0.8" />
+  <path d="M 20 23 L 20 58 Q 20 84 50 96 Q 80 84 80 58 L 80 23 Z" fill="none" stroke="#B87333" stroke-width="0.4" />
+  <text x="50" y="70" fill={monogramFill} font-family="Cinzel, 'Times New Roman', serif" font-size="40" font-weight="500" text-anchor="middle">R</text>
+  <text x="115" y="55" fill={wordmark} font-family="Cinzel, 'Times New Roman', serif" font-size="22" letter-spacing="6" font-weight="500">ROLVINK</text>
+  <text x="115" y="72" fill="#B87333" font-family="Inter, Arial, sans-serif" font-size="9" letter-spacing="3" font-weight="500">PREMIUM CAR IMPORTS</text>
+</svg>

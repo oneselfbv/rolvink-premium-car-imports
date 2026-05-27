@@ -1,0 +1,48 @@
+---
+import LogoHorizontal from './LogoHorizontal.astro';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="margin-bottom: 20px;">
+          <LogoHorizontal width={240} />
+        </div>
+        <p style="font-size: 14px; color: var(--color-text-secondary); max-width: 320px;">
+          Een persoonlijke sourcing-service voor Duitse premium-auto's uit Europa en Japan. Welsum, Nederland.
+        </p>
+      </div>
+      <div>
+        <h4>Service</h4>
+        <ul>
+          <li><a href="/werkwijze">Werkwijze</a></li>
+          <li><a href="/selectie">Selectie</a></li>
+          <li><a href="/over">Over Theo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kennis</h4>
+        <ul>
+          <li><a href="/kennisbank">Kennisbank</a></li>
+          <li><a href="/kennisbank/faq-japan">FAQ Japan</a></li>
+          <li><a href="/kennisbank/faq-duitsland">FAQ Duitsland</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>contact@rolvinkpremiumcarimports.nl</li>
+          <li>WhatsApp op verzoek</li>
+          <li>Welsum, NL</li>
+          <li>Op afspraak</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {currentYear} Rolvink Premium Car Imports</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/voorwaarden">Voorwaarden</a></span>
+    </div>
+  </div>
+</footer>

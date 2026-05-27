@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const steps = [
+  { num: '01', title: 'Intake-gesprek', body: 'Vrijblijvend gesprek (WhatsApp, online of in Welsum) over wat u zoekt, budget, tijdslijn en route-voorkeur. Geen verkoopdruk — alleen helder maken of wij bij elkaar passen.' },
+  { num: '02', title: 'Profiel vastleggen', body: 'Wij stellen samen met u een exacte zoekopdracht op: merk, model, uitvoering, bouwjaar, kilometerstand, kleur, optie-pakket. Daarna start de actieve zoek.' },
+  { num: '03', title: 'Kandidaten voorstellen', body: 'Wekelijks of per veiling sturen wij u kandidaten met volledige documentatie: foto\'s, sheets, vertaling, prijsprognose. U beslist of wij bieden.' },
+  { num: '04', title: 'Bod en aankoop', body: 'Bij uw expliciete goedkeuring brengen wij namens u een bod uit. Na hammer-down: betaling binnen 48 uur en directe start van het export-traject.' },
+  { num: '05', title: 'Transport en import', body: 'Bij Japan-route: binnenlands transport, exportformaliteiten, RoRo-zeevracht (5-6 weken), aankomst Rotterdam, douane-afhandeling. Bij Europa-route: transport en directe aankomst Welsum.' },
+  { num: '06', title: 'RDW + BPM + kentekening', body: 'Na aankomst Welsum: voorbereiding, eventuele reconditionering, RDW-keuring, BPM-aangifte en kentekenregistratie. Doorlooptijd circa 2-3 weken.' },
+  { num: '07', title: 'Aflevering aan huis', body: 'Na kenteken: persoonlijke aflevering bij u thuis (tot 200km inbegrepen). Sleuteloverdracht, uitleg van de auto, welkomstpakket. Eindafrekening transparant.' },
+  { num: '08', title: 'Optionele detailing', body: 'Voorafgaand aan aflevering of na: deep clean, lederrenovatie, keramische coating via onze partner-netwerk. Optioneel op uw verzoek.' },
+];
+---
+
+<BaseLayout
+  title="Werkwijze — Rolvink Premium Car Imports"
+  description="Stap voor stap door het sourcing-traject van Rolvink. Van intake tot aflevering aan huis."
+>
+  <section class="werkwijze-page">
+    <div class="container">
+      <div class="section-eyebrow">Werkwijze</div>
+      <h1>Van eerste gesprek<br/>tot <span class="accent">sleuteloverdracht</span>.</h1>
+      <p class="lead">Het complete sourcing-traject in acht concrete stappen. Geen verborgen tussenliggende fases, geen onduidelijke kostenposten.</p>
+
+      <ol class="steps">
+        {steps.map((step) => (
+          <li class="step">
+            <div class="step-num">{step.num}</div>
+            <div class="step-content">
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div style="margin-top: 64px;">
+        <a href="/contact" class="cta">Start uw zoekopdracht<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .werkwijze-page { padding: 80px 0 80px; }
+  .werkwijze-page h1 { font-size: 72px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 56px; line-height: 1.6; }
+  .steps { display: flex; flex-direction: column; }
+  .step { display: grid; grid-template-columns: 100px 1fr; gap: 48px; padding: 32px 0; border-top: 1px solid var(--color-border-medium); align-items: start; }
+  .step:last-child { border-bottom: 1px solid var(--color-border-medium); }
+  .step-num { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--color-copper); letter-spacing: -0.04em; }
+  .step-content h3 { font-size: 22px; margin-bottom: 8px; font-weight: 600; }
+  .step-content p { font-size: 15px; color: var(--color-text-secondary); max-width: 680px; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .werkwijze-page h1 { font-size: 48px; }
+    .step { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>

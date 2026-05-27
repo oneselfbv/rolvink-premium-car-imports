@@ -1,0 +1,26 @@
+---
+// Final CTA section before footer
+---
+
+<section class="cta-section dark-section" id="contact">
+  <div class="container">
+    <div class="label">De volgende stap</div>
+    <h2>Klaar voor uw<br/><span class="accent">volgende</span>?</h2>
+    <p>Een vrijblijvend intake-gesprek is het begin. Vertel wat u zoekt, wij doen de rest.</p>
+    <a href="/contact" class="cta">Plan intake-gesprek<span class="arrow">→</span></a>
+  </div>
+</section>
+
+<style>
+  .cta-section { padding: var(--space-section-top) 0; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .cta-section .label { color: var(--color-copper); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px; font-weight: 500; }
+  .cta-section h2 { font-size: 72px; margin-bottom: 32px; color: var(--color-cream); font-weight: 600; line-height: 0.95; }
+  .cta-section p { font-size: 18px; max-width: 540px; margin: 0 auto 40px; color: rgba(245,241,234,0.7); font-weight: 400; line-height: 1.55; }
+  .cta-section .cta { color: var(--color-cream); }
+  .cta-section .cta::after { background: var(--color-copper); }
+  .cta-section .cta .arrow { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .cta-section h2 { font-size: 48px; }
+  }
+</style>

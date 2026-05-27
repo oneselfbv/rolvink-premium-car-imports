@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pillars = [
+  { href: '/kennisbank/auto-importeren-japan', title: 'Hoe werkt auto-import uit Japan?', desc: 'Complete uitleg van het Japanse veilingproces, JCD/USS, en de stappen tot Nederlandse kentekenregistratie.', category: 'Proces', status: 'Binnenkort' },
+  { href: '/kennisbank/conditie-grades', title: 'Japanse auction grades uitgelegd', desc: 'Wat betekenen grade 4, 4.5 en 5 op een Japans veiling-sheet? En welke grades wij categorisch afwijzen.', category: 'Proces', status: 'Binnenkort' },
+  { href: '/kennisbank/bpm-importauto-2026', title: 'BPM voor importauto\'s — gids 2026', desc: 'CO₂-tarieven, leeftijdskorting, forfait vs DRZ-taxatie en concrete voorbeelden voor premium-modellen.', category: 'Belasting', status: 'Binnenkort' },
+  { href: '/kennisbank/duitse-premium-uit-japan', title: 'Waarom Duitse premium uit Japan?', desc: 'Wanneer is de Japan-route slimmer dan de Duitse? Eerlijke vergelijking met cijfers.', category: 'Markt', status: 'Binnenkort' },
+  { href: '/kennisbank/mercedes-e-klasse-w212', title: 'Mercedes E-Klasse W212 — koopgids', desc: 'Sweet spot uitvoeringen, bekende valkuilen, typische landed cost en wat te checken vóór bod.', category: 'Modelgids', status: 'Binnenkort' },
+];
+
+const faqs = [
+  { href: '/kennisbank/faq-japan', title: 'FAQ — Auto importeren uit Japan' },
+  { href: '/kennisbank/faq-duitsland', title: 'FAQ — Auto importeren uit Duitsland' },
+];
+---
+
+<BaseLayout
+  title="Kennisbank — Rolvink Premium Car Imports"
+  description="Onze research over BPM, auction grades, importprocessen en modelspecifieke koopgidsen voor Duitse premium-auto's."
+>
+  <section class="kennisbank-page">
+    <div class="container">
+      <div class="section-eyebrow">Kennisbank</div>
+      <h1>Onze research,<br/>uw <span class="accent">voorbereiding</span>.</h1>
+      <p class="lead">Wat wij weten over importprocessen, belastingen, modeluitvoeringen en marktontwikkelingen — gepubliceerd zodat u zelf goed onderbouwd kunt beslissen.</p>
+
+      <h2>Cornerstone artikelen</h2>
+      <div class="pillar-grid">
+        {pillars.map((p) => (
+          <a href={p.href} class="pillar-card">
+            <div class="pillar-meta">
+              <span class="pillar-cat">{p.category}</span>
+              <span class="pillar-status">{p.status}</span>
+            </div>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+            <span class="pillar-cta">Lees meer →</span>
+          </a>
+        ))}
+      </div>
+
+      <h2 style="margin-top: 80px;">Veelgestelde vragen</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <a href={f.href} class="faq-link">
+            <span>{f.title}</span>
+            <span class="arrow">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .kennisbank-page { padding: 80px 0 80px; }
+  .kennisbank-page h1 { font-size: 64px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .kennisbank-page h2 { font-size: 32px; font-weight: 600; margin-bottom: 32px; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 64px; line-height: 1.6; }
+  .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .pillar-card { background: var(--color-white); padding: 32px 28px; border-left: 3px solid var(--color-copper); text-decoration: none; color: inherit; transition: transform 0.2s; }
+  .pillar-card:hover { transform: translateY(-2px); }
+  .pillar-meta { display: flex; justify-content: space-between; margin-bottom: 16px; }
+  .pillar-cat { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); font-weight: 600; }
+  .pillar-status { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-tertiary); }
+  .pillar-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+  .pillar-card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 16px; }
+  .pillar-cta { font-size: 13px; color: var(--color-copper); font-weight: 500; }
+  .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--color-border-medium); }
+  .faq-link { background: var(--color-white); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: var(--color-text-primary); font-size: 17px; font-weight: 500; transition: background 0.2s; }
+  .faq-link:hover { background: var(--color-cream-warm); }
+  .faq-link .arrow { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .kennisbank-page h1 { font-size: 40px; }
+    .pillar-grid { grid-template-columns: 1fr; }
+  }
+</style>

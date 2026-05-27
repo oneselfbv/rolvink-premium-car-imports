@@ -1,0 +1,30 @@
+---
+import LogoHorizontal from './LogoHorizontal.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+
+<div class="topbar">
+  <div class="container">
+    <span>Persoonlijke sourcing — Japan & Duitsland</span>
+    <a href="#contact">Plan gesprek →</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="inner">
+      <a href="/" class="brand-link" aria-label="Rolvink Premium Car Imports — Home">
+        <LogoHorizontal width={220} />
+      </a>
+      <nav aria-label="Hoofdmenu">
+        <ul>
+          <li><a href="/werkwijze">Werkwijze</a></li>
+          <li><a href="/selectie">Selectie</a></li>
+          <li><a href="/kennisbank">Kennisbank</a></li>
+          <li><a href="/over">Over</a></li>
+        </ul>
+      </nav>
+      <WhatsAppButton />
+    </div>
+  </div>
+</header>

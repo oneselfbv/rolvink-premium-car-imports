@@ -1,0 +1,78 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = "Persoonlijke sourcing-service voor Duitse premium-auto's uit Europa en Japan. BMW, Mercedes-Benz, Audi, Porsche.",
+  ogImage = '/og-image.jpg',
+  noIndex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  {noIndex && <meta name="robots" content="noindex,nofollow" />}
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+  <meta property="og:locale" content="nl_NL" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500;600;700&display=swap" />
+
+  <!-- Organization schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Rolvink Premium Car Imports",
+    "url": "https://rolvinkpremiumcarimports.nl",
+    "logo": "https://rolvinkpremiumcarimports.nl/logo.svg",
+    "founder": {
+      "@type": "Person",
+      "name": "Theo Rolvink"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Welsum",
+      "addressCountry": "NL"
+    },
+    "description": "Persoonlijke sourcing-service voor Duitse premium-auto's (BMW, Mercedes-Benz, Audi, Porsche) uit Europa en Japan."
+  })} />
+</head>
+<body>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>
