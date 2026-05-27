@@ -6,7 +6,7 @@ import WhatsAppButton from './WhatsAppButton.astro';
 <div class="topbar">
   <div class="container">
     <span>Persoonlijke sourcing — Japan & Duitsland</span>
-    <a href="#contact">Plan gesprek →</a>
+    <a href="/contact">Plan gesprek →</a>
   </div>
 </div>
 
@@ -16,7 +16,20 @@ import WhatsAppButton from './WhatsAppButton.astro';
       <a href="/" class="brand-link" aria-label="Rolvink Premium Car Imports — Home">
         <LogoHorizontal width={220} />
       </a>
-      <nav aria-label="Hoofdmenu">
+
+      <button
+        class="menu-toggle"
+        aria-label="Menu openen"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        type="button"
+      >
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Hoofdmenu">
         <ul>
           <li><a href="/werkwijze">Werkwijze</a></li>
           <li><a href="/selectie">Selectie</a></li>
@@ -24,7 +37,96 @@ import WhatsAppButton from './WhatsAppButton.astro';
           <li><a href="/over">Over</a></li>
         </ul>
       </nav>
-      <WhatsAppButton />
+
+      <div class="header-cta">
+        <WhatsAppButton />
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.primary-nav');
+  const body = document.body;
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    nav?.classList.toggle('is-open');
+    body.classList.toggle('menu-open');
+  });
+
+  // Close menu when clicking a nav link (mobile UX)
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+      body.classList.remove('menu-open');
+    });
+  });
+</script>
+
+<style>
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 110;
+  }
+  .menu-toggle-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-charcoal-dark);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+  .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  @media (max-width: 900px) {
+    .menu-toggle { display: flex; }
+    .header-cta { display: none; }
+
+    .primary-nav {
+      position: fixed;
+      inset: 0;
+      background: var(--color-cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 100;
+    }
+    .primary-nav.is-open { transform: translateX(0); }
+    .primary-nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      text-align: center;
+    }
+    .primary-nav a {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      color: var(--color-charcoal-dark);
+    }
+    :global(body.menu-open) { overflow: hidden; }
+  }
+</style>

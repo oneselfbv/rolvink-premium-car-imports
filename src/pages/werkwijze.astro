@@ -1,32 +1,74 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const steps = [
-  { num: '01', title: 'Intake-gesprek', body: 'Vrijblijvend gesprek (WhatsApp, online of in Welsum) over wat u zoekt, budget, tijdslijn en route-voorkeur. Geen verkoopdruk — alleen helder maken of wij bij elkaar passen.' },
-  { num: '02', title: 'Profiel vastleggen', body: 'Wij stellen samen met u een exacte zoekopdracht op: merk, model, uitvoering, bouwjaar, kilometerstand, kleur, optie-pakket. Daarna start de actieve zoek.' },
-  { num: '03', title: 'Kandidaten voorstellen', body: 'Wekelijks of per veiling sturen wij u kandidaten met volledige documentatie: foto\'s, sheets, vertaling, prijsprognose. U beslist of wij bieden.' },
-  { num: '04', title: 'Bod en aankoop', body: 'Bij uw expliciete goedkeuring brengen wij namens u een bod uit. Na hammer-down: betaling binnen 48 uur en directe start van het export-traject.' },
-  { num: '05', title: 'Transport en import', body: 'Bij Japan-route: binnenlands transport, exportformaliteiten, RoRo-zeevracht (5-6 weken), aankomst Rotterdam, douane-afhandeling. Bij Europa-route: transport en directe aankomst Welsum.' },
-  { num: '06', title: 'RDW + BPM + kentekening', body: 'Na aankomst Welsum: voorbereiding, eventuele reconditionering, RDW-keuring, BPM-aangifte en kentekenregistratie. Doorlooptijd circa 2-3 weken.' },
-  { num: '07', title: 'Aflevering aan huis', body: 'Na kenteken: persoonlijke aflevering bij u thuis (tot 200km inbegrepen). Sleuteloverdracht, uitleg van de auto, welkomstpakket. Eindafrekening transparant.' },
-  { num: '08', title: 'Optionele detailing', body: 'Voorafgaand aan aflevering of na: deep clean, lederrenovatie, keramische coating via onze partner-netwerk. Optioneel op uw verzoek.' },
+  {
+    num: '01',
+    title: 'Intake-gesprek',
+    body: 'Een vrijblijvend gesprek — online, via WhatsApp of in Welsum — waarin we uw wensen, budget, tijdslijn en route-voorkeur in kaart brengen. Geen verkoopdruk: we kijken samen of er een match is tussen wat u zoekt en wat wij geloofwaardig kunnen leveren. Bij twijfel zeggen we het eerlijk.',
+  },
+  {
+    num: '02',
+    title: 'Profiel vastleggen',
+    body: 'We werken een gedetailleerde zoekopdracht uit: merk, model, uitvoering, bouwjaar, kilometerstand, kleur, optiepakket, must-haves en deal-breakers. Dit document wordt vastgelegd in de opdrachtbevestiging zodat we later kunnen toetsen of een kandidaat klopt. Pas na uw expliciete goedkeuring start de actieve zoektocht.',
+  },
+  {
+    num: '03',
+    title: 'Kandidaten voorstellen',
+    body: 'Wekelijks (of per veiling-cyclus voor Japan) sturen we u kandidaten met volledige documentatie: foto\'s, originele veilingsheet of dealer-rapport, onze NL-talige duiding, geschatte landed cost en bekende risico\'s per uitvoering. U beslist of we bieden — geen actie zonder uw groen licht.',
+  },
+  {
+    num: '04',
+    title: 'Bod en aankoop',
+    body: 'Na uw goedkeuring brengen wij namens u een bod uit. Bij Japanse veilingen volgt de hammer-down typisch binnen 24 uur; betaling aan JCD binnen 48 uur. Bij Duitse dealers onderhandelen we direct ter plaatse, vaak gevolgd door een bezichtiging vóór het definitieve bod. Eindprijs blijft transparant gerapporteerd.',
+  },
+  {
+    num: '05',
+    title: 'Transport en import',
+    body: 'Japan-route: binnenlands transport in Japan, exportformaliteiten en RoRo-zeevracht naar Rotterdam (gemiddeld 5-6 weken). Europa-route: directe vrachtwagen-transport naar Welsum (2-5 dagen). Tijdens transit ontvangt u tussentijdse updates met foto\'s en tracking-informatie zodat u op de hoogte blijft van het traject.',
+  },
+  {
+    num: '06',
+    title: 'RDW + BPM + kentekening',
+    body: 'Na aankomst in Welsum starten we de Nederlandse formaliteiten: eventuele reconditionering, voorbereiding voor de RDW-keuring, BPM-aangifte via DRZ-taxatie of forfait, en kentekenregistratie. Doorlooptijd circa 2-3 weken, afhankelijk van RDW-beschikbaarheid en eventuele aanpassingen voor EU-compliance.',
+  },
+  {
+    num: '07',
+    title: 'Aflevering aan huis',
+    body: 'Wanneer het kenteken er is, plannen we een persoonlijke aflevering bij u thuis of op een door u gekozen locatie tot 200 km vanaf Welsum (verder op aanvraag). Tijdens de overdracht nemen we de auto, het dashboard en de papieren met u door. Eindafrekening is op het moment van aflevering compleet en transparant.',
+  },
+  {
+    num: '08',
+    title: 'Optionele detailing',
+    body: 'Indien gewenst voorzien onze geselecteerde partners in deep-clean, lederrenovatie of keramische coating — voorafgaand aan aflevering of als nazorg. Wij regelen de logistiek en kwaliteitsborging; de detailingfactuur loopt direct tussen u en de specialist. Geen verplichting, wel een aanbevolen finishing touch voor een liefhebbersauto.',
+  },
+];
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Werkwijze' },
 ];
 ---
 
 <BaseLayout
   title="Werkwijze — Rolvink Premium Car Imports"
-  description="Stap voor stap door het sourcing-traject van Rolvink. Van intake tot aflevering aan huis."
+  description="Stap voor stap door het sourcing-traject van Rolvink. Van intake-gesprek tot aflevering aan huis in 8 transparante stappen."
 >
   <section class="werkwijze-page">
     <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
       <div class="section-eyebrow">Werkwijze</div>
-      <h1>Van eerste gesprek<br/>tot <span class="accent">sleuteloverdracht</span>.</h1>
-      <p class="lead">Het complete sourcing-traject in acht concrete stappen. Geen verborgen tussenliggende fases, geen onduidelijke kostenposten.</p>
+      <h1>Van eerste gesprek tot <span class="accent">sleuteloverdracht</span>.</h1>
+      <p class="lead">Het complete sourcing-traject in acht concrete stappen. Geen verborgen tussenliggende fases, geen onduidelijke kostenposten. We werken transparant en op uw tempo.</p>
+
+      <h2 class="steps-heading">Het traject in 8 stappen</h2>
 
       <ol class="steps">
         {steps.map((step) => (
           <li class="step">
-            <div class="step-num">{step.num}</div>
+            <div class="step-num" aria-hidden="true">{step.num}</div>
             <div class="step-content">
               <h3>{step.title}</h3>
               <p>{step.body}</p>
@@ -35,26 +77,112 @@ const steps = [
         ))}
       </ol>
 
-      <div style="margin-top: 64px;">
-        <a href="/contact" class="cta">Start uw zoekopdracht<span class="arrow">→</span></a>
+      <div class="page-cta">
+        <a href="/contact" class="page-cta-btn">
+          Start uw zoekopdracht
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Vrijblijvend intake-gesprek — binnen 24 uur reactie.</p>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .werkwijze-page { padding: 80px 0 80px; }
-  .werkwijze-page h1 { font-size: 72px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
-  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 56px; line-height: 1.6; }
-  .steps { display: flex; flex-direction: column; }
-  .step { display: grid; grid-template-columns: 100px 1fr; gap: 48px; padding: 32px 0; border-top: 1px solid var(--color-border-medium); align-items: start; }
+  .werkwijze-page { padding: 64px 0 96px; }
+  .werkwijze-page h1 {
+    font-size: 64px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    line-height: 1.05;
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    max-width: 640px;
+    margin-bottom: 64px;
+    line-height: 1.6;
+  }
+  .steps-heading {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 24px;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 48px;
+    padding: 36px 0;
+    border-top: 1px solid var(--color-border-medium);
+    align-items: start;
+  }
   .step:last-child { border-bottom: 1px solid var(--color-border-medium); }
-  .step-num { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--color-copper); letter-spacing: -0.04em; }
-  .step-content h3 { font-size: 22px; margin-bottom: 8px; font-weight: 600; }
-  .step-content p { font-size: 15px; color: var(--color-text-secondary); max-width: 680px; line-height: 1.6; }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-copper);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .step-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .step-content p {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    max-width: 680px;
+    line-height: 1.65;
+  }
+
+  .page-cta {
+    margin-top: 64px;
+    padding: 48px 40px;
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    text-align: center;
+  }
+  .page-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: var(--color-copper);
+    color: var(--color-charcoal-dark);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .page-cta-btn:hover {
+    transform: translateY(-2px);
+    background: #d18a3f;
+  }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: rgba(245, 241, 234, 0.7);
+  }
 
   @media (max-width: 768px) {
-    .werkwijze-page h1 { font-size: 48px; }
-    .step { grid-template-columns: 1fr; gap: 12px; }
+    .werkwijze-page h1 { font-size: 40px; }
+    .step { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+    .step-num { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+    .page-cta-btn { padding: 16px 24px; font-size: 13px; }
   }
 </style>
