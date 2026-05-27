@@ -1,11 +1,47 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://rolvinkpremiumcarimports.nl/over#theo',
+  name: 'Theo Rolvink',
+  jobTitle: 'Oprichter',
+  worksFor: {
+    '@type': 'Organization',
+    '@id': 'https://rolvinkpremiumcarimports.nl/#organization',
+    name: 'Rolvink Premium Car Imports',
+  },
+  knowsAbout: [
+    'BMW',
+    'Mercedes-Benz',
+    'Audi',
+    'Porsche',
+    'Vehicle import',
+    'BPM',
+    'RDW-keuring',
+    'Japanese auto auctions',
+    'USS auction inspection',
+    'Sourcing'
+  ],
+  url: 'https://rolvinkpremiumcarimports.nl/over',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Welsum',
+    addressRegion: 'Overijssel',
+    addressCountry: 'NL',
+  },
+  nationality: { '@type': 'Country', name: 'Netherlands' },
+  description: 'Oprichter van Rolvink Premium Car Imports, een persoonlijke sourcing-consultancy voor Duitse premium-autos uit Europa en Japan.',
+};
 ---
 
 <BaseLayout
   title="Over Theo Rolvink — Rolvink Premium Car Imports"
   description="Persoonlijke sourcing-consultancy voor Duitse premium-auto's, vanuit Welsum. Het verhaal achter Rolvink Premium Car Imports."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} slot="head" />
+
   <section class="over-page">
     <div class="container">
       <div class="section-eyebrow">Over</div>
