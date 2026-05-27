@@ -8,10 +8,26 @@ const breadcrumbs = [
 ];
 
 const wel = [
-  { title: 'BMW', body: '5-Serie F10/G30, 6-Serie F12/F13, 7-Serie, M-Performance (M3/M5), X-Series (X3/X5/X6). Voorkeur voor benzine 6-cilinder en V8, optioneel xDrive.' },
-  { title: 'Mercedes-Benz', body: 'E-Klasse W211/W212/W213 (sedan + estate), S-Klasse W221/W222, CLS W219/W218, SL R230/R231, AMG-uitvoeringen, G-Klasse op aanvraag.' },
-  { title: 'Audi', body: 'A6/A7 C7/C8, A8, RS-uitvoeringen, Q7. Voorkeur voor quattro-uitvoeringen met volledige onderhoudshistorie.' },
-  { title: 'Porsche', body: '911 (996/997/991/992), Cayman/Boxster (987/981/718), Cayenne en Macan in S- en Turbo-uitvoering. Klassiek 993 op aanvraag.' },
+  {
+    title: 'BMW',
+    body: '5-Serie F10/G30, 6-Serie F12/F13, 7-Serie, M-Performance (M3/M5), X-Series (X3/X5/X6). Voorkeur voor benzine 6-cilinder en V8, optioneel xDrive.',
+    routes: 'Via Japan vooral M2/M3/M4/M5/M6 en historische M-Sport uitvoeringen; via Duitsland het volledige 3/5/6/7/X-spectrum inclusief daily drivers.',
+  },
+  {
+    title: 'Mercedes-Benz',
+    body: 'E-Klasse W211/W212/W213 (sedan + estate), S-Klasse W221/W222, CLS W219/W218, SL R230/R231, AMG-uitvoeringen, G-Klasse op aanvraag.',
+    routes: 'Via Japan vooral AMG-uitvoeringen, SL-cabrio\'s en klassiekers (R107, R129, W124 Cosworth); via Duitsland het volledige E/S/CLS/GLE/G-spectrum.',
+  },
+  {
+    title: 'Audi',
+    body: 'A6/A7 C7/C8, A8, RS-uitvoeringen, Q7. Voorkeur voor quattro-uitvoeringen met volledige onderhoudshistorie.',
+    routes: 'Via Japan vooral RS-uitvoeringen (RS4, RS6, RS7) en S-modellen; via Duitsland het volledige A6/A7/A8/Q7-aanbod.',
+  },
+  {
+    title: 'Porsche',
+    body: '911 (996/997/991/992), Cayman/Boxster (987/981/718), Cayenne en Macan in S- en Turbo-uitvoering. Klassiek 993 op aanvraag.',
+    routes: 'Via Japan vooral 911 in alle generaties (inclusief 993), Cayman/Boxster S/GTS en klassieke air-cooled; via Duitsland tevens Cayenne, Macan en standaard-Carrera.',
+  },
 ];
 
 const niet = [
@@ -32,7 +48,7 @@ const niet = [
 
       <div class="section-eyebrow">Selectie</div>
       <h1>Onze <span class="accent">selectiecriteria</span>.</h1>
-      <p class="lead">Wij beperken ons bewust tot vier merken en strikte kwaliteitseisen. Hieronder transparant wat we wél en niet sourcen — zodat u snel weet of we een match zijn.</p>
+      <p class="lead">Wij beperken ons bewust tot vier merken en strikte kwaliteitseisen. Hieronder transparant wat we wél en niet sourcen — zodat u snel weet of we een match zijn. Per merk geven we ook aan welk segment via Japan loopt en welk via Duitsland.</p>
 
       <h2>Wat wij wél sourcen</h2>
       <div class="grid">
@@ -40,6 +56,7 @@ const niet = [
           <div class="card card-wel">
             <h3>{item.title}</h3>
             <p>{item.body}</p>
+            <p class="routes"><strong>Routes:</strong> {item.routes}</p>
           </div>
         ))}
       </div>
@@ -75,6 +92,22 @@ const niet = [
   .card-niet { border-left-color: var(--color-text-tertiary); }
   .card h3 { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
   .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+  .card p.routes {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border-soft);
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+  }
+  .card p.routes strong {
+    color: var(--color-copper);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 11px;
+    display: block;
+    margin-bottom: 4px;
+  }
 
   .page-cta { margin-top: 64px; padding: 48px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
   .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }

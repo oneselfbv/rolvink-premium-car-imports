@@ -7,38 +7,53 @@ export function getStaticPaths() {
       params: { market: 'europa' },
       props: {
         name: 'Europa',
-        tagline: 'Korte lijnen, volledige historie',
+        tagline: 'Volledig spectrum, snelle doorlooptijd',
         timing: '2 — 4 weken doorlooptijd',
-        description: 'Bij sourcing uit Europa — hoofdzakelijk Duitsland — werken wij met bekende dealers en TÜV-taxateurs in onze netwerk. Persoonlijke bezichtiging vóór bod is standaard. Wij selecteren uitsluitend exemplaren met volledige onderhoudshistorie.',
+        description: 'Bij sourcing uit Europa — hoofdzakelijk Duitsland — werken wij met bekende dealers en onafhankelijke keuringspartners (TÜV, DEKRA, KÜS) in ons netwerk. De Duitse markt biedt het volledige aanbod binnen onze vier merken: van daily driver tot AMG, van S-Klasse tot Cayenne, van A6 tot RS6. Persoonlijke bezichtiging vóór bod is standaard. Wij selecteren uitsluitend exemplaren met volledige onderhoudshistorie.',
+        forWho: 'Voor wie weet wat hij wil en het beschikbaar wil hebben — zonder maandenlange wachttijd.',
         bullets: [
+          'Volledig modelspectrum binnen BMW, Mercedes-Benz, Audi en Porsche — van daily driver tot performance',
           'Volledige onderhoudshistorie verplicht — geen uitzonderingen',
-          'Bekende dealers en TÜV-taxateurs in netwerk',
+          'Onafhankelijke keuringspartners (TÜV, DEKRA, KÜS) in netwerk',
           'Persoonlijke bezichtiging vóór bod',
           'Snelle import — geen oceaan-transport',
           'Geen invoerrechten — EU-binnenmarkt',
         ],
+        focus: null,
       },
     },
     {
       params: { market: 'japan' },
       props: {
         name: 'Japan',
-        tagline: 'Zeldzaam, lage km, droog klimaat',
+        tagline: 'Performance, klassiekers, lage km',
         timing: '12 — 14 weken doorlooptijd',
-        description: 'Japan kent een unieke combinatie van zeer lage kilometerstanden, droger klimaat zonder strooizout, strenge tweejaarlijkse Shaken-keuringen, en een schat aan zeldzame LHD-uitvoeringen die ooit als nieuw werden geïmporteerd. Wij sourcen via gevestigde Japanse veilinghuizen.',
+        description: 'Japan kent een unieke LHD-niche binnen een overwegend RHD-markt. De auto\'s die ooit als nieuw zijn geïmporteerd waren doorgaans premium-uitvoeringen voor enthusiast-eigenaren — wat verklaart waarom het LHD-aanbod sterk leunt op performance-modellen en klassiekers, met structureel zeer lage kilometerstanden. Dit is niet de route voor een doorsnee daily driver; daarvoor volstaat Europa. Wel de route voor wie iets zoekt dat in Europa zeldzaam is geworden.',
+        forWho: 'Voor wie iets specifieks zoekt — een uitvoering, een generatie, een conditie — dat in Europa nauwelijks nog te vinden is.',
         bullets: [
-          'Gemiddeld 40-60% lagere km dan EU-aanbod',
-          'Geen pekelcorrosie — drogere klimaat',
-          'Officiële JCD/USS-conditie inspectie 4+',
-          'Toegang tot zeldzame LHD-uitvoeringen',
-          'Geschikt voor zoekers van het bijzondere',
+          'Sterke focus op performance-uitvoeringen en klassiekers',
+          'In onze ervaring vaak 30-50% lagere km dan vergelijkbaar EU-aanbod',
+          'In het grootste deel van Japan geen wegenzout — minder roestrisico',
+          'Officiële veilinginspectie (USS, JU, JAA) — wij accepteren grade 4 of hoger',
+          'Toegang tot zeldzame LHD-uitvoeringen die ooit als nieuw werden geïmporteerd',
+          'Strenge tweejaarlijkse Shaken-keuring borgt onderhoudscultuur',
         ],
+        focus: {
+          title: 'Wat we typisch via Japan sourcen',
+          intro: 'Geen complete lijst — wel een eerlijke indicatie van waar het LHD-aanbod sterk is per merk.',
+          items: [
+            { brand: 'BMW', segment: 'M2, M3, M4, M5, M6 in alle generaties; historische M-Sport packs op 3- en 5-Serie' },
+            { brand: 'Mercedes-Benz', segment: 'AMG-uitvoeringen (E55, E63, S63, SL55, SL63), SL-cabrio\'s R230/R231, klassiekers R107, R129, W124 Cosworth' },
+            { brand: 'Audi', segment: 'RS4, RS6, RS7, S6, S8; vroege quattro-uitvoeringen' },
+            { brand: 'Porsche', segment: '911 in alle generaties (993, 996, 997, 991, 992), Cayman S/GTS, Boxster S, klassieke air-cooled' },
+          ],
+        },
       },
     },
   ];
 }
 
-const { name, tagline, timing, description, bullets } = Astro.props;
+const { name, tagline, timing, description, forWho, bullets, focus } = Astro.props;
 ---
 
 <BaseLayout
@@ -53,9 +68,26 @@ const { name, tagline, timing, description, bullets } = Astro.props;
       <p class="timing">{timing}</p>
       <p class="description">{description}</p>
 
+      <p class="for-who"><strong>Voor wie:</strong> {forWho}</p>
+
       <ul class="bullets">
         {bullets.map((b) => <li>{b}</li>)}
       </ul>
+
+      {focus && (
+        <div class="focus-block">
+          <h2>{focus.title}</h2>
+          <p class="focus-intro">{focus.intro}</p>
+          <dl class="focus-list">
+            {focus.items.map((item) => (
+              <div class="focus-row">
+                <dt>{item.brand}</dt>
+                <dd>{item.segment}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )}
 
       <div style="margin-top: 48px;">
         <a href="/contact" class="cta">Start zoekopdracht<span class="arrow">→</span></a>
@@ -69,12 +101,78 @@ const { name, tagline, timing, description, bullets } = Astro.props;
   .market-hero h1 { font-family: var(--font-serif); font-size: 88px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 12px; }
   .tagline { font-size: 22px; color: var(--color-copper); margin-bottom: 8px; font-style: italic; font-family: 'EB Garamond', serif; }
   .timing { font-size: 14px; color: var(--color-text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; }
-  .description { font-size: 17px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 40px; line-height: 1.6; }
+  .description { font-size: 17px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 28px; line-height: 1.6; }
+  .for-who {
+    max-width: 680px;
+    margin-bottom: 36px;
+    padding: 18px 22px;
+    background: var(--color-cream);
+    border-left: 3px solid var(--color-copper);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--color-text-primary);
+  }
+  .for-who strong {
+    color: var(--color-copper);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
   .bullets { max-width: 680px; }
   .bullets li { padding: 14px 0; font-size: 16px; display: flex; gap: 14px; align-items: start; border-bottom: 1px solid var(--color-border-soft); }
   .bullets li::before { content: "→"; color: var(--color-copper); font-weight: 600; }
 
+  .focus-block {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--color-border-medium);
+    max-width: 760px;
+  }
+  .focus-block h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .focus-intro {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-bottom: 32px;
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .focus-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .focus-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    padding: 18px 0;
+    border-top: 1px solid var(--color-border-soft);
+    align-items: start;
+  }
+  .focus-row:last-child {
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+  .focus-row dt {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+    letter-spacing: -0.01em;
+  }
+  .focus-row dd {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
   @media (max-width: 768px) {
     .market-hero h1 { font-size: 56px; }
+    .focus-row { grid-template-columns: 1fr; gap: 6px; }
   }
 </style>

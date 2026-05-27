@@ -1,5 +1,6 @@
 ---
 const deBullets = [
+  { bold: 'Volledig modelspectrum', extra: ' binnen onze 4 merken — van daily driver tot AMG/M/RS' },
   { bold: 'Volledige onderhoudshistorie verplicht', extra: ' — geen uitzonderingen' },
   { bold: '', extra: 'Bekende dealers en onafhankelijke keuringspartners (TÜV, DEKRA, KÜS) in netwerk' },
   { bold: '', extra: 'Persoonlijke bezichtiging vóór bod' },
@@ -7,25 +8,25 @@ const deBullets = [
   { bold: '', extra: 'Geen invoerrechten — EU-binnenmarkt' },
 ];
 const jpBullets = [
+  'Sterke focus op 911, AMG, M-Performance, RS-uitvoeringen en klassiekers',
   'In onze ervaring vaak 30-50% lagere km dan vergelijkbaar EU-aanbod',
   'In het grootste deel van Japan geen wegenzout — minder roestrisico',
   'Officiële veilinginspectie (USS, JU, JAA) — grade 4 of hoger',
-  'Toegang tot zeldzame LHD-uitvoeringen',
-  'Geschikt voor zoekers van het bijzondere',
+  'Toegang tot zeldzame LHD-uitvoeringen die ooit als nieuw werden geïmporteerd',
 ];
 ---
 
 <section class="tiers">
   <div class="container">
     <div class="section-eyebrow">Onze bronnen</div>
-    <h2>Uit <span class="accent">Duitsland</span> of <span class="accent">Japan</span>.<br/>Wat past bij u?</h2>
-    <p class="tiers-intro">Beide markten hebben hun eigen kwaliteiten. Het juiste antwoord hangt af van uw wensen, de uitvoering die u zoekt en hoeveel tijd u heeft. We adviseren in het eerste gesprek welke route bij uw zoekopdracht past.</p>
+    <h2>Twee bronmarkten, <span class="accent">twee disciplines</span>.</h2>
+    <p class="tiers-intro">Beide markten kennen hun eigen sterktes. Duitsland levert het volledige aanbod binnen onze vier merken, snel en met directe bezichtiging. Japan is de route voor performance-uitvoeringen, klassiekers en lage-km exemplaren die in Europa zeldzaam zijn geworden. We adviseren in het eerste gesprek welke route bij uw zoekopdracht past.</p>
     <div class="tier-grid">
       <article class="tier">
         <div class="tier-tag">Uit Duitsland</div>
-        <h3>Ruim aanbod, korte lijnen</h3>
+        <h3>Volledig spectrum, snel beschikbaar</h3>
         <div class="tier-time">2 — 4 weken doorlooptijd</div>
-        <p class="tier-desc">De Duitse premium-markt biedt het ruimste aanbod van BMW, Mercedes-Benz, Audi en Porsche. <strong>Wij selecteren uitsluitend exemplaren met volledige onderhoudshistorie</strong> en goed gedocumenteerde herkomst. Persoonlijke bezichtiging vóór bod is standaard.</p>
+        <p class="tier-desc">De Duitse premium-markt biedt het ruimste aanbod van BMW, Mercedes-Benz, Audi en Porsche — van daily driver tot performance-uitvoering. <strong>Wij selecteren uitsluitend exemplaren met volledige onderhoudshistorie</strong> en goed gedocumenteerde herkomst. Persoonlijke bezichtiging vóór bod is standaard.</p>
         <ul class="tier-features">
           {deBullets.map((b) => (
             <li>{b.bold && <strong>{b.bold}</strong>}{b.extra}</li>
@@ -34,9 +35,9 @@ const jpBullets = [
       </article>
       <article class="tier featured">
         <div class="tier-tag">Uit Japan</div>
-        <h3>Zeldzame uitvoeringen, lage km</h3>
+        <h3>Performance, klassiekers, lage km</h3>
         <div class="tier-time">12 — 14 weken doorlooptijd</div>
-        <p class="tier-desc">Japan kent een unieke combinatie van zeer lage kilometerstanden, droger klimaat zonder strooizout in het grootste deel van het land, strenge tweejaarlijkse Shaken-keuringen, en een schat aan zeldzame LHD-uitvoeringen die ooit als nieuw werden geïmporteerd.</p>
+        <p class="tier-desc">Japan kent een unieke LHD-niche: 911 in alle generaties, AMG en M-uitvoeringen, RS-modellen, en klassiekers als 993, R107 en W124 Cosworth — vaak met zeer lage kilometerstanden door Japanse rijgewoonten en de strenge tweejaarlijkse Shaken-keuring. Niet de route voor een doorsnee daily — daarvoor volstaat Duitsland.</p>
         <ul class="tier-features">
           {jpBullets.map((b) => <li>{b}</li>)}
         </ul>
