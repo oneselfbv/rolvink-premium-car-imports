@@ -17,12 +17,14 @@ const faqCategories = [
       { q: 'Wat als ik een specifieke kleur of optiepakket wil dat zelden voorkomt?', a: 'Geduld is dan een onderdeel van de strategie. Bij zeldzame uitvoeringen kan het 2-4 maanden duren voordat een passende kandidaat op een veiling verschijnt. Wij screenen wekelijks JCD, USS, JU en JAA en signaleren zodra een match opduikt. Bieden gebeurt pas met uw expliciete goedkeuring.' },
       { q: 'Kan de doorlooptijd korter dan 10 weken?', a: 'In principe niet — RoRo-zeevracht uit Japan duurt structureel 5-6 weken. Voor wie binnen 4 weken in de auto wil rijden, is de Duitsland-route de logische keuze. Onze route-advies-tool laat per model zien welke bronmarkt past bij uw tijdslijn.' },
       { q: 'Wat gebeurt er als de zeevracht vertraging oploopt?', a: 'Zeevracht-vertragingen zijn niet uitzonderlijk — wisselingen van vaarroute, weersomstandigheden of beschikbaarheid bij Rotterdam-terminals kunnen 1-2 weken extra toevoegen. Tijdens transit krijgt u tracking-updates en wij houden u op de hoogte van het werkelijke aankomstmoment.' },
+      { q: 'Hoe werkt het bieden op een Japanse veiling precies?', a: 'Japanse veilingen (USS, JU, JAA) zijn elektronische, snelle veilingen waar een auto in 30-60 seconden onder de hamer gaat. Onze export-partner bied namens u tot een vooraf afgesproken maximumbedrag. Wint u de veiling, dan geldt de hammer-down als bindend; betaling aan de veiling binnen 48 uur. Voor elke kandidaat bepalen wij vooraf samen een walk-away-prijs — boven die grens bieden wij niet, ook niet als er een ander hoger gaat.' },
     ],
   },
   {
     title: 'Veilingen, grades en conditie',
     items: [
-      { q: 'Wat betekent een grade 4 of 4.5 op een Japans veiling-sheet?', a: 'De Japanse auction-grading van 1 tot 6 is een onafhankelijke conditie-rating. Grade 6/S is showroom-/nieuwstaat. Grade 5 is vrijwel nieuwstaat (zeldzaam in oudere bouwjaren). Grade 4.5 is uitstekende staat met minimale gebruikssporen onder 100.000 km. Grade 4 is goede staat met normale gebruikssporen passend bij km-stand en bouwjaar, zonder accident-historie. Wij sourcen uitsluitend grade 4 of hoger.' },
+      { q: 'Hoe betrouwbaar is een Japans veiling-sheet (grade 4 of 4.5)?', a: 'Het auction-sheet wordt opgesteld door een onafhankelijke inspecteur van het veilinghuis — niet door de verkoper. De grading-schaal loopt van 1 tot 6 met halve stappen. Grade 6/S is showroom-/nieuwstaat. Grade 5 is vrijwel nieuwstaat (zeldzaam in oudere bouwjaren). Grade 4.5 is uitstekende staat met minimale gebruikssporen onder 100.000 km. Grade 4 is goede staat met normale gebruikssporen passend bij km-stand en bouwjaar, zonder accident-historie. Wij sourcen uitsluitend grade 4 of hoger.' },
+      { q: 'Waarom accepteren jullie geen grade 3.5?', a: 'Onder grade 4 nemen risicos op verborgen issues exponentieel toe. Wij zien op JCD-listings dat grade 3.5 vaker kosmetisch nog acceptabel oogt, maar onderhuids issues bevat — lakwerk-correcties, kleine deuk-herstel, of subtiele schade-historie die pas thuis blijkt. Voor onze premium-positionering is dat een onaanvaardbaar risico. Liever twee maanden langer wachten op een grade 4+, dan een grade 3.5 die "bijna goed" lijkt.' },
       { q: 'Wat zijn R, RA, A, X en XX letter-codes?', a: 'Letter-codes op veiling-sheets duiden op reparatie- of inspectie-issues. R = grote reparatie geregistreerd (vaak chassis-schade). RA = lichte reparatie. A = aanvullende notitie op het sheet. X = niet onafhankelijk geinspecteerd. XX = total loss. Wij bieden niet op autos met deze codes, ongeacht het numerieke grade.' },
       { q: 'Welke Japanse veilinghuizen werken jullie mee?', a: 'Wij hebben rechtstreeks toegang tot de grootste Japanse veilingnetwerken — USS, JU en JAA — plus regionale veilinghuizen zoals CAA, ARAI, ZIP en BAYAUC. Bieden gebeurt via onze gevestigde Japanse export-partners.' },
       { q: 'Wat is het verschil tussen JCD en USS?', a: 'JCD (Japan Car Direct) is een internationale broker/agent die toegang geeft tot meerdere veilinghuizen. USS (Used-car System Solutions) is een specifiek veilingnetwerk met meerdere fysieke locaties in Japan. Wij gebruiken JCD als export-partner en hebben toegang tot zowel USS, JU als JAA en andere veilingsnetwerken voor het concrete bieden.' },
@@ -41,11 +43,11 @@ const faqCategories = [
   {
     title: 'Belastingen — BTW, BPM en invoerrechten',
     items: [
-      { q: 'Is er invoerrechten verschuldigd op een auto uit Japan?', a: 'Ja. 10% invoerrechten over de CIF-waarde (hammerprijs + transport + verzekering, alles tot aan de NL-haven). Dit is een EU-tarief onder HS-code 8703 voor personenautos. Voor klassiekers ouder dan 30 jaar gelden vaak verlaagde tarieven onder HS-code 9705 (mogelijk 0% invoerrechten).' },
-      { q: 'Hoeveel BTW betaal ik?', a: '21% BTW over de CIF-waarde plus invoerrechten. Dit is verschuldigd voor elke import uit een niet-EU-land (Japan). Voor klassiekers ouder dan 30 jaar onder HS-code 9705 geldt soms het verlaagde 9% tarief. Voor EVs en hybrides gelden geen aparte BTW-regelingen.' },
+      { q: 'Is er invoerrechten verschuldigd op een auto uit Japan?', a: 'Ja. 10% invoerrechten over de CIF-waarde (hammerprijs + transport + verzekering, alles tot aan de NL-haven). Dit is een EU-tarief onder HS-code 8703 voor personenautos. Voor klassiekers ouder dan 40 jaar gelden vaak verlaagde tarieven onder HS-code 9705 (mogelijk 0% invoerrechten, mits voldaan aan de douaneregeling voor historische voertuigen).' },
+      { q: 'Hoeveel BTW betaal ik?', a: '21% BTW over de CIF-waarde plus invoerrechten. Dit is verschuldigd voor elke import uit een niet-EU-land (Japan). Voor klassiekers ouder dan 40 jaar onder HS-code 9705 geldt het verlaagde 9% tarief, eveneens mits aan de voorwaarden van de douaneregeling voor historische voertuigen voldaan. Voor EVs en hybrides gelden geen aparte BTW-regelingen.' },
       { q: 'Hoe wordt BPM berekend?', a: 'BPM kent drie methoden: forfaitaire afschrijving (snelste, vaste tabel), koerslijst (commerciele X-Ray of Eurotax-waardes), en DRZ-taxatie (fysieke taxateur). Wij rekenen alle drie methoden door en kiezen de gunstigste. Voor moderne premium-autos is de koerslijst-methode vaak het voordeligst. Zie onze BPM-cornerstone voor de volledige uitleg.' },
-      { q: 'Wat zijn typische BPM-bedragen voor premium import?', a: 'Indicatief: een 2014 W212 E300 V6 benzine met 130k km komt op €1.150-€1.600 via koerslijst-methode. Een M5 F10 V8 biturbo komt op €2.000-€2.500. Een 996 Carrera S 2003 op €700-€1.100 (klassieker-leeftijd). Een R107 SL ouder dan 40 jaar: vrijgesteld onder oldtimer-regeling. BPM is altijd maatwerk — wij maken vóór elk bod een onderbouwde prognose.' },
-      { q: 'Geldt er een vrijstelling voor oldtimers?', a: 'Ja. Autos ouder dan 40 jaar zijn volledig BPM-vrijgesteld (mits aan oldtimer-regeling voldaan). Tussen 25-40 jaar geldt een sterk verlaagd regime via maximale forfaitaire afschrijving. Voor klassiekers vlak onder de 25-jaarsgrens loont het soms om enkele maanden te wachten — een paar maanden uitstel kan honderden tot duizenden euros BPM-besparing opleveren.' },
+      { q: 'Wat zijn typische BPM-bedragen voor premium import?', a: 'Indicatief: een 2014 W212 E300 V6 benzine met 130k km komt op €1.150-€1.600 via koerslijst-methode. Een M5 F10 V8 biturbo komt op €2.000-€2.500. Een 996 Carrera S 2003 op €700-€1.100 (klassieker-leeftijd). Een R107 SL ouder dan 25 jaar: volledig vrijgesteld van BPM. BPM is altijd maatwerk — wij maken vóór elk bod een onderbouwde prognose.' },
+      { q: 'Geldt er een vrijstelling voor oldtimers?', a: 'Ja — en hier is een belangrijk onderscheid. Voor de BPM geldt: autos ouder dan 25 jaar zijn volledig vrijgesteld (100% afschrijving, dus €0 BPM). Voor de MRB (motorrijtuigenbelasting) geldt de hogere drempel van 40 jaar voor volledige vrijstelling. Voor invoerrechten en verlaagd 9% BTW (HS-code 9705, historische voertuigen) geldt eveneens 40 jaar. Voor klassiekers net onder de 25-jaarsgrens loont het soms om enkele maanden te wachten — een paar maanden uitstel kan honderden tot duizenden euros BPM-besparing opleveren.' },
     ],
   },
   {
@@ -55,6 +57,7 @@ const faqCategories = [
       { q: 'Wat is EU-typegoedkeuring en waarom is het belangrijk?', a: 'Een EU-typegoedkeuring is een Europese certificering die geldt voor een hele serie identieke voertuigen. Voor Mercedes/BMW/Audi/Porsche uit Japan die ooit als nieuw naar Japan zijn geexporteerd door de Europese fabrikant, valt de auto vaak nog onder EU-typegoedkeuring — RDW-keuring verloopt dan soepel. Bij specifiek Japan-geproduceerde varianten kan individuele goedkeuring nodig zijn (2-4 weken extra, €300-800 extra).' },
       { q: 'Is een CoC-document (Certificate of Conformity) verplicht?', a: 'Niet altijd. Voor de meeste Europese premium-autos vanaf 1996 is het Japanse exportcertificaat plus chassis-verificatie voldoende. Voor specifieke uitvoeringen of bouwjaren waar de RDW twijfelt, kan een CoC bij de fabrikant worden aangevraagd (€120-€300, 2-6 weken). Wij toetsen dit vooraf per kandidaatauto.' },
       { q: 'Hoe lang duurt de RDW-keuring zelf?', a: 'De keuring duurt ongeveer 30-45 minuten op het keuringsstation. De doorlooptijd tot aan de afspraak kan 1-3 weken zijn door drukte bij RDW-locaties. Wij plannen indien mogelijk al vóór de aankomst, zodat het traject niet onnodig wordt vertraagd.' },
+      { q: 'Hoe zit het met radio, navigatie en software van een Japanse import?', a: 'Japanse autos hebben standaard Japanse software, kaarten en radio-frequenties. Voor radio gebruikt Japan 76-90 MHz (FM); Europa 87.5-108 MHz — een aanpassing of nieuwe tuner is nodig voor volledige FM-ontvangst. Voor navigatiesystemen kunnen wij via gespecialiseerde partners een conversie laten doen: BMW iDrive conversion, Mercedes COMAND NTG-conversie naar de EU-software met Nederlandse kaarten (kosten typisch €250-€800 afhankelijk van merk en uitvoering). Bij sommige nieuwere modellen volstaat een software-flash via de dealer.' },
     ],
   },
   {
@@ -62,8 +65,9 @@ const faqCategories = [
     items: [
       { q: 'Heeft een Japanse import nog dealergarantie?', a: 'Voor de meeste premium-merken eindigt de fabrieksgarantie op 4-6 jaar of een bepaald kilometrage. Geimporteerde autos die buiten die periode vallen, hebben geen dealergarantie meer — net als een vergelijkbare tweedehands Duitse auto. Voor specifieke modellen biedt Mercedes-Benz of BMW soms een verlengde garantieoptie via NL-dealers; dit bespreken wij per geval.' },
       { q: 'Hoe verifieren jullie de kilometerstand?', a: 'Drie controles parallel: (1) de officiele Shaken-historie (verplichte 2-jaarlijkse keuring die km registreert), (2) service-stempels in onderhoudsboekjes, (3) consistentie met het auction-sheet-rapport van een onafhankelijke inspecteur. In Japan is kilometerfraude historisch zeldzamer dan in Europa, mede door de Shaken-discipline.' },
-      { q: 'Wat zijn de grootste risicos bij Japan-import?', a: 'Drie risicos komen het meeste voor: (1) wisselkoersbeweging tussen bod en betaling — wij hanteren conservatieve bid-grenzen die ±3% afdekken, (2) onverwachte BPM-uitkomst als CO2-data uit verkooppakket afwijkt van fabrieksdocumentatie — wij gebruiken altijd officiele bron, (3) een tegenvallend detail bij EU-compliance-aanpassingen. Wij bouwen in elke prognose een +10% buffer voor onverwachte kosten.' },
-      { q: 'Past een Japanse W212 in een Nederlandse milieuzone?', a: 'Voor moderne premium-autos (vanaf bouwjaar 2013, Euro 6) zijn alle Nederlandse milieuzones toegankelijk. Voor oudere uitvoeringen (Euro 5 of lager) kunnen beperkingen gelden voor steden zoals Amsterdam en Rotterdam. Voor klassiekers (oldtimers, 40+ jaar) gelden vaak vrijstellingen. Per kandidaatauto toetsen wij dit vooraf.' },
+      { q: 'Zijn Japanse autos vatbaar voor zoutschade vanwege het eilandklimaat?', a: 'Een terechte vraag — en grotendeels een urban legend. Premium LHD-autos in Japan staan vrijwel altijd in stedelijke agglomeraties (Tokyo, Yokohama, Osaka) in parkeergarages of binnen. Open-zee-zout-blootstelling is minimaal. Voor de onderzijde-foto van het veiling-sheet kunnen wij dit specifiek beoordelen. Wel: enkele kustlocaties zoals Hokkaido en Tohoku gebruiken in de winter wegenzout — daar letten wij extra op bij onderzijde-inspectie. In het grootste deel van Japan is roest aanmerkelijk minder dan in continentaal Europa.' },
+      { q: 'Wat zijn de grootste risicos bij Japan-import?', a: 'Drie risicos komen het meeste voor: (1) wisselkoersbeweging tussen bod en betaling — wij zien op JCD-veilingen dat yen-koersen binnen enkele weken 3-5% kunnen bewegen. Daarom werken wij met conservatieve bid-grenzen die ±3% afdekken. (2) onverwachte BPM-uitkomst als CO2-data uit verkooppakket afwijkt van fabrieksdocumentatie — wij gebruiken altijd officiele bron. (3) een tegenvallend detail bij EU-compliance-aanpassingen. Wij bouwen in elke prognose een +10% buffer voor onverwachte kosten.' },
+      { q: 'Past een Japanse W212 in een Nederlandse milieuzone?', a: 'Voor moderne premium-autos (vanaf bouwjaar 2013, Euro 6) zijn alle Nederlandse milieuzones toegankelijk. Voor oudere uitvoeringen (Euro 5 of lager) kunnen beperkingen gelden voor steden zoals Amsterdam en Rotterdam. Voor oldtimers ouder dan 40 jaar geldt de wettelijke vrijstelling van milieuzones (definitie historisch voertuig in Nederland). Per kandidaatauto toetsen wij dit vooraf.' },
     ],
   },
   {
@@ -71,7 +75,7 @@ const faqCategories = [
     items: [
       { q: 'Wat kost een auto importeren uit Japan all-in?', a: 'Bovenop de hammerprijs op de veiling komen typisch: JCD auction fees en binnenlands transport (~€1.200), RoRo-zeevracht (~€1.000), douane-afhandeling (~€400), 10% invoerrechten over CIF, 21% BTW, BPM (variabel, vaak €1.150-€2.500), RDW + kentekenregistratie (~€450), EU-compliance + reconditionering (€300-€700), en onze sourcing- en operationele fee. Voor een Mercedes E-Klasse W212 betekent dat doorgaans een opslag van €8.000-€10.000 op de hammerprijs. Zie onze voorbeeld-traject-pagina voor een complete uitwerking.' },
       { q: 'Wat is de IMS-kwestie bij oudere Porsche 911-modellen?', a: 'De Intermediate Shaft (IMS) van de M96-motor in 996 Carrera (1998-2005) en 997.1 Carrera (2004-2008) heeft een afgesloten kogellager dat tijdens de levensduur kan falen. Wij bieden niet op deze generaties zonder gedocumenteerde IMS-update (LN Engineering Retrofit of IMS Solution). Voor 997.2 (2008+) en jonger is het IMS-issue afwezig. Voor 911 Turbo en GT3: geen IMS-issue (Mezger-motor).' },
-      { q: 'Kunnen jullie ook bieden op klassiekers uit de jaren 70/80?', a: 'Ja. Voor klassiekers boven 25 jaar (verlaagde BPM) of 40 jaar (volledig vrijgesteld) is de Japan-route vaak interessant — Japanse droger klimaat plus de Shaken-discipline leveren vaak betere condities dan EU-equivalenten. Modellen zoals Mercedes R107 SL, R129 SL, W124 Cosworth, Porsche 993, Audi UR-quattro zijn regelmatig beschikbaar. Per case maken we een onderbouwde sourcing-strategie.' },
+      { q: 'Kunnen jullie ook bieden op klassiekers uit de jaren 70/80?', a: 'Ja. Voor klassiekers boven 25 jaar (volledig BPM-vrijgesteld) is de Japan-route vaak interessant — Japanse droger klimaat plus de Shaken-discipline leveren vaak betere condities dan EU-equivalenten. Modellen zoals Mercedes R107 SL, R129 SL, W124 Cosworth, Porsche 993, Audi UR-quattro zijn regelmatig beschikbaar. Voor autos boven 40 jaar geldt ook MRB-vrijstelling en de verlaagde douaneregeling (HS 9705). Per case maken we een onderbouwde sourcing-strategie.' },
       { q: 'Geen antwoord op uw vraag?', a: 'Plan een vrijblijvend intake-gesprek — online, via WhatsApp of in Welsum. Wij beantwoorden graag uw specifieke vraag binnen 24 uur. Onze contactgegevens staan op de contactpagina.' },
     ],
   },
@@ -91,7 +95,7 @@ const faqSchema = {
 
 <BaseLayout
   title="FAQ — Auto importeren uit Japan | Rolvink Premium Car Imports"
-  description="27 veelgestelde vragen over auto importeren uit Japan: doorlooptijd, kosten, BPM, RDW, conditie-grades, LHD vs RHD, IMS-kwestie, garantie en oldtimers."
+  description="33 veelgestelde vragen over auto importeren uit Japan: doorlooptijd, kosten, BPM-vrijstelling 25 jaar, RDW, conditie-grades, LHD vs RHD, IMS-kwestie, navigatie-conversie en oldtimers."
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
 
@@ -102,6 +106,8 @@ const faqSchema = {
       <div class="section-eyebrow">FAQ</div>
       <h1>Auto importeren <span class="accent">uit Japan</span>.</h1>
       <p class="lead">De meest gestelde vragen over het Japan-traject — gegroepeerd in zeven thema's. Helder en eerlijk beantwoord op basis van onze ervaring met Japanse veilingen, RDW-procedures en BPM-berekening.</p>
+
+      <p class="legal-disclaimer"><em>Fiscale wetgeving, BPM-tabellen en douanerichtlijnen zijn aan verandering onderhevig. De hieronder genoemde bedragen en rekenmethodes zijn indicatief en gebaseerd op de regelgeving van 2026. Er kunnen geen rechten of juridische claims aan deze antwoorden worden ontleend. Voor actuele tarieven raadpleeg de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a> of vraag ons om een onderbouwde prognose op uw specifieke geval.</em></p>
 
       {faqCategories.map((cat) => (
         <div class="faq-category">
@@ -117,6 +123,11 @@ const faqSchema = {
         </div>
       ))}
 
+      <div class="author-signal">
+        <p><strong>Geschreven door Theo Rolvink</strong> — oprichter Rolvink Premium Car Imports, met jarenlange ervaring in de in- en verkoop van auto's en motoren. <a href="/over">Lees meer over Theo</a>.</p>
+        <p class="updated">Laatst bijgewerkt: 28 mei 2026</p>
+      </div>
+
       <div class="page-cta">
         <a href="/contact" class="page-cta-btn">
           Plan vrijblijvend intake-gesprek
@@ -130,7 +141,9 @@ const faqSchema = {
 <style>
   .faq-page { padding: 64px 0 96px; }
   .faq-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
-  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 56px; line-height: 1.6; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 28px; line-height: 1.6; }
+  .legal-disclaimer { max-width: 680px; padding: 14px 18px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 13px; line-height: 1.55; color: var(--color-text-tertiary); margin-bottom: 56px; }
+  .legal-disclaimer a { color: var(--color-copper); }
   .faq-category { margin-bottom: 48px; }
   .faq-category h2 { font-size: 22px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-medium); }
   .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--color-border-medium); }
@@ -141,7 +154,12 @@ const faqSchema = {
   .faq-item[open] .toggle { transform: rotate(45deg); }
   .faq-answer { padding: 0 24px 22px; }
   .faq-answer p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; max-width: 720px; }
-  .page-cta { padding: 36px 28px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .author-signal { max-width: 680px; margin-top: 48px; padding: 20px 22px; background: var(--color-cream); border-left: 3px solid var(--color-copper); }
+  .author-signal p { font-size: 14px; color: var(--color-text-secondary); margin: 0; line-height: 1.55; }
+  .author-signal strong { color: var(--color-text-primary); }
+  .author-signal a { color: var(--color-copper); }
+  .author-signal .updated { font-size: 12px; color: var(--color-text-tertiary); margin-top: 8px; }
+  .page-cta { margin-top: 32px; padding: 36px 28px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
   .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
   @media (max-width: 768px) {
     .faq-page h1 { font-size: 36px; }
