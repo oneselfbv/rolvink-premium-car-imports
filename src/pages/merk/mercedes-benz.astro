@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Mercedes-Benz' },
+];
+---
+
+<BaseLayout
+  title="Mercedes-Benz sourcen — Rolvink Premium Car Imports"
+  description="Persoonlijke sourcing van Mercedes-Benz uit Europa en Japan. E-Klasse, SL, CLS, AMG en klassiekers. Welke generaties, motoren en uitvoeringen wij wel en niet sourcen."
+>
+  <section class="brand-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">Onze focus</div>
+      <h1>Mercedes-Benz</h1>
+      <p class="tagline">Comfort, prestige en techniek</p>
+
+      <p class="lead">Mercedes-Benz is binnen onze sourcing-service het meest gevarieerde merk. Van een comfortabele E-Klasse W212 sedan tot een SL R230 cabrio, van een AMG-uitvoering met V8-biturbo tot een klassieke R107 of W124 Cosworth — Mercedes biedt het breedste spectrum van mainstream daily naar collectible. Voor de Japan-route is dit ook het merk met het sterkste LHD-aanbod op klassiekers en AMG-uitvoeringen.</p>
+
+      <h2>Wat wij sourcen</h2>
+
+      <p>Wij beperken ons binnen het Mercedes-aanbod tot generaties en uitvoeringen die in de Nederlandse premium-markt structureel gevraagd worden:</p>
+
+      <ul class="model-list">
+        <li><strong>E-Klasse sedan</strong> — W211 (2002-2009), W212 (2009-2016), W213 (2016-2023). Zie onze <a href="/kennisbank/mercedes-e-klasse-w212">Mercedes E-Klasse W212 koopgids</a> voor de gangbare sweet spot.</li>
+        <li><strong>E-Klasse Wagon / Estate</strong> — S212 en S213, vooral via Duitsland — Japan-aanbod LHD-estate is praktisch nul</li>
+        <li><strong>S-Klasse</strong> — W221 (2005-2013) en W222 (2013-2020), incl. S63 / S65 AMG op aanvraag</li>
+        <li><strong>CLS</strong> — W219 (2004-2011) en W218 (2011-2018), vooral CLS 350 en CLS 63 AMG</li>
+        <li><strong>SL</strong> — R230 (2002-2011) en R231 (2012-2020), sterk LHD-aanbod via Japan</li>
+        <li><strong>SL klassiekers</strong> — R107 (1971-1989) en R129 (1989-2002), beide via Japan in zeer goede staat verkrijgbaar</li>
+        <li><strong>AMG-uitvoeringen</strong> — E55/E63, S63, SL55/63/65, C63, G63 — sterk in Japan-LHD-aanbod</li>
+        <li><strong>G-Klasse</strong> — W463 G63 AMG op aanvraag</li>
+      </ul>
+
+      <h2>Route — Japan of Duitsland?</h2>
+
+      <div class="route-grid">
+        <article class="route-block">
+          <h3>Via Duitsland</h3>
+          <p class="route-time">2 — 4 weken doorlooptijd</p>
+          <p>Voor het volledige Mercedes-modellengamma — E-Klasse sedan en estate, CLS, S-Klasse, GLE — is Duitsland de logische bron. Erkende Mercedes-dealers leveren cars met volledige Scheckheft (onderhoudsboekje) en B2C-garantie. Persoonlijke bezichtiging is standaard.</p>
+        </article>
+
+        <article class="route-block">
+          <h3>Via Japan</h3>
+          <p class="route-time">12 — 14 weken doorlooptijd</p>
+          <p>Japan is dé route voor <strong>SL-cabrio's, AMG-uitvoeringen en klassiekers</strong>. Het LHD-aanbod van SL R230/R231 is structureel het sterkste van alle modellen in onze pijplijn (~12 per maand). Klassiekers als R107, R129 en W124 Cosworth zijn in Japanse droge klimaat-historie vaak in betere staat dan EU-equivalenten. Zie onze <a href="/kennisbank/auto-importeren-japan">Japan-cornerstone</a>.</p>
+        </article>
+      </div>
+
+      <h2>Bekende motorvarianten — voorkeur en aandachtspunten</h2>
+
+      <h3>Benzine — voorkeur</h3>
+      <ul class="bullet-list">
+        <li><strong>M276</strong> (3.5L V6 biturbo, 2010-2018) — gangbaar in E300/E350/E400 W212 en W213. Soepel, goed doorontwikkeld, voor onze meest gevraagde E-Klasse uitvoering.</li>
+        <li><strong>M272</strong> (3.5L V6 atmospheric, 2004-2014) — voorganger van M276, vaker in W211 en oudere W212. Bekend issue: <em>balansas / nokkenas-tandwiel</em> bij hoge km — controleer service-historie expliciet.</li>
+        <li><strong>M157</strong> (5.5L V8 biturbo voor E63 AMG, S63, SL63, ML63) — performance-blok met goede betrouwbaarheid mits onderhoud volgens schema.</li>
+        <li><strong>M178</strong> (4.0L V8 biturbo voor moderne AMG GT, E63 W213, C63) — modern V8 met goede track record.</li>
+      </ul>
+
+      <h3>Diesel — voorkeur en aandachtspunten</h3>
+      <ul class="bullet-list">
+        <li><strong>OM651</strong> (2.1L 4-cilinder diesel) — gangbaar in E200/E220/E250. Bekend issue: <em>injector-coding</em> bij &gt; 200K km. Diagnose vereist.</li>
+        <li><strong>OM642</strong> (3.0L V6 diesel) — gangbaar in E350 CDI, ML/GLE 350d. Solide blok mits AdBlue-systeem regelmatig onderhouden.</li>
+        <li>Voor NL-milieuzones: alleen Euro 6 diesels van 2013+ blijven praktisch bruikbaar in steden.</li>
+      </ul>
+
+      <h2>Sweet spots — onze top-3</h2>
+
+      <ol class="recommendation-list">
+        <li><strong>E-Klasse W212 E300 Avantgarde facelift (2013-2015)</strong> — M276 V6 benzine, comfortabele daily, BPM-vriendelijk via koerslijst. Onze meest gevraagde sourcing. Landed cost typisch € 15.500-€ 19.500.</li>
+        <li><strong>SL R230 350 / SL500 (2007-2010)</strong> — V6 of V8, klassieke cabrio-vormgeving, sterk Japan-LHD-aanbod met lage km. Landed cost € 16.000-€ 28.000.</li>
+        <li><strong>E63 AMG W212 / W213</strong> — V8 biturbo performance, niche-segment met collector-potentie. Landed cost € 35.000-€ 65.000 afhankelijk van uitvoering en bouwjaar.</li>
+      </ol>
+
+      <h2>Wat wij niet sourcen</h2>
+
+      <ul class="bullet-list">
+        <li>A-Klasse, B-Klasse, CLA, GLA — buiten ons premium-segment</li>
+        <li>C-Klasse — vrijwel geen LHD-aanbod in Japan; voor Duitsland-route prima maar buiten onze hoofdfocus</li>
+        <li>EQ-modellen — EV-segment, ander risico-profiel</li>
+        <li>4MATIC V6-uitvoeringen (E300/E350 4MATIC) — disproportionele BPM-impact (€1.800-€2.400 hoger dan RWD)</li>
+        <li>Cars met aftermarket Brabus / Carlsson tuning zonder documentatie</li>
+        <li>Alles met grade onder 4 of accident-historie</li>
+      </ul>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een specifieke Mercedes-Benz?</h2>
+        <p>Vertel ons model, uitvoering, generatie en budget — wij screenen mobile.de, autoscout24.de en de Japanse veilingen wekelijks.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/mercedes-e-klasse-w212">Mercedes E-Klasse W212 — koopgids</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .brand-page { padding: 64px 0 96px; }
+  .brand-page h1 { font-family: var(--font-serif); font-size: 88px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 12px; }
+  .tagline { font-size: 22px; color: var(--color-copper); margin-bottom: 32px; font-style: italic; font-family: 'EB Garamond', serif; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 720px; margin-bottom: 56px; line-height: 1.65; }
+  .brand-page h2 { font-size: 32px; font-weight: 600; margin: 48px 0 20px; line-height: 1.2; }
+  .brand-page h3 { font-size: 20px; font-weight: 600; margin: 28px 0 12px; }
+  .brand-page p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; max-width: 760px; }
+  .brand-page a { color: var(--color-copper); text-decoration: underline; }
+  .brand-page strong { color: var(--color-text-primary); font-weight: 600; }
+  .brand-page em { font-style: italic; }
+
+  .model-list, .bullet-list { padding-left: 24px; max-width: 760px; }
+  .model-list li, .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .model-list strong, .bullet-list strong { color: var(--color-text-primary); }
+
+  .route-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 760px; margin-bottom: 32px; }
+  .route-block { background: var(--color-white); padding: 28px 28px; border-left: 3px solid var(--color-copper); }
+  .route-block h3 { font-size: 22px; margin-top: 0; margin-bottom: 8px; }
+  .route-time { font-size: 13px; color: var(--color-copper); font-weight: 500; margin-bottom: 14px; }
+  .route-block p { font-size: 15px; line-height: 1.6; margin-bottom: 0; }
+
+  .recommendation-list { padding-left: 24px; max-width: 760px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 28px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related { max-width: 760px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .brand-page h1 { font-size: 56px; }
+    .brand-page h2 { font-size: 24px; }
+    .route-grid { grid-template-columns: 1fr; }
+    .page-cta { padding: 36px 24px; }
+  }
+</style>

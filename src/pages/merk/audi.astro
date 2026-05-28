@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Audi' },
+];
+---
+
+<BaseLayout
+  title="Audi sourcen — Rolvink Premium Car Imports"
+  description="Persoonlijke sourcing van Audi uit Europa en Japan. Vooral RS-uitvoeringen (RS4, RS6, RS7), S-modellen en quattro. Welke generaties wij wel en niet sourcen."
+>
+  <section class="brand-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">Onze focus</div>
+      <h1>Audi</h1>
+      <p class="tagline">Quattro, RS en S-precisie</p>
+
+      <p class="lead">Binnen ons Audi-aanbod ligt de focus op de <strong>performance-segmenten — RS en S-uitvoeringen</strong>. Standaard A6/A7/A8 leveren in Nederland zelf en in Duitsland ruim aanbod tegen concurrerende prijzen, dus daar voegen wij als sourcing-specialist weinig waarde toe. Maar voor een RS6 Avant met specifieke optie-pakketten, een RS Q8, of een latere generatie S-uitvoering met lage km is gerichte import-sourcing wél de moeite waard.</p>
+
+      <h2>Wat wij sourcen</h2>
+
+      <ul class="model-list">
+        <li><strong>RS6 Avant</strong> — C7 (2013-2018) en C8 (2019-heden), V8 4.0L biturbo. Onze sterkste Audi-focus.</li>
+        <li><strong>RS7 Sportback</strong> — C7 en C8, performance-coupé met 4-deurs functionaliteit</li>
+        <li><strong>RS4 Avant</strong> — B7 (2006-2008 V8) en B8 (2012-2015 V8). De B7 is voor klassieker-liefhebbers gewild.</li>
+        <li><strong>RS3 Sportback</strong> — 8V (2015-2020) en 8Y (2021-heden), 5-cilinder turbo met karakteristiek geluid</li>
+        <li><strong>RS5</strong> — B9 Coupé en Sportback, V6 biturbo</li>
+        <li><strong>RS Q8</strong> — V8 biturbo SUV-performance</li>
+        <li><strong>S-uitvoeringen</strong> — S6, S7, S8 op aanvraag</li>
+        <li><strong>A6/A7/A8 standaard</strong> — alleen via Duitsland-route, voor specifieke optie-combinaties die in NL niet beschikbaar zijn</li>
+      </ul>
+
+      <h2>Route — Japan of Duitsland?</h2>
+
+      <div class="route-grid">
+        <article class="route-block">
+          <h3>Via Duitsland</h3>
+          <p class="route-time">2 — 4 weken doorlooptijd</p>
+          <p>Verreweg de logische bron voor de meeste Audi-sourcing. Het volledige RS- en S-aanbod is in Duitsland ruim beschikbaar, vaak bij erkende Audi-dealers met volledige Scheckheft. Voor standaard A6/A7/A8 is Duitsland ook efficiënter dan Japan.</p>
+        </article>
+
+        <article class="route-block">
+          <h3>Via Japan</h3>
+          <p class="route-time">12 — 14 weken doorlooptijd</p>
+          <p>Het Japanse LHD-aanbod voor Audi is <strong>dunner dan voor BMW/Mercedes/Porsche</strong> — onze data is hier nog beperkt. RS-uitvoeringen verschijnen periodiek, maar de keuze is smaller dan via Duitsland. Voor klanten met geduld en een specifieke kleur/uitvoering kan Japan interessant zijn; voor mainstream sourcing meestal Duitsland.</p>
+        </article>
+      </div>
+
+      <h2>Bekende motorvarianten — voorkeur en aandachtspunten</h2>
+
+      <h3>Performance — onze focus</h3>
+      <ul class="bullet-list">
+        <li><strong>4.0L V8 biturbo</strong> (RS6 C7/C8, RS7, S8) — krachtige V8, gangbare onderhoudskosten op premium-niveau. Onze meest gevraagde Audi-motor.</li>
+        <li><strong>4.2L V8 atmospheric</strong> (RS4 B7, RS5 8T) — high-revving FSI V8. <em>Aandachtspunt:</em> bekende ketting-issues op vroege RS4 B7 (2006-2008) — verifieer of distributieketting is vervangen.</li>
+        <li><strong>2.5L 5-cilinder turbo TFSI</strong> (RS3, TT RS) — uniek geluid, modern blok, mechanisch betrouwbaar.</li>
+        <li><strong>2.9L V6 biturbo</strong> (RS5 B9, RS4 B9) — moderne V6-evolutie van de RS-lijn, zuiniger maar minder iconisch geluid dan de V8.</li>
+      </ul>
+
+      <h3>Standaard — beperkter</h3>
+      <p>Voor standaard Audi A6/A7/A8 sourcen wij alleen op specifiek verzoek. Reden: Nederland en Duitsland hebben hier ruim aanbod tegen concurrerende prijzen, dus de meerwaarde van onze sourcing-fee is beperkt. Voor performance-segmenten verandert dat compleet — daar voegen onze veiling-toegang, biedstrategie en RS-expertise reële waarde toe.</p>
+
+      <h2>Sweet spots — onze top-3</h2>
+
+      <ol class="recommendation-list">
+        <li><strong>RS6 Avant C7 (2015-2017)</strong> — V8 biturbo, voor velen de meest evenwichtige RS6-generatie. Combineert dagelijkse bruikbaarheid van een Avant met sportwagenprestaties. Landed cost typisch € 50.000-€ 80.000 afhankelijk van km en uitvoering.</li>
+        <li><strong>RS4 Avant B8 (2013-2015)</strong> — 4.2L FSI V8 atmospheric, laatste atmosferische RS4. Klassieker-potentie. Landed cost € 45.000-€ 65.000.</li>
+        <li><strong>RS3 Sportback 8V Performance (2017-2020)</strong> — 5-cilinder turbo, 400 pk, betaalbaarste instap in RS-segment. Landed cost € 35.000-€ 50.000.</li>
+      </ol>
+
+      <h2>Wat wij niet sourcen</h2>
+
+      <ul class="bullet-list">
+        <li>A1, A3, A4 standaard, A5 standaard — buiten ons premium-segment</li>
+        <li>Q3, Q5, Allroad uitvoeringen — geen onze focus</li>
+        <li>e-tron / Q8 e-tron — EV-segment, ander risico-profiel</li>
+        <li>Cars met aftermarket APR / ABT / Stage 2+ tuning zonder Audi-documentatie</li>
+        <li>Alles met grade onder 4 of accident-historie</li>
+      </ul>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een specifieke Audi RS of S?</h2>
+        <p>Vertel ons uitvoering, generatie, kleur en budget — wij screenen mobile.de, autoscout24.de en de Japanse veilingen wekelijks.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD — de groene markering</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .brand-page { padding: 64px 0 96px; }
+  .brand-page h1 { font-family: var(--font-serif); font-size: 88px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 12px; }
+  .tagline { font-size: 22px; color: var(--color-copper); margin-bottom: 32px; font-style: italic; font-family: 'EB Garamond', serif; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 720px; margin-bottom: 56px; line-height: 1.65; }
+  .brand-page h2 { font-size: 32px; font-weight: 600; margin: 48px 0 20px; line-height: 1.2; }
+  .brand-page h3 { font-size: 20px; font-weight: 600; margin: 28px 0 12px; }
+  .brand-page p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; max-width: 760px; }
+  .brand-page a { color: var(--color-copper); text-decoration: underline; }
+  .brand-page strong { color: var(--color-text-primary); font-weight: 600; }
+  .brand-page em { font-style: italic; }
+
+  .model-list, .bullet-list { padding-left: 24px; max-width: 760px; }
+  .model-list li, .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .model-list strong, .bullet-list strong { color: var(--color-text-primary); }
+
+  .route-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 760px; margin-bottom: 32px; }
+  .route-block { background: var(--color-white); padding: 28px 28px; border-left: 3px solid var(--color-copper); }
+  .route-block h3 { font-size: 22px; margin-top: 0; margin-bottom: 8px; }
+  .route-time { font-size: 13px; color: var(--color-copper); font-weight: 500; margin-bottom: 14px; }
+  .route-block p { font-size: 15px; line-height: 1.6; margin-bottom: 0; }
+
+  .recommendation-list { padding-left: 24px; max-width: 760px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 28px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related { max-width: 760px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .brand-page h1 { font-size: 56px; }
+    .brand-page h2 { font-size: 24px; }
+    .route-grid { grid-template-columns: 1fr; }
+    .page-cta { padding: 36px 24px; }
+  }
+</style>

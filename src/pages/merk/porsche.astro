@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Porsche' },
+];
+---
+
+<BaseLayout
+  title="Porsche sourcen — Rolvink Premium Car Imports"
+  description="Persoonlijke sourcing van Porsche uit Europa en Japan. 911 alle generaties, Cayman, Boxster, Cayenne. Sterkste LHD-aanbod via de Japan-route."
+>
+  <section class="brand-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">Onze focus</div>
+      <h1>Porsche</h1>
+      <p class="tagline">De referentie in sportwagens</p>
+
+      <p class="lead">Porsche is binnen onze sourcing-service het merk met het <strong>sterkste Japanse LHD-aanbod</strong> van alle vier de focusmerken. Wekelijks verschijnen 911-LHD-exemplaren in alle generaties op de Japanse veilingen, vaak in betere staat en met lagere km dan EU-equivalenten. Voor liefhebbers van een specifieke 911-uitvoering, een Cayman GTS, of een klassieke air-cooled is Japan vaak de logische bron — voor Cayenne, Macan en standaard-Carrera blijft Duitsland een sterke route.</p>
+
+      <h2>Wat wij sourcen</h2>
+
+      <ul class="model-list">
+        <li><strong>911 (alle generaties)</strong> — 993 (1994-1998), 996 (1997-2005), 997 (2004-2012), 991 (2011-2019), 992 (2019-heden). Zie onze <a href="/kennisbank/porsche-911-modelgids">Porsche 911 modelgids (vijf generaties)</a> voor uitgebreide uitleg per generatie, het IMS-vraagstuk en sweet spots.</li>
+        <li><strong>Cayman</strong> — 987 (2005-2012), 981 (2012-2016), 718 (2016-heden), vooral in S- en GTS-uitvoering</li>
+        <li><strong>Boxster</strong> — 987, 981, 718, idem S- en GTS</li>
+        <li><strong>Cayenne</strong> — 955, 958, 9YA, vooral S / Turbo / GTS / Hybrid</li>
+        <li><strong>Macan</strong> — vooral S / GTS / Turbo uitvoeringen, op aanvraag</li>
+        <li><strong>911 GT-uitvoeringen</strong> — GT3, GT3 RS, GT4 op specifiek verzoek, beperkte beschikbaarheid</li>
+        <li><strong>Klassieke 911</strong> — 993 air-cooled, oudere generaties (964 op aanvraag) — premium segment</li>
+      </ul>
+
+      <h2>Route — Japan of Duitsland?</h2>
+
+      <div class="route-grid">
+        <article class="route-block">
+          <h3>Via Japan</h3>
+          <p class="route-time">12 — 14 weken doorlooptijd</p>
+          <p><strong>Onze voorkeursroute voor 911.</strong> Het Japanse LHD-aanbod is structureel sterker dan voor enig ander Porsche-model. Alle generaties (993, 996, 997, 991, 992) verschijnen wekelijks. Japanse rijgewoonten + Shaken-keuring leveren lage-km exemplaren met goede onderhoudshistorie. Cayman GTS en klassieke 993 zijn typische Japan-vondsten.</p>
+        </article>
+
+        <article class="route-block">
+          <h3>Via Duitsland</h3>
+          <p class="route-time">2 — 4 weken doorlooptijd</p>
+          <p>Voor <strong>Cayenne, Macan en standaard 911 Carrera</strong> is Duitsland efficiënter — ruim aanbod, korte doorlooptijd, persoonlijke bezichtiging vóór bod. Voor 911-versies met specifieke kleur/uitvoering wachten op de juiste Japanse veiling kan wel weer interessant zijn.</p>
+        </article>
+      </div>
+
+      <h2>IMS-vraagstuk — Porsche-specifiek aandachtspunt</h2>
+
+      <p>Voor <strong>996 Carrera</strong> (1998-2005) en <strong>997.1 Carrera</strong> (2004-2008) is het IMS-lager-vraagstuk (Intermediate Shaft Bearing) een kritieke pre-purchase-check. Bij volledige uitval kan de timing wegvallen met massale motorschade tot gevolg. Faalkans wordt geschat op 1-8% afhankelijk van bouwjaar en gebruikspatroon.</p>
+
+      <p>Onze discipline: <strong>wij bieden niet op een 1998-2008 Carrera zonder gedocumenteerde IMS-update</strong> (LN Engineering Retrofit of IMS Solution). Voor 997.2 (2008-2012) en jonger is het IMS-issue afwezig dankzij de nieuwe 9A1-motor. Voor 911 Turbo (Mezger-motor) en GT3: geen IMS-issue ongeacht generatie.</p>
+
+      <p>Voor de volledige uitleg per generatie, zie de <a href="/kennisbank/porsche-911-modelgids">Porsche 911 modelgids</a> sectie over IMS.</p>
+
+      <h2>Sweet spots — onze top-3</h2>
+
+      <ol class="recommendation-list">
+        <li><strong>997.2 Carrera S (2009-2012)</strong> — onze meest aanbevolen 911-instap. Geen IMS-issue, geen bore-scoring, post-facelift infotainment, 9A1 atmosferische flat-six. Sterk LHD-aanbod via Japan. Landed cost € 42.000-€ 60.000.</li>
+        <li><strong>Cayman S 987 (2008-2010)</strong> — mid-engine sportcoupé met M97-blok, post-IMS-update. Beste Porsche-instap onder de € 30K voor liefhebbers van mechanisch karakter. Landed cost € 18.000-€ 28.000.</li>
+        <li><strong>991.2 Carrera S (2016-2018)</strong> — moderne turbo-flat-six, eerste 911-generatie met PCM 4 / CarPlay. Sterk Japan-LHD-aanbod met lage km. Landed cost € 65.000-€ 85.000.</li>
+      </ol>
+
+      <h2>Wat wij niet sourcen</h2>
+
+      <ul class="bullet-list">
+        <li>Panamera (standaard sedan) — buiten onze hoofdfocus tenzij GTS / Turbo</li>
+        <li>Taycan — EV-segment, dataset nog te dun voor advies</li>
+        <li>Vroege 996 (1998-2001) zonder gedocumenteerde IMS-update — ongeacht prijs</li>
+        <li>Cars met bore-scoring symptomen (olieverbruik &gt; 1L/1000 km) — pre-purchase borescope vereist voor 996/997.1</li>
+        <li>Track-only modificaties (cage, harness, aftermarket ECU) zonder reversibel pakket</li>
+        <li>Alles met grade onder 4 of accident-historie (R/RA/A/X-codes)</li>
+      </ul>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een specifieke Porsche?</h2>
+        <p>Vertel ons generatie, uitvoering, kleur en budget — wij screenen de Japanse veilingen wekelijks en pre-purchase-inspecties via onze partner-werkplaats.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/porsche-911-modelgids">Porsche 911 — modelgids vijf generaties</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD — de groene markering</a></li>
+          <li><a href="/kennisbank/japanse-veiling-grades">Japanse auction grades uitgelegd</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .brand-page { padding: 64px 0 96px; }
+  .brand-page h1 { font-family: var(--font-serif); font-size: 88px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 12px; }
+  .tagline { font-size: 22px; color: var(--color-copper); margin-bottom: 32px; font-style: italic; font-family: 'EB Garamond', serif; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 720px; margin-bottom: 56px; line-height: 1.65; }
+  .brand-page h2 { font-size: 32px; font-weight: 600; margin: 48px 0 20px; line-height: 1.2; }
+  .brand-page h3 { font-size: 20px; font-weight: 600; margin: 28px 0 12px; }
+  .brand-page p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; max-width: 760px; }
+  .brand-page a { color: var(--color-copper); text-decoration: underline; }
+  .brand-page strong { color: var(--color-text-primary); font-weight: 600; }
+  .brand-page em { font-style: italic; }
+
+  .model-list, .bullet-list { padding-left: 24px; max-width: 760px; }
+  .model-list li, .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .model-list strong, .bullet-list strong { color: var(--color-text-primary); }
+
+  .route-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 760px; margin-bottom: 32px; }
+  .route-block { background: var(--color-white); padding: 28px 28px; border-left: 3px solid var(--color-copper); }
+  .route-block h3 { font-size: 22px; margin-top: 0; margin-bottom: 8px; }
+  .route-time { font-size: 13px; color: var(--color-copper); font-weight: 500; margin-bottom: 14px; }
+  .route-block p { font-size: 15px; line-height: 1.6; margin-bottom: 0; }
+
+  .recommendation-list { padding-left: 24px; max-width: 760px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 28px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related { max-width: 760px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .brand-page h1 { font-size: 56px; }
+    .brand-page h2 { font-size: 24px; }
+    .route-grid { grid-template-columns: 1fr; }
+    .page-cta { padding: 36px 24px; }
+  }
+</style>
