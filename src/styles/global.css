@@ -237,4 +237,7 @@ footer ul li {
     --space-container: 24px;
   }
   .site-header nav ul { display: none; }
-  .footer-grid { grid-template-columns: 1fr; gap: 40p
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  h1 { font-size: 48px !important; }
+  h2 { font-size: 40px !important; }
+}
