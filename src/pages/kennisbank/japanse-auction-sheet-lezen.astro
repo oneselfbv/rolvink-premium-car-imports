@@ -171,7 +171,7 @@ const articleSchema = {
         <p>Hier zit een specifieke valkuil die ervaren inkopers kennen en beginners vaak missen. Het veld <strong>ハンドル位置</strong> in het bovenste blok toont in principe 左 (links) of 右 (rechts). Maar omdat de auto in Japan geregistreerd is, kan dit veld in het Japanse veilingsysteem automatisch defaulten op 右 — ongeacht de werkelijke configuratie van de auto.</p>
         <p>Het bewijs van LHD zit dan vaak in het <strong>opmerkingenvak</strong>: een notitie van de inspecteur zoals <em>左ハンドル</em> (hidari handoru, linkerhandel), <em>左H</em> als afkorting, of een Engelse markering <em>LEFT STEERING WHEEL</em>. Die opmerking is de fysieke waarneming van de inspecteur en weegt zwaarder dan het automatisch ingevulde veld.</p>
         <p>De praktische regel: <strong>als bovenaan 右 staat maar in de opmerkingen 左ハンドル, bevestigt het opmerkingenvak de werkelijkheid</strong>. Wij vragen in zo'n geval altijd een dashboard-foto recht van voren bij onze Japanse partner ter dubbele verificatie. Eén foto, vijf seconden werk, en je hebt 100% zekerheid voordat er een bod uitgaat.</p>
-        <p>Aanvullend: op broker-platforms zoals <a href="/kennisbank/lhd-rhd-groene-markering">Japan Car Direct (JCD) bestaat een groene UI-markering</a> voor LHD-rijen in de zoekresultaten. Dat is een UI-helper van JCD zelf, geen kenmerk van de officiële veilinghuizen. Op andere platforms (Carvector, Provide Cars en vergelijkbaren) bestaat die markering niet — de tekstuele bevestiging in de sheet is de universele werkwijze.</p>
+        <p>Aanvullend: sommige broker-platforms bieden een <a href="/kennisbank/lhd-rhd-groene-markering">tekstfilter op stuurpositie</a> om LHD-rijen sneller te vinden. Zo'n filter is handig als eerste schifting, maar geen vervanging voor de sheet zelf: de tekstuele bevestiging in het opmerkingenvak blijft de universele, betrouwbare werkwijze.</p>
       </section>
 
       <section id="service-historie" class="content-section">
@@ -366,4 +366,8 @@ const articleSchema = {
   .bullet-list, .pitfall-list { padding-left: 0; }
   .bullet-list li, .pitfall-list li { display: flex; gap: 12px; align-items: baseline; }
   .bullet-list li::before, .pitfall-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+
+  /* Verder-lezen links zichtbaar als links (auditor: UI) */
+  .related a, .related-block a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .related a:hover, .related-block a:hover { color: var(--color-charcoal-dark); }
 </style>

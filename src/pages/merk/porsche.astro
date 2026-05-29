@@ -94,7 +94,7 @@ const breadcrumbs = [
           <li><a href="/kennisbank/porsche-ims-lager-996-997">Porsche IMS-lager 996/997 — koopgids</a></li>
           <li><a href="/kennisbank/porsche-997-2-japan-vs-duitsland">Porsche 997.2 — Japan vs Duitsland cost-vergelijking</a></li>
           <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
-          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD — de groene markering</a></li>
+          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD bij Japanse veilingen</a></li>
           <li><a href="/kennisbank/japanse-veiling-grades">Japanse auction grades uitgelegd</a></li>
         </ul>
       </div>
@@ -148,4 +148,8 @@ const breadcrumbs = [
     .route-grid { grid-template-columns: 1fr; }
     .page-cta { padding: 36px 24px; }
   }
+
+  /* Verder-lezen links zichtbaar als links (auditor: UI) */
+  .related a, .related-block a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .related a:hover, .related-block a:hover { color: var(--color-charcoal-dark); }
 </style>

@@ -16,7 +16,7 @@ const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'LHD versus RHD — hoe LHD-voertuigen worden herkend op Japanse veilingen',
-  description: 'Waarom links- of rechtsgestuurd cruciaal is bij Japanse imports, hoe LHD-voertuigen worden herkend op auction sheets en broker-platforms (zoals de JCD groene markering), en welke modellen sterk in LHD vertegenwoordigd zijn.',
+  description: 'Waarom links- of rechtsgestuurd cruciaal is bij Japanse imports, hoe LHD-voertuigen worden herkend op de auction sheet (stuurpositie-veld en opmerkingen), en welke modellen sterk in LHD vertegenwoordigd zijn.',
   datePublished: publishedDate,
   dateModified: updatedDate,
   author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
@@ -28,7 +28,7 @@ const articleSchema = {
 
 <BaseLayout
   title="LHD vs RHD bij Japanse imports — herkennen | Rolvink"
-  description="Waarom links- of rechtsgestuurd cruciaal is bij Japanse imports en hoe je LHD herkent op auction sheets, inclusief de groene UI-markering."
+  description="Waarom links- of rechtsgestuurd cruciaal is bij Japanse imports en hoe je LHD betrouwbaar herkent op de auction sheet zelf."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
 
@@ -71,21 +71,19 @@ const articleSchema = {
 
       <section class="content-section">
         <h2>Hoe LHD wordt herkend op Japanse veilingen</h2>
-        <p>Belangrijk onderscheid vooraf: <strong>de officiële Japanse veilinghuizen (USS, JU, JAA en regionale veilingen zoals CAA, ARAI en ZIP) gebruiken geen speciale kleurmarkering voor LHD op hun originele auction sheets</strong>. LHD-identificatie verloopt op die sheets uitsluitend via tekst en chassisanalyse.</p>
-        <p>Een aantal commerciële broker-platforms voegt daar een eigen visuele laag aan toe om navigatie voor internationale bieders te vereenvoudigen. Het bekendste voorbeeld: <strong>Japan Car Direct (JCD)</strong> markeert in hun veilingstatistieken-overzicht LHD-rijen met een lichte groene achtergrond (CSS-kleur rgb(210, 237, 204)). Dat is een UI-helper die JCD zelf in hun platform heeft gebouwd — niet iets dat door de Japanse veilinghuizen wordt aangeleverd. Andere broker-platforms (Carvector, Provide Cars en vergelijkbaren) gebruiken geen kleurcodering en vereisen dat de bieder zelf de auction sheet leest of een tekst-filter toepast.</p>
-        <p>De universele LHD-identificatie verloopt via tekst op de auction sheet zelf:</p>
+        <p>Belangrijk om te weten: <strong>er bestaat geen kleurcode of universele "markering" die LHD aangeeft</strong>. De officiële Japanse veilinghuizen (USS, JU, JAA en regionale veilingen zoals CAA, ARAI en ZIP) tonen de stuurpositie uitsluitend via tekst op de auction sheet. LHD-identificatie verloopt dus via die tekst en via chassisanalyse:</p>
         <ul class="bullet-list">
           <li><strong>左ハンドル (hidari handoru)</strong> — Japans voor "linkerhandel", de meest gebruikte aanduiding in het opmerkingenvak.</li>
           <li><strong>左H</strong> — afkorting daarvan, vaak in modelnaam- of opmerkingenvelden.</li>
           <li><strong>LHD</strong> of <strong>LEFT STEERING WHEEL</strong> — Engelse aanduiding op sheets en in agent-correspondentie gericht op internationale bieders.</li>
           <li><strong>Veld ハンドル位置 (stuurpositie)</strong> — toont 左 (links) of 右 (rechts). Let op: dit veld kan in het Japanse veilingsysteem defaulten op 右 omdat de auto in Japan geregistreerd is, ongeacht de werkelijke configuratie. Lees daarom altijd ook het opmerkingenvak.</li>
         </ul>
-        <p>Voor onze sourcing geldt de regel: bevestiging via minimaal twee bronnen. Waar een UI-markering beschikbaar is (zoals de groene rij op JCD) gebruiken we die als eerste filter, en wij verifiëren altijd via de tekst op de auction sheet zelf. Bij twijfel — bijvoorbeeld een tegenstrijdigheid tussen het ハンドル位置-veld (右) en de opmerkingen (左ハンドル) — vragen we onze Japanse partner om een dashboard-foto recht van voren. Eén bron is niet voldoende.</p>
+        <p>Voor onze sourcing geldt de regel: bevestiging via minimaal twee bronnen. Wij lezen de tekst op de auction sheet zelf en verifiëren die tegen het stuurpositie-veld. Bij twijfel — bijvoorbeeld een tegenstrijdigheid tussen het ハンドル位置-veld (右) en de opmerkingen (左ハンドル) — vragen we onze Japanse partner om een dashboard-foto recht van voren. Eén bron is niet voldoende.</p>
       </section>
 
       <section class="content-section">
         <h2>Welke modellen sterk in LHD vertegenwoordigd zijn</h2>
-        <p>Uit onze marktanalyse over een aantal weken JCD-statistieken (mei 2026) ontstaat het volgende beeld over LHD-volumes per merk en segment. Indicatief, niet uitputtend.</p>
+        <p>Uit onze doorlopende marktanalyse van de Japanse veilingen ontstaat het volgende beeld over LHD-volumes per merk en segment. Indicatief, niet uitputtend.</p>
 
         <h3>Porsche</h3>
         <p>Verreweg het sterkst vertegenwoordigde merk in Japanse LHD-aanbieding. 911 in alle generaties — 993, 996, 997, 991, 992 — verschijnt regelmatig in LHD. Cayman en Boxster (987, 981, 718) idem. Cayenne en Macan zijn schaarser maar komen voor. Klassieke air-cooled 911's (964, 993) zijn premium in LHD en gewild bij Europese liefhebbers.</p>
@@ -185,4 +183,8 @@ const articleSchema = {
   .bullet-list, .pitfall-list { padding-left: 0; }
   .bullet-list li, .pitfall-list li { display: flex; gap: 12px; align-items: baseline; }
   .bullet-list li::before, .pitfall-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+
+  /* Verder-lezen links zichtbaar als links (auditor: UI) */
+  .related a, .related-block a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .related a:hover, .related-block a:hover { color: var(--color-charcoal-dark); }
 </style>

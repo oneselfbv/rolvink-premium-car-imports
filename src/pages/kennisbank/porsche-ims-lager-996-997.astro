@@ -266,4 +266,8 @@ const articleSchema = {
   .bullet-list, .pitfall-list { padding-left: 0; }
   .bullet-list li, .pitfall-list li { display: flex; gap: 12px; align-items: baseline; }
   .bullet-list li::before, .pitfall-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+
+  /* Verder-lezen links zichtbaar als links (auditor: UI) */
+  .related a, .related-block a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .related a:hover, .related-block a:hover { color: var(--color-charcoal-dark); }
 </style>

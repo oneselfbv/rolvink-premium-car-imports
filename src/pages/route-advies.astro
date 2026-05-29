@@ -109,11 +109,11 @@ const modelMatrix = {
 };
 
 const levelInfo = {
-  ruim: { label: 'Ruim aanbod', icon: '●●●', cssClass: 'level-best', desc: 'Wekelijks LHD-aanbod (4+ per maand)' },
-  regelmatig: { label: 'Regelmatig', icon: '●●', cssClass: 'level-good', desc: 'Maandelijks 1-3 LHD-units beschikbaar' },
-  incidenteel: { label: 'Incidenteel', icon: '●', cssClass: 'level-ok', desc: 'Eens per 1-3 maanden' },
-  zeldzaam: { label: 'Zeldzaam', icon: '○', cssClass: 'level-warn', desc: 'Eens per half jaar of langer' },
-  niet: { label: 'Geen aanbod', icon: '×', cssClass: 'level-no', desc: 'Praktisch geen LHD-aanbod' },
+  ruim: { label: 'Ruim aanbod', icon: '●●●', cssClass: 'level-best', desc: 'Wekelijks LHD-aanbod (4+ per maand)', descDE: 'Doorlopend zeer ruim aanbod' },
+  regelmatig: { label: 'Regelmatig', icon: '●●', cssClass: 'level-good', desc: 'Maandelijks 1-3 LHD-units beschikbaar', descDE: 'Doorlopend goed aanbod' },
+  incidenteel: { label: 'Incidenteel', icon: '●', cssClass: 'level-ok', desc: 'Eens per 1-3 maanden', descDE: 'Met enige regelmaat beschikbaar' },
+  zeldzaam: { label: 'Zeldzaam', icon: '○', cssClass: 'level-warn', desc: 'Eens per half jaar of langer', descDE: 'Schaars, maar doorgaans vindbaar' },
+  niet: { label: 'Geen aanbod', icon: '×', cssClass: 'level-no', desc: 'Praktisch geen LHD-aanbod', descDE: 'Praktisch geen aanbod' },
 };
 ---
 
@@ -226,7 +226,7 @@ const levelInfo = {
           <li><span class="lvl-icon level-warn">○</span> <strong>Zeldzaam</strong> — eens per half jaar of langer</li>
           <li><span class="lvl-icon level-no">×</span> <strong>Geen aanbod</strong> — praktisch niet beschikbaar</li>
         </ul>
-        <p class="legend-note">Voor Duitsland-route gelden vergelijkbare niveaus, maar de doorlooptijd is altijd 2-4 weken. Voor een specifiek uitvoeringsprofiel — kleur, optiepakket, kilometerstand-grens — werken we in het intake-gesprek de exacte sourcing-strategie uit.</p>
+        <p class="legend-note">De frequenties hierboven gelden voor de <strong>Japan-route</strong>, waar LHD een schaarse niche is. Voor de <strong>Duitsland-route</strong> is elke auto per definitie LHD (heel continentaal Europa rijdt links) en is het aanbod doorgaans vele malen groter, met een doorlooptijd van altijd 2-4 weken. Voor een specifiek uitvoeringsprofiel — kleur, optiepakket, kilometerstand-grens — werken we in het intake-gesprek de exacte sourcing-strategie uit.</p>
       </div>
 
       <div class="related">
@@ -234,7 +234,7 @@ const levelInfo = {
         <ul>
           <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
           <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
-          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD — de groene markering</a></li>
+          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD bij Japanse veilingen</a></li>
           <li><a href="/voorbeeld-traject">Voorbeeld-traject met volledig kosten-overzicht</a></li>
         </ul>
       </div>
@@ -286,7 +286,7 @@ const levelInfo = {
     japanLevelEl.innerHTML = `<span class="lvl-icon ${jp.cssClass}">${jp.icon}</span> <strong>${jp.label}</strong>`;
     japanDescEl.textContent = jp.desc;
     duitslandLevelEl.innerHTML = `<span class="lvl-icon ${de.cssClass}">${de.icon}</span> <strong>${de.label}</strong>`;
-    duitslandDescEl.textContent = de.desc;
+    duitslandDescEl.textContent = de.descDE || de.desc;
 
     // Bepaal aanbeveling
     const order = { ruim: 5, regelmatig: 4, incidenteel: 3, zeldzaam: 2, niet: 1 };
@@ -310,7 +310,7 @@ const levelInfo = {
 </script>
 
 <style>
-  .route-page { padding: 64px 0 96px; }
+  .route-page { padding: 64px 0 56px; }
   .route-page h1 { font-size: 64px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
   .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 720px; margin-bottom: 32px; line-height: 1.65; }
 
@@ -431,15 +431,20 @@ const levelInfo = {
   .legend-list .lvl-icon { display: inline-block; min-width: 40px; }
   .legend-note { font-size: 13px; color: var(--color-text-tertiary); line-height: 1.6; margin-top: 16px; }
 
-  .related { max-width: 760px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related { max-width: 760px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--color-border-medium); }
   .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
   .related ul { list-style: none; padding: 0; }
-  .related li { padding: 8px 0; }
-  .related a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
-  .related a:hover { color: var(--color-copper-text); }
+  .related li { position: relative; padding: 8px 0 8px 22px; }
+  .related li::before { content: "\2192"; position: absolute; left: 0; color: var(--color-copper-text); font-weight: 600; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-charcoal-dark); }
 
   @media (max-width: 768px) {
     .route-page h1 { font-size: 40px; }
     .route-comparison { grid-template-columns: 1fr; }
   }
+
+  /* Verder-lezen links zichtbaar als links (auditor: UI) */
+  .related a, .related-block a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .related a:hover, .related-block a:hover { color: var(--color-charcoal-dark); }
 </style>
