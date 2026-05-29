@@ -1,0 +1,107 @@
+---
+interface Props {
+  variant?: 'top' | 'bottom';
+}
+
+const { variant = 'bottom' } = Astro.props;
+---
+
+<div class={`author-byline author-byline--${variant}`}>
+  <a href="/over" class="author-byline-avatar" aria-label="Over Theo Rolvink">
+    <span aria-hidden="true">TR</span>
+  </a>
+  <div class="author-byline-text">
+    <p class="author-byline-name">
+      <span class="byline-label">Geschreven door</span>
+      <a href="/over" rel="author">Theo Rolvink</a>
+    </p>
+    <p class="author-byline-bio">Oprichter van Rolvink Premium Car Imports. Met jarenlange ervaring in de in- en verkoop van auto's en motoren en directe relaties met Japanse veiling-partners. Sourcing-discipline op vier merken: BMW, Mercedes-Benz, Audi, Porsche.</p>
+  </div>
+</div>
+
+<style>
+  .author-byline {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    max-width: 760px;
+    padding: 22px 24px;
+    background: var(--color-cream-warm);
+    border-left: 3px solid var(--color-copper);
+  }
+  .author-byline--top {
+    margin-bottom: 40px;
+  }
+  .author-byline--bottom {
+    margin-top: 48px;
+    margin-bottom: 32px;
+  }
+  .author-byline-avatar {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-charcoal-dark);
+    color: var(--color-copper);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .author-byline-avatar:hover {
+    transform: scale(1.05);
+  }
+  .author-byline-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .author-byline-name {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+  }
+  .byline-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 2px;
+  }
+  .author-byline-name a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+  .author-byline-name a:hover {
+    color: var(--color-copper);
+  }
+  .author-byline-bio {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .author-byline {
+      padding: 18px 18px;
+      gap: 14px;
+    }
+    .author-byline-avatar {
+      width: 48px;
+      height: 48px;
+      font-size: 16px;
+    }
+    .author-byline-bio {
+      font-size: 13px;
+    }
+  }
+</style>

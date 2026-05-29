@@ -20,6 +20,17 @@ export function getStaticPaths() {
           'Geen invoerrechten — EU-binnenmarkt',
         ],
         focus: null,
+        relatedReading: [
+          { href: '/kennisbank/auto-importeren-duitsland', title: 'Auto importeren uit Duitsland — complete gids' },
+          { href: '/kennisbank/bpm-importauto-2026', title: 'BPM voor importauto\'s — gids 2026' },
+          { href: '/kennisbank/rdw-keuring-import', title: 'RDW-keuring voor import — stappenplan' },
+          { href: '/kennisbank/mercedes-e-klasse-w212', title: 'Mercedes E-Klasse W212 — koopgids' },
+          { href: '/kennisbank/bmw-5-serie-f10-g30', title: 'BMW 5-Serie F10/G30 — koopgids' },
+          { href: '/kennisbank/mercedes-m112-v6-motor', title: 'Mercedes M112 V6 — motorgids' },
+          { href: '/kennisbank/mercedes-m272-v6-motor', title: 'Mercedes M272 V6 — motorgids (incl. balansas-cutoff)' },
+          { href: '/kennisbank/mercedes-m113-v8-motor', title: 'Mercedes M113 V8 — motorgids' },
+          { href: '/bpm-calculator', title: 'BPM-tool — bereken indicatief uw BPM' },
+        ],
       },
     },
     {
@@ -48,12 +59,23 @@ export function getStaticPaths() {
             { brand: 'Porsche', segment: '911 in alle generaties (993, 996, 997, 991, 992), Cayman S/GTS, Boxster S, klassieke air-cooled' },
           ],
         },
+        relatedReading: [
+          { href: '/kennisbank/auto-importeren-japan', title: 'Auto importeren uit Japan — complete gids' },
+          { href: '/kennisbank/japanse-auction-sheet-lezen', title: 'Japanse auction sheet lezen — complete gids' },
+          { href: '/kennisbank/japanse-veiling-grades', title: 'Japanse auction grades uitgelegd' },
+          { href: '/kennisbank/lhd-rhd-groene-markering', title: 'LHD versus RHD bij Japanse veilingen' },
+          { href: '/kennisbank/porsche-911-modelgids', title: 'Porsche 911 — modelgids vijf generaties' },
+          { href: '/kennisbank/mercedes-m112-v6-motor', title: 'Mercedes M112 V6 — motorgids' },
+          { href: '/kennisbank/mercedes-m113-v8-motor', title: 'Mercedes M113 V8 — motorgids' },
+          { href: '/kennisbank/mercedes-m272-v6-motor', title: 'Mercedes M272 V6 — motorgids (incl. balansas-cutoff)' },
+          { href: '/kennisbank/bpm-importauto-2026', title: 'BPM voor importauto\'s — gids 2026' },
+        ],
       },
     },
   ];
 }
 
-const { name, tagline, timing, description, forWho, bullets, focus } = Astro.props;
+const { name, tagline, timing, description, forWho, bullets, focus, relatedReading } = Astro.props;
 ---
 
 <BaseLayout
@@ -86,6 +108,17 @@ const { name, tagline, timing, description, forWho, bullets, focus } = Astro.pro
               </div>
             ))}
           </dl>
+        </div>
+      )}
+
+      {relatedReading && (
+        <div class="related-block">
+          <h2>Verder lezen</h2>
+          <ul class="related-list">
+            {relatedReading.map((item) => (
+              <li><a href={item.href}>{item.title}</a></li>
+            ))}
+          </ul>
         </div>
       )}
 
@@ -124,6 +157,46 @@ const { name, tagline, timing, description, forWho, bullets, focus } = Astro.pro
   .bullets { max-width: 680px; }
   .bullets li { padding: 14px 0; font-size: 16px; display: flex; gap: 14px; align-items: start; border-bottom: 1px solid var(--color-border-soft); }
   .bullets li::before { content: "→"; color: var(--color-copper); font-weight: 600; }
+
+  .related-block {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--color-border-medium);
+    max-width: 680px;
+  }
+  .related-block h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--color-text-primary);
+  }
+  .related-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .related-list li {
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid var(--color-border-soft);
+    position: relative;
+  }
+  .related-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-copper);
+    font-weight: 600;
+  }
+  .related-list a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+  .related-list a:hover {
+    color: var(--color-copper);
+  }
 
   .focus-block {
     margin-top: 64px;

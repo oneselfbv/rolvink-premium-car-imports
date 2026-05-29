@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -45,6 +46,8 @@ const articleSchema = {
           <span>Leestijd: ongeveer 7 minuten</span>
         </div>
       </header>
+
+      <AuthorByline variant="top" />
 
       <div class="disclaimer">
         <strong>Bron-waarschuwing.</strong> RDW-procedures, kosten en doorlooptijden wijzigen regelmatig. Dit artikel beschrijft de hoofdlijnen zoals die in 2026 gelden voor een typische premium-import van een gangbaar EU-merk. Controleer voor uw specifieke geval altijd <a href="https://www.rdw.nl" target="_blank" rel="noopener">RDW.nl</a> of vraag ons om een actuele inschatting voor uw kandidaatauto.
@@ -180,6 +183,8 @@ const articleSchema = {
         </ol>
         <p>Volledige werkwijze in onze acht stappen vindt u op <a href="/werkwijze">de werkwijze-pagina</a>.</p>
       </section>
+
+      <AuthorByline variant="bottom" />
 
       <div class="page-cta">
         <h2>Vragen over RDW voor uw kandidaatauto?</h2>

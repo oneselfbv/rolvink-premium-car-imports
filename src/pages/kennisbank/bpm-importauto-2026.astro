@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -59,6 +60,8 @@ const articleSchema = {
           <span>Leestijd: ongeveer 9 minuten</span>
         </div>
       </header>
+
+      <AuthorByline variant="top" />
 
       <div class="disclaimer">
         <strong>Belangrijk vooraf.</strong> BPM-regelgeving wijzigt regelmatig (jaarlijks via het Belastingplan, soms tussentijds). Tarieven en methoden in dit artikel zijn een uitleg van het systeem zoals dat in 2026 geldt. Voorbeeldbedragen zijn indicatief en wijken in de praktijk per voertuig af op basis van exacte CO₂, kilometerstand, conditie en gekozen taxatiemethode. Controleer voor uw specifieke geval altijd de actuele tarieven bij de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a> of vraag ons om een onderbouwde prognose vóór bod. Dit artikel is geen fiscaal advies.
@@ -243,6 +246,8 @@ const articleSchema = {
         </ol>
         <p>Wij garanderen geen exacte uitkomst — BPM blijft maatwerk en de Belastingdienst heeft het laatste woord. Wel garanderen we een zorgvuldig onderbouwde prognose vóór elke bod-beslissing. De volledige werkwijze rondom BPM en RDW staat beschreven in <a href="/werkwijze">onze werkwijze, stap 6</a>.</p>
       </section>
+
+      <AuthorByline variant="bottom" />
 
       <div class="page-cta">
         <h2>BPM-berekening voor een specifieke auto?</h2>

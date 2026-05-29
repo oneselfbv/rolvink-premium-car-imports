@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -43,6 +44,8 @@ const articleSchema = {
           <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
         </div>
       </header>
+
+      <AuthorByline variant="top" />
 
       <div class="disclaimer">
         Deze gids gebruikt het USS-formaat als referentie omdat dat het meest voorkomende sheet-type is. Andere veilinghuizen (JU, JAA, CAA, ARAI, ZIP, BAYAUC) hanteren vergelijkbare principes maar variëren in lay-out en specifieke notaties. De hier behandelde principes — grade, letter-codes, sheet-anatomie — gelden voor alle grote Japanse veilinghuizen.
@@ -266,6 +269,8 @@ const articleSchema = {
           </tbody>
         </table>
       </section>
+
+      <AuthorByline variant="bottom" />
 
       <div class="page-cta">
         <h2>Zelf een sheet zien die u wilt laten doorlezen?</h2>

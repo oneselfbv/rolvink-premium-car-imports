@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -59,6 +60,8 @@ const articleSchema = {
           <span>Leestijd: ongeveer 8 minuten</span>
         </div>
       </header>
+
+      <AuthorByline variant="top" />
 
       <nav class="toc">
         <h2>In dit artikel</h2>
@@ -173,6 +176,8 @@ const articleSchema = {
         <h2>Veelgestelde vragen</h2>
         <p>Een uitgebreide FAQ met dertien vragen over het Duitsland-traject (BTW, BPM, RDW, TÜV, garantie, kilometerfraude en specifieke procedures) vindt u op onze <a href="/kennisbank/faq-duitsland">FAQ — Auto importeren uit Duitsland</a>. Voor vragen die daar niet in staan: <a href="/contact">neem contact op</a> voor een vrijblijvend intake-gesprek.</p>
       </section>
+
+      <AuthorByline variant="bottom" />
 
       <div class="page-cta">
         <h2>Klaar voor uw volgende?</h2>

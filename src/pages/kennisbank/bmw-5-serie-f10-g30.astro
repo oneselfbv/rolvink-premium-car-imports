@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -45,6 +46,8 @@ const articleSchema = {
           <span>Leestijd: ongeveer 8 minuten</span>
         </div>
       </header>
+
+      <AuthorByline variant="top" />
 
       <nav class="toc">
         <h2>In deze gids</h2>
@@ -175,6 +178,8 @@ const articleSchema = {
         <p>Japan komt in beeld bij <strong>M-uitvoeringen</strong> (M5 F10/F90, M550i G30) waar het Japanse LHD-aanbod sterk vertegenwoordigd is en de km-stand vaak lager ligt dan bij Europees equivalent. Voor een 5-Serie M-Sport pack met specifieke specs uit Japan kan zinvol zijn — voor een standaard 5-Serie is het overkill.</p>
         <p>Lees ook onze cornerstones over <a href="/kennisbank/auto-importeren-duitsland">auto importeren uit Duitsland</a> en <a href="/kennisbank/auto-importeren-japan">uit Japan</a> voor de volledige proces-uitleg.</p>
       </section>
+
+      <AuthorByline variant="bottom" />
 
       <div class="page-cta">
         <h2>Op zoek naar een specifieke F10 of G30?</h2>

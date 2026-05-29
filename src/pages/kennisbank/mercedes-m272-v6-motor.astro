@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -43,6 +44,8 @@ const articleSchema = {
           <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
         </div>
       </header>
+
+      <AuthorByline variant="top" />
 
       <div class="disclaimer">
         Deze gids is bedoeld voor oriëntatie bij de aankoop of import van een Mercedes met M272-motor. Wij baseren de informatie op publieke technische documentatie, Mercedes service-bulletins en gangbare branche-kennis. <strong>De motornummer-cutoff voor het balansas-defect (2729 30 468993) moet altijd via het fysieke motornummer worden geverifieerd</strong> — niet uitsluitend op basis van bouwjaar.
@@ -236,6 +239,8 @@ const articleSchema = {
 
         <p class="table-note"><em>Bandbreedte voor exemplaren tussen 80.000 en 200.000 km, onderhoudshistorie redelijk tot goed, geen accident-historie. Voor de exacte BPM-indicatie bij import zie onze <a href="/bpm-calculator">BPM-tool</a>.</em></p>
       </section>
+
+      <AuthorByline variant="bottom" />
 
       <div class="page-cta">
         <h2>Op zoek naar een Mercedes met M272-motor?</h2>

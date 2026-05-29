@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -45,6 +46,8 @@ const articleSchema = {
           <span>Leestijd: ongeveer 8 minuten</span>
         </div>
       </header>
+
+      <AuthorByline variant="top" />
 
       <div class="disclaimer">
         <strong>Modelinformatie is observatie, geen technisch advies.</strong> De aandachtspunten in deze gids zijn samengesteld op basis van openbare bronnen (Mercedes-fora, MB-specialisten, onafhankelijke werkplaatsrapporten) en onze eigen veilingobservaties. Specifieke issues kunnen per individueel exemplaar verschillen. Voor concrete diagnoses raadpleeg altijd een gespecialiseerde Mercedes-werkplaats. Landed-cost-cijfers zijn indicatief; BPM, koers en uitvoering kunnen significant afwijken.
@@ -203,6 +206,8 @@ const articleSchema = {
         <p>Voor de meeste W212-zoekopdrachten — een goede daily, standaard uitvoering, met snelheid — is Duitsland onze aanbeveling. Voor liefhebbers met geduld en zoek naar specifieke lage-km exemplaren komt Japan in beeld.</p>
         <p>Lees ook onze cornerstones over <a href="/kennisbank/auto-importeren-duitsland">importeren uit Duitsland</a> en <a href="/kennisbank/auto-importeren-japan">uit Japan</a> voor de volledige proces-uitleg, en de <a href="/kennisbank/bpm-importauto-2026">BPM-gids</a> voor de drie taxatie-methoden.</p>
       </section>
+
+      <AuthorByline variant="bottom" />
 
       <div class="page-cta">
         <h2>Op zoek naar een specifieke W212?</h2>

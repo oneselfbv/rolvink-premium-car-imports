@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -42,7 +43,7 @@ const accepted = [
   { num: '6', title: 'Showroom-staat / S', body: 'Vrijwel nieuwe staat, soms als showroom-/demonstratiewagen aangeboden. Onder de 10.000 km, zonder enige gebruikssporen. Komt zelden voor in oudere bouwjaren. Wordt door sommige veilinghuizen aangeduid als grade S in plaats van 6.' },
   { num: '5', title: 'Vrijwel nieuwstaat', body: 'Minder dan 30.000 km. Geen krassen of deuken. Volledig originele staat. Interieur als nieuw. Service-historie zonder uitzondering compleet. Zeer zeldzaam in oudere bouwjaren.' },
   { num: '4.5', title: 'Uitstekende staat', body: 'Onder 100.000 km. Slechts minimale gebruikssporen. Geen reparatie-historie. Interieur in zeer goede staat. Volledige service-historie. Onze voorkeurs-grade voor zeldzame uitvoeringen.' },
-  { num: '4', title: 'Goede staat', body: 'Normale gebruikssporen passend bij km-stand en bouwjaar. Geen accident-historie. Eventueel lichte stenen op voorkant of kleine parkeer-tikjes. Volledig functioneel, mechanisch in orde.' },
+  { num: '4', title: 'Goede staat', body: 'Normale gebruikssporen passend bij km-stand en bouwjaar. Geen bekende schade- of herstelhistorie. Eventueel lichte stenen op voorkant of kleine parkeer-tikjes. Volledig functioneel, mechanisch in orde.' },
 ];
 
 const rejected = [
@@ -81,6 +82,8 @@ const letterCodes = [
           <span>Leestijd: ongeveer 6 minuten</span>
         </div>
       </header>
+
+      <AuthorByline variant="top" />
 
       <section class="content-section">
         <h2>Hoe het systeem werkt</h2>
@@ -164,6 +167,8 @@ const letterCodes = [
           </li>
         </ol>
       </section>
+
+      <AuthorByline variant="bottom" />
 
       <div class="page-cta">
         <h2>Vragen over een specifiek auction sheet?</h2>
