@@ -252,4 +252,9 @@ const articleSchema = {
     .cost-table { font-size: 12px; }
     .cost-table th, .cost-table td { padding: 8px 10px; }
   }
+
+  /* Consistente list-markers — lijsten moeten als lijst leesbaar zijn (auditor) */
+  .bullet-list, .pitfall-list { padding-left: 0; }
+  .bullet-list li, .pitfall-list li { display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before, .pitfall-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
 </style>
