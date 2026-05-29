@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Porsche 997.2 — Japan versus Duitsland' },
+];
+
+const publishedDate = '2026-05-29';
+const updatedDate = '2026-05-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Porsche 997.2 Carrera S — Japan vs Duitsland landed-cost vergelijking',
+  description: 'Een 2010 Porsche 997.2 Carrera S volledig doorgerekend over beide import-routes. Hammerprijs, transport, BPM, RDW, onze fee — naast elkaar, met beslislogica en doorlooptijd-vs-marge analyse.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/porsche-997-2-japan-vs-duitsland' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Porsche 997.2 — Japan vs Duitsland cost-vergelijking | Rolvink"
+  description="Eén 2010 Porsche 997.2 Carrera S doorgerekend over beide import-routes. Hammerprijs, transport, BPM, RDW, onze fee — naast elkaar met beslislogica."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Cost-vergelijking — Porsche 997.2</div>
+        <h1>Porsche 997.2 — <span class="accent">Japan vs Duitsland</span>.</h1>
+        <p class="lead">Eén concrete auto, beide routes, alles transparant uitgesplitst. Een 2010 Porsche 997.2 Carrera S met handgeschakelde 6-bak, ongeveer 95.000 kilometer, conditie 4+ in Japan en TÜV-schoon in Duitsland — wat kost dezelfde auto via beide routes, en wanneer kies je welke?</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>·</span>
+              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            </>
+          )}
+        </div>
+      </header>
+
+      <AuthorByline variant="top" />
+
+      <div class="disclaimer">
+        Onderstaande cijfers zijn een typisch scenario op basis van auctie-data en Duitse markt-listings van het tweede kwartaal 2026, koers <strong>€1 ≈ ¥169</strong>. Werkelijke landed cost varieert met wisselkoers, exacte CO₂-uitstoot, BPM-methode en eventueel additionele werkzaamheden. Wij leveren vóór elk bod een onderbouwde prognose voor uw specifieke kandidaatauto.
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>In dit artikel</h2>
+        <ol>
+          <li><a href="#waarom-997-2">Waarom de 997.2 als case</a></li>
+          <li><a href="#auto">De auto die we vergelijken</a></li>
+          <li><a href="#japan-route">Japan-route — kosten doorgerekend</a></li>
+          <li><a href="#duitsland-route">Duitsland-route — kosten doorgerekend</a></li>
+          <li><a href="#side-by-side">Side-by-side overzicht</a></li>
+          <li><a href="#bpm-nuance">BPM — waar het verschil zit</a></li>
+          <li><a href="#doorlooptijd">Doorlooptijd-versus-marge analyse</a></li>
+          <li><a href="#wanneer-welke">Wanneer welke route — onze beslislogica</a></li>
+        </ol>
+      </nav>
+
+      <section id="waarom-997-2" class="content-section">
+        <h2>Waarom de 997.2 als case</h2>
+        <p>De Porsche 997.2 Carrera (2009-2012) is de eerste 911-generatie met de 9A1-motor — directe inspuiting, geen IMS-lager, geen bore-scoring. Voor importkopers die de Porsche-DNA willen zonder de M96/M97-erfenis is dit de meest aanbevolen instap (zie onze <a href="/kennisbank/porsche-ims-lager-996-997">IMS-koopgids</a> voor de achtergrond).</p>
+        <p>De 997.2 is ook een model waarin beide import-routes realistisch zijn — het LHD-aanbod uit Japan is structureel sterk én de Duitse markt heeft ruim aanbod van Scheckheft-onderhouden exemplaren. Daarmee is dit een eerlijke case om de twee routes naast elkaar te zetten. Modellen waar één route duidelijk wint (bijvoorbeeld een E-Klasse Estate, waar Japan-LHD praktisch nul is) vragen geen vergelijking. De 997.2 wel.</p>
+      </section>
+
+      <section id="auto" class="content-section">
+        <h2>De auto die we vergelijken</h2>
+        <p>We nemen een concreet profiel — een uitvoering die op beide markten regelmatig voorbij komt en waar de keuze tussen JP en DE realistisch open ligt:</p>
+        <ul class="bullet-list">
+          <li><strong>Model:</strong> Porsche 911 997.2 Carrera S Coupé</li>
+          <li><strong>Bouwjaar:</strong> 2010</li>
+          <li><strong>Motor:</strong> 9A1, 3,8L atmospheric flat-six, 385 pk</li>
+          <li><strong>Transmissie:</strong> handgeschakelde 6-bak (Schaltgetriebe)</li>
+          <li><strong>Kilometerstand:</strong> circa 95.000 km</li>
+          <li><strong>Uitvoering:</strong> Sport Chrono, PASM, leder zwart, 19" Carrera S-velgen</li>
+          <li><strong>Conditie:</strong> 4+ op Japanse veilingschaal / TÜV-schoon zonder opmerkingen in Duitse Scheckheft</li>
+        </ul>
+        <p>Marktverwachting voor deze profielen in 2026 (NL-eindprijs als referentie): tussen € 58.000 en € 70.000 retail bij een Porsche-erkende dealer, € 52.000-€ 62.000 bij particuliere verkoop. Onze landed-cost-prognose vergelijken we straks met dat verkoopvenster.</p>
+      </section>
+
+      <section id="japan-route" class="content-section">
+        <h2>Japan-route — kosten doorgerekend</h2>
+        <p>Op de Japanse veilingen liggen 997.2-handbak-exemplaren typisch tussen ¥6.500.000 en ¥9.500.000 hammer, afhankelijk van kilometrage, uitvoering en kleur. Voor ons profiel rekenen wij met een centraal scenario van ¥7.800.000 — een schoon exemplaar zonder R-codes op de auction sheet.</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Kostenpost</th><th>Bedrag</th><th>Toelichting</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hammerprijs veiling Japan</td><td>€ 46.150</td><td>¥7.800.000 bij koers €1 ≈ ¥169</td></tr>
+            <tr><td>Veiling- en brokerfees + binnenlands transport Japan</td><td>€ 1.500</td><td>Veilingfee, broker-fee (JCD), transport naar exporthaven, export-formaliteiten</td></tr>
+            <tr><td>RoRo zeevracht Japan → Rotterdam</td><td>€ 1.100</td><td>Inclusief transit-verzekering</td></tr>
+            <tr><td>Douane-afhandeling NL</td><td>€ 400</td><td>Expediteur, papierwerk</td></tr>
+            <tr><td><strong>CIF-waarde (basis voor douane)</strong></td><td><strong>€ 49.150</strong></td><td>Subtotaal vóór belastingen</td></tr>
+            <tr><td>Invoerrechten 10% over CIF</td><td>€ 4.915</td><td>EU-tarief HS 8703</td></tr>
+            <tr><td>BTW 21% over (CIF + invoerrechten)</td><td>€ 11.354</td><td>Over € 54.065</td></tr>
+            <tr><td>BPM (V6 atm, 2010, koerslijst-methode)</td><td>€ 2.800</td><td>Indicatief; werkelijk varieert met koerslijst-referentie en CO₂-waarde</td></tr>
+            <tr><td>RDW + identificatie + kenteken</td><td>€ 450</td><td>Inclusief APK</td></tr>
+            <tr><td>EU-compliance aanpassingen</td><td>€ 350</td><td>Mistlicht achter, kentekenverlichting</td></tr>
+            <tr><td>Pre-purchase inspectie (borescoop niet nodig — 9A1 motor)</td><td>€ 150</td><td>Wel oliemonster-analyse en standaard mechanische check</td></tr>
+            <tr><td>Reconditionering + NL-transport</td><td>€ 700</td><td>Detailing, eventuele klein herstel</td></tr>
+            <tr><td>Rolvink fee (sourcing + operationeel)</td><td>€ 3.250</td><td>Volgens <a href="/tarieven">Japan-traject tarief</a></td></tr>
+            <tr class="cat-total"><td><strong>Totale landed cost — Japan-route</strong></td><td><strong>€ 73.169</strong></td><td>All-in tot aan uw oprit</td></tr>
+          </tbody>
+        </table>
+        <p>Doorlooptijd in dit scenario: van hammer-down tot Nederlandse kentekenplaat circa 11-13 weken. Geen persoonlijke bezichtiging vóór bod — bod gebeurt op basis van auction sheet, foto's en optioneel een pre-bid inspectierapport. De auction sheet voor een 997.2 (geen IMS, geen bore-scoring) is in principe alle zekerheid die nodig is, mits de service-stempels van Porsche of een erkende specialist te zien zijn.</p>
+      </section>
+
+      <section id="duitsland-route" class="content-section">
+        <h2>Duitsland-route — kosten doorgerekend</h2>
+        <p>Op mobile.de en autoscout24.de wordt een 997.2 Carrera S handbak met 95K km in goede staat typisch aangeboden tussen € 52.000 en € 62.000. Erkende Porsche-dealers liggen aan de bovenkant van die range, particuliere verkopers met goede historie aan de onderkant. Voor ons profiel rekenen wij met een onderhandelde aankoopprijs van € 54.500 — realistisch voor een schoon exemplaar bij een onafhankelijke specialist na bezichtiging.</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Kostenpost</th><th>Bedrag</th><th>Toelichting</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Aankoopprijs Duitsland</td><td>€ 54.500</td><td>Onderhandeld bij specialist, complete Scheckheft</td></tr>
+            <tr><td>TÜV-rapport + DEKRA pre-purchase</td><td>€ 580</td><td>Onafhankelijke 2e-mening inspectie</td></tr>
+            <tr><td>Persoonlijke bezichtiging (reisdag + accommodatie)</td><td>€ 380</td><td>Een reisdag voor onze inspecteur — geen verkoopdruk-strategie</td></tr>
+            <tr><td>Transport Duitsland → Nederland</td><td>€ 450</td><td>Oplegger, verzekerd, deur-tot-deur</td></tr>
+            <tr><td>Invoerrechten</td><td>€ 0</td><td>EU-binnenmarkt</td></tr>
+            <tr><td>Extra Nederlandse BTW</td><td>€ 0</td><td>Duitse BTW reeds voldaan (margebepaling van toepassing)</td></tr>
+            <tr><td>BPM (V6 atm, 2010, koerslijst-methode)</td><td>€ 2.800</td><td>Identiek aan Japan-route — afhankelijk van bouwjaar/CO₂, niet van bron</td></tr>
+            <tr><td>RDW + identificatie + kenteken</td><td>€ 450</td><td>Inclusief APK</td></tr>
+            <tr><td>EU-compliance aanpassingen</td><td>€ 0</td><td>Auto is reeds EU-spec</td></tr>
+            <tr><td>Reconditionering + detailing</td><td>€ 500</td><td>Voorbereiding voor aflevering</td></tr>
+            <tr><td>Rolvink fee (sourcing + operationeel)</td><td>€ 2.250</td><td>Volgens <a href="/tarieven">Duitsland-traject tarief</a></td></tr>
+            <tr class="cat-total"><td><strong>Totale landed cost — Duitsland-route</strong></td><td><strong>€ 61.910</strong></td><td>All-in tot aan uw oprit</td></tr>
+          </tbody>
+        </table>
+        <p>Doorlooptijd in dit scenario: van handtekening op het Duitse koopcontract tot Nederlandse kentekenplaat circa 2,5-4 weken. Inclusief persoonlijke bezichtiging vóór bod en directe inspectie van de service-historie ter plaatse.</p>
+      </section>
+
+      <section id="side-by-side" class="content-section">
+        <h2>Side-by-side overzicht</h2>
+        <p>De twee scenario's naast elkaar:</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Aspect</th><th>Japan-route</th><th>Duitsland-route</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Aankoopprijs / hammerprijs</td><td>€ 46.150 (¥7.800.000)</td><td>€ 54.500</td></tr>
+            <tr><td>Veilingfees / TÜV + bezichtiging</td><td>€ 1.500</td><td>€ 960</td></tr>
+            <tr><td>Transport</td><td>€ 1.100 (RoRo)</td><td>€ 450 (oplegger)</td></tr>
+            <tr><td>Douane-afhandeling</td><td>€ 400</td><td>€ 0</td></tr>
+            <tr><td>Invoerrechten 10%</td><td>€ 4.915</td><td>€ 0</td></tr>
+            <tr><td>NL-BTW 21%</td><td>€ 11.354</td><td>€ 0</td></tr>
+            <tr><td>BPM</td><td>€ 2.800</td><td>€ 2.800</td></tr>
+            <tr><td>RDW + kenteken</td><td>€ 450</td><td>€ 450</td></tr>
+            <tr><td>EU-compliance + prep</td><td>€ 1.200</td><td>€ 500</td></tr>
+            <tr><td>Rolvink fee</td><td>€ 3.250</td><td>€ 2.250</td></tr>
+            <tr class="cat-total"><td><strong>Totale landed cost</strong></td><td><strong>€ 73.169</strong></td><td><strong>€ 61.910</strong></td></tr>
+            <tr><td><strong>Doorlooptijd</strong></td><td><strong>11-13 weken</strong></td><td><strong>2,5-4 weken</strong></td></tr>
+            <tr><td><strong>Bezichtiging vóór bod</strong></td><td>Auction sheet + foto's</td><td>Persoonlijk</td></tr>
+            <tr><td><strong>Marktverwachting NL retail</strong></td><td>€ 58.000-€ 70.000</td><td>€ 58.000-€ 70.000</td></tr>
+          </tbody>
+        </table>
+        <p>Het verschil in totale landed cost is in dit scenario <strong>€ 11.259 in het voordeel van Duitsland</strong>. Dat is geen kleine post — het is een wezenlijke marge die de routekeuze materieel maakt. Voordat we concluderen "altijd Duitsland", moeten we de nuance bekijken.</p>
+      </section>
+
+      <section id="bpm-nuance" class="content-section">
+        <h2>BPM — waar het verschil zit</h2>
+        <p>Een veelvoorkomende misvatting: dat de BPM-berekening per import-route verschilt. Dat is niet zo. BPM is een Nederlandse belasting gebaseerd op het voertuig (CO₂, leeftijd, brandstof), niet op de oorsprong. Een 2010 Porsche 997.2 Carrera S kost via koerslijst-methode dezelfde BPM ongeacht of hij uit Japan of Duitsland komt.</p>
+        <p>Het werkelijke kostverschil zit elders:</p>
+        <ul class="bullet-list">
+          <li><strong>Invoerrechten 10%</strong> — alleen op niet-EU import. Japan-route betaalt dit, Duitsland niet. Voor onze case: € 4.915 verschil.</li>
+          <li><strong>Nederlandse BTW 21%</strong> — alleen op niet-EU import. Bij intra-EU verkoop tussen B2C of B2B-margebepaling is de Duitse BTW reeds voldaan en wordt geen nieuwe NL-BTW geheven. Voor onze case: € 11.354 verschil.</li>
+          <li><strong>Transport</strong> — RoRo Japan-Rotterdam is fundamenteel duurder en langer dan Duitsland-NL oplegger. Voor onze case: € 650 verschil.</li>
+        </ul>
+        <p>Wat de Japan-route ten gunste compenseert is een typisch lagere aankoopprijs op de veiling — voor onze case € 8.350 onder de Duitse marktprijs. Maar invoerrechten + extra BTW samen tellen tot ruim € 16.000 op een €46K-hammer; dat eet het aankoopvoordeel ruim weg, en daarbovenop komen extra transport, douane en wachtweken.</p>
+      </section>
+
+      <section id="doorlooptijd" class="content-section">
+        <h2>Doorlooptijd-versus-marge analyse</h2>
+        <p>Tegenover de € 11.259 hogere landed cost via Japan staan twee aspecten die in deze case niet uit te drukken zijn in euro's:</p>
+        <ul class="bullet-list">
+          <li><strong>8-10 weken extra wachttijd.</strong> Voor klanten met een specifieke aankoopdatum (verjaardag, jubileum, planning rondom andere voertuig-verkoop) is dat een reëel praktisch nadeel.</li>
+          <li><strong>Geen persoonlijke bezichtiging vóór bod.</strong> Bij Japan-route werkt u op auction sheet plus onze duiding plus foto's. Voor een 997.2 met 9A1-motor is dat in onze ervaring voldoende zekerheid — geen IMS, geen bore-scoring, dus de motor-specifieke risico's van M96/M97 zijn afwezig. Maar voor wie de psychologische zekerheid van een fysieke inspectie belangrijk vindt, is dat een factor.</li>
+        </ul>
+        <p>Tegelijk levert Japan-route ook genuanceerde voordelen die voor specifieke kopers wel doorslaggevend zijn:</p>
+        <ul class="bullet-list">
+          <li><strong>Toegang tot specifieke optie-combinaties en kleuren</strong> die in Duitsland nauwelijks beschikbaar zijn. Voor liefhebbers met een precieze wens (specifieke kleur, manueel met sportstoelen, originele wielmaat) kan Japan binnen 6-12 weken leveren waar Duitsland 6 maanden of langer kan duren.</li>
+          <li><strong>Doorgaans lagere kilometerstanden</strong> — voor exemplaren met &lt; 60.000 km in 2026 is Japan structureel sterker dan Duitsland, waar 60K-km 997.2's vrijwel altijd boven de marktprijs liggen.</li>
+          <li><strong>Drogere klimaathistorie</strong> — minder roest op carrosserie-onderkanten, vooral relevant voor 911's die in de winter buiten staan in Duitsland.</li>
+        </ul>
+      </section>
+
+      <section id="wanneer-welke" class="content-section">
+        <h2>Wanneer welke route — onze beslislogica</h2>
+        <p>Voor een 997.2 Carrera S vragen wij in het eerste intake-gesprek meestal drie vragen die de routekeuze sturen:</p>
+        <h3>Kies Duitsland als…</h3>
+        <ul class="bullet-list">
+          <li>U binnen 4-6 weken in de auto wilt rijden</li>
+          <li>U weinig voorkeur heeft voor een specifieke kleur of optie-combinatie</li>
+          <li>Persoonlijke bezichtiging vóór bod belangrijk is voor uw zekerheid</li>
+          <li>U binnen budget € 60.000-€ 65.000 wilt blijven</li>
+        </ul>
+        <h3>Kies Japan als…</h3>
+        <ul class="bullet-list">
+          <li>U wel 11-13 weken kunt afwachten</li>
+          <li>U een specifieke uitvoering, kleur of optiepakket zoekt dat in Europa schaars is</li>
+          <li>U lage kilometerstanden (&lt; 60.000 km) prioriteit geeft boven snelheid</li>
+          <li>Budget tot € 75.000-€ 80.000 acceptabel is voor een goed exemplaar</li>
+          <li>Klimaathistorie (geen pekel, geen winter-gebruik) zwaar meeweegt</li>
+        </ul>
+        <p>Voor het standaard-profiel — "een goede 997.2 Carrera S handbak voor zelfgebruik" — is in deze case <strong>Duitsland onze aanbeveling</strong>. Voor het specifieke profiel — "een 997.2 in Aqua Blue Metallic met sport-stoelen en handbak, &lt; 60K km" — wordt Japan de logische route.</p>
+        <p>Geen één-maat-past-alles. Wij vertellen welke route bij uw zoekopdracht past in een vrijblijvend intake-gesprek (online, WhatsApp of telefonisch), en maken voor elke kandidaat een onderbouwde landed-cost-prognose vóór bod.</p>
+      </section>
+
+      <AuthorByline variant="bottom" />
+
+      <div class="page-cta">
+        <h2>Op zoek naar een 997.2 — Japan of Duitsland?</h2>
+        <p>Vertel ons uitvoering, kleur, km-grens en tijdslijn. Wij screenen beide markten wekelijks en maken voor elke kandidaat de volledige landed-cost-prognose vóór bod. Geen actie zonder uw groen licht.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related-block">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/porsche-911-modelgids">Porsche 911 — modelgids vijf generaties</a></li>
+          <li><a href="/kennisbank/porsche-ims-lager-996-997">Porsche IMS-lager 996/997 — koopgids</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/voorbeeld-traject">Voorbeeld-traject W212 — Japan-case doorgerekend</a></li>
+          <li><a href="/route-advies">Route-advies — Japan of Duitsland?</a></li>
+          <li><a href="/tarieven">Onze sourcing-tarieven</a></li>
+          <li><a href="/merk/porsche">Onze Porsche-focus</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .article-header h1 { font-family: var(--font-serif); font-size: 64px; font-weight: 500; letter-spacing: 0.02em; margin: 16px 0 24px; line-height: 1.05; }
+  .article-header .lead { font-size: 19px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 24px; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-charcoal-dark); }
+
+  .toc { max-width: 760px; margin-bottom: 56px; padding: 24px 28px; background: var(--color-cream); border-left: 3px solid var(--color-copper); }
+  .toc h2 { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 14px; font-weight: 600; }
+  .toc ol { margin: 0; padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; }
+  .toc a:hover { color: var(--color-copper); text-decoration: underline; }
+
+  .content-section { max-width: 800px; margin-bottom: 56px; }
+  .content-section h2 { font-family: var(--font-display); font-size: 32px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .content-section h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin: 28px 0 12px; color: var(--color-charcoal-dark); }
+  .content-section p { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 18px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .bullet-list { padding-left: 20px; margin-bottom: 18px; }
+  .bullet-list li { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 10px; }
+  .bullet-list li strong { color: var(--color-charcoal-dark); }
+
+  .cost-table { width: 100%; max-width: 800px; border-collapse: collapse; margin-bottom: 16px; font-size: 15px; }
+  .cost-table th, .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); text-align: left; }
+  .cost-table th { background: var(--color-cream); color: var(--color-charcoal-dark); font-weight: 600; }
+  .cost-table tr.cat-total td { background: var(--color-cream-warm); font-size: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .cost-table a { color: var(--color-copper); text-decoration: underline; }
+
+  .page-cta { max-width: 760px; margin-top: 64px; padding: 36px 32px; background: var(--color-charcoal-dark); color: var(--color-cream); }
+  .page-cta h2 { font-family: var(--font-display); font-size: 26px; font-weight: 600; margin-bottom: 12px; color: var(--color-cream); }
+  .page-cta p { font-size: 15px; line-height: 1.55; margin-bottom: 20px; color: var(--color-cream-warm); }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-note { font-size: 12px; color: var(--color-cream-warm); margin-top: 16px; margin-bottom: 0; opacity: 0.8; }
+
+  .related-block { max-width: 760px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--color-border-medium); }
+  .related-block h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 20px; color: var(--color-text-primary); }
+  .related-block ul { list-style: none; padding: 0; margin: 0; }
+  .related-block li { padding: 10px 0 10px 20px; border-bottom: 1px solid var(--color-border-soft); position: relative; }
+  .related-block li::before { content: "→"; position: absolute; left: 0; color: var(--color-copper); font-weight: 600; }
+  .related-block a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related-block a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .article-header h1 { font-size: 44px; }
+    .content-section h2 { font-size: 26px; }
+    .content-section h3 { font-size: 19px; }
+    .content-section p, .bullet-list li { font-size: 16px; }
+    .cost-table { font-size: 13px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+    .page-cta { padding: 28px 24px; }
+  }
+</style>

@@ -1,0 +1,296 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Audi quattro & RS — koopgids' },
+];
+
+const publishedDate = '2026-05-29';
+const updatedDate = '2026-05-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Audi quattro & RS — koopgids voor importkopers (B7 tot C8)',
+  description: 'Wat maakt quattro een quattro en RS een RS — vier quattro-generaties uitgelegd, de drie kern-motorfamilies (V8 4.2, V10 5.2, 4.0 TFSI biturbo, 2.5 TFSI R5), valkuilen per generatie en welke uitvoeringen wij sourcen via Japan en Duitsland.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/audi-quattro-rs-koopgids' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Audi quattro & RS — koopgids importkopers | Rolvink"
+  description="Quattro-generaties uitgelegd, RS-motorfamilies (V8 4.2, V10 5.2, 4.0 TFSI biturbo, 2.5 TFSI R5), valkuilen per generatie en welke RS-uitvoeringen wij sourcen."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Merk-flagship — Audi</div>
+        <h1>Audi <span class="accent">quattro</span> & RS.</h1>
+        <p class="lead">Geen Audi-koop zonder begrip van wat quattro feitelijk is — vier verschillende technische systemen onder dezelfde naam — en wat van een S of RS méér maakt dan een snellere A. Hier de complete koopgids: quattro-generaties, RS-motorfamilies, valkuilen per generatie en welke uitvoeringen wij via Japan of Duitsland sourcen.</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>·</span>
+              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            </>
+          )}
+        </div>
+      </header>
+
+      <AuthorByline variant="top" />
+
+      <div class="disclaimer">
+        Deze gids is bedoeld voor oriëntatie bij de aankoop of import van een Audi RS-uitvoering of een quattro-model uit het premium-segment. Wij baseren ons op publieke technische documentatie, Audi service-bulletins, bekende class-action en garantie-uitbreidingen en onze eigen sourcing-ervaring. Specifieke uitvalsstatistieken voor bekende motorproblemen wisselen per bron — wij citeren waar mogelijk de bandbreedte.
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>In deze gids</h2>
+        <ol>
+          <li><a href="#quattro-vier">Quattro — vier systemen onder één naam</a></li>
+          <li><a href="#torsen">Torsen-quattro (Type A, B, C) — de mechanische klassieker</a></li>
+          <li><a href="#crown-gear">Crown-gear quattro — de modernere RS-set</a></li>
+          <li><a href="#hydraulic">Haldex en quattro ultra — front-based systemen</a></li>
+          <li><a href="#rs-historie">RS-modellen in vogelvlucht</a></li>
+          <li><a href="#motoren">De vier kern-motorfamilies in moderne RS</a></li>
+          <li><a href="#valkuilen">Valkuilen per RS-generatie</a></li>
+          <li><a href="#dsg">De DSG / S-tronic versnellingsbak — eigen aandachtspunt</a></li>
+          <li><a href="#sweetspots">Sweet-spot uitvoeringen</a></li>
+          <li><a href="#sourcen">Wat wij sourcen — Japan versus Duitsland voor Audi</a></li>
+          <li><a href="#checken">Pre-purchase checks</a></li>
+        </ol>
+      </nav>
+
+      <section id="quattro-vier" class="content-section">
+        <h2>Quattro — vier systemen onder één naam</h2>
+        <p>Sinds 1980 zet Audi het label "quattro" op auto's met vierwielaandrijving. Wat in de marketing één naam is, is in de techniek vier verschillende systemen — elk met eigen rijgedrag, eigen kosten en eigen valkuilen. Wie quattro koopt zonder te weten welk systeem onder de auto zit, koopt blind.</p>
+        <p>De vier hoofdvarianten in chronologische volgorde:</p>
+        <ul class="bullet-list">
+          <li><strong>Torsen-quattro (longitudinaal)</strong> — de klassieke mechanische set met Torsen-koppeling op het midden-differentieel. Drie generaties: Type A (1986-1995), Type B (1996-2006) en Type C (2006-2018). Verdeelt motorkoppel met variabele bias tussen vooras en achteras, zonder elektronische tussenkomst. Zit in alle longitudinale Audi's: A4, A6, A8, Q5, Q7 plus de bijbehorende S- en RS-uitvoeringen.</li>
+          <li><strong>Crown-gear quattro</strong> — vanaf 2010 in de B8/C7-platforms geïntroduceerd. Vervangt Torsen door een crown-gear differential die compacter en lichter is en standaard 40:60 verdeelt richting achterwielen voor sportiever rijgedrag. Standaard in moderne RS-modellen op MLB-platform: RS4 B8/B9, RS5, RS6 C7/C8, RS7, RS Q8.</li>
+          <li><strong>Haldex quattro</strong> — een hydraulisch koppelings-systeem op transversale platforms (Golf-basis). Drijft normaal alleen de vooras aan en koppelt achteras pas in als slip wordt gedetecteerd. Zit in A3, S3, RS3, Q3, RSQ3, TT, TT RS. Niet vergelijkbaar met Torsen of crown-gear in rijgedrag.</li>
+          <li><strong>Quattro ultra</strong> — vanaf 2016 in B9 A4/A5 als zuinige variant. Werkt als Haldex maar dan op longitudinale architectuur: achteras-aandrijving wordt softwarematig ontkoppeld bij rustig rijden. Niet in S- of RS-modellen.</li>
+        </ul>
+        <p>Wat dit betekent voor een koop: een RS3 (Haldex) en een RS4 (Torsen of crown-gear) heten allebei "quattro" maar gedragen zich totaal anders. Voor RS-niveau performance is longitudinale Torsen of crown-gear de wezenlijke ervaring. Haldex-quattro is in moderne RS3 / RSQ3 sterk doorontwikkeld, maar fundamenteel een front-based systeem.</p>
+      </section>
+
+      <section id="torsen" class="content-section">
+        <h2>Torsen-quattro (Type A, B, C) — de mechanische klassieker</h2>
+        <p>Torsen staat voor <em>torque sensing</em>: een puur mechanisch differentieel dat verschillende mate van slip per as detecteert en koppel-verdeling daarop aanpast — zonder elektronica, hydraulica of koppelingsplaten. Werkt instant en is in onderhoud minimaal.</p>
+        <h3>Type A (1986-1995)</h3>
+        <p>Eerste generatie. Verdeling typisch 50:50 onder normale omstandigheden, kan tot maximaal 75% naar één as bias. Zit in vroege quattro-modellen waaronder de oorspronkelijke Audi quattro, de Audi 80/90 quattro en vroege S4/S6. Voor importkopers vandaag vooral relevant in 1990s S2 / S4 / S6 als youngtimer-segment.</p>
+        <h3>Type B (1996-2006)</h3>
+        <p>Bredere bias-bandbreedte (tot 78% naar één as) en betere kosten-positie. Standaard in B5/B6 A4/S4, C5 A6/S6, D2 A8/S8, en de B5 RS4 en C5 RS6. Bekend als robuust: bij correct onderhoud van diff-olie geen typische failures, en de regenerische diff-werking versterkt zelfs lichte slijtage compenseren.</p>
+        <h3>Type C (2006-2018)</h3>
+        <p>Asymmetrische bias als standaard — 40:60 richting achteras voor sportiever rijgedrag. Zit in B7/B8 A4/S4/RS4, C6 A6/S6/RS6, D3/D4 A8/S8, Q5/SQ5, Q7. Voor de B7 RS4 (V8 4.2 atmospheric) en de C6 RS6 V10 5.2 is dit het quattro-systeem.</p>
+        <p>Wat te checken voor Torsen-modellen: olie van het verdeelhuis en het achter-differentieel volgens schema (typisch elke 60.000-80.000 km) — verwaarlozing leidt op termijn tot brom-geluiden bij bochten en uiteindelijk slip. Vóór bod altijd controleren of de service-historie expliciet diff-oil-changes vermeldt.</p>
+      </section>
+
+      <section id="crown-gear" class="content-section">
+        <h2>Crown-gear quattro — de moderne RS-set</h2>
+        <p>Vanaf circa 2010 begint Audi het Torsen-systeem op MLB- en MLBevo-platforms te vervangen door een crown-gear differential. Compacter, lichter, met sportievere 40:60 standaardverdeling (kan tot 70% naar achter en 85% naar voren bias bij slip). Standaard in moderne RS-modellen: RS4 B8/B9, RS5, RS6 C7/C8, RS7 C7/C8, RS Q8 en S6/S7/S8 C8.</p>
+        <p>Het systeem is over het algemeen storingsvrij maar deelt met Torsen de regel: diff-oil-changes volgens schema. Bij hoge km gecombineerd met track-gebruik kunnen interne lagers op de crown-gear slijten — duurste herstel binnen het differential-segment. Bij pre-purchase: rijden in scherpe bocht op laag toerental, luisteren naar brom of klik. Een gezonde crown-gear quattro is volkomen stil.</p>
+      </section>
+
+      <section id="hydraulic" class="content-section">
+        <h2>Haldex en quattro ultra — front-based systemen</h2>
+        <p>Niet alle "quattro" is longitudinaal. Op transversale platforms (A3, Q3, TT, S3, RS3, RSQ3, TT RS) wordt het Haldex-systeem gebruikt. Een hydraulisch koppelingspakket op de achteras stuurt koppel naar achter zodra slip wordt gedetecteerd of geanticipeerd. Reactietijd is bij moderne generaties (Haldex 5 sinds 2014) tussen de 100 en 200 milliseconden. Snel genoeg voor RS3-prestaties, maar nooit instant zoals Torsen.</p>
+        <p>Belangrijk voor onderhoud: Haldex heeft een eigen oliepan met aparte filter die volgens schema (typisch elke 60.000 km) ververst moet worden. Verwaarlozing leidt op termijn tot koppeling-slip, eerst onder belasting, later constant. Reparatie € 800-€ 1.400. Vóór bod altijd controleren of Haldex-service is uitgevoerd — vele eigenaren slaan het over omdat het niet in de standaard onderhoudsbeurt zit.</p>
+        <p>Quattro ultra is een aparte categorie: longitudinaal platform maar met een actuator die de achteras-aandrijving softwarematig ontkoppelt bij rustig rijden. Komt voor in B9 A4, A5 en Q5 niet-S/RS-uitvoeringen. Niet relevant voor RS-segment.</p>
+      </section>
+
+      <section id="rs-historie" class="content-section">
+        <h2>RS-modellen in vogelvlucht</h2>
+        <p>RS staat voor <em>RennSport</em>. De RS-lijn van Audi (door Quattro GmbH, sinds 2016 Audi Sport GmbH) bevat de meest performance-georiënteerde productie-Audi's. Een kort overzicht van de moderne RS-modellen die wij in sourcing tegenkomen:</p>
+        <ul class="bullet-list">
+          <li><strong>RS4 B5 (2000-2002)</strong> — 2.7L biturbo V6, 380 pk. Avant-only. Cult-status, schaars, hoge marktwaarde voor schone exemplaren.</li>
+          <li><strong>RS4 B7 (2006-2008)</strong> — 4.2L V8 atmospheric, 420 pk. Limousine, Avant en Cabrio. De laatste atmosferische RS4.</li>
+          <li><strong>RS4 B8 (2012-2015)</strong> — 4.2L V8 atmospheric, 450 pk. Avant-only. Hoogste vermogen ooit uit de Audi 4.2L V8.</li>
+          <li><strong>RS4 B9 (2017-heden)</strong> — 2.9L V6 TFSI biturbo, 450 pk. Avant-only. Eerste downsized RS4.</li>
+          <li><strong>RS6 C5 (2002-2004)</strong> — 4.2L V8 biturbo, 450 pk. Eerste RS6.</li>
+          <li><strong>RS6 C6 (2008-2010)</strong> — 5.0L V10 TFSI biturbo, 580 pk (Plus: 580 pk). Avant-only voor EU-markt.</li>
+          <li><strong>RS6 C7 (2013-2018)</strong> — 4.0L V8 TFSI biturbo, 560-605 pk. Avant-only.</li>
+          <li><strong>RS6 C8 (2019-heden)</strong> — 4.0L V8 TFSI biturbo MHEV, 600 pk (Performance: 630 pk). Eerste RS6 op MLBevo, mild-hybrid.</li>
+          <li><strong>RS3 8P (2011-2012), 8V (2015-2020), 8Y (2021-heden)</strong> — 2.5L TFSI 5-cilinder, 340-407 pk.</li>
+          <li><strong>RSQ3 (8U/F3)</strong> — 2.5L TFSI 5-cilinder, 310-400 pk.</li>
+          <li><strong>RS5 B8/B9 (2010-2015, 2017-heden)</strong> — eerst 4.2L V8 atmospheric, sinds B9 2.9L V6 TFSI biturbo (gedeeld met RS4 B9).</li>
+          <li><strong>RS7 C7 / C8</strong> — gedeelde motoren met RS6 in 4-deurs gran coupé carrosserie.</li>
+          <li><strong>RS Q8</strong> — 4.0L V8 TFSI biturbo, deelt motorbasis met Urus en Cayenne Turbo.</li>
+        </ul>
+        <p>De TT RS valt buiten dit overzicht maar deelt de 2.5L TFSI met de RS3.</p>
+      </section>
+
+      <section id="motoren" class="content-section">
+        <h2>De vier kern-motorfamilies in moderne RS</h2>
+        <h3>4.2L V8 atmospheric (BNS, BHF, CFSA, CAUB)</h3>
+        <p>Audi's atmosferische V8 — in RS4 B7, RS4 B8, RS5 B8, S5 en R8 4.2. Wordt door liefhebbers gewaardeerd om de hoge toerentallen (begrensd rond 8.250 tpm) en het mechanische karakter zonder turbo-lag. Geen forced induction betekent ook geen turbo-erfenis aan de onderhoudskant.</p>
+        <p>Twee bekende aandachtspunten: <strong>koolaanslag op inlaatkleppen</strong> (gemeenschappelijk met alle directe-inspuiting motoren) — typisch na 80.000-120.000 km zichtbaar als ruwe stationair-loop, ontstaat zonder periodieke walnut-blasting van de inlaatpoorten. Tweede thema: <strong>chain-tensioner</strong> op de distributiekettingen. Een geluiderend rammelen bij koude start dat na enkele seconden verdwijnt is normaal; aanhoudend rammelen vraagt om vervanging van de tensioner — typisch € 1.500-€ 2.500 inclusief arbeid.</p>
+        <h3>5.0L V10 TFSI biturbo (BUH, BSM)</h3>
+        <p>Het V10-blok in de RS6 C6 (2008-2010) en de RS6 Plus, gedeeld met de Lamborghini Gallardo (in atmosferische vorm). 580 pk uit twee turbo's, gepaard aan ZF 6HP automaat. Spectaculair karakter, agressief geluid en zeldzaamheidsfactor zorgen voor sterke marktwaarde-vasthoudendheid. Onderhoudskosten liggen aan de bovenkant van het RS-segment.</p>
+        <p>Aandachtspunten: <strong>bobines en bougies</strong> moeten elke 60.000-80.000 km worden vervangen — verzuim leidt tot misfires die door de katalysatoren extra schade kunnen aanrichten. <strong>Koolaanslag op inlaatpoorten</strong> (TFSI met directe inspuiting). <strong>Carbon build-up op de directe-inspuiting injectoren</strong> — aanvullende walnut-blasting elke ~80.000 km gangbaar.</p>
+        <h3>4.0L V8 TFSI biturbo (CRDB, CWUB, DJPB)</h3>
+        <p>De brede V8 die in moderne RS-modellen domineert: RS6 C7 en C8, RS7 C7 en C8, RS Q8, S6/S7/S8 C7+. Compacter dan de oude 4.2L en met dubbele biturbo's tot 605 pk in regular RS6 Performance, hogere uitvoering in C8 RS6 Performance. Cilinder-deactivatie (COD) op vier cilinders bij lage belasting voor brandstofzuinigheid.</p>
+        <p>Aandachtspunten: <strong>waterpomp</strong> — bekend zwak punt vanaf ~80.000 km, lekkage door de plastic behuizing. Vervanging typisch € 800-€ 1.400. <strong>Carbon build-up</strong> bekend. <strong>Cilinder-deactivatie (COD)</strong> kan op termijn zorgen voor ongelijke slijtage op de uitgeschakelde cilinders — bij sportieve eigenaren is COD vaak uitgeschakeld via software.</p>
+        <h3>2.5L TFSI 5-cilinder (CEPA, CZGB, DAZA, DNWA)</h3>
+        <p>De 5-cilinder die de RS3, RSQ3 en TT RS aandrijft. 340 pk (8P), 367 pk (8V pre-facelift), 400 pk (8V facelift), 407 pk (8Y) en hoger in de TT RS evolutionair. Cult-karakter dankzij de oneven uitlaatpuls die het ikonische 5-cilinder-geluid produceert.</p>
+        <p>Aandachtspunten: <strong>uitlaatspruitstuk en katalysatoren</strong> — bekende thermische belasting met sporadische scheuren in het spruitstuk, vooral op het pre-facelift 8V-blok. <strong>Waterpomp en thermostaat</strong> op vergelijkbaar interval als de 4.0 V8. <strong>Koolaanslag</strong> minder uitgesproken dan op de grotere motoren door de Audi-MPI-aanvulling vanaf circa 2017.</p>
+      </section>
+
+      <section id="valkuilen" class="content-section">
+        <h2>Valkuilen per RS-generatie</h2>
+        <p>Per generatie de bekende technische aandachtspunten — naast de motor-specifieke punten hierboven:</p>
+        <ul class="bullet-list">
+          <li><strong>RS4 B7</strong> — koolaanslag op inlaatkleppen, chain-tensioner-rammel, valve-guide-slijtage op exemplaren met grote km-stand. Diff-oil van het achter-differentieel volgens schema essentieel.</li>
+          <li><strong>RS6 C6</strong> — V10 onderhoudsintensiteit, bobines / bougies elke 60-80K km, DSG-/ZF-issues mogelijk (de RS6 C6 heeft de ZF 6HP — niet DSG, maar zware koppel-belasting kan op termijn tot soft mode leiden). Hoge brandstof-, banden- en remblokken-consumptie.</li>
+          <li><strong>RS4 B8</strong> — chain-tensioner zoals bij B7, plus de directe inspuiting van de 4.2 vraagt zorgvuldig olie-management. DSG (7-traps S-tronic) heeft mechatronics-thema: bij hapertingen typisch sticker-thema, vervanging € 1.500-€ 2.500.</li>
+          <li><strong>RS5 B8 (4.2)</strong> — vergelijkbaar met RS4 B8.</li>
+          <li><strong>RS6 C7</strong> — waterpomp-vervanging bekend (€ 800-€ 1.400). COD-thema. Banden 285/30 R21 kost een vermogen en slijt rap bij sportief gebruik. Adaptieve luchtvering kan na 150K km lekkages tonen.</li>
+          <li><strong>RS3 8V pre-facelift</strong> — uitlaatspruitstuk-scheuren, niet zeldzaam bij sportief gebruik. Vroege DQ500-mechatronics gevoelig voor overhitting bij track-gebruik.</li>
+          <li><strong>RS3 8V facelift en 8Y</strong> — RS-torque-splitter op achteras (in 8Y) is nieuwe technologie — eerste lange-termijn betrouwbaarheidsdata nog beperkt.</li>
+          <li><strong>RS Q8</strong> — eerste RS-SUV op MLBevo. Adaptieve luchtvering en active anti-roll-bars geven driving-comfort dat dit segment uniek maakt, maar zijn ook de duurste herstellingen wanneer ze falen na 150K km.</li>
+        </ul>
+      </section>
+
+      <section id="dsg" class="content-section">
+        <h2>De DSG / S-tronic versnellingsbak — eigen aandachtspunt</h2>
+        <p>Veruit de meeste moderne RS-modellen rijden met een 7-traps dubbele-koppeling-bak van het type DQ500 (transversaal in RS3/RSQ3) of de DL501 7-traps S-tronic (longitudinaal in RS4 B8/B9, RS5, RS6 C7, RS7). Dit zijn snel-schakelende, performance-gerichte bakken — maar met eigen onderhoud:</p>
+        <ul class="bullet-list">
+          <li><strong>Bakolie en filter</strong> elke 60.000 km — verzuim leidt tot mechatronics-fouten en koppeling-slip.</li>
+          <li><strong>Mechatronics</strong> — elektronische besturingseenheid van de bak. Bij hapertingen typisch € 1.500-€ 2.500 om te vervangen. Vaker te zien bij oudere DQ500 in track-gebruikte RS3's.</li>
+          <li><strong>Koppelingen</strong> in de bak zelf — bij agressief launch-control of stop-go-rijden op hoge belasting versneld te slijten. Vervanging vanaf € 2.500.</li>
+        </ul>
+        <p>De RS6 C6 (ZF 6HP automaat, geen DSG) en de 4-traps Tiptronic-modellen vallen buiten dit aandachtspunt. Vroege automaten hebben hun eigen overwegingen — voor RS6 C6 specifiek zijn de torque-converter en koppelings-pakket onder hoge belasting de bekende slijtpunten.</p>
+      </section>
+
+      <section id="sweetspots" class="content-section">
+        <h2>Sweet-spot uitvoeringen</h2>
+        <p>Op basis van onze sourcing-ervaring en wat het Japanse en Duitse aanbod ons aanlevert, deze drie zijn de meest aanbevolen RS-instappen anno 2026:</p>
+        <ol class="recommendation-list">
+          <li><strong>RS4 B7 Avant (2006-2008)</strong> — laatste atmosferische 4.2L V8, manuele bak beschikbaar, Avant-praktijk. Wordt zelden onder de € 35.000-€ 50.000 aangeboden voor schone exemplaren met aantoonbare onderhoudshistorie. Sterk LHD-aanbod via Japan; wel kritisch op chain-tensioner en valve-guide-werk.</li>
+          <li><strong>RS6 C7 Performance (2016-2018)</strong> — 605 pk uit de 4.0 V8 TFSI biturbo, ceramische remmen optie, Bang & Olufsen audio, complete RS-design-pakket. Landed cost € 55.000-€ 75.000 afhankelijk van km en uitvoering. Hoogste vermogen uit de C7-serie. Beste compromis tussen modern infotainment en pre-mild-hybrid karakter.</li>
+          <li><strong>RS3 8V Sportback facelift (2017-2020)</strong> — 400 pk 5-cilinder, 0-100 in 4,1 sec, prima daily formaat. Landed cost typisch € 30.000-€ 45.000. Het zwakste punt (pre-facelift uitlaatspruitstuk) is hier verholpen. Sterke fan-base en stabiele rest-waarde.</li>
+        </ol>
+        <p>De RS6 C8 (2019+) en RS Q8 zijn rij-technisch indrukwekkend maar zitten in een ander prijssegment (€ 90.000-€ 140.000 landed) en zijn doorgaans efficiënter via de Duitse markt te sourcen dan via Japan.</p>
+      </section>
+
+      <section id="sourcen" class="content-section">
+        <h2>Wat wij sourcen — Japan versus Duitsland voor Audi</h2>
+        <p>Het Audi-aanbod via de Japanse veilingen is structureel <strong>dunner</strong> dan voor BMW, Mercedes of Porsche. De reden: Audi was lange tijd in Japan een minderheidsmerk binnen het Duitse trio, en LHD-uitvoeringen werden vooral voor enthousiastelingen geïmporteerd in performance-segment.</p>
+        <p>Concreet betekent dat per merk-categorie:</p>
+        <ul class="bullet-list">
+          <li><strong>Standaard A4 / A6 / A8</strong> — Japan-aanbod LHD is praktisch nul. Sourcen wij uitsluitend via Duitsland.</li>
+          <li><strong>S-uitvoeringen (S4, S6, S8)</strong> — Japan-aanbod is incidenteel; Duitsland heeft ruim aanbod. Voor specifieke optie-pakketten kan Japan tonen, maar als basisstrategie kiezen wij Duitsland.</li>
+          <li><strong>RS4 (B7, B8)</strong> — Japan-LHD heeft hier wel structureel aanbod, zij het beperkt: typisch 1-3 exemplaren per maand op de gangbare veilingen. Voor schone exemplaren met lage km en complete service-historie is Japan een serieuze route, vooral voor de manuele B7.</li>
+          <li><strong>RS6 (C6, C7)</strong> — vergelijkbaar met RS4: Japan-aanbod is incidenteel maar de kwaliteit van wat verschijnt is doorgaans hoog (low-mileage, well-cared Avants). Duitsland heeft meer volume — keuze hangt af van specifieke uitvoering en kleur.</li>
+          <li><strong>RS3 / RSQ3</strong> — sterk Japan-LHD-aanbod, mede dankzij de cult-status van de 5-cilinder in Japan. Voor specifieke kleuren (Misano Red, Catalunya Red) is Japan structureel sterker dan Duitsland.</li>
+          <li><strong>R8</strong> — buiten onze sourcing-focus tenzij op specifiek verzoek. Aanbod is beperkt in beide markten.</li>
+        </ul>
+        <p>Voor twijfelgevallen helpt onze <a href="/route-advies">route-advies-tool</a> om beide routes per uitvoering af te wegen. De volledige proces-uitleg per route: <a href="/kennisbank/auto-importeren-japan">Japan-cornerstone</a> en <a href="/kennisbank/auto-importeren-duitsland">Duitsland-cornerstone</a>. Onze sourcing-fee staat op <a href="/tarieven">/tarieven</a>.</p>
+      </section>
+
+      <section id="checken" class="content-section">
+        <h2>Pre-purchase checks</h2>
+        <p>Voor elke RS-kandidaat die wij in beeld krijgen voeren wij minimaal de volgende controles uit:</p>
+        <ul class="bullet-list">
+          <li><strong>Service-historie</strong> — bij Duitsland Scheckheft volledig, bij Japan vertaling van service-stempels. Specifieke aandacht voor DSG-/S-tronic-onderhoud (vaak overgeslagen), Haldex-service (RS3/RSQ3) en diff-oil-changes (longitudinale modellen).</li>
+          <li><strong>VAG-COM (VCDS) uitleesrapport</strong> — opgeslagen foutcodes, adaptatie-waarden van de mechatronics, koppelings-slijtage-indicatie. Standaard onderdeel van onze pre-bid check bij Duitse aankoop.</li>
+          <li><strong>Carbon build-up</strong> — endoscopische inspectie van de inlaatpoorten voor TFSI-motoren met directe inspuiting (RS4 B8, RS5 B8, RS6 C7+, alle 2.5 TFSI tot facelift). Indicatie of walnut-blasting noodzakelijk is op korte termijn.</li>
+          <li><strong>Suspensie</strong> — luchtvering bij RS6 C6+, C7+, RS Q8: lekkage-test, droog-rij-test, hoogte-aanpassing-respons. Lekkage = aanzienlijke reparatie binnen 6-12 maanden.</li>
+          <li><strong>Diff-oil-changes</strong> in service-historie voor Torsen/crown-gear-modellen. Verwaarlozing leidt op termijn tot diff-brom in scherpe bochten.</li>
+          <li><strong>Rij-test</strong> bij Duitse aankoop — luister naar chain-tensioner-rammel bij koude start (B7/B8 4.2 V8), DSG-schakelgedrag bij lage snelheid, V8-misfires bij koud rijden.</li>
+        </ul>
+      </section>
+
+      <AuthorByline variant="bottom" />
+
+      <div class="page-cta">
+        <h2>Op zoek naar een RS-uitvoering of quattro-model?</h2>
+        <p>Vertel ons generatie, uitvoering en budget. Wij screenen Japan en Duitsland wekelijks, en voor elke RS-kandidaat doen wij volledige pre-purchase checks. Geen actie zonder uw groen licht.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related-block">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/merk/audi">Onze Audi-focus</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/bpm-calculator">BPM-tool — bereken indicatief uw BPM</a></li>
+          <li><a href="/route-advies">Route-advies — Japan of Duitsland?</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .article-header h1 { font-family: var(--font-serif); font-size: 64px; font-weight: 500; letter-spacing: 0.02em; margin: 16px 0 24px; line-height: 1.05; }
+  .article-header .lead { font-size: 19px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 24px; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-charcoal-dark); }
+
+  .toc { max-width: 760px; margin-bottom: 56px; padding: 24px 28px; background: var(--color-cream); border-left: 3px solid var(--color-copper); }
+  .toc h2 { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 14px; font-weight: 600; }
+  .toc ol { margin: 0; padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; }
+  .toc a:hover { color: var(--color-copper); text-decoration: underline; }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-family: var(--font-display); font-size: 32px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .content-section h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin: 28px 0 12px; color: var(--color-charcoal-dark); }
+  .content-section p { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 18px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .bullet-list { padding-left: 20px; margin-bottom: 18px; }
+  .bullet-list li { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 10px; }
+  .bullet-list li strong { color: var(--color-charcoal-dark); }
+
+  .recommendation-list { padding-left: 20px; margin-bottom: 18px; }
+  .recommendation-list li { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 14px; }
+
+  .page-cta { max-width: 760px; margin-top: 64px; padding: 36px 32px; background: var(--color-charcoal-dark); color: var(--color-cream); }
+  .page-cta h2 { font-family: var(--font-display); font-size: 26px; font-weight: 600; margin-bottom: 12px; color: var(--color-cream); }
+  .page-cta p { font-size: 15px; line-height: 1.55; margin-bottom: 20px; color: var(--color-cream-warm); }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-note { font-size: 12px; color: var(--color-cream-warm); margin-top: 16px; margin-bottom: 0; opacity: 0.8; }
+
+  .related-block { max-width: 760px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--color-border-medium); }
+  .related-block h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 20px; color: var(--color-text-primary); }
+  .related-block ul { list-style: none; padding: 0; margin: 0; }
+  .related-block li { padding: 10px 0 10px 20px; border-bottom: 1px solid var(--color-border-soft); position: relative; }
+  .related-block li::before { content: "→"; position: absolute; left: 0; color: var(--color-copper); font-weight: 600; }
+  .related-block a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related-block a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .article-header h1 { font-size: 44px; }
+    .content-section h2 { font-size: 26px; }
+    .content-section h3 { font-size: 19px; }
+    .content-section p, .bullet-list li, .recommendation-list li { font-size: 16px; }
+    .page-cta { padding: 28px 24px; }
+  }
+</style>
