@@ -1,25 +1,26 @@
 ---
-// D4: 3 disciplines als magazine-spread — elke discipline = volledige rij 7/5 grid,
-// image en text alternerend per rij. Editorial ritme, niet 3-kaart-grid.
+// D4: 3 disciplines (Sourcing / Levering / Nazorg) — 3:2 cards in 3-column grid
+// Sharp 90° corners, no border, geen "ronde-hoeken" treatment.
+// Image bovenaan + nummer/titel/body daaronder.
 const disciplines = [
   {
     num: '01',
     title: 'Sourcing',
-    body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Wekelijkse kandidaten met onze duiding — sheet, foto\'s, NL-vertaling en geschatte landed cost per kandidaat.',
+    body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Wekelijkse kandidaten met onze duiding.',
     img: '/images/traject-auction.jpg',
     alt: 'Audi RS7 Sportback in stadshof — sourcing van premium-uitvoeringen'
   },
   {
     num: '02',
     title: 'Levering',
-    body: 'Volledige import, BPM-aangifte, RDW-keuring en kentekenregistratie. Aflevering aan huis tot 200 km vanaf Welsum — auto staat klaar, papieren compleet, kenteken erop.',
+    body: 'Volledige import, BPM-aangifte, RDW-keuring en kentekenregistratie. Aflevering aan huis tot 200 km vanaf Welsum.',
     img: '/images/traject-transport.jpg',
     alt: 'Porsche 911 op autotransport-trailer — import en aflevering'
   },
   {
     num: '03',
     title: 'Nazorg',
-    body: 'Optionele detailing door geselecteerde partners. Begeleiding bij eventuele garantie-correspondentie. Een directe lijn — geen call-center, geen ticket-systeem, geen wachtmuziek.',
+    body: 'Optionele detailing door geselecteerde partners. Begeleiding bij eventuele garantie-correspondentie. Een directe lijn — geen call-center.',
     img: '/images/traject-handover.jpg',
     alt: 'Hand met Mercedes-Benz autosleutel bij sleuteloverdracht'
   },
@@ -35,26 +36,28 @@ const disciplines = [
       <a href="/werkwijze" class="strip-link">Bekijk de werkwijze in 8 stappen <span class="arrow">→</span></a>
     </div>
 
-    <div class="strip-spreads">
-      {disciplines.map((d, i) => (
-        <article class={`strip-spread ${i % 2 === 1 ? 'strip-spread--reverse' : ''}`}>
-          <figure class="strip-spread-img">
-            <img class="img-graded" src={d.img} alt={d.alt} loading="lazy" width="1600" height="900" />
+    <ol class="strip-list">
+      {disciplines.map((d) => (
+        <li class="strip-card">
+          <figure class="strip-card-img">
+            <img class="img-graded" src={d.img} alt={d.alt} loading="lazy" width="1200" height="800" />
           </figure>
-          <div class="strip-spread-text">
+          <div class="strip-card-body">
             <div class="strip-num">{d.num}</div>
-            <h4>{d.title}</h4>
-            <p>{d.body}</p>
+            <div class="strip-card-text">
+              <h4>{d.title}</h4>
+              <p>{d.body}</p>
+            </div>
           </div>
-        </article>
+        </li>
       ))}
-    </div>
+    </ol>
   </div>
 </section>
 
 <style>
   .strip { background: var(--color-charcoal-dark); color: var(--color-cream); padding: var(--space-section-top) 0 var(--space-section-bottom); }
-  .strip-intro { display: flex; flex-direction: column; gap: 18px; max-width: 720px; margin-bottom: 80px; }
+  .strip-intro { display: flex; flex-direction: column; gap: 18px; max-width: 720px; margin-bottom: 64px; }
   .strip-label { color: var(--color-copper-text); font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
   .strip h2 { font-size: 60px; max-width: 560px; color: var(--color-cream); font-weight: 600; margin: 0; }
   .strip-intro-text { font-size: 16px; color: rgba(245,241,234,0.7); line-height: 1.6; max-width: 540px; margin: 0; }
@@ -74,79 +77,45 @@ const disciplines = [
   .strip-link:hover { gap: 14px; }
   .strip-link .arrow { font-size: 16px; }
 
-  .strip-spreads {
+  .strip-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .strip-card {
     display: flex;
     flex-direction: column;
-    gap: 96px;
+    gap: 24px;
   }
-  .strip-spread {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: 64px;
-    align-items: center;
-  }
-  .strip-spread--reverse {
-    grid-template-columns: 5fr 7fr;
-  }
-  .strip-spread--reverse .strip-spread-img { order: 2; }
-  .strip-spread--reverse .strip-spread-text { order: 1; }
-
-  .strip-spread-img {
+  .strip-card-img {
     margin: 0;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
-    border-radius: 4px;
-    border: 1px solid rgba(184, 115, 51, 0.25);
+    /* Sharp 90° corners — editorial print vibe, matches Cinzel serif typography */
+    border-radius: 0;
     background: rgba(245, 241, 234, 0.04);
   }
-  .strip-spread-img img {
+  .strip-card-img img {
     width: 100%; height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
   }
-  .strip-spread-text {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 0 8px;
+  .strip-card-body {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    align-items: start;
   }
-  .strip-num {
-    font-family: var(--font-display);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: var(--color-copper-text);
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-  .strip-spread-text h4 {
-    font-family: var(--font-display);
-    font-size: 38px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--color-cream);
-    line-height: 1.05;
-    margin: 0 0 8px;
-  }
-  .strip-spread-text p {
-    font-size: 16px;
-    color: rgba(245,241,234,0.7);
-    line-height: 1.65;
-    margin: 0;
-  }
+  .strip-num { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--color-copper); letter-spacing: -0.04em; line-height: 1; }
+  .strip-card-text h4 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.02em; color: var(--color-cream); }
+  .strip-card-text p { font-size: 14px; color: rgba(245,241,234,0.7); font-weight: 400; line-height: 1.6; }
 
   @media (max-width: 900px) {
     .strip h2 { font-size: 40px; }
-    .strip-intro { margin-bottom: 48px; }
-    .strip-spreads { gap: 64px; }
-    .strip-spread,
-    .strip-spread--reverse {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    .strip-spread--reverse .strip-spread-img { order: 0; }
-    .strip-spread--reverse .strip-spread-text { order: 0; }
-    .strip-spread-text h4 { font-size: 28px; }
+    .strip-list { grid-template-columns: 1fr; gap: 40px; }
   }
 </style>
