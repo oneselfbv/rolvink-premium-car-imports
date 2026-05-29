@@ -35,7 +35,10 @@
 /* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   font-family: var(--font-body);
@@ -45,6 +48,9 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 h1, h2, h3, h4 {
@@ -226,12 +232,9 @@ footer ul li {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   :root {
     --space-container: 24px;
   }
   .site-header nav ul { display: none; }
-  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-  h1 { font-size: 48px !important; }
-  h2 { font-size: 40px !important; }
-}
+  .footer-grid { grid-template-columns: 1fr; gap: 40p
