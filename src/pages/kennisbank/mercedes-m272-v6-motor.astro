@@ -1,0 +1,331 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Mercedes M272 V6 — motorgids' },
+];
+
+const publishedDate = '2026-05-29';
+const updatedDate = '2026-05-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Mercedes M272 V6 — de motorgids voor importkopers (balansas, LPG, bouwjaren)',
+  description: 'Complete technische gids voor de Mercedes M272 24-klepper V6 (2004-2011) — balansas-defect en cutoff-serial, port-injection versus CGI voor LPG, en welke bouwjaren wel of niet veilig zijn.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/mercedes-m272-v6-motor' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Mercedes M272 V6 — motorgids met balansas-cutoff | Rolvink"
+  description="Alles over de M272 V6 — bouwjaren, balansas-defect en cutoff-serial, port-injection versus CGI voor LPG, en welke uitvoeringen wij wel of niet sourcen."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Motorgids</div>
+        <h1>Mercedes <span class="accent">M272</span> V6.</h1>
+        <p class="lead">De directe opvolger van de M112 — moderner, krachtiger, soepeler. Maar één bekende fabrieksfout maakt het verschil tussen een uitstekende koop en een dure verrassing. Alles over de balansas-cutoff, LPG-geschiktheid en welke bouwjaren wij wel of niet sourcen.</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+        </div>
+      </header>
+
+      <div class="disclaimer">
+        Deze gids is bedoeld voor oriëntatie bij de aankoop of import van een Mercedes met M272-motor. Wij baseren de informatie op publieke technische documentatie, Mercedes service-bulletins en gangbare branche-kennis. <strong>De motornummer-cutoff voor het balansas-defect (2729 30 468993) moet altijd via het fysieke motornummer worden geverifieerd</strong> — niet uitsluitend op basis van bouwjaar.
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>Inhoud</h2>
+        <ol>
+          <li><a href="#wat-is-m272">Wat is de M272 en waarom is hij relevant?</a></li>
+          <li><a href="#geschiedenis">Plaats in Mercedes' motorgeschiedenis</a></li>
+          <li><a href="#blueprint">Technische blueprint — verschillen met de M112</a></li>
+          <li><a href="#varianten">Varianten en toepassingen</a></li>
+          <li><a href="#balansas">De balansas-fout — kern van elke aankoop</a></li>
+          <li><a href="#andere-zwakke">Andere bekende zwakke punten</a></li>
+          <li><a href="#lpg">LPG-geschiktheid — port-injection versus CGI</a></li>
+          <li><a href="#onderhoud">Onderhoud en service-intervallen</a></li>
+          <li><a href="#checken">Wat te checken bij aankoop</a></li>
+          <li><a href="#sourcen">Welke uitvoeringen sourcen wij?</a></li>
+          <li><a href="#marktwaarde">Marktwaarde-indicatie Nederland</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-is-m272" class="content-section">
+        <h2>Wat is de M272 en waarom is hij relevant?</h2>
+        <p>De M272 is de 24-klepper V6-benzinemotor die Mercedes-Benz tussen 2004 en ongeveer 2011 in productie had. Hij verving de M112 die we in <a href="/kennisbank/mercedes-m112-v6-motor">een aparte gids</a> bespraken, en werd op zijn beurt opgevolgd door de M276. De M272 is van alle V6's die Mercedes maakte de motor die in de breedste reeks moderne modellen voorkomt — van W203 C-Klasse tot W221 S-Klasse, en alles ertussen.</p>
+        <p>Voor importkopers is de M272 vandaag bijzonder relevant om twee redenen. Ten eerste raken veel modellen met deze motor nu het youngtimer-segment — auto's tussen de 16 en 25 jaar oud met fiscaal interessante mogelijkheden voor ondernemers. Ten tweede is er een specifieke en bekende fabrieksfout in de vroege productiejaren — de Ausgleichswelle of balansas-fout — die het verschil maakt tussen een uitstekende koop en een €4.000-€5.000 reparatie. Wie de M272 begrijpt, herkent op welke bouwjaren en welk motornummer hij kan vertrouwen en welke hij beter laat staan.</p>
+      </section>
+
+      <section id="geschiedenis" class="content-section">
+        <h2>Plaats in Mercedes' motorgeschiedenis</h2>
+        <p>De M272 werd in 2004 geïntroduceerd in de R230 SL350 en R171 SLK350. Vanaf 2005 nam hij in het volledige V6-segment de plaats in van de M112 — de directe voorganger uit 1997 met een eenvoudigere 18-klepper layout. De keuze voor 24 kleppen (vier per cilinder in plaats van drie) was deels emissie-gedreven (strengere Euro 4 en Euro 5 normen) en deels prestatie-gericht: meer vermogen, hoger koppel en betere brandstofefficiëntie per liter cilinderinhoud.</p>
+        <p>De productie liep door tot ongeveer 2011 voor de moderne modellen, met overlap met de M276 (twin-turbo V6 3.0L) die vanaf 2011 het 6-cilinder segment overnam. Voor zwaardere toepassingen — R-Klasse, ML, G-Klasse — bleef de M272 langer in dienst, in sommige varianten tot 2013. De atmosferische M272 is daarmee de laatste atmosferische V6 die Mercedes in serieproductie had vóórdat het bedrijf overschakelde naar turbo-techniek en directe injectie.</p>
+      </section>
+
+      <section id="blueprint" class="content-section">
+        <h2>Technische blueprint — verschillen met de M112</h2>
+        <p>De M272 is op vier punten technisch anders dan zijn voorganger:</p>
+        <ul class="bullet-list">
+          <li><strong>Vier kleppen per cilinder</strong> (twee inlaat, twee uitlaat) in plaats van drie. Dat geeft betere cilindervulling op hoog toerental en strakkere verbrandingscontrole bij lage belasting.</li>
+          <li><strong>Dubbele bovenliggende nokkenas</strong> (DOHC) per cilinderbank in plaats van één enkele (SOHC bij M112). Meer aandrijfdelen, meer kettingen, complexere distributie.</li>
+          <li><strong>Variabele kleptiming op zowel inlaat als uitlaat</strong> (dubbele VVT) — bij de M112 alleen op inlaat. Geeft beter koppel-verloop en lager verbruik.</li>
+          <li><strong>Balansas (Ausgleichswelle)</strong> om trillingen van de 90-graden V6-configuratie te dempen. Deze balansas zit centraal in het motorblok en wordt aangedreven door een tandwiel op de krukas. Dit is de plek waar het bekende defect optreedt.</li>
+        </ul>
+        <p>De rest van de basis-architectuur lijkt op de M112: gietijzeren motorblok, aluminium cilinderkoppen, port injection (behalve bij CGI-varianten — daarover meer in de LPG-sectie), en zelf-instellende hydraulische klepstoters die geen periodieke klepspeling-afstelling vereisen. De compressieverhouding ligt tussen 10,7:1 en 12,2:1 afhankelijk van de variant.</p>
+      </section>
+
+      <section id="varianten" class="content-section">
+        <h2>Varianten en toepassingen</h2>
+        <p>De M272 kwam in een uitgebreide reeks cilinderinhouden en vermogensvarianten. De volgende uitvoeringen waren in West-Europa en op de importmarkt relevant:</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Aanduiding</th><th>Inhoud</th><th>Vermogen</th><th>Toepassing (selectie)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>M272.940 / .942</td><td>2,5 L</td><td>204 pk</td><td>W211 E230, W203 C230</td></tr>
+            <tr><td>M272.960 / .962</td><td>2,8 L</td><td>231 pk</td><td>W211 E280, W164 ML280, W251 R280, W221 S280</td></tr>
+            <tr><td>M272.971 / .972</td><td>3,0 L</td><td>231 pk</td><td>W212 E300, W204 C300, W221 S300</td></tr>
+            <tr><td>M272.974 / .977</td><td>3,5 L</td><td>272 pk</td><td>W211 E350, W212 E350, W204 C350, W164 ML350, W221 S350, W219 CLS350, R230 SL350, R171 SLK350</td></tr>
+            <tr><td>M272.985 (Kompressor)</td><td>3,5 L + supercharger</td><td>306 pk</td><td>W211 E350 CGI Sport, W219 CLS350 Kompressor</td></tr>
+            <tr><td>M272.964 (CGI)</td><td>3,5 L direct injection</td><td>292 pk</td><td>W211 E350 CGI, W221 S350 CGI, W212 E350 CGI BlueEFFICIENCY</td></tr>
+          </tbody>
+        </table>
+
+        <p class="table-note"><em>Toepassingen indicatief — exacte motor-uitvoering hangt af van bouwjaar, markt en chassisnummer. Voor verificatie kan het motoruitvoeringsnummer worden uitgelezen of opgevraagd bij Mercedes-Benz via WIS/EPC.</em></p>
+
+        <p>De 3,5-liter M272.974 is veruit de meest voorkomende uitvoering in onze sourcing-pijplijn — hij zat in de E350, ML350, SL350, CLS350 en SLK350. Een gezonde 3.5L M272 levert 272 pk en 350 Nm, met een gewoon verbruik tussen de 1 op 9 en 1 op 11 in normaal gebruik. Sportieve uitvoeringen lopen tot 306 pk via de mechanische supercharger.</p>
+      </section>
+
+      <section id="balansas" class="content-section">
+        <h2>De balansas-fout — kern van elke aankoop</h2>
+        <p>De grootste bekende fout van de M272 is het balansas-tandwiel. Op pre-productie en vroege bouwjaren werd het tandwiel gemaakt van een materiaal dat onder bedrijfsbelasting versneld slijt. De symptomen verschijnen meestal tussen 100.000 en 200.000 km: een lampje op het dashboard, foutcodes <strong>P0016</strong> en <strong>P0017</strong> (correlatie tussen krukaspositie en nokkenaspositie), en in late stadia een hoorbare rateling van de distributie.</p>
+        <p>De reparatie is geen klein onderhoud. Het balansas-tandwiel zit in het hart van het motorblok, en vervanging vraagt dat de motor uit de auto wordt gehaald. Specialisten rekenen tussen €3.000 en €5.000 voor de complete reparatie inclusief vervangingsonderdelen en arbeid. Op een auto die zelf €8.000 waard is, is dat het verschil tussen een rijdende koop en een hopeloos onderdelendrager.</p>
+        <h3>De cutoff-serial</h3>
+        <p>Mercedes loste het defect op door een verbeterd tandwiel met andere materiaalkeuze in productie te nemen, vanaf motornummer <strong>2729 30 468993</strong>. Elke M272 met een motornummer boven die cutoff heeft de fix vanaf fabriek. Alles eronder heeft het zwakke tandwiel, tenzij het later vervangen is door een werkplaats met aantoonbare factuur.</p>
+        <p>Praktisch betekent dit voor bouwjaren:</p>
+        <ul class="bullet-list">
+          <li><strong>2004 tot medio 2008</strong> — danger zone. Vrijwel alle motornummers in deze periode zitten onder de cutoff. Niet kopen zonder bewezen tandwiel-vervanging.</li>
+          <li><strong>Medio tot eind 2008</strong> — overgangsperiode. Sommige motoren al gefixed, sommige nog niet. Motornummer-verificatie verplicht.</li>
+          <li><strong>2009 en later</strong> — vrijwel alle motornummers zitten boven de cutoff. Veilige zone.</li>
+        </ul>
+        <p>Voor de zustermotor M273 V8 (zat in onder andere ML500, S550, R500, SL500 facelift) gold een vergelijkbaar probleem met het zogenaamde idle gear — met dezelfde cutoff-logica en hetzelfde reparatie-kostenniveau.</p>
+        <h3>Hoe verifieer je het motornummer?</h3>
+        <p>Het motornummer staat gestempeld op het motorblok, vaak aan de linker- of rechterkant onder het bovenste afdekkapje. Daarnaast staat het in het Duitse <em>Fahrzeugschein</em> Teil I (officieel kentekenbewijs). Vraag de verkoper altijd om een duidelijke foto van het motornummer-veld in het Fahrzeugschein of een foto van de stempel op het blok zelf. Vergelijk met 2729 30 468993 — het laatste segment moet boven dat getal liggen.</p>
+      </section>
+
+      <section id="andere-zwakke" class="content-section">
+        <h2>Andere bekende zwakke punten</h2>
+        <p>Naast de balansas zijn er enkele kleinere maar bekende slijtonderdelen om rekening mee te houden:</p>
+        <ul class="pitfall-list">
+          <li><strong>Kleppendeksel-pakkingen</strong> — olielekkages bij kilometerstanden boven de 150.000 km. <em>Reparatie: €120-€250 per cilinderkop inclusief arbeid.</em></li>
+          <li><strong>Oliefilterhuis</strong> — kunststof versie kan na 200.000 km haarscheurtjes vertonen. <em>Reparatie: €200-€400 inclusief arbeid.</em></li>
+          <li><strong>Inlaatspruitstuk-klepjes</strong> — variabele inlaatklepjes (drall klep) kunnen vastlopen, geeft vermogensverlies en motorlampje. <em>Reparatie: €300-€600 voor spruitstuk-revisie.</em></li>
+          <li><strong>EGR-koeler</strong> — kan lekken op late jaren, koelvloeistof in het inlaattraject. <em>Reparatie: €400-€700.</em></li>
+          <li><strong>NOK-positiesensor (nokkenaspositiesensor)</strong> — standaard slijtage 200.000-300.000 km. <em>Reparatie: €100-€180.</em></li>
+          <li><strong>Distributiekettingrek</strong> — bij hoge kilometerstanden zonder reguliere oliewisselingen kan de ketting rekken. <em>Inspectie en eventuele vervanging: €800-€1.500 inclusief arbeid.</em></li>
+        </ul>
+        <p>Bij elkaar opgeteld: een goed-onderhouden M272 met een gefixed balansas-tandwiel (of motornummer boven cutoff) en 150.000 km zit op €1.000-€2.000 aan overig herstel voor de komende 100.000 km. Niet anders dan andere premium V6's uit deze klasse.</p>
+      </section>
+
+      <section id="lpg" class="content-section">
+        <h2>LPG-geschiktheid — port-injection versus CGI</h2>
+        <p>Dit is een belangrijk onderscheid dat veel kopers — en zelfs sommige installateurs — over het hoofd zien. De M272 bestaat in twee fundamenteel verschillende inspuittypes, en alleen één daarvan is geschikt voor LPG-conversie.</p>
+        <h3>Port injection (saugrohreinspritzung) — wél LPG-geschikt</h3>
+        <p>De standaard M272-varianten (E280, E300, E350, ML350, SL350, etc. zonder CGI-badge) gebruiken klassieke port injection: één injector per cilinder achter de inlaatklep. Net als bij de M112 spoelt brandstof de inlaatkleppen mee, wat carbonneerslag voorkomt en LPG-conversie technisch mogelijk maakt. De cilinderkoppen hebben geharde klepzittingen die LPG-temperaturen aankunnen.</p>
+        <p>Een professioneel uitgevoerde LPG-conversie op een port-injection M272 (typisch Prins VSI-3, BRC Sequent of Vialle LPi) werkt goed. Wel adviseren ervaren installateurs een Flashlube valve-saver of vergelijkbaar additief-systeem voor extra klepzitting-bescherming. Vermogensverlies bij LPG-gebruik blijft beperkt tot 5-10%.</p>
+        <h3>CGI direct injection — NIET LPG-geschikt</h3>
+        <p>De M272 CGI-varianten (E350 CGI, S350 CGI, E350 BlueEFFICIENCY) gebruiken stratified direct injection: brandstof wordt rechtstreeks in de cilinder ingespoten. Bij LPG werkt deze techniek niet betrouwbaar omdat:</p>
+        <ul class="bullet-list">
+          <li>Er geen brandstof langs de inlaatkleppen stroomt — carbon-buildup ontwikkelt zich versneld.</li>
+          <li>De directe injectoren zijn elektronisch gekalibreerd op een specifiek brandstoftype en brandstofdruk.</li>
+          <li>Mercedes en Tartarini erkennen LPG-conversie op CGI-motoren officieel niet — geen typegoedkeuring beschikbaar.</li>
+        </ul>
+        <p>Voor LPG-doeleinden moet u dus expliciet zoeken naar de niet-CGI M272: <em>plain</em> "E350", "ML350", "SL350" zonder CGI of BlueEFFICIENCY in de modelnaam. Op het kentekenbewijs of de aankoopadvertentie staat dit meestal duidelijk vermeld.</p>
+      </section>
+
+      <section id="onderhoud" class="content-section">
+        <h2>Onderhoud en service-intervallen</h2>
+        <p>De M272 vraagt regelmatige olie-aandacht — meer dan de simpelere M112 die we eerder bespraken. Voor wie de motor lang wil houden, gelden de volgende richtlijnen:</p>
+        <ul class="bullet-list">
+          <li><strong>Motorolie</strong> — elke 10.000-15.000 km of jaarlijks. Kwaliteit 0W-40 of 5W-40, MB 229.5. Voor M272-motoren met aantoonbare balansas-historie wordt vaak het MB 229.51-additiefpakket geadviseerd voor lagere wrijving op het distributiesysteem.</li>
+          <li><strong>Bougies</strong> — elke 60.000 km. Eén bougie per cilinder.</li>
+          <li><strong>V-snaar (poly-V)</strong> — elke 80.000 km.</li>
+          <li><strong>Koelvloeistof</strong> — elke 60.000 km of 4 jaar. Mercedes G05 (geel).</li>
+          <li><strong>Distributieketting + balansas</strong> — geen vervangingsinterval, maar visuele en akoestische check elke 200.000 km. Bij vermoeden van balansas-rateling: motornummer-verificatie en kettingrek-inspectie.</li>
+          <li><strong>Inlaatspruitstuk klepjes</strong> — visuele check elke 100.000 km op vrijloop van de drall-klep.</li>
+        </ul>
+        <p>Voor LPG-rijders: bougies elke 40.000 km in plaats van 60.000, en koelvloeistof-inspectie bij elke oliewissel.</p>
+      </section>
+
+      <section id="checken" class="content-section">
+        <h2>Wat te checken bij aankoop</h2>
+        <p>Voor een M272 is de motornummer-check de allerbelangrijkste actie. Daarnaast zijn er een aantal aanvullende inspectiepunten.</p>
+
+        <h3>Vóór het bezoek of bod</h3>
+        <ul class="bullet-list">
+          <li><strong>Motornummer opvragen</strong> — foto van het Fahrzeugschein of een foto van de stempel op het motorblok. Vergelijk met 2729 30 468993.</li>
+          <li><strong>Service-historie balansas</strong> — als de motor onder cutoff is, vraag aantoonbaar bewijs (Rechnung) van balansas-vervanging.</li>
+          <li><strong>OBD-uitlezen</strong> — vraag de verkoper of er pending foutcodes zijn, specifiek P0016 en P0017 (camshaft positie correlatie). Sommige verkopers hebben de codes net gewist; vraag of de motorlamp recent uit is geweest.</li>
+          <li><strong>Type-bevestiging port injection of CGI</strong> — staat op het kentekenbewijs en in de modelnaam.</li>
+        </ul>
+
+        <h3>Bij de bezichtiging</h3>
+        <ul class="bullet-list">
+          <li>Cold-start luisteren — rateling of klepelekgeluid in de eerste 20-30 seconden is een verdacht signaal.</li>
+          <li>Proefrit met OBD-scanner aangesloten — kijken naar pending codes tijdens rijgedrag.</li>
+          <li>Olielekkage onder de auto en bij de kleppendeksels.</li>
+          <li>Visuele inspectie van koelsysteem-plastic op haarscheurtjes.</li>
+          <li>Bij 4MATIC-versies: verdeelbak-conditie controleren.</li>
+        </ul>
+
+        <p>Onze sterke aanbeveling voor de M272: een pre-aankoop-inspectie van €200-€350 bij een Mercedes-specialist is veel goedkoper dan ontdekken dat het balansas-tandwiel onder cutoff zit zonder gedocumenteerde vervanging.</p>
+      </section>
+
+      <section id="sourcen" class="content-section">
+        <h2>Welke uitvoeringen sourcen wij?</h2>
+        <p>Voor onze klanten die specifiek een Mercedes met M272-motor zoeken, hanteren wij de volgende voorkeur per model. De rode draad: bouwjaar 2009 of later (balansas gefixed), of een ouder exemplaar met aantoonbare balansas-vervanging.</p>
+
+        <ul class="recommendation-list">
+          <li><strong>W212 E350 (2009-2011)</strong> — de moderne E-Klasse met port-injection M272. Veilige bouwjaren, ruim aanbod op Duitse en Japanse markten. <em>Vermijd de E350 CGI-versie voor LPG.</em></li>
+          <li><strong>W164 ML350 facelift (2009-2011)</strong> — het 4MATIC SUV-platform met M272. Praktische daily/family met trekvermogen. <em>Volledig veilig wat balansas betreft.</em></li>
+          <li><strong>W221 S350 (2009-2013)</strong> — de S-Klasse met atmosferische V6. Comfortabel, prestigieus, en in import-aanbod aantrekkelijk geprijsd. <em>Airmatic-onderhoud is wel een aandachtspunt.</em></li>
+          <li><strong>W204 C350 (2009-2011)</strong> — sportievere C-Klasse met M272.974. Goede prijs/kwaliteit-verhouding. <em>Carrosserie controleren op bekende roest-zones aan de achterzijde.</em></li>
+          <li><strong>R230 SL350 (2008-2011)</strong> — de M272-uitvoering van de SL-cabrio na de M112-overgang. Premium uitstraling. <em>ABC-vering aandachtspunt zoals bij elke R230.</em></li>
+          <li><strong>R171 SLK350 (2009-2010)</strong> — de compacte cabrio met M272.974. Klein, sportief, in lage-km-uitvoering uit Japan vaak interessant.</li>
+          <li><strong>W219 CLS350 (2009-2010)</strong> — vier-deurs coupé met M272. Elegant ontwerp dat tijdloos blijft.</li>
+        </ul>
+
+        <p>Modellen die we doorgaans <strong>vermijden</strong>: alle M272-uitvoeringen vóór september 2008 zonder aantoonbare balansas-vervanging, alle CGI-varianten voor klanten die LPG-conversie overwegen, en exemplaren met meer dan 280.000 km zonder volledige onderhoudshistorie.</p>
+      </section>
+
+      <section id="marktwaarde" class="content-section">
+        <h2>Marktwaarde-indicatie Nederland</h2>
+        <p>Onderstaande prijsranges gelden voor uitvoeringen met bouwjaar 2009 of later (balansas gefixed). Voor oudere exemplaren met balansas-risico ligt de marktwaarde 15-25% lager — wat in de praktijk vaak weerspiegelt dat kopers het risico verdisconteren in de prijs.</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Model</th><th>Bouwjaren</th><th>Indicatieve prijsrange NL</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>W212 E350</td><td>2009-2011</td><td>€ 9.500 - € 17.000</td></tr>
+            <tr><td>W211 E350 facelift</td><td>2007-2008 (alleen met fix)</td><td>€ 5.500 - € 11.000</td></tr>
+            <tr><td>W164 ML350 facelift</td><td>2009-2011</td><td>€ 9.000 - € 16.000</td></tr>
+            <tr><td>W221 S350</td><td>2009-2013</td><td>€ 11.000 - € 22.000</td></tr>
+            <tr><td>W204 C350</td><td>2009-2011</td><td>€ 7.000 - € 13.000</td></tr>
+            <tr><td>R230 SL350 (M272)</td><td>2008-2011</td><td>€ 13.000 - € 22.000</td></tr>
+            <tr><td>R171 SLK350</td><td>2009-2010</td><td>€ 10.000 - € 15.000</td></tr>
+            <tr><td>W219 CLS350</td><td>2009-2010</td><td>€ 9.000 - € 16.000</td></tr>
+          </tbody>
+        </table>
+
+        <p class="table-note"><em>Bandbreedte voor exemplaren tussen 80.000 en 200.000 km, onderhoudshistorie redelijk tot goed, geen accident-historie. Voor de exacte BPM-indicatie bij import zie onze <a href="/bpm-calculator">BPM-tool</a>.</em></p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een Mercedes met M272-motor?</h2>
+        <p>Vertel ons welke uitvoering u zoekt — wij screenen wekelijks de Japanse veilingen en Duitse premium-dealers en controleren altijd vóór bod het motornummer tegen de balansas-cutoff. Geen verrassingen achteraf.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/mercedes-m112-v6-motor">Mercedes M112 V6 — de voorganger zonder balansas-risico</a></li>
+          <li><a href="/kennisbank/mercedes-e-klasse-w212">Mercedes E-Klasse W212 koopgids</a></li>
+          <li><a href="/kennisbank/japanse-veiling-grades">Japanse auction grades uitgelegd</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/bpm-calculator">BPM-tool — bereken indicatief uw BPM</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list, .pitfall-list { padding-left: 24px; }
+  .bullet-list li, .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong, .pitfall-list strong { color: var(--color-text-primary); }
+  .bullet-list em, .pitfall-list em { font-style: italic; }
+
+  .recommendation-list { padding-left: 24px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .recommendation-list strong { color: var(--color-text-primary); }
+  .recommendation-list em { font-style: italic; color: var(--color-copper); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:nth-child(2),
+  .cost-table tbody tr td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .table-note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper); }
+  .table-note em { font-style: italic; }
+  .table-note a { color: var(--color-copper); text-decoration: underline; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { background: var(--color-cream); }
+  .page-cta-note { font-size: 13px; color: rgba(245, 241, 234, 0.6); margin-top: 16px; }
+
+  .related { max-width: 760px; margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { padding-left: 0; list-style: none; }
+  .related li { padding: 8px 0; font-size: 16px; }
+  .related a { color: var(--color-text-primary); text-decoration: none; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 900px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+    .page-cta h2 { font-size: 22px; }
+    .toc, .disclaimer { padding: 22px 24px; }
+  }
+</style>

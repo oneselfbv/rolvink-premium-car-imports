@@ -14,8 +14,8 @@ const updatedDate = '2026-05-27';
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'LHD versus RHD — wat de groene markering op Japanse veilingen betekent',
-  description: 'Waarom links- of rechtsgestuurd cruciaal is bij Japanse imports, hoe veilinghuizen LHD-units markeren, en welke modellen sterk in LHD vertegenwoordigd zijn.',
+  headline: 'LHD versus RHD — hoe LHD-voertuigen worden herkend op Japanse veilingen',
+  description: 'Waarom links- of rechtsgestuurd cruciaal is bij Japanse imports, hoe LHD-voertuigen worden herkend op auction sheets en broker-platforms (zoals de JCD groene markering), en welke modellen sterk in LHD vertegenwoordigd zijn.',
   datePublished: publishedDate,
   dateModified: updatedDate,
   author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
@@ -26,8 +26,8 @@ const articleSchema = {
 ---
 
 <BaseLayout
-  title="LHD versus RHD — de groene markering op Japanse veilingen | Rolvink"
-  description="Wat is LHD versus RHD, waarom is het cruciaal bij Japanse imports, en hoe markeren veilinghuizen LHD-units? Onze ervaring met de groene markering op JCD."
+  title="LHD versus RHD bij Japanse veilingen — herkenning en sourcing | Rolvink"
+  description="Wat is LHD versus RHD, waarom is het cruciaal bij Japanse imports, en hoe wordt LHD herkend op auction sheets en broker-platforms? Inclusief uitleg over de JCD groene UI-markering."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
 
@@ -37,8 +37,8 @@ const articleSchema = {
 
       <header class="article-header">
         <div class="section-eyebrow">Cornerstone — Markt</div>
-        <h1>LHD versus RHD — de <span class="accent">groene markering</span>.</h1>
-        <p class="lead">Waarom links- of rechtsgestuurd het verschil maakt tussen "geschikt voor de Nederlandse weg" en "fundamenteel onbruikbaar zonder verbouwing", hoe Japanse veilinghuizen LHD-units markeren, en welke modellen daar sterk in vertegenwoordigd zijn.</p>
+        <h1>LHD versus RHD bij <span class="accent">Japanse veilingen</span>.</h1>
+        <p class="lead">Waarom links- of rechtsgestuurd het verschil maakt tussen "geschikt voor de Nederlandse weg" en "fundamenteel onbruikbaar zonder verbouwing", hoe LHD-voertuigen worden herkend op auction sheets en broker-platforms, en welke modellen sterk in LHD vertegenwoordigd zijn.</p>
         <div class="article-meta">
           <span>Gepubliceerd: 27 mei 2026</span>
           <span>·</span>
@@ -61,16 +61,17 @@ const articleSchema = {
       </section>
 
       <section class="content-section">
-        <h2>De groene markering — hoe Japanse veilinghuizen LHD aangeven</h2>
-        <p>Verschillende Japanse veilinghuizen markeren LHD-units op hun online auctie-platforms. De meest herkenbare visualisatie is een <strong>groene achtergrondkleur</strong> in de resultatenlijst — een directe visuele indicator voor de bieder dat het om een linksgestuurde auto gaat.</p>
-        <p>Op het platform van <strong>Japan Car Direct (JCD)</strong> bijvoorbeeld worden LHD-rijen weergegeven met een lichte groene achtergrond (CSS-kleur rgb(210, 237, 204) in de HTML van het platform). Voor wie veilingstatistieken doorbladert is dit visueel direct duidelijk: de groen-gemarkeerde rijen zijn LHD, de andere zijn RHD.</p>
-        <p>Andere markeerwijzen die voorkomen:</p>
+        <h2>Hoe LHD wordt herkend op Japanse veilingen</h2>
+        <p>Belangrijk onderscheid vooraf: <strong>de officiële Japanse veilinghuizen (USS, JU, JAA en regionale veilingen zoals CAA, ARAI en ZIP) gebruiken geen speciale kleurmarkering voor LHD op hun originele auction sheets</strong>. LHD-identificatie verloopt op die sheets uitsluitend via tekst en chassisanalyse.</p>
+        <p>Een aantal commerciële broker-platforms voegt daar een eigen visuele laag aan toe om navigatie voor internationale bieders te vereenvoudigen. Het bekendste voorbeeld: <strong>Japan Car Direct (JCD)</strong> markeert in hun veilingstatistieken-overzicht LHD-rijen met een lichte groene achtergrond (CSS-kleur rgb(210, 237, 204)). Dat is een UI-helper die JCD zelf in hun platform heeft gebouwd — niet iets dat door de Japanse veilinghuizen wordt aangeleverd. Andere broker-platforms (Carvector, Provide Cars en vergelijkbaren) gebruiken geen kleurcodering en vereisen dat de bieder zelf de auction sheet leest of een tekst-filter toepast.</p>
+        <p>De universele LHD-identificatie verloopt via tekst op de auction sheet zelf:</p>
         <ul class="bullet-list">
-          <li><strong>Tekstuele aanduiding "左H" of "左ハンドル"</strong> — Japans voor "linkerhandel". Te zien in modelnaam-velden op USS, JU en JAA.</li>
-          <li><strong>"LHD" of "LEFT STEERING WHEEL"</strong> — Engelse aanduiding op auction sheets gericht op internationale bieders.</li>
-          <li><strong>Filter "left-hand drive only"</strong> — sommige platforms bieden een directe filter, alhoewel het volume aan resultaten daarmee fors krimpt.</li>
+          <li><strong>左ハンドル (hidari handoru)</strong> — Japans voor "linkerhandel", de meest gebruikte aanduiding in het opmerkingenvak.</li>
+          <li><strong>左H</strong> — afkorting daarvan, vaak in modelnaam- of opmerkingenvelden.</li>
+          <li><strong>LHD</strong> of <strong>LEFT STEERING WHEEL</strong> — Engelse aanduiding op sheets en in agent-correspondentie gericht op internationale bieders.</li>
+          <li><strong>Veld ハンドル位置 (stuurpositie)</strong> — toont 左 (links) of 右 (rechts). Let op: dit veld kan in het Japanse veilingsysteem defaulten op 右 omdat de auto in Japan geregistreerd is, ongeacht de werkelijke configuratie. Lees daarom altijd ook het opmerkingenvak.</li>
         </ul>
-        <p>Voor onze sourcing is de combinatie van groen-gemarkeerde rij + bevestiging in de auction sheet (linker-stuur expliciet vermeld) de standaard verificatie. Eén bron is niet genoeg — wij toetsen altijd minimaal twee.</p>
+        <p>Voor onze sourcing geldt de regel: bevestiging via minimaal twee bronnen. Waar een UI-markering beschikbaar is (zoals de groene rij op JCD) gebruiken we die als eerste filter, en wij verifiëren altijd via de tekst op de auction sheet zelf. Bij twijfel — bijvoorbeeld een tegenstrijdigheid tussen het ハンドル位置-veld (右) en de opmerkingen (左ハンドル) — vragen we onze Japanse partner om een dashboard-foto recht van voren. Eén bron is niet voldoende.</p>
       </section>
 
       <section class="content-section">
