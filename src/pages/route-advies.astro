@@ -133,6 +133,36 @@ const levelInfo = {
         <strong>Indicatief advies, geen garantie.</strong> Onderstaande beschikbaarheids-niveaus zijn gebaseerd op onze observaties van Japanse veilingen (JCD, USS, Pacific Coast JDM) en de Duitse markt (mobile.de, autoscout24.de) over de afgelopen maanden. Specifieke uitvoeringen, kleuren of optie-pakketten kunnen het beeld wijzigen. Voor een onderbouwde prognose op uw concrete zoekopdracht — <a href="/contact">vraag een intake-gesprek</a>.
       </div>
 
+      <div class="static-compare">
+        <h2>Japan of Duitsland — de korte beslisboom</h2>
+        <p>Voordat u door de matrix loopt: in 80% van de gevallen is dit de beslisregel.</p>
+        <div class="compare-grid">
+          <div class="compare-col">
+            <h3>Kies Duitsland als…</h3>
+            <ul>
+              <li>U binnen 2-4 weken in de auto wilt rijden</li>
+              <li>Persoonlijke bezichtiging vóór bod belangrijk is</li>
+              <li>U een mainstream uitvoering zoekt (530i, E300, A6 50 TFSI, Cayenne S)</li>
+              <li>U een Touring / Estate zoekt — Japan-aanbod LHD-station is praktisch nul</li>
+              <li>U geen risico wilt op invoerrechten of extra NL-BTW</li>
+            </ul>
+            <p class="compare-time">Doorlooptijd: <strong>2 — 4 weken</strong></p>
+          </div>
+          <div class="compare-col">
+            <h3>Kies Japan als…</h3>
+            <ul>
+              <li>U lage kilometerstanden boven alles wilt</li>
+              <li>U specifiek een M-uitvoering, AMG, RS of klassieker zoekt</li>
+              <li>U een specifieke uitvoering, kleur of optiepakket zoekt die in Europa schaars is</li>
+              <li>U 10-14 weken doorlooptijd kunt afwachten</li>
+              <li>U bereid bent de extra invoer- en BTW-kosten te dragen voor schaarse waar</li>
+            </ul>
+            <p class="compare-time">Doorlooptijd: <strong>10 — 14 weken</strong></p>
+          </div>
+        </div>
+        <p class="compare-foot">Lees ook: <a href="/kennisbank/auto-importeren-japan">complete Japan-import-gids</a> · <a href="/kennisbank/auto-importeren-duitsland">complete Duitsland-import-gids</a> · <a href="/voorbeeld-traject">een W212-case volledig doorgerekend</a> · <a href="/tarieven">onze sourcing-tarieven</a>.</p>
+      </div>
+
       <div class="route-tool">
         <div class="form-block">
           <label class="form-label" for="brandSelect">Stap 1 — Kies merk</label>
@@ -285,6 +315,68 @@ const levelInfo = {
   .disclaimer strong { color: var(--color-text-primary); }
   .disclaimer a { color: var(--color-copper); text-decoration: underline; }
 
+  .static-compare {
+    max-width: 920px;
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--color-cream);
+    border-left: 3px solid var(--color-copper);
+  }
+  .static-compare h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .static-compare > p {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+  .compare-col h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-copper);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .compare-col ul {
+    padding-left: 18px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    color: var(--color-text-primary);
+    line-height: 1.55;
+  }
+  .compare-col ul li {
+    margin-bottom: 8px;
+  }
+  .compare-time {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 0;
+    padding-top: 8px;
+    border-top: 1px solid var(--color-border-soft);
+  }
+  .compare-foot {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border-soft);
+  }
+  @media (max-width: 720px) {
+    .compare-grid { grid-template-columns: 1fr; gap: 24px; }
+    .static-compare { padding: 24px; margin: 32px 0; }
+  }
   .route-tool { max-width: 760px; margin-bottom: 56px; }
 
   .form-block { margin-bottom: 24px; }
