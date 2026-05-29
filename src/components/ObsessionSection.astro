@@ -46,6 +46,13 @@ const items = [
         </li>
       ))}
     </ol>
+
+    <!-- Slot 2: principes band letterbox 3.5:1, light. Drop /public/images/principes-band.jpg -->
+    <figure class="obsession-image">
+      <div class="image-slot image-slot--3-5-1 image-slot--placeholder image-slot--light" data-label="inspection detail / paperwork">
+        <!-- When real: <img class="img-graded" src="/images/principes-band.jpg" alt="" /> -->
+      </div>
+    </figure>
   </div>
 </section>
 
@@ -60,4 +67,8 @@ const items = [
   .obsession-num { font-family: var(--font-display); font-size: 36px; font-weight: 600; color: var(--color-copper); letter-spacing: -0.04em; line-height: 1; }
   .obsession-content h4 { font-family: var(--font-display); font-size: 24px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.02em; color: var(--color-charcoal-dark); }
   .obsession-content p { font-size: 15px; color: var(--color-text-secondary); max-width: 680px; line-height: 1.6; }
+  .obsession-image { margin-top: 56px; }
+  @media (max-width: 768px) {
+    .obsession-image { margin-top: 40px; }
+  }
 </style>

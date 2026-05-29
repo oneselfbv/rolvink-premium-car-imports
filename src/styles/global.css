@@ -7,6 +7,7 @@
   --color-charcoal: #2A2A2A;
   --color-charcoal-dark: #1F1F1F;
   --color-copper: #B87333;
+  --color-copper-text: #9A5E28;
   --color-copper-dark: #6B5A3A;
   --color-cream: #F5F1EA;
   --color-cream-warm: #EFE9DD;
@@ -89,7 +90,7 @@ ul, ol { list-style: none; }
   justify-content: space-between;
   align-items: center;
 }
-.topbar a { color: var(--color-copper); font-weight: 500; }
+.topbar a { color: var(--color-copper-text); font-weight: 500; }
 
 /* Header */
 .site-header {
@@ -112,7 +113,7 @@ ul, ol { list-style: none; }
   font-size: 14px;
   font-weight: 500;
 }
-.site-header nav a:hover { color: var(--color-copper); }
+.site-header nav a:hover { color: var(--color-copper-text); }
 
 /* Section eyebrow / labels */
 .section-eyebrow {
@@ -240,4 +241,98 @@ footer ul li {
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
   h1 { font-size: 48px !important; }
   h2 { font-size: 40px !important; }
+}
+
+
+/* ====================================================
+   Image system — auditor's grade recipe
+   Drop named .jpg into /public/images/, .img-graded auto-matches the brand
+   ==================================================== */
+
+.image-slot {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-cream-warm);
+}
+
+/* Aspect ratio modifiers */
+.image-slot--5-6 { aspect-ratio: 5 / 6; }
+.image-slot--16-9 { aspect-ratio: 16 / 9; }
+.image-slot--3-5-1 { aspect-ratio: 3.5 / 1; }
+.image-slot--1-1 { aspect-ratio: 1 / 1; }
+.image-slot--4-3 { aspect-ratio: 4 / 3; }
+.image-slot--4-5 { aspect-ratio: 4 / 5; }
+
+/* The grade — applied to every photo so they all match */
+.img-graded {
+  filter: saturate(0.8) contrast(0.95) brightness(1.02) sepia(0.12);
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Overlay for images on dark sections — blacks blend to charcoal-dark */
+.img-on-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--color-charcoal-dark) 0%, rgba(31, 31, 31, 0) 55%);
+  pointer-events: none;
+}
+
+/* Overlay for images on light/cream — protects dark text */
+.img-on-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-cream) 0%, rgba(245, 241, 234, 0) 50%);
+  pointer-events: none;
+}
+
+/* Placeholder state — styled block when no real .jpg exists yet */
+.image-slot--placeholder {
+  background: var(--color-charcoal-dark);
+  color: var(--color-cream-warm);
+}
+.image-slot--placeholder.image-slot--light {
+  background: var(--color-cream-warm);
+  color: var(--color-text-tertiary);
+}
+.image-slot--placeholder::before {
+  content: attr(data-label);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0 16px;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.image-slot--placeholder::after {
+  content: "";
+  position: absolute;
+  top: calc(50% + 22px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 1px;
+  background: var(--color-copper);
+  opacity: 0.4;
+}
+
+/* Headline clamp — tight letter-spacing collides on narrow screens */
+.hero h1, h1.hero-headline {
+  font-size: clamp(40px, 8vw, 82px) !important;
+  letter-spacing: clamp(-1.5px, -0.3vw, -2.46px) !important;
 }

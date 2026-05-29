@@ -4,18 +4,36 @@
 
 <section class="grades-teaser">
   <div class="container">
-    <div class="teaser-inner">
-      <div class="section-eyebrow">Japanse veilingschaal</div>
-      <h2>Wij accepteren alleen <span class="accent">grade 4 of hoger</span>.</h2>
-      <p class="teaser-body">Elke auto op een Japanse veiling wordt onafhankelijk gekeurd. De schaal loopt van 1 tot 5, met grade 6 of S voor (vrijwel) nieuwstaat en letter-codes (R, RA) voor reparatie-historie. Wij sourcen uitsluitend <strong>4, 4.5 of 5</strong> zonder R/RA-codes — daaronder beginnen risico's op verborgen issues sterk toe te nemen.</p>
-      <a href="/kennisbank/japanse-veiling-grades" class="teaser-link">Lees de volledige grade-uitleg <span class="arrow">→</span></a>
+    <div class="teaser-grid">
+      <div class="teaser-inner">
+        <div class="section-eyebrow">Japanse veilingschaal</div>
+        <h2>Wij accepteren alleen <span class="accent">grade 4 of hoger</span>.</h2>
+        <p class="teaser-body">Elke auto op een Japanse veiling wordt onafhankelijk gekeurd. De schaal loopt van 1 tot 5, met grade 6 of S voor (vrijwel) nieuwstaat en letter-codes (R, RA) voor reparatie-historie. Wij sourcen uitsluitend <strong>4, 4.5 of 5</strong> zonder R/RA-codes — daaronder beginnen risico's op verborgen issues sterk toe te nemen.</p>
+        <a href="/kennisbank/japanse-veiling-grades" class="teaser-link">Lees de volledige grade-uitleg <span class="arrow">→</span></a>
+      </div>
+      <!-- Slot 5: grade 4:3, light. /public/images/grades-inspection.jpg -->
+      <figure class="teaser-image">
+        <div class="image-slot image-slot--4-3 image-slot--placeholder image-slot--light" data-label="paint gauge / inspection sheet">
+          <!-- <img class="img-graded" src="/images/grades-inspection.jpg" alt="" /> -->
+        </div>
+      </figure>
     </div>
   </div>
 </section>
 
 <style>
   .grades-teaser { padding: var(--space-section-top) 0 var(--space-section-bottom); background: var(--color-white); }
+  .teaser-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
   .teaser-inner { max-width: 760px; }
+  .teaser-image .image-slot { margin: 0; }
+  @media (max-width: 900px) {
+    .teaser-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
   .grades-teaser h2 { font-size: 48px; margin-bottom: 24px; font-weight: 600; line-height: 1.1; }
   .teaser-body { font-size: 17px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 24px; }
   .teaser-body strong { color: var(--color-text-primary); font-weight: 600; }

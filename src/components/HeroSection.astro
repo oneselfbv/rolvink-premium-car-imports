@@ -35,6 +35,13 @@
         </div>
       </aside>
     </div>
+
+    <!-- Slot 1: hero image — full-bleed 16:9, light overlay. Drop /public/images/hero-911.jpg -->
+    <figure class="hero-image-frame">
+      <div class="image-slot image-slot--16-9 image-slot--placeholder image-slot--light img-on-light" data-label="911 / AMG three-quarter front">
+        <!-- When real image present: <img class="img-graded" src="/images/hero-911.jpg" alt="" /> -->
+      </div>
+    </figure>
   </div>
 </section>
 
@@ -74,7 +81,7 @@
     align-items: center;
     gap: 6px;
   }
-  .hero-secondary-link:hover { color: var(--color-copper); }
+  .hero-secondary-link:hover { color: var(--color-copper-text); }
   .hero-secondary-link .arrow-small {
     font-size: 13px;
     color: var(--color-copper);
@@ -85,15 +92,20 @@
   .hero-side { padding-bottom: 16px; }
   .hero-block { padding: 18px 0; border-top: 1px solid var(--color-border-medium); }
   .hero-block:last-child { border-bottom: 1px solid var(--color-border-medium); }
-  .hero-block-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 10px; font-weight: 500; }
+  .hero-block-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 10px; font-weight: 500; }
   .hero-list li { font-family: var(--font-serif); font-size: 17px; font-weight: 500; letter-spacing: 0.04em; padding: 2px 0; line-height: 1.4; }
   .hero-list a { color: var(--color-charcoal-dark); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
-  .hero-list a::after { content: "→"; color: var(--color-copper); opacity: 0; transform: translateX(-6px); transition: opacity 0.2s, transform 0.2s; font-size: 14px; }
-  .hero-list a:hover { color: var(--color-copper); }
+  .hero-list a::after { content: "→"; color: var(--color-copper-text); opacity: 0; transform: translateX(-6px); transition: opacity 0.2s, transform 0.2s; font-size: 14px; }
+  .hero-list a:hover { color: var(--color-copper-text); }
   .hero-list a:hover::after { opacity: 1; transform: translateX(0); }
+
+  .hero-image-frame {
+    margin: 64px 0 0;
+    max-width: 100%;
+  }
 
   @media (max-width: 768px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .hero h1 { font-size: 44px; }
+    .hero-image-frame { margin-top: 40px; }
   }
 </style>

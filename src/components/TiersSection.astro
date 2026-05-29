@@ -23,6 +23,12 @@ const jpBullets = [
     <p class="tiers-intro">Beide markten kennen hun eigen sterktes. Duitsland levert het volledige aanbod binnen onze vier merken, snel en met directe bezichtiging. Japan is de route voor performance-uitvoeringen, klassiekers en lage-km exemplaren die in Europa zeldzaam zijn geworden. We adviseren in het eerste gesprek welke route bij uw zoekopdracht past.</p>
     <div class="tier-grid">
       <article class="tier">
+        <!-- Slot 4a: bronmarkten Duitsland 4:3, light. /public/images/bron-duitsland.jpg -->
+        <figure class="tier-image">
+          <div class="image-slot image-slot--4-3 image-slot--placeholder image-slot--light" data-label="German autobahn">
+            <!-- <img class="img-graded" src="/images/bron-duitsland.jpg" alt="" /> -->
+          </div>
+        </figure>
         <div class="tier-tag">Uit Duitsland</div>
         <h3>Volledig spectrum, snel beschikbaar</h3>
         <div class="tier-time">2 — 4 weken doorlooptijd</div>
@@ -34,6 +40,12 @@ const jpBullets = [
         </ul>
       </article>
       <article class="tier featured">
+        <!-- Slot 4b: bronmarkten Japan 4:3, dark overlay. /public/images/bron-japan.jpg -->
+        <figure class="tier-image">
+          <div class="image-slot image-slot--4-3 image-slot--placeholder img-on-dark" data-label="classic JDM import">
+            <!-- <img class="img-graded" src="/images/bron-japan.jpg" alt="" /> -->
+          </div>
+        </figure>
         <div class="tier-tag">Uit Japan</div>
         <h3>Performance, klassiekers, lage km</h3>
         <div class="tier-time">12 — 14 weken doorlooptijd</div>
@@ -55,15 +67,19 @@ const jpBullets = [
   .tier.featured { background: var(--color-charcoal-dark); color: var(--color-cream); border: 1px solid var(--color-charcoal-dark); }
   .tier-tag { display: inline-block; padding: 5px 12px; border: 1px solid var(--color-copper); color: var(--color-copper); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 36px; }
   .tier h3 { font-size: 36px; margin-bottom: 12px; font-weight: 600; }
-  .tier-time { font-size: 15px; color: var(--color-copper); margin-bottom: 28px; font-weight: 500; }
+  .tier-time { font-size: 15px; color: var(--color-copper-text); margin-bottom: 28px; font-weight: 500; }
   .tier-desc { font-size: 15px; margin-bottom: 36px; color: var(--color-text-secondary); }
   .tier.featured .tier-desc { color: rgba(245,241,234,0.7); }
   .tier-features li { padding: 14px 0; font-size: 14px; display: flex; gap: 14px; align-items: start; border-bottom: 1px solid rgba(0,0,0,0.06); font-weight: 400; }
   .tier.featured .tier-features li { border-bottom: 1px solid rgba(184,115,51,0.15); color: rgba(245,241,234,0.85); }
-  .tier-features li::before { content: "→"; color: var(--color-copper); font-weight: 600; }
+  .tier-features li::before { content: "→"; color: var(--color-copper-text); font-weight: 600; }
+
+  .tier-image { margin: -56px -48px 36px; }
+  .tier-image .image-slot { margin: 0; }
 
   @media (max-width: 768px) {
     .tier-grid { grid-template-columns: 1fr; }
     .tiers h2 { font-size: 40px; }
+    .tier-image { margin: -56px -48px 28px; }
   }
 </style>
