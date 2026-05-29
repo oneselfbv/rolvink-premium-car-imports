@@ -28,7 +28,7 @@ const articleSchema = {
 
 <BaseLayout
   title="Japanse auction sheet lezen — complete gids | Rolvink"
-  description="Hoe lees je een Japanse auction sheet: anatomie van de sheet, grade-systeem, letter-codes voor schade, de RHD/LHD-mismatch valkuil, service-historie indicators en wat niet op een sheet staat."
+  description="Hoe lees je een Japanse auction sheet: anatomie, grade-systeem, letter-codes, RHD/LHD-valkuil en wat niet op een sheet staat."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
 
@@ -42,6 +42,12 @@ const articleSchema = {
         <p class="lead">De volledige uitleg van een Japans veiling-inspectierapport — anatomie, grade-systeem, letter-codes, de RHD/LHD-valkuil, Japanse termen voor service-historie en wat <em>niet</em> op een sheet staat (en hoe je daarmee omgaat).</p>
         <div class="article-meta">
           <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>·</span>
+              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            </>
+          )}
         </div>
       </header>
 

@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://rolvinkpremiumcarimports.nl',
+  site: 'https://www.rolvinkpremiumcarimports.nl',
   integrations: [
     mdx(),
     sitemap(),

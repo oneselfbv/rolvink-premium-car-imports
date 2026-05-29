@@ -9,7 +9,7 @@ export function getStaticPaths() {
         name: 'Europa',
         tagline: 'Volledig spectrum, snelle doorlooptijd',
         timing: '2 — 4 weken doorlooptijd',
-        description: 'Bij sourcing uit Europa — hoofdzakelijk Duitsland — werken wij met bekende dealers en onafhankelijke keuringspartners (TÜV, DEKRA, KÜS) in ons netwerk. De Duitse markt biedt het volledige aanbod binnen onze vier merken: van daily driver tot AMG, van S-Klasse tot Cayenne, van A6 tot RS6. Persoonlijke bezichtiging vóór bod is standaard. Wij selecteren uitsluitend exemplaren met volledige onderhoudshistorie.',
+        description: 'Bij sourcing uit Europa — hoofdzakelijk Duitsland — werken wij met bekende dealers en onafhankelijke keuringspartners (TÜV, DEKRA, KÜS) in ons netwerk. De Duitse markt biedt het volledige aanbod binnen onze vier merken: van daily driver tot AMG, van S-Klasse tot Cayenne, van A6 tot RS6. Persoonlijke bezichtiging vóór bod is standaard. Wij selecteren uitsluitend exemplaren met volledige onderhoudshistorie. De voordelen van de Duitsland-route zijn de korte doorlooptijd (2-4 weken in plaats van 12-14 voor Japan), de afwezigheid van invoerrechten dankzij de EU-binnenmarkt, en de bij-de-bron onderhoudscultuur — Duitse premium-merken kennen hun eigen markt het beste. Voor wie geen exotisch profiel zoekt is dit doorgaans de slimmere route. Pas wanneer een specifieke uitvoering, kleur of generatie schaars wordt in Europa, kijken wij naar Japan als aanvulling.',
         forWho: 'Voor wie weet wat hij wil en het beschikbaar wil hebben — zonder maandenlange wachttijd.',
         bullets: [
           'Volledig modelspectrum binnen BMW, Mercedes-Benz, Audi en Porsche — van daily driver tot performance',
@@ -19,7 +19,16 @@ export function getStaticPaths() {
           'Snelle import — geen oceaan-transport',
           'Geen invoerrechten — EU-binnenmarkt',
         ],
-        focus: null,
+        focus: {
+          title: 'Wat we typisch via Duitsland sourcen',
+          intro: 'Het volledige modelaanbod is bereikbaar. Hieronder per merk waar wij de Duitsland-route in de praktijk het meest inzetten.',
+          items: [
+            { brand: 'BMW', segment: '3-Serie (E90/F30/G20), 5-Serie (F10/G30/G60), X3/X5/X7, M-Sport en xDrive uitvoeringen' },
+            { brand: 'Mercedes-Benz', segment: 'C-Klasse (W205/W206), E-Klasse (W212/W213), GLC, S-Klasse W222, AMG-Line uitvoeringen' },
+            { brand: 'Audi', segment: 'A4/A6/A8, Q5/Q7, S-Line en S/RS-modellen, quattro-uitvoeringen' },
+            { brand: 'Porsche', segment: 'Cayenne, Macan, Panamera; recente 911 (991/992) en Cayman/Boxster (981/718)' },
+          ],
+        },
         relatedReading: [
           { href: '/kennisbank/auto-importeren-duitsland', title: 'Auto importeren uit Duitsland — complete gids' },
           { href: '/kennisbank/bpm-importauto-2026', title: 'BPM voor importauto\'s — gids 2026' },

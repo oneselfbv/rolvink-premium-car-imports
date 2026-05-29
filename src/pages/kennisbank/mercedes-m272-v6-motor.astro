@@ -42,6 +42,12 @@ const articleSchema = {
         <p class="lead">De directe opvolger van de M112 — moderner, krachtiger, soepeler. Maar één bekende fabrieksfout maakt het verschil tussen een uitstekende koop en een dure verrassing. Alles over de balansas-cutoff, LPG-geschiktheid en welke bouwjaren wij wel of niet sourcen.</p>
         <div class="article-meta">
           <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>·</span>
+              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            </>
+          )}
         </div>
       </header>
 

@@ -24,11 +24,11 @@ const canonicalURL = new URL(pathname, Astro.site).toString().replace(/\/$/, '')
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://rolvinkpremiumcarimports.nl/#organization',
+  '@id': 'https://www.rolvinkpremiumcarimports.nl/#organization',
   name: 'Rolvink Premium Car Imports',
-  url: 'https://rolvinkpremiumcarimports.nl',
-  logo: 'https://rolvinkpremiumcarimports.nl/favicon.svg',
-  founder: { '@type': 'Person', name: 'Theo Rolvink', '@id': 'https://rolvinkpremiumcarimports.nl/over#theo' },
+  url: 'https://www.rolvinkpremiumcarimports.nl',
+  logo: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg',
+  founder: { '@type': 'Person', name: 'Theo Rolvink', '@id': 'https://www.rolvinkpremiumcarimports.nl/over#theo' },
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Veldweg 15',
@@ -46,10 +46,10 @@ const organizationSchema = {
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'AutomotiveBusiness',
-  '@id': 'https://rolvinkpremiumcarimports.nl/#localbusiness',
+  '@id': 'https://www.rolvinkpremiumcarimports.nl/#localbusiness',
   name: 'Rolvink Premium Car Imports',
-  url: 'https://rolvinkpremiumcarimports.nl',
-  image: 'https://rolvinkpremiumcarimports.nl/og-image.jpg',
+  url: 'https://www.rolvinkpremiumcarimports.nl',
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
   telephone: '+31638441395',
   email: 'contact@rolvinkpremiumcarimports.nl',
   priceRange: '€€€',
@@ -81,7 +81,7 @@ const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Automotive Import Sourcing',
-  provider: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', '@id': 'https://rolvinkpremiumcarimports.nl/#organization' },
+  provider: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', '@id': 'https://www.rolvinkpremiumcarimports.nl/#organization' },
   areaServed: { '@type': 'Country', name: 'Netherlands' },
   description: "Persoonlijke sourcing van Duitse premium-auto's (BMW, Mercedes-Benz, Audi, Porsche) uit Europa en Japan. Inclusief import, BPM, RDW-keuring en aflevering aan huis.",
   audience: { '@type': 'Audience', audienceType: 'Particuliere kopers en kleine dealers' },
@@ -94,6 +94,7 @@ const serviceSchema = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   {noIndex && <meta name="robots" content="noindex,nofollow" />}
+  {!noIndex && <meta name="robots" content="index,follow,max-image-preview:large" />}
 
   <meta name="google-site-verification" content="IbEdRJTvXwFSEJ18axbjZiBWKHgmbUKPQL150eOCIwM" />
 

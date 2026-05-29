@@ -43,6 +43,12 @@ const articleSchema = {
         <div class="article-meta">
           <span>Gepubliceerd: 27 mei 2026</span>
           <span>·</span>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>Bijgewerkt: {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              <span>·</span>
+            </>
+          )}
           <span>Leestijd: ongeveer 8 minuten</span>
         </div>
       </header>

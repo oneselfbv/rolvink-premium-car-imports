@@ -42,6 +42,12 @@ const articleSchema = {
         <p class="lead">De V8-tegenhanger van de M112 — gietijzeren blok, 24-klepper, taxi-bewezen 500.000 km. Onder Mercedes-specialisten geldt de M113 als de meest betrouwbare V8 die ooit uit Stuttgart kwam. Alles over de varianten, AMG Kompressor-uitvoeringen, LPG-geschiktheid en welke modellen wij gericht sourcen.</p>
         <div class="article-meta">
           <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>·</span>
+              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            </>
+          )}
         </div>
       </header>
 

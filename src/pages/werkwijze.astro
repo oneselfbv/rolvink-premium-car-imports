@@ -45,6 +45,22 @@ const steps = [
   },
 ];
 
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Auto importeren — werkwijze in 8 stappen',
+  description: 'Het complete sourcing-traject van Rolvink Premium Car Imports, van intake-gesprek tot aflevering aan huis.',
+  totalTime: 'P6W',
+  step: steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.title,
+    text: s.body,
+    url: 'https://www.rolvinkpremiumcarimports.nl/werkwijze',
+  })),
+};
+
 const breadcrumbs = [
   { name: 'Home', url: '/' },
   { name: 'Werkwijze' },
@@ -87,6 +103,8 @@ const breadcrumbs = [
     </div>
   </section>
 </BaseLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
 <style>
   .werkwijze-page { padding: 64px 0 96px; }

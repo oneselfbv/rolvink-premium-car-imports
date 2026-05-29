@@ -28,7 +28,7 @@ const articleSchema = {
 
 <BaseLayout
   title="Mercedes M112 V6 — motorgids voor importkopers | Rolvink"
-  description="Alles over de M112 V6 — techniek, varianten, bekende valkuilen, LPG-geschiktheid en welke uitvoeringen wij sourcen. De motorgids voor wie een betrouwbare premium Mercedes uit 1997-2010 zoekt."
+  description="M112 V6 motorgids: techniek, varianten, valkuilen, LPG-geschiktheid en welke uitvoeringen wij sourcen. Voor de premium Mercedes 1997-2010."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
 
@@ -42,6 +42,12 @@ const articleSchema = {
         <p class="lead">De techniek achter een legendarisch betrouwbare motor — varianten, sterke punten, bekende valkuilen en wat te checken bij een importauto met deze 18-klepper V6 onder de motorkap.</p>
         <div class="article-meta">
           <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>·</span>
+              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            </>
+          )}
         </div>
       </header>
 

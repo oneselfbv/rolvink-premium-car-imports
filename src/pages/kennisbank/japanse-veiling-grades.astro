@@ -63,7 +63,7 @@ const letterCodes = [
 ---
 
 <BaseLayout
-  title="Japanse auction grades uitgelegd — Rolvink Premium Car Imports"
+  title="Japanse auction grades uitgelegd | Rolvink"
   description="Volledige uitleg van de Japanse auction-grade-schaal: van 1 tot 6/S plus letter-codes. Wat de scores betekenen en welke grades wij wel of niet sourcen."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
@@ -79,6 +79,12 @@ const letterCodes = [
         <div class="article-meta">
           <span>Gepubliceerd: 27 mei 2026</span>
           <span>·</span>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>Bijgewerkt: {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              <span>·</span>
+            </>
+          )}
           <span>Leestijd: ongeveer 6 minuten</span>
         </div>
       </header>

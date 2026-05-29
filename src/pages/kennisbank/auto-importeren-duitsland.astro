@@ -41,7 +41,7 @@ const articleSchema = {
 ---
 
 <BaseLayout
-  title="Auto importeren uit Duitsland in 2026 — Complete gids | Rolvink"
+  title="Auto importeren uit Duitsland 2026 — Gids | Rolvink"
   description="Hoe werkt auto importeren uit Duitsland? Stappen, kosten, BPM, RDW, doorlooptijd en de valkuilen die wij zien als sourcing-specialist."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
@@ -57,6 +57,12 @@ const articleSchema = {
         <div class="article-meta">
           <span>Gepubliceerd: 27 mei 2026</span>
           <span>·</span>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>Bijgewerkt: {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              <span>·</span>
+            </>
+          )}
           <span>Leestijd: ongeveer 8 minuten</span>
         </div>
       </header>

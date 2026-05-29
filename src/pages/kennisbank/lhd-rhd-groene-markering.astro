@@ -27,8 +27,8 @@ const articleSchema = {
 ---
 
 <BaseLayout
-  title="LHD versus RHD bij Japanse veilingen — herkenning en sourcing | Rolvink"
-  description="Wat is LHD versus RHD, waarom is het cruciaal bij Japanse imports, en hoe wordt LHD herkend op auction sheets en broker-platforms? Inclusief uitleg over de JCD groene UI-markering."
+  title="LHD vs RHD bij Japanse veilingen — herkenning | Rolvink"
+  description="Wat is LHD versus RHD, waarom cruciaal bij Japan-imports, en hoe herken je LHD op auction sheets. Inclusief uitleg JCD groene UI-markering."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
 
@@ -43,6 +43,12 @@ const articleSchema = {
         <div class="article-meta">
           <span>Gepubliceerd: 27 mei 2026</span>
           <span>·</span>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>Bijgewerkt: {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              <span>·</span>
+            </>
+          )}
           <span>Leestijd: ongeveer 6 minuten</span>
         </div>
       </header>
