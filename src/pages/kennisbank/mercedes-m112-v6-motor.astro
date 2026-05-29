@@ -1,0 +1,333 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Mercedes M112 V6 — motorgids' },
+];
+
+const publishedDate = '2026-05-29';
+const updatedDate = '2026-05-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Mercedes M112 V6 — de techniek achter een legendarisch betrouwbare motor',
+  description: 'Technische blueprint, varianten, bekende sterke en zwakke punten, onderhoud, LPG-geschiktheid en sourcing-richtlijnen voor de Mercedes M112 V6 (1997-2010).',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/mercedes-m112-v6-motor' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Mercedes M112 V6 — motorgids voor importkopers | Rolvink"
+  description="Alles over de M112 V6 — techniek, varianten, bekende valkuilen, LPG-geschiktheid en welke uitvoeringen wij sourcen. De motorgids voor wie een betrouwbare premium Mercedes uit 1997-2010 zoekt."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Motorgids</div>
+        <h1>Mercedes <span class="accent">M112</span> V6.</h1>
+        <p class="lead">De techniek achter een legendarisch betrouwbare motor — varianten, sterke punten, bekende valkuilen en wat te checken bij een importauto met deze 18-klepper V6 onder de motorkap.</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+        </div>
+      </header>
+
+      <div class="disclaimer">
+        Deze gids is bedoeld voor oriëntatie bij de aankoop of import van een Mercedes met M112-motor. Wij baseren de informatie op publieke technische documentatie en gangbare branche-kennis. Voor specifieke voertuigdiagnoses raadpleegt u een Mercedes-specialist of erkende werkplaats. <strong>Wij geven geen technisch onderhoudsadvies vervangend voor inspectie ter plaatse.</strong>
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>Inhoud</h2>
+        <ol>
+          <li><a href="#wat-is-m112">Wat is de M112 en waarom is hij relevant?</a></li>
+          <li><a href="#geschiedenis">Plaats in Mercedes' motorgeschiedenis</a></li>
+          <li><a href="#blueprint">Technische blueprint — hoe is hij gebouwd?</a></li>
+          <li><a href="#varianten">Varianten en toepassingen</a></li>
+          <li><a href="#sterk">Waarom geldt de M112 als bulletproof?</a></li>
+          <li><a href="#zwak">Bekende zwakke punten en herstelkosten</a></li>
+          <li><a href="#lpg">LPG-geschiktheid — wat technisch klopt</a></li>
+          <li><a href="#onderhoud">Onderhoud en service-intervallen</a></li>
+          <li><a href="#checken">Wat te checken bij aankoop</a></li>
+          <li><a href="#sourcen">Welke uitvoeringen sourcen wij?</a></li>
+          <li><a href="#marktwaarde">Marktwaarde-indicatie Nederland</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-is-m112" class="content-section">
+        <h2>Wat is de M112 en waarom is hij relevant?</h2>
+        <p>De M112 is een 18-klepper V6-benzinemotor die Mercedes-Benz tussen 1997 en ongeveer 2010 in productie had. Hij verving de zes-in-lijn M104 en zat in nagenoeg het volledige Mercedes-aanbod uit dat tijdvak — van de compacte C-Klasse tot aan de S-Klasse, SL en G-Klasse. Voor importkopers van premium Duitse auto's is de M112 vandaag bijzonder relevant omdat veel auto's met deze motor inmiddels de youngtimer-leeftijd hebben bereikt (16-25 jaar oud) of binnen enkele jaren bereiken. Dat betekent fiscaal interessante gebruiksmogelijkheden en — minstens zo belangrijk — een marktprijs die de techniek inmiddels weer in financieel bereik brengt voor wie een serieuze premium-auto zoekt zonder de hoge bijtelling van moderne uitvoeringen.</p>
+        <p>Wat de M112 onderscheidt van veel tijdgenoten en opvolgers, is de combinatie van eenvoudige constructie, gietijzeren motorblok en bewezen lange levensduur. In specialisten-kringen geldt hij als één van de laatste echt "ouderwets betrouwbare" Mercedes-motoren — vóór de complexere M272 met balansketting-problematiek en vóór de moderne directe-inspuiting-motoren met carbonneerslag op kleppen. Wie een Mercedes uit de periode 1997-2010 overweegt, doet er goed aan om eerst te begrijpen welke motor erin zit en wat dat technisch betekent.</p>
+      </section>
+
+      <section id="geschiedenis" class="content-section">
+        <h2>Plaats in Mercedes' motorgeschiedenis</h2>
+        <p>De M112 werd in 1997 geïntroduceerd als opvolger van de M104, de befaamde zes-in-lijn die in de W124, W210 (pre-facelift) en R129 had gediend. De overstap naar een V6-configuratie was deels esthetisch (kortere motorruimte, betere weight distribution) en deels economisch (eenvoudiger gietproces, lagere productiekosten). Tegelijk introduceerde Mercedes met de M112 de driekleppen-per-cilinder layout — twee inlaatkleppen en één uitlaatklep — die later ook in de V8 M113 werd toegepast.</p>
+        <p>De productie van de M112 liep door tot ongeveer 2010, met overlap van de opvolger M272 (een 24-klepper V6 met vier kleppen per cilinder) die vanaf 2004 voor moderne modellen werd ingezet. In sommige toepassingen — met name de R-Klasse, ML en G-Klasse — bleef de M112 langer in productie omdat zijn robuustheid bij commercial use beter aansloot dan het modernere maar gevoeligere ontwerp van de M272. De M272 staat bekend om <strong>balansketting-problemen in de vroege jaren (2004-2008)</strong>, een issue dat bij de M112 simpelweg niet bestaat.</p>
+      </section>
+
+      <section id="blueprint" class="content-section">
+        <h2>Technische blueprint — hoe is hij gebouwd?</h2>
+        <p>De M112 is een 90 graden V6 met een gietijzeren motorblok en aluminium cilinderkoppen. Per cilinder zitten drie kleppen: twee inlaatkleppen en één grote uitlaatklep. De kleppen worden aangedreven door één bovenliggende nokkenas per cilinderbank (SOHC), via vinger-volgers (rocker arms) met zelf-instellende hydraulische klepstoters. Dat laatste betekent dat de klepspeling tijdens het leven van de motor niet hoeft te worden afgesteld — een aanzienlijke onderhoudsvoordeel ten opzichte van veel concurrenten.</p>
+        <p>De distributie loopt via twee enkelvoudige kettingen (één per cilinderbank), aangedreven door een centrale tandwielketting op de krukas. Mercedes heeft deze kettingen ontworpen als <em>lifetime parts</em> — geen vervangingsinterval voorgeschreven. In de praktijk blijken de kettingen bij goed-onderhouden exemplaren ook daadwerkelijk de motor te overleven, al is bij kilometerstanden boven de 300.000 km een geluidsinspectie verstandig.</p>
+        <p>De brandstoftoevoer verloopt via klassieke port injection (één injector per cilinder achter de inlaatklep) — géén directe inspuiting. Dat klinkt ouderwets, maar het is technisch een voordeel: directe-inspuiting-motoren ontwikkelen na 100.000-150.000 km vaak carbonneerslag op de inlaatkleppen omdat het brandstofreinigend effect ontbreekt. De M112 heeft dat probleem niet. De luchttoevoer wordt geregeld via een MAF (luchtmassameter) plus een MAP-sensor — beide vervangbare onderdelen die we in de zwakke-puntenlijst nog tegenkomen.</p>
+        <p>De compressieverhouding zit tussen 9,5:1 en 10,5:1 afhankelijk van de variant, hetgeen de motor geschikt maakt voor Euro 98-benzine maar ook voor LPG (waarover later meer). De smering verloopt via een natte carter met circa 8 liter olie-inhoud; de aanbevolen kwaliteit is 0W-40 of 5W-40 conform Mercedes MB 229.5.</p>
+      </section>
+
+      <section id="varianten" class="content-section">
+        <h2>Varianten en toepassingen</h2>
+        <p>De M112 kwam in een aantal cilinderinhouden en vermogensvarianten. De volgende uitvoeringen waren in West-Europa en op de importmarkt relevant:</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Aanduiding</th><th>Inhoud</th><th>Vermogen</th><th>Toepassing (selectie)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>M112.910 / .911</td><td>2,4 L</td><td>170 pk</td><td>W210 E240, W203 C240</td></tr>
+            <tr><td>M112.921</td><td>2,6 L</td><td>177 pk</td><td>W202 C240 (USA), enkele export-varianten</td></tr>
+            <tr><td>M112.940 / .941</td><td>2,8 L</td><td>193-204 pk</td><td>W210 E280, W163 ML320 (vroeg), W220 S280, R170 SLK280</td></tr>
+            <tr><td>M112.946 / .947 / .949 / .957</td><td>3,2 L</td><td>218-224 pk</td><td>W210/W211 E320, W203 C320, W163/W164 ML320, W220 S320, R230 SL350 (eerste jaren), C215 CL320, R170 SLK320, W463 G320</td></tr>
+            <tr><td>M112.961 / .963</td><td>3,7 L</td><td>235 pk</td><td>W211 E350 (vroeg), R230 SL350 (kort)</td></tr>
+            <tr><td>M112 Kompressor (E32 AMG, C32 AMG)</td><td>3,2 L + supercharger</td><td>349-354 pk</td><td>W210 E32 AMG, W203 C32 AMG, R170 SLK32 AMG</td></tr>
+          </tbody>
+        </table>
+
+        <p class="table-note"><em>Toepassingen indicatief — exacte motor-uitvoering hangt af van bouwjaar, markt en chassisnummer. Voor verificatie kan het motoruitvoeringsnummer worden uitgelezen of opgevraagd bij Mercedes-Benz via WIS/EPC.</em></p>
+
+        <p>De 3,2-liter varianten — vooral de M112.946 in de E320 en de M112.949 in de SL350 — zijn voor de premium-importmarkt het meest gangbaar. Ze leveren een aangenaam koppel (315-350 Nm), een onbezorgd vermogen voor moderne snelwegen, en een verbruik dat in normaal gebruik tussen de 1 op 9 en 1 op 11 ligt. De Kompressor-varianten in de AMG-modellen zijn technisch dezelfde motor maar met mechanische turbocharger en aangepast smeer- en koelsysteem — krachtig, maar onderhoudgevoeliger en zeldzamer in goede staat.</p>
+      </section>
+
+      <section id="sterk" class="content-section">
+        <h2>Waarom geldt de M112 als bulletproof?</h2>
+        <p>Onder Mercedes-specialisten en eigenaren staat de M112 bekend als één van de laatste echt onverwoestbare motoren die Stuttgart heeft gebouwd. Vier technische redenen liggen aan die reputatie ten grondslag.</p>
+
+        <h3>Gietijzeren motorblok</h3>
+        <p>Anders dan veel tijdgenoten van BMW en Audi gebruikt de M112 een gietijzeren blok in plaats van aluminium met grijsgegoten cilinder-liners. Dat maakt de motor zwaarder, maar ook dimensioneel stabieler bij hogere temperaturen en cilinderdrukken. Cilinderslijtage is in de praktijk vrijwel nooit een probleem — kilometerstanden van 400.000 tot 700.000 km met intacte compressie zijn niet uitzonderlijk bij goed-onderhouden exemplaren.</p>
+
+        <h3>Eenvoudige 3-kleps techniek</h3>
+        <p>Drie kleppen per cilinder klinkt ouderwets, maar het is een bewuste vereenvoudiging. Minder kleppen betekent minder zittingen, minder veren, minder rocker arms en minder dingen die op termijn slijten of klemmen. De grotere uitlaatklep verwerkt de thermische belasting bovendien efficiënter dan twee kleinere uitlaatkleppen — gunstig voor de levensduur bij LPG-gebruik (zie verderop).</p>
+
+        <h3>Tandwielketting voor het leven</h3>
+        <p>De distributiekettingen zijn dimensioneel ruim opgebouwd en draaien in een onderdompeld olie-bad. Mercedes schrijft geen vervangingsinterval voor. In de praktijk blijken kettingen bij regelmatig olie-verversen (10.000-15.000 km) de motor probleemloos te overleven. Vergelijk dit met de M272-opvolger, waar de balansketting in de vroege jaren als kritisch slijtonderdeel gold en duizenden euro's reparatie kon kosten.</p>
+
+        <h3>Zelf-instellende klepspeling</h3>
+        <p>De hydraulische klepstoters in de M112 stellen zichzelf in. Er is geen periodieke klepspeling-afstelling nodig — geen werkplaats-rekening van enkele honderden euro's elke 60.000 km. Voor de gebruiker betekent dit een onderhoudsregime dat zich beperkt tot olie, bougies, V-snaar en filters.</p>
+
+        <p>Daarbij zijn er twee belangrijke <em>afwezigheden</em> van problemen die motoren uit dezelfde periode wel hadden: geen Nikasil-cilinderslijtage zoals de vroege BMW M52, geen IMS-bearing-issue zoals de Porsche M96, en geen carbonneerslag op inlaatkleppen zoals moderne directe-inspuiting-motoren.</p>
+      </section>
+
+      <section id="zwak" class="content-section">
+        <h2>Bekende zwakke punten en herstelkosten</h2>
+        <p>Geen motor is foutloos, en de M112 heeft een herkenbaar setje slijtonderdelen waar je rekening mee moet houden. De goede nieuws: vrijwel alle bekende issues zijn relatief goedkoop te verhelpen en de onderdelen zijn breed verkrijgbaar.</p>
+
+        <ul class="pitfall-list">
+          <li><strong>Idle pulley bracket</strong> — De houder van de tussenpoelie (V-snaar systeem) kan na 250.000-350.000 km breken. Symptoom: rammelend geluid bij koude start. <em>Reparatie: €150-€300 onderdeel + 1-2 uur arbeid.</em></li>
+          <li><strong>Kleppendeksel-pakkingen</strong> — Olielekkage langs de cilinderdeksel-rubbers is een vrijwel zekere reparatie boven de 150.000 km. Niet gevaarlijk maar wel rommelig. <em>Reparatie: €80-€150 onderdelen + 1-2 uur arbeid per kop.</em></li>
+          <li><strong>MAF-sensor (luchtmassameter)</strong> — Vervuilt of versleten na 150.000-250.000 km. Symptomen: rough idle, slechte gasrespons, foutcode P0100. <em>Reparatie: €120-€250 onderdeel, plug-and-play.</em></li>
+          <li><strong>MAP-sensor</strong> — Kan ruisige signalen geven na 200.000-300.000 km. <em>Reparatie: €80-€180.</em></li>
+          <li><strong>EGR-klep</strong> — Vooral bij overwegend stadsgebruik kan de EGR vast komen te zitten. Symptoom: motormanagementlamp, vermogensverlies. <em>Reparatie: €200-€400 voor reiniging of vervanging.</em></li>
+          <li><strong>Crankshaft position sensor</strong> — Standaard slijtage rond 200.000-300.000 km. Symptoom: motor slaat soms niet aan bij warme start. <em>Reparatie: €80-€150.</em></li>
+          <li><strong>Waterpomp</strong> — Lager-slijtage of lekkage rond 200.000-250.000 km. Symptoom: druppels onder de auto na rijden, soms piepend geluid. <em>Reparatie: €300-€500 incl. arbeid.</em></li>
+          <li><strong>Distributiekettingrek</strong> — Bij zeer hoge kilometerstanden (>350.000 km) kan een kettingrekspanner geluid maken. Geen acuut probleem maar wel een signaal om vervanging te plannen. <em>Inspectie eerst — vervanging €600-€1.200 inclusief arbeid.</em></li>
+          <li><strong>Plastic onderdelen koelsysteem</strong> — Thermostaatbehuizing en koelvloeistof-afsluiters kunnen na 15-20 jaar breken door verharding. <em>Reparatie: €150-€300.</em></li>
+        </ul>
+
+        <p>Bij elkaar opgeteld: een goed-onderhouden M112 met 200.000 km kan met ongeveer €1.500-€2.500 aan herstel ouderdoms-issues vrij zijn voor de komende 100.000-150.000 km. Dat is laag voor een premium-motor uit deze klasse.</p>
+      </section>
+
+      <section id="lpg" class="content-section">
+        <h2>LPG-geschiktheid — wat technisch klopt</h2>
+        <p>Onder LPG-installateurs en bij specifieke veelrijders staat de M112 bekend als één van de weinige moderne benzinemotoren waar een gasinstallatie technisch zonder zorgen op kan worden gemonteerd. Drie technische factoren liggen aan die reputatie ten grondslag.</p>
+        <p><strong>Geharde klepzittingen vanaf fabriek.</strong> Een veelvoorkomende zorg bij LPG-conversies is klepzitting-recessie — het langzaam intrekken van de uitlaatklep in de cilinderkop omdat LPG geen brandstof-smering biedt aan de klep-zittingscontact-zone. Mercedes leverde de M112 standaard uit met geharde stalen klepzittingen (een legacy van het tankgebruik van de M104) — geen recessie-issue dus.</p>
+        <p><strong>3-kleps koeling.</strong> De grotere enkele uitlaatklep ontvangt thermische belasting maar verspreidt die over een groter oppervlak dan twee kleinere kleppen zouden doen. Bij LPG, dat heter brandt dan benzine, is dat een gunstige eigenschap. Praktijkrapportages van auto's met 400.000-600.000 km op LPG zonder klepproblemen bevestigen dit.</p>
+        <p><strong>Adequate cilindervulling.</strong> De inlaat-tract geometrie van de M112 geeft voldoende lucht- en gasvulling op LPG zonder ingrijpende aanpassingen aan de mapping. Vermogensverlies bij LPG-gebruik blijft typisch beperkt tot 5-10% (vs. 10-15% bij minder geschikte motoren).</p>
+        <p>De gangbare installateurs voor M112-conversies in Nederland zijn Vialle (vloeibare LPG, hoger rendement), Prins (sequentiële injectie, marktstandaard) en BRC (Italiaans, breed verkrijgbaar). Een professionele installatie kost €2.200-€3.500 inclusief tank en montage. Voor een veelrijder (30.000+ km/jaar) verdient die investering zich typisch binnen 18-24 maanden terug, afhankelijk van LPG-pomp-beschikbaarheid in de eigen regio.</p>
+        <p>Belangrijk om te benoemen: de Nederlandse LPG-tankstation-infrastructuur krimpt al enkele jaren (van circa 1.800 stations in 2015 naar minder dan 1.300 in 2024). Voor een serieuze veelrijder die landelijk operationeel is, blijft het systeem goed bruikbaar; voor wie alleen lokaal rijdt in een regio met weinig LPG-pompen, is het verstandig om vooraf de tankgelegenheden in kaart te brengen.</p>
+      </section>
+
+      <section id="onderhoud" class="content-section">
+        <h2>Onderhoud en service-intervallen</h2>
+        <p>De M112 is een vergevingsgezinde motor maar wel één die regelmatige olie-aandacht verlangt. De volgende intervallen gelden als richtlijn voor een gebruiker die de motor lang wil houden:</p>
+        <ul class="bullet-list">
+          <li><strong>Motorolie</strong> — elke 10.000-15.000 km of jaarlijks (welke eerder komt). Kwaliteit 0W-40 of 5W-40, MB 229.5 norm. Gangbare merken: Mobil 1, Castrol Edge, Liqui Moly.</li>
+          <li><strong>Oliefilter</strong> — bij elke oliewissel.</li>
+          <li><strong>Bougies</strong> — elke 60.000 km. Eén bougie per cilinder (totaal 6 stuks). NGK of Bosch FR8DC4 zijn gangbaar.</li>
+          <li><strong>Luchtfilter</strong> — elke 40.000 km of jaarlijks bij stoffige omgeving.</li>
+          <li><strong>V-snaar (poly-V)</strong> — elke 80.000 km. Inspectie elke 40.000 km.</li>
+          <li><strong>Koelvloeistof</strong> — elke 60.000 km of 4 jaar. Mercedes G05 (geel) — niet mengen met andere kleuren.</li>
+          <li><strong>Brandstoffilter</strong> — elke 60.000-80.000 km. Onder de wagen, gemakkelijk te wisselen.</li>
+          <li><strong>Klepspeling</strong> — niet stelbaar (zelf-instellend systeem). Geen periodieke check nodig.</li>
+          <li><strong>Distributieketting</strong> — geen vervangingsinterval. Visuele en akoestische check vanaf 250.000 km.</li>
+        </ul>
+        <p>Voor wie de motor met LPG combineert komt daar bij: koelvloeistof-inspectie bij elke oliewissel (LPG produceert iets meer warmte), en bougies elke 40.000 km in plaats van 60.000 (iets agressievere verbrandingstemperaturen).</p>
+      </section>
+
+      <section id="checken" class="content-section">
+        <h2>Wat te checken bij aankoop</h2>
+        <p>Bij de aankoop van een tweedehands of importauto met M112-motor is een aantal checks de moeite waard — sommige doe je zelf binnen vijf minuten, andere via een professionele werkplaats.</p>
+
+        <h3>Wat u zelf kunt zien</h3>
+        <ul class="bullet-list">
+          <li>Stationair geluid bij koude start — een lichte tik in de eerste 10-20 seconden is normaal (hydraulische klepstoters bouwen druk op); aanhoudend ratelen wijst op kettingrek-slijtage.</li>
+          <li>Olielekkage onder de auto en langs de kleppendeksels — kleine sporen acceptabel, dikke afzettingen wijzen op uitgesteld onderhoud.</li>
+          <li>Servicehistorie — een continue olie-wissel-historie elke 10.000-15.000 km is een sterk positief signaal.</li>
+          <li>Motormanagementlamp uit binnen 30 seconden na het starten — als hij blijft branden, vraag om OBD-uitlees-rapport vóór bod.</li>
+        </ul>
+
+        <h3>Wat een professionele werkplaats kan doen</h3>
+        <ul class="bullet-list">
+          <li>Compressietest op alle 6 cilinders — verschillen onderling moeten binnen 5-7% blijven.</li>
+          <li>OBD-uitlezing met Mercedes-specifieke tools (XENTRY/DAS of vergelijkbaar) voor pending foutcodes en historische data.</li>
+          <li>Visuele inspectie van koelsysteem-plastic (thermostaat-behuizing, koelvloeistofreservoir) op haarscheurtjes.</li>
+          <li>Bij 4MATIC-varianten: verdeelbak-conditie controleren (geen mechanische motor-issue, maar wel een aanverwante kostenpost).</li>
+          <li>Bij AMG/Kompressor-varianten: rotorgeluid van de mechanische turbocharger — schurend geluid is een waarschuwing.</li>
+        </ul>
+
+        <p>Voor een redelijk-onderhouden M112 met aantoonbare servicehistorie en geen onverklaarde stationaire geluiden, is de kans op significante issues laag. Voor de wat duurdere uitvoeringen (SL350, S320, AMG) is een pre-aankoop-inspectie van €200-€350 bij een Mercedes-specialist sterk aan te raden.</p>
+      </section>
+
+      <section id="sourcen" class="content-section">
+        <h2>Welke uitvoeringen sourcen wij?</h2>
+        <p>Voor onze klanten die specifiek op zoek zijn naar een Mercedes met M112-motor, kijken wij gericht naar de volgende uitvoeringen. Per model geven we kort aan waarom de uitvoering interessant is en op wat te letten.</p>
+
+        <ul class="recommendation-list">
+          <li><strong>W211 E320 (2002-2008)</strong> — de rijpere E-Klasse met 3,2L M112. Comfortabel, ruim, en in import-aanbod vaak met lagere kilometers dan de NL-markt. <em>Let op: pre-facelift heeft een aantal kinderziekten (SBC-rembekrachtiging onder andere), facelift vanaf 2006 is duidelijk volwassener.</em></li>
+          <li><strong>W210 E320 facelift (2000-2002)</strong> — duidelijke youngtimer, robuust ouderwets gebouwd. Roestproblematiek bij Europese exemplaren is bekend; Japanse imports zijn vaak roestvrijer. <em>Geschikt als veelrijder mits carrosserie goed is.</em></li>
+          <li><strong>R230 SL350 eerste jaren (2003-2005)</strong> — de cabrio met de M112.949. Sportiever karakter, betere afwerking dan de latere M272-uitvoering. <em>Vroege ABC-suspension is wel een aandachtspunt — controleer op lekkages en pomp-conditie.</em></li>
+          <li><strong>W220 S320 (1998-2005)</strong> — de klassieke S-Klasse met onverwoestbare 3,2L. Veel comfort voor relatief weinig geld vandaag. <em>Pneumatic Airmatic-vering kan kostbaar onderhoud worden — een gezond exemplaar zonder voorgaande Airmatic-reparaties is goud waard.</em></li>
+          <li><strong>W203 C320 (2001-2005)</strong> — sportieve compacte sedan met dezelfde 3,2L. Gewicht en afwerking lichter dan E-Klasse maar gevoel is direct en wendbaarder. <em>De W203 had een rust-issue rond de portierranden; importauto's uit Japan zijn typisch beter bewaard.</em></li>
+          <li><strong>W163 ML320 / W164 ML350 (1998-2005)</strong> — eerste-generatie SUV met betrouwbare M112. <em>Vroege W163 (1998-2001) had Amerikaanse productie-issues; latere exemplaren zijn een stuk beter.</em></li>
+          <li><strong>C215 CL320 (1999-2005)</strong> — zeldzame elegante coupé. Lage productieaantallen maken hem nu een uitgesproken liefhebbersauto. <em>ABC-vering ook hier een potentiële kostenpost.</em></li>
+        </ul>
+
+        <p>Modellen die we doorgaans <strong>vermijden</strong>: alle uitvoeringen met meer dan 450.000 km zonder gedocumenteerde distributieketting-inspectie, exemplaren met ongedocumenteerde LPG-conversie van onbekende installateur, en vroege W163 ML's (1998-1999) zonder volledige onderhoudshistorie.</p>
+      </section>
+
+      <section id="marktwaarde" class="content-section">
+        <h2>Marktwaarde-indicatie Nederland</h2>
+        <p>De volgende prijsranges gelden als ruwe indicatie voor wat een goed-onderhouden Mercedes met M112-motor vandaag op de Nederlandse markt kost. Werkelijke prijzen variëren afhankelijk van kilometerstand, conditie, uitvoering, optiepakket en historie.</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Model</th><th>Bouwjaren</th><th>Indicatieve prijsrange NL</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>W202 / W203 C320</td><td>2000-2005</td><td>€ 2.500 - € 7.500</td></tr>
+            <tr><td>W210 E320 facelift</td><td>2000-2002</td><td>€ 3.000 - € 8.000</td></tr>
+            <tr><td>W211 E320</td><td>2002-2008</td><td>€ 4.500 - € 12.000</td></tr>
+            <tr><td>W163 ML320</td><td>2000-2005</td><td>€ 4.000 - € 9.500</td></tr>
+            <tr><td>W220 S320</td><td>1999-2005</td><td>€ 5.500 - € 14.000</td></tr>
+            <tr><td>R230 SL350 (M112)</td><td>2003-2005</td><td>€ 13.000 - € 22.000</td></tr>
+            <tr><td>C215 CL320</td><td>1999-2005</td><td>€ 10.000 - € 18.000</td></tr>
+            <tr><td>C32 AMG / E32 AMG (Kompressor)</td><td>2001-2004</td><td>€ 14.000 - € 28.000</td></tr>
+          </tbody>
+        </table>
+
+        <p class="table-note"><em>Bandbreedte voor exemplaren tussen 100.000 en 250.000 km, onderhoudshistorie redelijk tot goed, geen accident-historie. Exceptionele lage-km of perfect-onderhouden exemplaren liggen boven deze range. Voor de exacte BPM-indicatie bij import zie onze <a href="/bpm-calculator">BPM-tool</a>.</em></p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een Mercedes met M112-motor?</h2>
+        <p>Vertel ons welke uitvoering u zoekt — wij screenen wekelijks de Japanse veilingen en Duitse premium-dealers op exemplaren die passen bij uw profiel. Geen actie zonder uw groen licht.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/mercedes-e-klasse-w212">Mercedes E-Klasse W212 koopgids</a> — de generatie na deze, met M272/M276 motoren</li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/bpm-calculator">BPM-tool — bereken indicatief uw BPM</a></li>
+          <li><a href="/merk/mercedes-benz">Onze Mercedes-Benz focus</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list, .pitfall-list { padding-left: 24px; }
+  .bullet-list li, .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong, .pitfall-list strong { color: var(--color-text-primary); }
+  .bullet-list em, .pitfall-list em { font-style: italic; }
+
+  .recommendation-list { padding-left: 24px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .recommendation-list strong { color: var(--color-text-primary); }
+  .recommendation-list em { font-style: italic; color: var(--color-copper); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:nth-child(2),
+  .cost-table tbody tr td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cost-table tbody tr.cat-total td { background: var(--color-charcoal-dark); color: var(--color-cream); padding-top: 14px; padding-bottom: 14px; font-size: 15px; }
+
+  .table-note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper); }
+  .table-note em { font-style: italic; }
+  .table-note a { color: var(--color-copper); text-decoration: underline; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { background: var(--color-cream); }
+  .page-cta-note { font-size: 13px; color: rgba(245, 241, 234, 0.6); margin-top: 16px; }
+
+  .related { max-width: 760px; margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { padding-left: 0; list-style: none; }
+  .related li { padding: 8px 0; font-size: 16px; }
+  .related a { color: var(--color-text-primary); text-decoration: none; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 900px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+    .page-cta h2 { font-size: 22px; }
+    .toc, .disclaimer { padding: 22px 24px; }
+  }
+</style>
