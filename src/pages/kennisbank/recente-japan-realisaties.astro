@@ -6,7 +6,7 @@ import AuthorByline from '../../components/AuthorByline.astro';
 const breadcrumbs = [
   { name: 'Home', url: '/' },
   { name: 'Kennisbank', url: '/kennisbank' },
-  { name: 'Recente Japan-realisaties' },
+  { name: 'Japan LHD-aanbod per merk' },
 ];
 
 const publishedDate = '2026-05-29';
@@ -15,8 +15,8 @@ const updatedDate = '2026-05-29';
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Recente Japan-realisaties — verified LHD-aanbod per merk',
-  description: 'Geanonimiseerde snapshot van actueel LHD grade 4+ aanbod op Japanse veilingen binnen onze scope: Mercedes-Benz, BMW, Audi en Porsche. Verified data, geen marketing-schattingen.',
+  headline: 'Japans LHD-aanbod per merk — wat typisch verschijnt in grade 4+',
+  description: 'Welke linksgestuurde grade 4+ uitvoeringen structureel op de Japanse veilingen verschijnen binnen onze scope: Mercedes-Benz, Porsche, BMW en Audi. Op observatie gebaseerd, geen marketing-schattingen.',
   datePublished: publishedDate,
   dateModified: updatedDate,
   author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
@@ -25,58 +25,43 @@ const articleSchema = {
   image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
 };
 
-// Verified LHD grade 4+ live aanbod, snapshot 2026-05-29 via Pacific Coast JDM /auctions/
-const snapshot = {
-  totalLHD: 140,
-  byBrand: [
-    { brand: 'Mercedes-Benz', count: 90, share: 64 },
-    { brand: 'Porsche', count: 28, share: 20 },
-    { brand: 'BMW', count: 21, share: 15 },
-    { brand: 'Audi', count: 1, share: '<1' },
-  ],
-};
+// Kwalitatieve beschikbaarheid binnen onze scope (LHD, grade 4+), op basis van
+// doorlopende observatie van meerdere Japanse veilingbronnen. Geen vaste telling:
+// het aanbod wisselt continu en ligt structureel hoger dan een enkele momentopname suggereert.
+const brandOverview = [
+  { brand: 'Mercedes-Benz', aanbod: 'Zeer ruim', note: 'De grootste LHD-pool — van S- en E-Klasse tot AMG en klassiekers.' },
+  { brand: 'Porsche', aanbod: 'Ruim', note: 'Sterk gespreid over alle 911-generaties, plus Cayenne, Boxster, Cayman en Panamera.' },
+  { brand: 'BMW', aanbod: 'Regelmatig', note: 'Vooral 5-Serie en M-segment; mainstream sneller via Duitsland.' },
+  { brand: 'Audi', aanbod: 'Zeer schaars', note: 'LHD-Audi is in Japan een uitzondering — Duitsland is hier de logische route.' },
+];
 
 const mercedesBreakdown = [
-  { model: 'S-Klasse (W221/W222)', count: 20, jaarrange: '2001-2021', grades: '4 / 4.5 / 5' },
-  { model: 'E-Klasse sedan (W211/W212/W213)', count: 12, jaarrange: '1995-2021', grades: '4 / 4.5' },
-  { model: 'AMG G-Klasse', count: 7, jaarrange: '2004-2017', grades: '4 / 4.5' },
-  { model: 'G-Klasse', count: 7, jaarrange: '1998-2024', grades: '4 / 4.5 / 5' },
-  { model: 'CL-Klasse (W215/W216)', count: 5, jaarrange: '2005-2013', grades: '4 / 4.5' },
-  { model: 'GLK-Klasse (X204)', count: 5, jaarrange: '2011-2015', grades: '4' },
-  { model: 'CLS (W219/W218/C257)', count: 5, jaarrange: '2007-2021', grades: '4 / 4.5' },
-  { model: 'SL (R230/R231)', count: 4, jaarrange: '1999-2013', grades: '4 / 4.5' },
-  { model: 'AMG CLS', count: 4, jaarrange: '2011-2013', grades: '4 / 4.5' },
-  { model: 'C-Klasse', count: 4, jaarrange: '2000-2015', grades: '4 / 4.5' },
-  { model: 'Mercedes-AMG (GLE53 etc)', count: 2, jaarrange: '2021', grades: '4.5' },
-  { model: 'GL-Klasse (X166)', count: 2, jaarrange: '2013', grades: '4' },
-  { model: 'E-Klasse Estate (S212/S213)', count: 2, jaarrange: '2012-2018', grades: '4 / 4.5' },
-  { model: 'Maybach', count: 1, jaarrange: '2017', grades: '4' },
+  { model: 'S-Klasse (W221/W222)', aanbod: 'Ruim', jaarrange: '2001-2021', grades: '4 / 4.5 / 5' },
+  { model: 'E-Klasse sedan (W211/W212/W213)', aanbod: 'Ruim', jaarrange: '1995-2021', grades: '4 / 4.5' },
+  { model: 'G-Klasse / AMG G-Klasse', aanbod: 'Regelmatig', jaarrange: '1998-2024', grades: '4 / 4.5 / 5' },
+  { model: 'CLS (W219/W218/C257)', aanbod: 'Regelmatig', jaarrange: '2007-2021', grades: '4 / 4.5' },
+  { model: 'CL-Klasse (W215/W216)', aanbod: 'Regelmatig', jaarrange: '2005-2013', grades: '4 / 4.5' },
+  { model: 'GLK / GLE / GLS', aanbod: 'Regelmatig', jaarrange: '2011-2021', grades: '4 / 4.5' },
+  { model: 'SL (R230/R231)', aanbod: 'Incidenteel', jaarrange: '1999-2013', grades: '4 / 4.5' },
+  { model: 'AMG-uitvoeringen (CLS / GLE53 e.a.)', aanbod: 'Incidenteel', jaarrange: '2011-2021', grades: '4 / 4.5' },
+  { model: 'C-Klasse', aanbod: 'Incidenteel', jaarrange: '2000-2015', grades: '4 / 4.5' },
+  { model: 'E-Klasse Estate (S212/S213)', aanbod: 'Schaars', jaarrange: '2012-2018', grades: '4 / 4.5' },
+  { model: 'Maybach', aanbod: 'Schaars', jaarrange: '2017+', grades: '4' },
 ];
 
 const porscheBreakdown = [
-  { model: '911 (964/993/996/997/991/992)', count: 11, jaarrange: '1992-2025', notes: 'Sterk verdeeld over alle generaties' },
-  { model: 'Cayenne', count: 7, jaarrange: '2009-2012', notes: 'Turbo / S Hybrid / GTS' },
-  { model: 'Boxster (986/987)', count: 5, jaarrange: '2002-2009', notes: 'M96/M97-IMS aandacht voor 996/997 pendanten' },
-  { model: 'Panamera', count: 2, jaarrange: '2012-2013', notes: 'Base + 4S' },
-  { model: 'Cayman 987', count: 1, jaarrange: '2009', notes: 'Cayman S 3.4L' },
-  { model: '718 Boxster', count: 1, jaarrange: '2017+', notes: 'IMS-vrij 9A1-platform' },
-  { model: 'Overig', count: 1, jaarrange: '—', notes: '—' },
-];
-
-const highlights = [
-  { lot: '38015', auction: 'CAA Tokyo', date: '2026-06-02', merk: 'Mercedes-Benz', model: 'E-Klasse', uitvoering: 'E300 4MATIC (213080C)', jaar: 2016, km: '44.000', grade: '4' },
-  { lot: '5022', auction: 'TAA Kinki', date: '2026-06-02', merk: 'Mercedes-Benz', model: 'CL', uitvoering: 'CL550 BlueEFFICIENCY Grand Edition', jaar: 2013, km: '87.000', grade: '4.5' },
-  { lot: '607', auction: 'ZIP Tokyo', date: '2026-05-30', merk: 'Mercedes-Benz', model: 'Mercedes-AMG GLE', uitvoering: 'GLE 53 4MATIC+ Coupé', jaar: 2021, km: '43.000', grade: '4.5' },
-  { lot: '20233', auction: 'USS Nagoya', date: '2026-05-30', merk: 'Porsche', model: '911 (992)', uitvoering: 'Carrera T', jaar: 2025, km: '0', grade: '5' },
-  { lot: '20213', auction: 'USS Nagoya', date: '2026-05-30', merk: 'Porsche', model: '911 (993)', uitvoering: 'Carrera S', jaar: 1997, km: '46.000', grade: '4.5' },
-  { lot: '83165', auction: 'USS Kyushu', date: '2026-05-30', merk: 'Porsche', model: '911 (991)', uitvoering: 'Carrera 4S', jaar: 2017, km: '28.000', grade: '4.5' },
-  { lot: '13376', auction: 'USS Nagoya', date: '2026-05-30', merk: 'Porsche', model: '911 (992)', uitvoering: 'Carrera GTS', jaar: 2025, km: '3.000', grade: '4.5' },
+  { model: '911 (964/993/996/997/991/992)', aanbod: 'Ruim', jaarrange: '1992-heden', notes: 'Sterk verdeeld over alle generaties — air-cooled tot 992.' },
+  { model: 'Cayenne', aanbod: 'Regelmatig', jaarrange: '2009-heden', notes: 'Turbo / S / GTS.' },
+  { model: 'Boxster (986/987/981)', aanbod: 'Regelmatig', jaarrange: '2002-heden', notes: 'S-uitvoeringen veelgevraagd.' },
+  { model: 'Panamera', aanbod: 'Incidenteel', jaarrange: '2012-heden', notes: 'Base, 4S en GTS — wij sourcen Panamera wel degelijk.' },
+  { model: 'Cayman (987/981/718)', aanbod: 'Incidenteel', jaarrange: '2009-heden', notes: 'Cayman S en 718 (IMS-vrij 9A1).' },
+  { model: 'Macan', aanbod: 'Schaars', jaarrange: '2015-heden', notes: 'Sportieve uitvoeringen incidenteel.' },
 ];
 ---
 
 <BaseLayout
-  title="Recente Japan-realisaties — verified LHD-aanbod per merk | Rolvink"
-  description="Geanonimiseerde snapshot van het actuele LHD grade 4+ aanbod op de Japanse veilingen voor Mercedes, BMW, Audi en Porsche. Verified data, geen marketing-schatting."
+  title="Japans LHD-aanbod per merk — grade 4+ | Rolvink"
+  description="Welke linksgestuurde grade 4+ uitvoeringen structureel op de Japanse veilingen verschijnen voor Mercedes, Porsche, BMW en Audi. Op observatie gebaseerd, geen marketing-schatting."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
 
@@ -86,142 +71,107 @@ const highlights = [
 
       <header class="article-header">
         <div class="section-eyebrow">Marktdata — Japan</div>
-        <h1>Recente <span class="accent">Japan-realisaties</span>.</h1>
-        <p class="lead">Wat is er feitelijk op dit moment beschikbaar in Japan in LHD grade 4 of hoger binnen onze sourcing-scope? Hieronder een geanonimiseerde snapshot van 140 verified records — geen marketing-schattingen, geen "vanaf"-prijzen. Wat de Japanse veilingen daadwerkelijk te bieden hebben, per merk doorgerekend.</p>
-        <div class="article-meta">
-          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
-          {publishedDate !== updatedDate && (
-            <>
-              <span>·</span>
-              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
-            </>
-          )}
-        </div>
+        <h1>Japans <span class="accent">LHD-aanbod</span> per merk.</h1>
+        <p class="lead">Wat verschijnt er structureel op de Japanse veilingen in LHD, grade 4 of hoger, binnen onze sourcing-scope? Hieronder per merk wat je realistisch mag verwachten — gebaseerd op doorlopende observatie van meerdere veilingbronnen, niet op een momentopname. Het werkelijke aanbod wisselt continu en ligt over een maand gerekend ruim hoger dan één enkele lijst doet vermoeden.</p>
       </header>
 
       <AuthorByline variant="top" />
 
       <div class="disclaimer">
-        <strong>Bronvermelding:</strong> snapshot 29 mei 2026 via Pacific Coast JDM auction-platform, filter "Left Hand Drive" + "Scores 4 / 4.5 / 5 / 6" (onze grade 4+ ondergrens) per scope-merk. Geen kortere ondergrens, geen R/RA/A/X-classificaties, geen RHD-uitvoeringen. Dit is een live-aanbod-snapshot, geen historische verkooplijst — hammerprijzen volgen na realisatie. Voor verkooppijzen reken op een landed-cost typisch 75-90% boven hamer (zie <a href="/kennisbank/auto-importeren-japan/">complete kosten-uitleg</a>). Aantallen wijzigen wekelijks; deze pagina wordt maandelijks ververst.
+        <strong>Hoe dit is samengesteld:</strong> op basis van onze doorlopende screening van meerdere Japanse veilingbronnen (o.a. USS, JU, JAA, CAA, ARAI, TAA, ZIP, BAYAUC) en broker-platforms, gefilterd op <strong>linksgestuurd (LHD)</strong> en <strong>grade 4 of hoger</strong> — geen R/RA/A/X-classificaties, geen RHD. Dit is geen verkooplijst en geen vaste voorraad: het beschrijft welk type uitvoeringen met welke regelmaat langskomen. Voor de kostenkant: reken op een landed cost typisch 75-90% boven de hamerprijs (zie de <a href="/kennisbank/auto-importeren-japan/">complete kosten-uitleg</a>).
       </div>
 
       <nav class="toc" aria-label="Inhoud">
         <h2>In dit overzicht</h2>
         <ol>
-          <li><a href="#totaal">Totaaloverzicht — 140 LHD records binnen scope</a></li>
-          <li><a href="#mercedes">Mercedes-Benz — 90 records per modellijn</a></li>
-          <li><a href="#porsche">Porsche — 28 records per generatie</a></li>
-          <li><a href="#bmw">BMW — 21 records</a></li>
-          <li><a href="#audi">Audi — 1 record</a></li>
-          <li><a href="#highlights">Notable highlights uit huidige snapshot</a></li>
-          <li><a href="#hoe-lezen">Hoe deze cijfers te lezen</a></li>
+          <li><a href="#totaal">Aanbod per merk — het grote beeld</a></li>
+          <li><a href="#mercedes">Mercedes-Benz — de breedste LHD-pool</a></li>
+          <li><a href="#porsche">Porsche — gespreid over alle generaties</a></li>
+          <li><a href="#bmw">BMW — geconcentreerd in 5-Serie en M</a></li>
+          <li><a href="#audi">Audi — Duitsland is de route</a></li>
+          <li><a href="#hoe-lezen">Hoe dit overzicht te lezen</a></li>
         </ol>
       </nav>
 
       <section id="totaal" class="content-section">
-        <h2>Totaaloverzicht — 140 LHD records binnen scope</h2>
-        <p>Per scope-merk de verdeling van het LHD grade 4+ aanbod vandaag op de Japanse veilingen:</p>
+        <h2>Aanbod per merk — het grote beeld</h2>
+        <p>Binnen onze vier scope-merken verschilt de LHD-beschikbaarheid sterk. Mercedes en Porsche vormen het leeuwendeel van wat in LHD grade 4+ langskomt; BMW is geconcentreerder en Audi is in Japan een uitzondering.</p>
         <table class="cost-table">
           <thead>
-            <tr><th>Merk</th><th>LHD grade 4+</th><th>Verhouding</th></tr>
+            <tr><th>Merk</th><th>LHD grade 4+ aanbod</th><th>Toelichting</th></tr>
           </thead>
           <tbody>
-            {snapshot.byBrand.map((b) => (
+            {brandOverview.map((b) => (
               <tr>
                 <td>{b.brand}</td>
-                <td>{b.count}</td>
-                <td>{b.share}%</td>
+                <td>{b.aanbod}</td>
+                <td>{b.note}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <p>Mercedes domineert met 64% — meer dan de andere drie merken samen. Porsche heeft een gezond aanbod over alle 911-generaties heen. BMW levert beperkter maar consistent — vooral 5-Serie en M-segment. Audi is met één record praktisch nul; voor Audi-sourcing is Duitsland onze enige realistische route.</p>
+        <p>Mercedes is veruit de grootste LHD-pool — breder dan de andere drie merken samen. Porsche heeft een gezond, gespreid aanbod over alle 911-generaties. BMW levert beperkter maar consistent, vooral in 5-Serie en M-segment. Audi is in LHD zo schaars dat Duitsland daar onze enige realistische route is.</p>
       </section>
 
       <section id="mercedes" class="content-section">
-        <h2>Mercedes-Benz — 90 LHD grade 4+ records</h2>
-        <p>Mercedes is verreweg de grootste LHD-pool. Notabel: <strong>S-Klasse is met 20 records de grootste enkele modellijn</strong>, voor E-Klasse (12). Een aanname-correctie ten opzichte van eerder werk — onze focus voor klanten lag op E-Klasse, maar S-Klasse biedt feitelijk meer keuze.</p>
+        <h2>Mercedes-Benz — de breedste LHD-pool</h2>
+        <p>Mercedes biedt het grootste en meest gevarieerde LHD-aanbod. <strong>S-Klasse en E-Klasse zijn de best vertegenwoordigde modellijnen</strong> — wie een grote sedan zoekt, heeft hier doorlopend keuze. Een nuance ten opzichte van eerdere aannames: ook de <strong>E-Klasse Estate bestaat in LHD</strong> — schaars, maar incidenteel beschikbaar voor wie geduld heeft.</p>
         <table class="cost-table">
           <thead>
-            <tr><th>Model</th><th>LHD-aanbod (n)</th><th>Bouwjaarrange</th><th>Grades</th></tr>
+            <tr><th>Model</th><th>LHD-aanbod</th><th>Bouwjaarrange</th><th>Grades</th></tr>
           </thead>
           <tbody>
             {mercedesBreakdown.map((m) => (
               <tr>
                 <td>{m.model}</td>
-                <td>{m.count}</td>
+                <td>{m.aanbod}</td>
                 <td>{m.jaarrange}</td>
                 <td>{m.grades}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <p>Een tweede aanname-correctie: <strong>E-Klasse Estate LHD bestaat wel</strong>. Twee records deze maand (W212 + W213 generatie). Eerder gecommuniceerd als "praktisch nul" — nauwkeuriger is "extreem schaars maar incidenteel beschikbaar". Voor specifieke wensen kan een station via Japan dus wél, met de geduldfactor die daar bij hoort. SL R230/R231 staat met 4 records lager dan eerder geschat (in de range van 4-6 per maand bij grade 4+ discipline, lager dan inclusieve cijfers met grade 3.5). Voor de bredere context: <a href="/merk/mercedes-benz/">onze Mercedes-focus</a> en de <a href="/kennisbank/mercedes-e-klasse-w212/">E-Klasse W212 koopgids</a>.</p>
+        <p>Voor de bredere context: <a href="/merk/mercedes-benz/">onze Mercedes-focus</a> en de <a href="/kennisbank/mercedes-e-klasse-w212/">E-Klasse W212 koopgids</a>.</p>
       </section>
 
       <section id="porsche" class="content-section">
-        <h2>Porsche — 28 LHD grade 4+ records</h2>
-        <p>Porsche is op aanbod per maand de meest spreid-rijke groep — 11 911's verdeeld over alle generaties van 964 (1992) tot 992 (2025), plus Cayenne, Boxster, Cayman en Panamera. Voor de breedste 911-keuze in LHD is Japan structureel de logische bron:</p>
+        <h2>Porsche — gespreid over alle generaties</h2>
+        <p>Porsche is qua spreiding de rijkste groep — de 911 verschijnt in LHD over alle generaties van 964 tot 992, aangevuld met Cayenne, Boxster, Cayman en Panamera. <strong>Panamera sourcen wij wel degelijk</strong> (Base, 4S en GTS). Voor de breedste 911-keuze in LHD is Japan structureel de logische bron:</p>
         <table class="cost-table">
           <thead>
-            <tr><th>Model</th><th>LHD-aanbod (n)</th><th>Bouwjaarrange</th><th>Notes</th></tr>
+            <tr><th>Model</th><th>LHD-aanbod</th><th>Bouwjaarrange</th><th>Notes</th></tr>
           </thead>
           <tbody>
             {porscheBreakdown.map((p) => (
               <tr>
                 <td>{p.model}</td>
-                <td>{p.count}</td>
+                <td>{p.aanbod}</td>
                 <td>{p.jaarrange}</td>
                 <td>{p.notes}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <p>Voor de IMS-discussie bij 996/997.1 — niet relevant voor de 9A1-aandrijflijn vanaf 997.2 — zie de complete <a href="/kennisbank/porsche-ims-lager-996-997/">IMS-koopgids</a>. Voor het volledige 911-overzicht: <a href="/kennisbank/porsche-911-modelgids/">modelgids vijf generaties</a>. Voor een doorgerekende landed-cost vergelijking JP vs DE op deze 997.2: <a href="/kennisbank/porsche-997-2-japan-vs-duitsland/">de cost-vergelijking</a>.</p>
+        <p>Voor de IMS-discussie bij 996/997.1 — niet relevant voor de 9A1-aandrijflijn vanaf 997.2 — zie de complete <a href="/kennisbank/porsche-ims-lager-996-997/">IMS-koopgids</a>. Voor het volledige 911-overzicht: <a href="/kennisbank/porsche-911-modelgids/">modelgids vijf generaties</a>. Voor een doorgerekende landed-cost vergelijking JP vs DE: <a href="/kennisbank/porsche-997-2-japan-vs-duitsland/">de cost-vergelijking</a>.</p>
       </section>
 
       <section id="bmw" class="content-section">
-        <h2>BMW — 21 LHD grade 4+ records</h2>
-        <p>BMW-LHD aanbod is gecompresseerd. Onder de 21 records zien wij vooral 5-Serie sedan (E60/F10/G30), M-segment (M3 F80, M4 F82, M5 F10/F90), 6-Serie coupé F12/F13 en incidenteel X5/X6 M. Volume is voldoende voor klanten met een specifieke uitvoeringswens; voor mainstream 530i / 540i / 730i is Duitsland sneller. Onze brede BMW-focus: <a href="/merk/bmw/">/merk/bmw</a>. Voor de 5-Serie F10/G30: <a href="/kennisbank/bmw-5-serie-f10-g30/">koopgids</a>.</p>
+        <h2>BMW — geconcentreerd in 5-Serie en M</h2>
+        <p>Het BMW-LHD aanbod is geconcentreerder dan dat van Mercedes of Porsche. Wat met regelmaat langskomt: 5-Serie sedan (E60/F10/G30), het M-segment (M3 F80, M4 F82, M5 F10/F90), 6-Serie coupé (F12/F13) en incidenteel X5/X6 M. Voldoende voor een specifieke uitvoeringswens; voor mainstream 530i / 540i / 730i is Duitsland sneller. Onze brede BMW-focus: <a href="/merk/bmw/">/merk/bmw</a>. Voor de 5-Serie F10/G30: <a href="/kennisbank/bmw-5-serie-f10-g30/">koopgids</a>.</p>
       </section>
 
       <section id="audi" class="content-section">
-        <h2>Audi — 1 LHD grade 4+ record</h2>
-        <p>Eén verified LHD-Audi grade 4+ in heel mei 2026 binnen scope. Dit bevestigt expliciet wat onze <a href="/kennisbank/audi-quattro-rs-koopgids/">Audi quattro &amp; RS koopgids</a> stelt: voor Audi is Duitsland structureel de logische bron. RS3 / RS4 / RS6 / RS Q8 kunnen incidenteel via Japan komen — maar één eenheid per maand is geen pijplijn, het is een uitzondering. Voor een RS-zoekopdracht: persoonlijke bezichtiging in Duitsland binnen 2-4 weken, of een Japan-watchlist voor een geduldig project zonder einddatum.</p>
-      </section>
-
-      <section id="highlights" class="content-section">
-        <h2>Notable highlights uit huidige snapshot</h2>
-        <p>Een selectie uit de 140 records die opvallen door lage kilometerstanden, sterke uitvoering of zeldzaamheid:</p>
-        <table class="cost-table">
-          <thead>
-            <tr><th>Merk</th><th>Model</th><th>Uitvoering</th><th>Jaar</th><th>Km</th><th>Grade</th><th>Auction</th></tr>
-          </thead>
-          <tbody>
-            {highlights.map((h) => (
-              <tr>
-                <td>{h.merk}</td>
-                <td>{h.model}</td>
-                <td>{h.uitvoering}</td>
-                <td>{h.jaar}</td>
-                <td>{h.km}</td>
-                <td>{h.grade}</td>
-                <td>{h.auction}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <p>De 911 992 Carrera T uit 2025 met 0 km grade 5 — een nieuw exemplaar via veiling — is een ongewone vondst. De 911 993 Carrera S uit 1997 met 46.000 km grade 4.5 is een typisch Japan-aanbod-voorbeeld: een 28-jaar-oude air-cooled klassieker in conditie die in Europa zelden voorkomt. De Mercedes-AMG GLE 53 4MATIC+ Coupé uit 2021 met 43.000 km is een moderne SUV-AMG die in Duitsland boven € 75.000 wordt aangeboden — interessante vergelijkingscase voor importanalyse.</p>
+        <h2>Audi — Duitsland is de route</h2>
+        <p>LHD-Audi is op de Japanse veilingen een uitzondering, geen pijplijn. Dit bevestigt wat onze <a href="/kennisbank/audi-quattro-rs-koopgids/">Audi quattro &amp; RS koopgids</a> stelt: voor Audi is Duitsland structureel de logische bron. RS3 / RS4 / RS6 / RS Q8 kunnen incidenteel via Japan komen — maar als zeldzame uitzondering, niet als betrouwbare stroom. Voor een RS-zoekopdracht: persoonlijke bezichtiging in Duitsland binnen 2-4 weken, of een Japan-watchlist voor een geduldig project zonder einddatum.</p>
       </section>
 
       <section id="hoe-lezen" class="content-section">
-        <h2>Hoe deze cijfers te lezen</h2>
+        <h2>Hoe dit overzicht te lezen</h2>
         <ul class="bullet-list">
-          <li><strong>"Aanbod" betekent live veilinglisting — geen verkocht.</strong> Wat hier staat is wat momenteel in de komende dagen onder de hamer komt. Hammerprijzen zijn nog niet bekend; de uiteindelijke landed cost wordt pas duidelijk na verkoop. Voor de complete kosten-doorrekening: <a href="/kennisbank/auto-importeren-japan/">Japan-import-gids</a> en <a href="/voorbeeld-traject/">voorbeeld-traject W212</a>.</li>
-          <li><strong>Grade 4 of hoger is onze ondergrens.</strong> Alles met conditie 3.5 of lager filteren wij weg, evenals R / RA / A / X-classificaties. Wat hier staat is dus al de bovenste laag van het Japanse aanbod, niet het gehele veilingvolume.</li>
-          <li><strong>LHD is gefilterd via Pacific Coast's "Left Hand Drive" checkbox.</strong> Dit zijn dus geen schattingen op chassis-code maar bevestigde linksgestuurde uitvoeringen. Voor de achtergrond hoe LHD wordt geïdentificeerd: <a href="/kennisbank/lhd-rhd-groene-markering/">LHD versus RHD bij Japanse veilingen</a>.</li>
-          <li><strong>Dit is één bron — niet het complete Japanse aanbod.</strong> Pacific Coast aggregeert USS, JU, JAA, CAA, ARAI, TAA, ZIP en BAYAUC. JCD en andere broker-platforms hebben overlap, maar kunnen ook unieke listings tonen. Voor maximaal bereik combineert onze sourcing meerdere bronnen.</li>
-          <li><strong>Snapshot ouderdom telt.</strong> Veilinglisting wijzigt wekelijks. Deze pagina wordt maandelijks bijgewerkt. Voor real-time data op uw specifieke zoekopdracht: <a href="/contact/">vraag een intake-gesprek</a>.</li>
+          <li><strong>"Aanbod" beschrijft regelmaat, geen voorraad.</strong> Dit is wat met welke frequentie op de veilingen verschijnt — niet wat wij op stock hebben. Hammerprijzen en dus de uiteindelijke landed cost worden pas duidelijk per concreet exemplaar. Voor de doorrekening: <a href="/kennisbank/auto-importeren-japan/">Japan-import-gids</a> en <a href="/voorbeeld-traject/">voorbeeld-traject W212</a>.</li>
+          <li><strong>Grade 4 of hoger is onze ondergrens.</strong> Alles met conditie 3.5 of lager filteren wij weg, evenals R / RA / A / X-classificaties. Dit is dus de bovenste laag van het Japanse aanbod, niet het volledige veilingvolume.</li>
+          <li><strong>Alleen originele LHD.</strong> Bevestigd linksgestuurd via de auction sheet — geen RHD-conversies. Voor de achtergrond: <a href="/kennisbank/lhd-rhd-groene-markering/">LHD versus RHD bij Japanse veilingen</a>.</li>
+          <li><strong>Meerdere bronnen gecombineerd.</strong> Geen enkel platform toont het complete Japanse aanbod. Onze sourcing combineert meerdere veiling- en broker-bronnen voor maximaal bereik — het werkelijke aanbod is daardoor groter dan één lijst suggereert.</li>
         </ul>
         <p>Voor de complete proces-uitleg: <a href="/kennisbank/auto-importeren-japan/">Japan-import-cornerstone</a>. Voor de directe afweging Japan vs Duitsland: <a href="/route-advies/">route-advies-tool</a>. Voor onze sourcing-tarieven: <a href="/tarieven/">/tarieven</a>.</p>
       </section>
@@ -230,7 +180,7 @@ const highlights = [
 
       <div class="page-cta">
         <h2>Op zoek naar een specifieke uitvoering?</h2>
-        <p>Vertel ons merk, model, uitvoering en budget. Wij screenen wekelijks meerdere Japanse veilingbronnen plus de Duitse markt en geven u realistische landed-cost-prognoses op basis van actuele markt­data — niet op basis van marketing-tabellen.</p>
+        <p>Vertel ons merk, model, uitvoering en budget. Wij screenen doorlopend meerdere Japanse veilingbronnen plus de Duitse markt en geven u realistische landed-cost-prognoses op basis van actuele marktdata — niet op basis van marketing-tabellen.</p>
         <a href="/contact" class="page-cta-btn">
           Plan intake-gesprek
           <span class="arrow" aria-hidden="true">→</span>
