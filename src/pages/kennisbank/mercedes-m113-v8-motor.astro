@@ -1,0 +1,347 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Mercedes M113 V8 — motorgids' },
+];
+
+const publishedDate = '2026-05-29';
+const updatedDate = '2026-05-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Mercedes M113 V8 — de motorgids voor de bulletproof 24-klepper (1997-2011)',
+  description: 'Complete technische gids voor de Mercedes M113 V8 — atmosferische en Kompressor-uitvoeringen, taxi-bewezen LPG-geschiktheid, bekende valkuilen en welke modellen wij sourcen.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/mercedes-m113-v8-motor' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Mercedes M113 V8 — motorgids voor importkopers | Rolvink"
+  description="Alles over de M113 V8 — variantenoverzicht, AMG Kompressor-uitvoeringen, LPG-geschiktheid (taxi-bewezen), bekende valkuilen en welke modellen wij sourcen."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Motorgids</div>
+        <h1>Mercedes <span class="accent">M113</span> V8.</h1>
+        <p class="lead">De V8-tegenhanger van de M112 — gietijzeren blok, 24-klepper, taxi-bewezen 500.000 km. Onder Mercedes-specialisten geldt de M113 als de meest betrouwbare V8 die ooit uit Stuttgart kwam. Alles over de varianten, AMG Kompressor-uitvoeringen, LPG-geschiktheid en welke modellen wij gericht sourcen.</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+        </div>
+      </header>
+
+      <div class="disclaimer">
+        Deze gids is bedoeld voor oriëntatie bij de aankoop of import van een Mercedes met M113-motor. Wij baseren de informatie op publieke technische documentatie en gangbare branche-kennis. Voor specifieke voertuigdiagnoses raadpleegt u een Mercedes-specialist of erkende werkplaats. <strong>Wij geven geen technisch onderhoudsadvies vervangend voor inspectie ter plaatse.</strong>
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>Inhoud</h2>
+        <ol>
+          <li><a href="#wat-is-m113">Wat is de M113 en waarom is hij relevant?</a></li>
+          <li><a href="#geschiedenis">Plaats in Mercedes' V8-geschiedenis</a></li>
+          <li><a href="#blueprint">Technische blueprint</a></li>
+          <li><a href="#varianten">Varianten en toepassingen</a></li>
+          <li><a href="#kompressor">De Kompressor-uitvoeringen — AMG M113K</a></li>
+          <li><a href="#sterk">Waarom geldt de M113 als bulletproof?</a></li>
+          <li><a href="#zwak">Bekende zwakke punten</a></li>
+          <li><a href="#lpg">LPG-geschiktheid — taxi-bewezen</a></li>
+          <li><a href="#onderhoud">Onderhoud en service-intervallen</a></li>
+          <li><a href="#checken">Wat te checken bij aankoop</a></li>
+          <li><a href="#sourcen">Welke uitvoeringen sourcen wij?</a></li>
+          <li><a href="#marktwaarde">Marktwaarde-indicatie Nederland</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-is-m113" class="content-section">
+        <h2>Wat is de M113 en waarom is hij relevant?</h2>
+        <p>De M113 is de V8-benzinemotor die Mercedes-Benz tussen 1997 en ongeveer 2011 in productie had. Hij is de V8-tegenhanger van de <a href="/kennisbank/mercedes-m112-v6-motor">M112 V6</a> en deelt veel ontwerpprincipes met die motor — gietijzeren blok, aluminium koppen, drie kleppen per cilinder. Voor importkopers is de M113 vandaag bijzonder relevant omdat hij in vrijwel elke premium V8-Mercedes uit het tijdvak zat: E500, S500, SL500, CL500, ML500, G500 — plus de AMG Kompressor-uitvoeringen die we straks apart bespreken.</p>
+        <p>Veel auto's met deze motor raken nu de youngtimer-leeftijd (16-25 jaar oud) en zijn fiscaal interessant voor ondernemers en DGA's. Daarnaast: door zijn reputatie van extreme betrouwbaarheid is de M113 dé motor van keuze voor wie een premium-Mercedes lang en intensief wil rijden — eventueel op LPG. In de Nederlandse en Duitse taxi-vloot draaiden talloze S-Klassen 1996-2005 op M113-techniek voorbij de 800.000 km.</p>
+      </section>
+
+      <section id="geschiedenis" class="content-section">
+        <h2>Plaats in Mercedes' V8-geschiedenis</h2>
+        <p>De M113 verving in 1997 de M119, een eerdere V8 (4,2L en 5,0L) uit de W124 500E en R129 SL500. De overstap was technisch ingrijpend: van vier kleppen per cilinder (M119) naar drie (M113), en van een complexer ontwerp naar de eenvoudigere 18-kleps layout die Mercedes ook bij de M112 V6 gebruikte. Dat was geen achteruitgang maar een bewuste keuze voor betrouwbaarheid en lagere productiekosten.</p>
+        <p>De productie van de M113 liep tot ongeveer 2011, met overlap met de opvolger M273 (32-klepper V8, ook 4-kleppen-per-cilinder maar moderner). De M273 had bekende issues met het idle gear — net als zijn V6-broer M272 met de balansas — terwijl de M113 die problemen volledig miste. Dat verklaart waarom Mercedes-specialisten vandaag nog steeds liever een M113 in de stallage hebben dan een M273, ook al is die laatste technisch nieuwer.</p>
+      </section>
+
+      <section id="blueprint" class="content-section">
+        <h2>Technische blueprint</h2>
+        <p>De M113 is een 90 graden V8 met gietijzeren motorblok en aluminium cilinderkoppen. Per cilinder zitten drie kleppen — twee inlaatkleppen en één grote uitlaatklep — aangedreven via één bovenliggende nokkenas per cilinderbank (SOHC). De klepspeling is zelf-instellend via hydraulische klepstoters; geen periodieke afstelling nodig.</p>
+        <p>De distributie loopt via twee enkelvoudige kettingen (één per cilinderbank), aangedreven door de krukas. Mercedes ontwierp deze kettingen als <em>lifetime parts</em> — geen vervangingsinterval voorgeschreven. In de praktijk overleven ze de motor moeiteloos bij reguliere oliewisselingen.</p>
+        <p>De brandstoftoevoer verloopt via klassieke port injection (één injector per cilinder achter de inlaatklep) — geen directe inspuiting. Bij Kompressor-uitvoeringen (M113K) is dezelfde basis aangevuld met een mechanische supercharger boven op de motor. De compressieverhouding zit tussen 10,0:1 en 11,2:1 voor atmosferische varianten, en lager (rond 9,0:1) voor de Kompressor-uitvoeringen om hogere boost te ondersteunen.</p>
+      </section>
+
+      <section id="varianten" class="content-section">
+        <h2>Varianten en toepassingen</h2>
+        <p>De M113 kwam in een aantal cilinderinhouden en in zowel atmosferische als Kompressor-uitvoeringen. De belangrijkste varianten:</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Aanduiding</th><th>Inhoud</th><th>Vermogen</th><th>Toepassing (selectie)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>M113.940 / .941</td><td>4,3 L</td><td>279 pk</td><td>W210 E430, W220 S430, W215 CL430, W163 ML430</td></tr>
+            <tr><td>M113.960 / .961 / .962 / .963 / .967 / .968</td><td>5,0 L</td><td>306 pk</td><td>W210 E500, W211 E500, W220 S500, W215 CL500, R230 SL500, W163 ML500, W164 ML500 (vroeg), W463 G500</td></tr>
+            <tr><td>M113.991 (AMG 5.4L atmosferisch)</td><td>5,4 L</td><td>360 pk</td><td>R129 SL55 AMG (1999), W210 E55 AMG (vroeg)</td></tr>
+            <tr><td>M113.984 / .986 / .987 / .988 (Kompressor 5.4L)</td><td>5,4 L + supercharger</td><td>476-612 pk</td><td>W211 E55 AMG, W220 S55 AMG, W215 CL55 AMG, R230 SL55 AMG, W463 G55 AMG Kompressor, W219 CLS55 AMG</td></tr>
+          </tbody>
+        </table>
+
+        <p class="table-note"><em>Toepassingen indicatief — exacte motor-uitvoering hangt af van bouwjaar en chassisnummer. Voor verificatie kan het motoruitvoeringsnummer worden uitgelezen via WIS/EPC.</em></p>
+
+        <p>De 5,0-liter M113.96x is veruit de meest voorkomende uitvoering. Hij zit in elke "500"-Mercedes uit deze periode — van de luxueuze S500 sedan tot de praktische ML500 SUV. Een gezonde 5,0L M113 levert 306 pk en 460 Nm, met een verbruik tussen 1 op 7,5 en 1 op 9 in normaal gebruik. Op LPG zakt dat verbruik praktisch terug naar het kostenniveau van een dieselauto.</p>
+      </section>
+
+      <section id="kompressor" class="content-section">
+        <h2>De Kompressor-uitvoeringen — AMG M113K</h2>
+        <p>De Kompressor-versies van de M113 — bij Mercedes intern aangeduid als M113K — zijn de absolute hoogtepunten van Mercedes' AMG-programma in de jaren 2000. Een Lysholm-type schroef-supercharger bovenop de standaard 5,4L M113 levert ongekend hoge prestaties bij relatief beheersbare betrouwbaarheid. De varianten:</p>
+        <ul class="bullet-list">
+          <li><strong>E55 AMG (W211, 2003-2006)</strong> — 476 pk, 700 Nm. Bekend onder Mercedes-liefhebbers als één van de snelste en stilste sedans van het tijdvak. Sleeper-uitstraling, briljante performance.</li>
+          <li><strong>S55 AMG (W220, 2002-2005)</strong> — 500 pk, 700 Nm. De luxe-AMG voor wie hoog comfort en hoge prestaties wil combineren.</li>
+          <li><strong>CL55 AMG (W215, 2003-2005)</strong> — 500 pk. Tweedeurs coupé met hetzelfde drivetrain als S55. Zeldzaam, gewild.</li>
+          <li><strong>SL55 AMG (R230, 2002-2006)</strong> — 500 pk, 720 Nm. De cabrio-uitvoering. Vaak gezien als de meest gewenste R230-uitvoering.</li>
+          <li><strong>CLS55 AMG (W219, 2005-2006)</strong> — 476 pk. Vier-deurs coupé, korte productieperiode, daardoor zeldzaam.</li>
+          <li><strong>G55 AMG Kompressor (W463, 2004-2011)</strong> — 476-612 pk afhankelijk van fase. De off-roader met onmogelijk veel vermogen — verzamelobject.</li>
+        </ul>
+        <p>Aandachtspunten bij de Kompressor-versies: de supercharger zelf is mechanisch eenvoudig en vraagt weinig onderhoud — alleen periodiek olieverversen van het rotor-lager (elke ~60.000 km, ~€200-€400). De krukas-poelie kan loslaten bij hoge km — een bekende issue waar oplossingen voor zijn (uitgevoerd door specialisten als RennTech). Verder is de M113K technisch dezelfde motor als de atmosferische M113.96x, met dezelfde betrouwbaarheidsstructuur.</p>
+      </section>
+
+      <section id="sterk" class="content-section">
+        <h2>Waarom geldt de M113 als bulletproof?</h2>
+        <p>Onder Mercedes-specialisten en eigenaars wordt de M113 routinematig genoemd als de meest betrouwbare V8 die Mercedes ooit heeft gebouwd. Vier technische redenen liggen aan die reputatie ten grondslag.</p>
+
+        <h3>Gietijzeren motorblok</h3>
+        <p>Net als bij de M112 V6 koos Mercedes voor een gietijzeren blok in plaats van aluminium. Dimensioneel stabieler bij hogere cilinderdrukken, lange-termijn-slijtagebestendig. Kilometerstanden van 500.000 tot 800.000 km met intacte compressie zijn gedocumenteerd in de taxi- en limousine-sector waar de M113-S-Klasse en M113-E-Klasse jarenlang als werkpaard dienden.</p>
+
+        <h3>Eenvoudige 3-kleps techniek</h3>
+        <p>Drie kleppen per cilinder betekent minder zittingen, minder veren en minder rocker arms dan een 4-klep ontwerp. Voor een V8 (acht cilinders, dus 16 inlaatkleppen + 8 uitlaatkleppen = 24 totaal) is dat een aanzienlijke vereenvoudiging ten opzichte van de opvolger M273 met 32 kleppen.</p>
+
+        <h3>Tandwielketting voor het leven</h3>
+        <p>Geen vervangingsinterval. Bij regelmatig olie-verversen overleven de kettingen probleemloos. Vergelijk dit met de M273-opvolger waar het idle gear een bekend slijtonderdeel werd, of de M156 6.2L AMG met de bekende head-bolt-problematiek.</p>
+
+        <h3>Zelf-instellende klepspeling</h3>
+        <p>Hydraulische klepstoters stellen de klepspeling automatisch in. Geen periodieke werkplaats-aanpassing nodig — onderhoud blijft beperkt tot olie, bougies, V-snaar en filters.</p>
+
+        <p>Belangrijk om te benoemen: de M113 mist alle bekende issues die V8's uit dezelfde periode wel hadden. Geen idle gear-problematiek (M273), geen head bolts losraking (M156), geen Vanos-issues (BMW M62/N62), geen IMS-bearing (Porsche M96/M97). Dat is wat de motor uniek maakt.</p>
+      </section>
+
+      <section id="zwak" class="content-section">
+        <h2>Bekende zwakke punten</h2>
+        <p>Geen motor is foutloos. De M113 heeft een aantal slijtonderdelen om rekening mee te houden, vrijwel allemaal goedkoop te verhelpen:</p>
+
+        <ul class="pitfall-list">
+          <li><strong>Kleppendeksel-pakkingen</strong> — olielekkage langs de cilinderdeksel-rubbers, vrijwel zeker boven 150.000 km. <em>Reparatie: €120-€250 per cilinderkop inclusief arbeid.</em></li>
+          <li><strong>Oliepan-pakking</strong> — kan na 200.000-300.000 km gaan lekken. <em>Reparatie: €350-€600 inclusief arbeid.</em></li>
+          <li><strong>MAF-sensoren</strong> — twee per motor (één per cilinderbank). Versleten na 150.000-250.000 km. <em>Reparatie: €240-€500 voor beide.</em></li>
+          <li><strong>Plastic koelvloeistof-onderdelen</strong> — thermostaatbehuizing, koelvloeistof-flens kunnen na 15-20 jaar haarscheurtjes vertonen. <em>Reparatie: €200-€400.</em></li>
+          <li><strong>Distributiekettingrek</strong> — bij zeer hoge kilometerstanden (>400.000 km) kan een spanner geluid maken. <em>Inspectie en eventueel revisie: €700-€1.300.</em></li>
+          <li><strong>Krukas-poelie (Kompressor-versies)</strong> — kan loslaten bij hoge km. <em>Reparatie via specialist: €500-€900.</em></li>
+          <li><strong>EGR-klep</strong> — vooral bij overwegend stadsgebruik kan deze vast komen te zitten. <em>Reparatie: €250-€450.</em></li>
+          <li><strong>Luchtmassameter-bedrading</strong> — kan na 20+ jaar verbrossen. <em>Reparatie: €80-€150.</em></li>
+        </ul>
+
+        <p>Optelsom: een goed-onderhouden M113 met 200.000 km zit op €1.500-€2.500 aan ouderdoms-herstel voor de komende 100.000-150.000 km. Voor een V8 in deze klasse is dat laag.</p>
+      </section>
+
+      <section id="lpg" class="content-section">
+        <h2>LPG-geschiktheid — taxi-bewezen</h2>
+        <p>Onder LPG-installateurs in Nederland en Duitsland geldt de M113 als één van de allerbeste motoren om op gas te zetten. Niet vanwege marketing — vanwege praktijk-bewijs. Tienduizenden Mercedes E-Klassen W210/W211 en S-Klassen W220 zijn in de taxi-vloten van Nederland, Duitsland en de Benelux jarenlang op LPG ingezet, met kilometerstanden van 500.000-800.000 km zonder klepschade of cilinderslijtage.</p>
+        <p>De technische redenen achter die geschiktheid:</p>
+        <ul class="bullet-list">
+          <li><strong>Geharde stalen klepzittingen vanaf fabriek</strong> — geen recessie-issue op LPG.</li>
+          <li><strong>3-kleps geometrie</strong> — de grotere enkele uitlaatklep verdeelt thermische belasting gelijkmatig.</li>
+          <li><strong>Gietijzeren blok</strong> — minimale dimensieverandering bij LPG-temperaturen.</li>
+          <li><strong>Eenvoudige port injection</strong> — geen complexe directe inspuiting die LPG-conversie zou bemoeilijken.</li>
+        </ul>
+        <p>De gangbare LPG-installaties voor de M113 zijn Vialle LPi (vloeibare LPG, hoogste rendement op deze motor), Prins VSI-3 (marktstandaard, breed verkrijgbaar) en BRC Sequent (Italiaans, OBD-geïntegreerd). Een professionele installatie kost typisch €2.500-€3.500 inclusief tank en montage. Vermogensverlies bij LPG blijft beperkt tot 5-8% — minder dan bij de meeste andere V8-motoren.</p>
+        <p>Aandachtspunt: een M113 Kompressor (M113K) kan ook op LPG, maar de hoge boost-druk en thermische belasting maken een Vialle LPi met directe vloeistof-inspuiting nadrukkelijk de voorkeursoplossing. Standaard gas-systemen werken ook maar leveren meer vermogensverlies (8-12%) bij hoge belasting.</p>
+        <p>Voor de Nederlandse situatie: de LPG-tankstation-infrastructuur is licht krimpend, maar voor veelrijders die landelijk operationeel zijn nog steeds bruikbaar. Voor wie sterk regionaal rijdt loont een check vooraf van LPG-pompen in de eigen regio.</p>
+      </section>
+
+      <section id="onderhoud" class="content-section">
+        <h2>Onderhoud en service-intervallen</h2>
+        <ul class="bullet-list">
+          <li><strong>Motorolie</strong> — elke 10.000-15.000 km of jaarlijks. 0W-40 of 5W-40, MB 229.5. Hoeveelheid 8 liter inclusief filter.</li>
+          <li><strong>Bougies</strong> — elke 60.000 km. 8 stuks (één per cilinder). NGK of Bosch BMR8FQ7.</li>
+          <li><strong>V-snaar (poly-V)</strong> — elke 80.000 km.</li>
+          <li><strong>Koelvloeistof</strong> — elke 60.000 km of 4 jaar. Mercedes G05 (geel).</li>
+          <li><strong>Brandstoffilter</strong> — elke 60.000-80.000 km.</li>
+          <li><strong>Klepspeling</strong> — niet stelbaar (zelf-instellend).</li>
+          <li><strong>Distributieketting</strong> — geen vervangingsinterval. Visuele en akoestische check vanaf 300.000 km.</li>
+          <li><strong>Kompressor (M113K-uitvoeringen)</strong> — rotor-lager olieverversing elke 60.000 km, ~€200-€400.</li>
+        </ul>
+        <p>Voor LPG-rijders: bougies elke 40.000 km in plaats van 60.000. Koelvloeistof-inspectie bij elke oliewissel.</p>
+      </section>
+
+      <section id="checken" class="content-section">
+        <h2>Wat te checken bij aankoop</h2>
+
+        <h3>Wat u zelf kunt zien</h3>
+        <ul class="bullet-list">
+          <li>Stationair geluid bij koude start — minimaal tikken in de eerste 10-20 seconden is normaal; aanhoudend ratelen of metalig geluid is verdacht.</li>
+          <li>Olielekkage onder de auto en bij de kleppendeksels — kleine sporen normaal, dikke afzettingen wijzen op uitgesteld onderhoud.</li>
+          <li>Servicehistorie — regelmatige olie-wissels elke 10.000-15.000 km is een sterk positief signaal.</li>
+          <li>Bij Kompressor-versies: piepend of zoemend supercharger-geluid bij stationair — onregelmatig geluid is een waarschuwing.</li>
+        </ul>
+
+        <h3>Wat een professionele werkplaats kan doen</h3>
+        <ul class="bullet-list">
+          <li>Compressietest op alle 8 cilinders — verschillen onderling moeten binnen 5-7% blijven.</li>
+          <li>OBD-uitlezing met Mercedes-specifieke tools (XENTRY/DAS).</li>
+          <li>Visuele inspectie koelsysteem-plastic op haarscheurtjes.</li>
+          <li>Bij 4MATIC- en G-Klasse-uitvoeringen: verdeelbak-conditie controleren.</li>
+          <li>Bij Kompressor: rotorgeluid en olielekkage bij de supercharger-pakkingen.</li>
+          <li>Bij modellen met Airmatic of ABC-vering (S-Klasse, CL, SL): vering-systeem testen — niet motor-gerelateerd maar wel een aanzienlijke parallelle kostenpost.</li>
+        </ul>
+      </section>
+
+      <section id="sourcen" class="content-section">
+        <h2>Welke uitvoeringen sourcen wij?</h2>
+        <p>Voor klanten op zoek naar een Mercedes met M113-motor kijken wij specifiek naar de volgende uitvoeringen:</p>
+
+        <ul class="recommendation-list">
+          <li><strong>W211 E500 (2002-2008)</strong> — de comfortabele E-Klasse met 5,0L M113. Standaard achterwielaandrijving, optioneel 4MATIC. Voor liefhebbers die rust + V8-prestaties willen combineren. <em>Pre-facelift had het SBC-rem-systeem als bekend zwak punt; facelift vanaf 2006 is volwassener.</em></li>
+          <li><strong>W220 S500 (1999-2005)</strong> — de klassieke S-Klasse met bewezen 5,0L M113. Veel comfort voor relatief weinig geld vandaag. <em>Airmatic-vering aandachtspunt — een gezond exemplaar zonder eerdere reparaties is waardevol.</em></li>
+          <li><strong>W163 ML500 facelift (2002-2005)</strong> — de SUV-uitvoering met de M113.96x. Robuust, body-on-frame, trekgewicht 3.500 kg. <em>Verdeelbak-historie checken; vroege W163 had elektronische issues, latere exemplaren zijn een stuk beter.</em></li>
+          <li><strong>W164 ML500 vroege jaren (2005-2007)</strong> — let op: dit zijn de M113-uitvoeringen vóór de overstap naar M273. Bouwjaar-bevestiging via motornummer essentieel.</li>
+          <li><strong>R230 SL500 (2002-2006)</strong> — de cabrio met M113.96x. Sportiever dan latere M273-versies, betere algehele afwerking. <em>ABC-vering aandachtspunt — controleer op lekkages.</em></li>
+          <li><strong>W215 CL500 (2000-2006)</strong> — zeldzame tweedeurs coupé op S-Klasse basis. Lage productieaantallen maken hem nu een liefhebbersauto. <em>Pneumatische vering aandachtspunt.</em></li>
+          <li><strong>W210 E500 (laatste jaren, 2002)</strong> — de uitlopende E-Klasse W210 met M113. Schaars en gewild als "laatste degelijke W210". <em>Roest-issues bij Europese exemplaren bekend; Japanse imports vaak beter bewaard.</em></li>
+          <li><strong>AMG Kompressor-uitvoeringen (E55, S55, CL55, SL55, CLS55, G55)</strong> — voor liefhebbers die de top van het M113-programma zoeken. <em>Verzamelobject-niveau; sourcen op aanvraag met specifieke conditie-eisen.</em></li>
+        </ul>
+
+        <p>Modellen die we doorgaans <strong>vermijden</strong>: alle M113-uitvoeringen met meer dan 500.000 km zonder gedocumenteerde distributieketting-inspectie, exemplaren met ongedocumenteerde LPG-conversie door onbekende installateur, en vroege W163 ML500 (1999-2001) zonder volledige onderhoudshistorie.</p>
+      </section>
+
+      <section id="marktwaarde" class="content-section">
+        <h2>Marktwaarde-indicatie Nederland</h2>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Model</th><th>Bouwjaren</th><th>Indicatieve prijsrange NL</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>W210 E500</td><td>2000-2002</td><td>€ 6.000 - € 14.000</td></tr>
+            <tr><td>W211 E500</td><td>2002-2008</td><td>€ 6.500 - € 14.500</td></tr>
+            <tr><td>W211 E55 AMG Kompressor</td><td>2003-2006</td><td>€ 18.000 - € 35.000</td></tr>
+            <tr><td>W220 S500</td><td>1999-2005</td><td>€ 5.500 - € 14.000</td></tr>
+            <tr><td>W220 S55 AMG</td><td>2002-2005</td><td>€ 16.000 - € 32.000</td></tr>
+            <tr><td>W163 ML500 facelift</td><td>2002-2005</td><td>€ 5.500 - € 13.000</td></tr>
+            <tr><td>W164 ML500 (M113)</td><td>2005-2007</td><td>€ 8.000 - € 16.000</td></tr>
+            <tr><td>R230 SL500 (M113)</td><td>2002-2006</td><td>€ 13.500 - € 24.000</td></tr>
+            <tr><td>R230 SL55 AMG</td><td>2002-2006</td><td>€ 28.000 - € 55.000</td></tr>
+            <tr><td>W215 CL500</td><td>2000-2006</td><td>€ 10.000 - € 18.000</td></tr>
+            <tr><td>W463 G500 (M113)</td><td>2002-2008</td><td>€ 28.000 - € 55.000</td></tr>
+            <tr><td>W463 G55 AMG Kompressor</td><td>2004-2011</td><td>€ 65.000 - € 130.000</td></tr>
+          </tbody>
+        </table>
+
+        <p class="table-note"><em>Bandbreedte voor exemplaren tussen 100.000 en 280.000 km, onderhoudshistorie redelijk tot goed, geen accident-historie. Exceptionele lage-km of zeer goed bewaarde exemplaren liggen boven deze range. Voor de exacte BPM-indicatie bij import zie onze <a href="/bpm-calculator">BPM-tool</a>.</em></p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een Mercedes met M113-motor?</h2>
+        <p>Vertel ons welke uitvoering u zoekt — wij screenen wekelijks de Japanse veilingen en Duitse premium-dealers op exemplaren met deze bulletproof V8. Geen actie zonder uw groen licht.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/mercedes-m112-v6-motor">Mercedes M112 V6 — de zustermotor</a></li>
+          <li><a href="/kennisbank/mercedes-m272-v6-motor">Mercedes M272 V6 — de opvolger (met balansas-cutoff)</a></li>
+          <li><a href="/kennisbank/japanse-auction-sheet-lezen">Japanse auction sheet lezen — complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/bpm-calculator">BPM-tool — bereken indicatief uw BPM</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list, .pitfall-list { padding-left: 24px; }
+  .bullet-list li, .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong, .pitfall-list strong { color: var(--color-text-primary); }
+  .bullet-list em, .pitfall-list em { font-style: italic; }
+
+  .recommendation-list { padding-left: 24px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .recommendation-list strong { color: var(--color-text-primary); }
+  .recommendation-list em { font-style: italic; color: var(--color-copper); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:nth-child(2),
+  .cost-table tbody tr td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .table-note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper); }
+  .table-note em { font-style: italic; }
+  .table-note a { color: var(--color-copper); text-decoration: underline; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { background: var(--color-cream); }
+  .page-cta-note { font-size: 13px; color: rgba(245, 241, 234, 0.6); margin-top: 16px; }
+
+  .related { max-width: 760px; margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { padding-left: 0; list-style: none; }
+  .related li { padding: 8px 0; font-size: 16px; }
+  .related a { color: var(--color-text-primary); text-decoration: none; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 900px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+    .page-cta h2 { font-size: 22px; }
+    .toc, .disclaimer { padding: 22px 24px; }
+  }
+</style>
