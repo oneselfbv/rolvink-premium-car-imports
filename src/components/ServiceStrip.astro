@@ -1,20 +1,26 @@
 ---
-// D4: 4 stappen → 3 disciplines (Sourcing / Levering / Nazorg) — compacter, met link naar /werkwijze voor detail
+// D4: 3 disciplines (Sourcing / Levering / Nazorg). Image-system: 3 kleine vierkante thumbs (140px) als icon-accent bij elke stap, niet als losse banner.
 const disciplines = [
   {
     num: '01',
     title: 'Sourcing',
-    body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Wekelijkse kandidaten met onze duiding.'
+    body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Wekelijkse kandidaten met onze duiding.',
+    img: '/images/traject-auction.jpg',
+    alt: 'Veiling-data analyse op laptopscherm'
   },
   {
     num: '02',
     title: 'Levering',
-    body: 'Volledige import, BPM-aangifte, RDW-keuring en kentekenregistratie. Aflevering aan huis tot 200 km vanaf Welsum.'
+    body: 'Volledige import, BPM-aangifte, RDW-keuring en kentekenregistratie. Aflevering aan huis tot 200 km vanaf Welsum.',
+    img: null,  // traject-transport ontbreekt — text-only
+    alt: ''
   },
   {
     num: '03',
     title: 'Nazorg',
-    body: 'Optionele detailing door geselecteerde partners. Begeleiding bij eventuele garantie-correspondentie. Een directe lijn — geen call-center.'
+    body: 'Optionele detailing door geselecteerde partners. Begeleiding bij eventuele garantie-correspondentie. Een directe lijn — geen call-center.',
+    img: '/images/traject-handover.jpg',
+    alt: 'Hand met Mercedes-Benz autosleutel'
   },
 ];
 ---
@@ -24,7 +30,7 @@ const disciplines = [
     <div class="strip-inner">
       <div class="strip-intro">
         <div class="strip-label">Onze service</div>
-        <h2>Een traject van A tot <span class="accent">Z</span>.</h2>
+        <h2>Een traject van A tot Z.</h2>
         <p class="strip-intro-text">Drie disciplines, één gestroomlijnd traject. Voor het volledige stappenplan ziet u onze werkwijze.</p>
         <a href="/werkwijze" class="strip-link">Bekijk de werkwijze in 8 stappen <span class="arrow">→</span></a>
       </div>
@@ -36,22 +42,14 @@ const disciplines = [
               <h4>{d.title}</h4>
               <p>{d.body}</p>
             </div>
+            {d.img && (
+              <figure class="strip-thumb">
+                <img class="img-graded" src={d.img} alt={d.alt} loading="lazy" />
+              </figure>
+            )}
           </li>
         ))}
       </ol>
-    </div>
-
-    <!-- Slot 3: traject 3-up 1:1 grid, dark overlay. Drop /public/images/traject-{auction,transport,handover}.jpg -->
-    <div class="strip-images">
-      <figure class="image-slot image-slot--1-1 image-slot--placeholder img-on-dark" data-label="auction screen">
-        <img class="img-graded" src="/images/traject-auction.jpg" alt="" loading="lazy" />
-      </figure>
-      <figure class="image-slot image-slot--1-1 image-slot--placeholder img-on-dark" data-label="transport">
-        <!-- <img class="img-graded" src="/images/traject-transport.jpg" alt="" /> -->
-      </figure>
-      <figure class="image-slot image-slot--1-1 image-slot--placeholder img-on-dark" data-label="handover">
-        <img class="img-graded" src="/images/traject-handover.jpg" alt="" loading="lazy" />
-      </figure>
     </div>
   </div>
 </section>
@@ -67,7 +65,7 @@ const disciplines = [
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: var(--color-copper);
+    color: var(--color-copper-text);
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
@@ -80,23 +78,36 @@ const disciplines = [
   .strip-link .arrow { font-size: 16px; }
 
   .strip-list { list-style: none; padding: 0; }
-  .strip-list li { padding: 28px 0; border-bottom: 1px solid rgba(184,115,51,0.15); display: grid; grid-template-columns: 60px 1fr; gap: 28px; align-items: start; }
+  .strip-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(184,115,51,0.15);
+    display: grid;
+    grid-template-columns: 50px 1fr 140px;
+    gap: 24px;
+    align-items: center;
+  }
   .strip-list li:first-child { border-top: 1px solid rgba(184,115,51,0.15); }
   .strip-num { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--color-copper); letter-spacing: -0.04em; line-height: 1; }
   .strip-item h4 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.02em; color: var(--color-cream); }
   .strip-item p { font-size: 14px; color: rgba(245,241,234,0.65); font-weight: 400; line-height: 1.6; }
-
-  .strip-images {
-    margin-top: 64px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+  .strip-thumb {
+    width: 140px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    margin: 0;
+    background: rgba(245,241,234,0.05);
   }
-  .strip-images .image-slot { margin: 0; }
+  .strip-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+  }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .strip-inner { grid-template-columns: 1fr; gap: 40px; }
     .strip h2 { font-size: 40px; }
-    .strip-images { grid-template-columns: 1fr; gap: 18px; margin-top: 40px; }
+    .strip-list li { grid-template-columns: 40px 1fr; gap: 16px; }
+    .strip-thumb { display: none; }
   }
 </style>

@@ -117,7 +117,7 @@ ul, ol { list-style: none; }
 
 /* Section eyebrow / labels */
 .section-eyebrow {
-  color: var(--color-copper);
+  color: var(--color-copper-text);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.3em;
@@ -178,7 +178,7 @@ ul, ol { list-style: none; }
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
-  border: 1px solid var(--color-copper);
+  border: 1px solid var(--color-copper-text);
   color: var(--color-copper);
   background: transparent;
   font-size: 11px;
@@ -188,11 +188,11 @@ ul, ol { list-style: none; }
   text-decoration: none;
   transition: background 0.2s;
 }
-.whatsapp-btn:hover { background: rgba(184, 115, 51, 0.05); }
+.whatsapp-btn:hover { background: rgba(154, 94, 40, 0.05); }
 .whatsapp-btn svg {
   width: 14px;
   height: 14px;
-  fill: var(--color-copper);
+  fill: var(--color-copper-text);
   flex-shrink: 0;
 }
 
@@ -346,4 +346,14 @@ footer ul li {
 .hero h1, h1.hero-headline {
   font-size: clamp(40px, 8vw, 82px) !important;
   letter-spacing: clamp(-1.5px, -0.3vw, -2.46px) !important;
+}
+
+/* Honour user motion preference — accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
