@@ -57,6 +57,15 @@ const porscheBreakdown = [
   { model: 'Cayman (987/981/718)', aanbod: 'Incidenteel', jaarrange: '2009-heden', notes: 'Cayman S en 718 (IMS-vrij 9A1).' },
   { model: 'Macan', aanbod: 'Schaars', jaarrange: '2015-heden', notes: 'Sportieve uitvoeringen incidenteel.' },
 ];
+
+function aanbodClass(v) {
+  const t = (v || '').toLowerCase();
+  if (t.includes('zeer ruim') || t === 'ruim') return 'is-ruim';
+  if (t.includes('regelmatig')) return 'is-regelmatig';
+  if (t.includes('incidenteel')) return 'is-incidenteel';
+  return 'is-schaars';
+}
+
 ---
 
 <BaseLayout
@@ -105,7 +114,7 @@ const porscheBreakdown = [
             {brandOverview.map((b) => (
               <tr>
                 <td>{b.brand}</td>
-                <td>{b.aanbod}</td>
+                <td><span class={`aanbod-badge ${aanbodClass(b.aanbod)}`}>{b.aanbod}</span></td>
                 <td>{b.note}</td>
               </tr>
             ))}
@@ -125,7 +134,7 @@ const porscheBreakdown = [
             {mercedesBreakdown.map((m) => (
               <tr>
                 <td>{m.model}</td>
-                <td>{m.aanbod}</td>
+                <td><span class={`aanbod-badge ${aanbodClass(m.aanbod)}`}>{m.aanbod}</span></td>
                 <td>{m.jaarrange}</td>
                 <td>{m.grades}</td>
               </tr>
@@ -146,7 +155,7 @@ const porscheBreakdown = [
             {porscheBreakdown.map((p) => (
               <tr>
                 <td>{p.model}</td>
-                <td>{p.aanbod}</td>
+                <td><span class={`aanbod-badge ${aanbodClass(p.aanbod)}`}>{p.aanbod}</span></td>
                 <td>{p.jaarrange}</td>
                 <td>{p.notes}</td>
               </tr>
@@ -269,4 +278,11 @@ const porscheBreakdown = [
   /* Verder-lezen links zichtbaar als links (auditor: UI) */
   .related a, .related-block a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
   .related a:hover, .related-block a:hover { color: var(--color-charcoal-dark); }
+
+  /* Beschikbaarheids-badges — kleur-ritme in de datatabellen */
+  .aanbod-badge { display: inline-block; padding: 3px 11px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; }
+  .aanbod-badge.is-ruim { background: var(--color-copper-text); color: var(--color-cream); }
+  .aanbod-badge.is-regelmatig { background: rgba(154, 94, 40, 0.14); color: var(--color-copper-text); }
+  .aanbod-badge.is-incidenteel { background: var(--color-cream-warm); color: var(--color-text-secondary); border: 1px solid var(--color-border-medium); }
+  .aanbod-badge.is-schaars { background: transparent; color: var(--color-text-tertiary); border: 1px solid var(--color-border-medium); }
 </style>
