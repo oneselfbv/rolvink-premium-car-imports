@@ -40,7 +40,7 @@ const disciplines = [
       {disciplines.map((d) => (
         <li class="strip-card">
           <figure class="strip-card-img">
-            <img class="img-graded" src={d.img} alt={d.alt} loading="lazy" width="1200" height="800" />
+            <img class="img-graded" src={d.img} alt={d.alt} loading="lazy" width="1600" height="900" />
           </figure>
           <div class="strip-card-body">
             <div class="strip-num">{d.num}</div>
@@ -92,7 +92,7 @@ const disciplines = [
   }
   .strip-card-img {
     margin: 0;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     /* Sharp 90° corners — editorial print vibe, matches Cinzel serif typography */
     border-radius: 0;
