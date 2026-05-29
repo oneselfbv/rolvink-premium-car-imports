@@ -28,7 +28,7 @@ const articleSchema = {
 
 <BaseLayout
   title="Japanse auction sheet lezen — complete gids | Rolvink"
-  description="Hoe lees je een Japanse auction sheet: anatomie, grade-systeem, letter-codes, RHD/LHD-valkuil en wat niet op een sheet staat."
+  description="Een Japanse auction sheet lezen: anatomie, grade-systeem, letter-codes voor schade, de RHD/LHD-valkuil en wat er níét op de sheet staat."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
 
@@ -115,7 +115,7 @@ const articleSchema = {
           <li><strong>S of 6</strong>: showroom- / nieuwstaat (zeldzaam).</li>
           <li><strong>5</strong>: vrijwel nieuwstaat — meestal jonge auto's onder 30.000 km.</li>
           <li><strong>4,5</strong>: uitstekende staat, minimale gebruikssporen, doorgaans onder 100.000 km.</li>
-          <li><strong>4</strong>: goede staat met normale gebruikssporen passend bij km-stand en bouwjaar, zonder accident-historie.</li>
+          <li><strong>4</strong>: goede staat met normale gebruikssporen passend bij km-stand en bouwjaar, zonder bekende schade- of herstelhistorie.</li>
           <li><strong>3,5 en lager</strong>: zichtbare slijtage of kleine reparaties. Wij sourcen niet onder grade 4.</li>
           <li><strong>Letter-codes R, RA, A, X, XX</strong>: signaleren respectievelijk grote reparatie, lichte reparatie, aanvullende notitie, niet onafhankelijk geïnspecteerd, of total loss. Wij bieden niet op auto's met deze codes, ongeacht het numerieke grade.</li>
         </ul>
@@ -190,7 +190,7 @@ const articleSchema = {
             <tr><td>なし (nashi)</td><td>Niet aanwezig / afwezig</td></tr>
             <tr><td>不明 (fumei)</td><td>Onbekend / niet gecontroleerd</td></tr>
             <tr><td>修復歴あり (shuufukureki ari)</td><td><strong>Accident-historie aanwezig</strong> — kritiek waarschuwingsteken</td></tr>
-            <tr><td>修復歴なし (shuufukureki nashi)</td><td>Geen accident-historie</td></tr>
+            <tr><td>修復歴なし (shuufukureki nashi)</td><td>Geen bekende schade- of herstelhistorie</td></tr>
             <tr><td>ワンオーナー (wan oonaa)</td><td>One-owner — slechts één eigenaar gehad</td></tr>
             <tr><td>禁煙 (kinen)</td><td>Niet-roker auto</td></tr>
             <tr><td>ガラスコーティング (garasu kootingu)</td><td>Glaslaag / nano-coating aangebracht</td></tr>
@@ -263,7 +263,7 @@ const articleSchema = {
             <tr><td>シフト</td><td>shifuto</td><td>Transmissie</td></tr>
             <tr><td>燃料</td><td>nenryou</td><td>Brandstof</td></tr>
             <tr><td>修復歴あり</td><td>shuufukureki ari</td><td>Accident-historie aanwezig</td></tr>
-            <tr><td>修復歴なし</td><td>shuufukureki nashi</td><td>Geen accident-historie</td></tr>
+            <tr><td>修復歴なし</td><td>shuufukureki nashi</td><td>Geen bekende schade- of herstelhistorie</td></tr>
             <tr><td>整備記録あり</td><td>seibi kiroku ari</td><td>Onderhoudsgegevens aanwezig</td></tr>
             <tr><td>記録簿あり</td><td>kirokubo ari</td><td>Service-boek aanwezig</td></tr>
             <tr><td>ワンオーナー</td><td>wan oonaa</td><td>One owner</td></tr>
