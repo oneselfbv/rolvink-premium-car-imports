@@ -12,70 +12,191 @@ const faqCategories = [
   {
     title: 'Proces en doorlooptijd',
     items: [
-      { q: 'Hoe lang duurt het om een auto uit Duitsland te importeren?', a: 'De Duitsland-route is aanzienlijk sneller dan Japan: reken op 2 tot 4 weken vanaf koopovereenkomst tot Nederlandse kentekenplaat. Transport binnen Europa duurt 2-5 dagen, RDW-keuring en BPM-aangifte 2-5 weken inclusief eventuele aanpassingen voor EU-compliance.' },
-      { q: 'Wat zijn de stappen in het importproces?', a: 'Zes fasen: (1) profiel-intake met klant, (2) actief zoeken op mobile.de, autoscout24.de en bij erkende premium-dealers, (3) bezichtiging en aankoop in Duitsland, (4) transport naar Nederland, (5) RDW-keuring + BPM-aangifte + kentekenregistratie, (6) levering aan huis met sleuteloverdracht.' },
-      { q: 'Kan ik de auto zelf uit Duitsland naar Nederland rijden?', a: 'Technisch wel, mits de auto een geldig Duits kentekenbewijs heeft (rode, gele of groene exportplaten). In de praktijk regelen wij het transport zodat u niets hoeft te organiseren. Voor wagens vanaf €40k is afhankelijke vrachtwagen-transport veiliger en verzekerd.' },
-      { q: 'Hoe vaak rijden jullie naar Duitsland voor bezichtigingen?', a: 'Voor elke serieuze kandidaat-auto rijden wij persoonlijk naar de Duitse dealer of verkoper voor bezichtiging vóór bod. Wij geloven dat dit een non-negotiable is voor premium-aankopen. Geen "kopen op fotos" — dat is exact het signaal van een minder zorgvuldige importeur.' },
-      { q: 'Wat als er meerdere kandidaten zijn?', a: 'Wekelijks sturen we voorgeselecteerde kandidaten met volledige documentatie. U beslist op basis van fotos, Fahrzeugschein/Fahrzeugbrief, TUV-rapport, onderhoudshistorie en onze duiding of we doorgaan met bezichtiging. Pas dan rijden wij. Geen actie zonder uw groen licht.' },
-      { q: 'Wat controleren jullie tijdens een Duitse bezichtiging?', a: 'Een gestructureerde fysieke check: (1) koude motorstart — we starten de auto altijd vanuit koude conditie zonder dat de verkoper hem alvast warm heeft gedraaid, (2) lakdiktemeting op alle panelen voor sporen van lakwerk-correctie of plaatreparatie, (3) onderzijde-inspectie op roest, lekkages en chassis-rechtheid, (4) chassis- en VIN-verificatie tegen het Fahrzeugbrief, (5) banden- en remmen-slijtage versus kilometrage-passing, (6) interieurslijtage versus km-stand (stoelen, stuur, schakelhendel), (7) infotainment, raammechanieken, climate control, achterklep en sensoren, (8) OBD-diagnose-uitlezing voor opgeslagen foutcodes. Bij twijfel: walk-away.' },
+      {
+        q: 'Hoe lang duurt het om een auto uit Duitsland te importeren?',
+        snippet: 'Reken op 2 tot 4 weken vanaf koopovereenkomst tot Nederlandse kentekenplaat. Transport binnen Europa duurt 2 tot 5 dagen; RDW-keuring en BPM-aangifte vragen daarna nog 2 tot 5 weken.',
+        a: 'De Duitsland-route is aanzienlijk sneller dan Japan. Mogelijke uitbreiding van de doorlooptijd treedt op wanneer een CoC moet worden aangevraagd of wanneer EU-compliance-aanpassingen nodig zijn voor de specifieke uitvoering. Dit toetsen wij per kandidaatauto vooraf.',
+      },
+      {
+        q: 'Wat zijn de stappen in het importproces?',
+        snippet: 'Het traject loopt in zes fasen: profiel-intake, actieve zoektocht op mobile.de en autoscout24.de plus erkende premium-dealers, bezichtiging ter plaatse, transport, RDW en BPM, en aflevering aan huis.',
+        a: 'Wij coördineren elke fase voor u. Wat u zelf doet beperkt zich tot het tekenen voor de opdracht, akkoord geven op de gevonden kandidaat, en uw aanwezigheid bij de aflevering. De rest organiseren wij.',
+      },
+      {
+        q: 'Kan ik de auto zelf uit Duitsland naar Nederland rijden?',
+        snippet: 'Technisch kan dat, mits de auto een geldig Duits kentekenbewijs heeft (rode, gele of groene exportplaten). In de praktijk regelen wij het transport zodat u niets hoeft te organiseren.',
+        a: 'Voor wagens vanaf circa €40.000 is afhankelijke vrachtwagen-transport veiliger en standaard verzekerd tegen schade en diefstal tijdens transit. Voor goedkopere auto\'s kan zelf-overrijden een redelijke optie zijn als u in de buurt van Duitsland woont.',
+      },
+      {
+        q: 'Hoe vaak rijden jullie naar Duitsland voor bezichtigingen?',
+        snippet: 'Voor elke serieuze kandidaatauto rijden wij persoonlijk naar de Duitse dealer of verkoper voor bezichtiging vóór bod. Wij geloven dat dit een non-negotiable is voor premium-aankopen.',
+        a: 'Geen "kopen op foto\'s" — dat is exact het signaal van een minder zorgvuldige importeur. Een fysieke bezichtiging onthult panelmismatches, geur, slijtage van de stoelinhoud, accelaratiegedrag en transmissiekwaliteit die op foto\'s niet zichtbaar zijn.',
+      },
+      {
+        q: 'Wat als er meerdere kandidaten zijn?',
+        snippet: 'Wekelijks sturen we voorgeselecteerde kandidaten met volledige documentatie. U beslist op basis van foto\'s, Fahrzeugschein, TÜV-rapport en onze duiding of we doorgaan met bezichtiging.',
+        a: 'Geen actie zonder uw groen licht. Wij filteren actief op uw criteria en sturen alleen kandidaten waar wij zelf op zouden bieden — geen volume-shortlists van vergelijkbare zoek-resultaten.',
+      },
     ],
   },
   {
     title: 'Belastingen — BTW, BPM en intracommunautair',
     items: [
-      { q: 'Moet ik BTW betalen op een Duitse auto?', a: 'Dat hangt af van de status van de auto. Een auto wordt door de Belastingdienst als "nieuw" beschouwd bij minder dan 6.000 km óf jonger dan 6 maanden. In dat geval moet 21% Nederlandse BTW worden betaald bij invoer. Voor "gebruikte" autos (>6.000 km én >6 maanden) hoeft géén extra Nederlandse BTW te worden afgedragen — de Duitse BTW (19%) is al voldaan.' },
-      { q: 'Is BPM in Nederland hoger voor Duitse imports?', a: 'Nee, het BPM-tarief is identiek voor alle imports — uit Duitsland, Japan of een Nederlandse dealer. De grondslag is CO2-uitstoot, leeftijd en eindwaarde. Voor jongere autos onder 5 jaar is BPM een fors deel van de import-economics.' },
-      { q: 'Welke BPM-methoden bestaan er?', a: 'Sinds wetswijzigingen mag de aangever kiezen uit drie methoden: forfaitaire afschrijving (snelste, vaste leeftijdstabel), koerslijst (commerciele X-Ray of Eurotax-waardes), en DRZ-taxatie (fysieke taxateur, €200-€400). Wij rekenen alle drie door en kiezen de gunstigste — voor premium-autos met snelle waardedaling is koerslijst vaak voordeligst.' },
-      { q: 'Wat zijn typische BPM-bedragen voor Duitse premium-imports?', a: 'Indicatief: een BMW 530i F10 2014 op €2.150 via koerslijst-methode. Mercedes E300 W212 2014 op €1.150-€1.600. Audi RS6 C7 2015 op €3.000-€4.000. BPM hangt af van exacte CO2 en gekozen methode — wij maken vóór elk bod een onderbouwde prognose.' },
-      { q: 'Geldt er een BPM-vrijstelling voor oldtimers?', a: 'Ja — en hier is een belangrijk onderscheid. Voor de BPM geldt: autos ouder dan 25 jaar zijn volledig vrijgesteld (100% afschrijving, dus €0 BPM). Voor de MRB (motorrijtuigenbelasting) geldt de hogere drempel van 40 jaar voor volledige vrijstelling. Voor verlaagde invoerrechten en het 9% BTW-tarief (HS-code 9705, historische voertuigen) geldt eveneens 40 jaar. Wij toetsen elke kandidaat aan deze grenzen — voor klassiekers vlak onder de 25-jaarsgrens loont het soms om enkele maanden te wachten.' },
-      { q: 'Wat is intracommunautaire verwerving?', a: 'Een handelsmechanisme waarbij u een nieuwe auto in Duitsland tegen 0% BTW kunt aanschaffen, mits u in Nederland BTW betaalt. Vereist een geldig Nederlands BTW-nummer en een "verklaring van hoedanigheid" in Duitsland. Voor particulieren zelden van toepassing — wij begeleiden de afhandeling als het wel relevant is.' },
+      {
+        q: 'Moet ik BTW betalen op een Duitse auto?',
+        snippet: 'Een auto wordt door de Belastingdienst als "nieuw" beschouwd bij minder dan 6.000 km óf jonger dan 6 maanden. In dat geval moet 21% Nederlandse BTW worden betaald bij invoer.',
+        a: 'Voor "gebruikte" auto\'s (>6.000 km én >6 maanden) hoeft géén extra Nederlandse BTW te worden afgedragen — de Duitse BTW (19%) is dan al voldaan. Wij toetsen dit per kandidaatauto voorafgaand aan het bod.',
+      },
+      {
+        q: 'Is BPM in Nederland hoger voor Duitse imports?',
+        snippet: 'Nee, het BPM-tarief is identiek voor alle imports — uit Duitsland, Japan of een Nederlandse dealer. De grondslag is CO₂-uitstoot, leeftijd en eindwaarde.',
+        a: 'Voor jongere auto\'s onder 5 jaar is BPM een fors deel van de import-economics. Voor youngtimers en oldtimers daalt het BPM-bedrag aanzienlijk via de forfaitaire afschrijvingstabel.',
+      },
+      {
+        q: 'Welke BPM-methoden bestaan er?',
+        snippet: 'Drie methoden: forfaitaire afschrijving (snelste, vaste leeftijdstabel), koerslijst (X-Ray of Eurotax) en DRZ-taxatie (fysieke taxateur, €200-€400). Wij rekenen alle drie door en kiezen de gunstigste.',
+        a: 'Voor premium-auto\'s met snelle waardedaling is koerslijst-methode vaak het voordeligst. Voor lage-km exemplaren in uitzonderlijke staat kan DRZ-taxatie weer beter uitpakken. Per voertuig maken wij die afweging.',
+      },
+      {
+        q: 'Wat zijn typische BPM-bedragen voor Duitse premium-imports?',
+        snippet: 'Indicatief: BMW 530i F10 2014 circa €2.150 via koerslijst, Mercedes E300 W212 2014 €1.150-€1.600, Audi RS6 C7 2015 €3.000-€4.000. BPM hangt af van CO₂ en methode.',
+        a: 'Wij maken vóór elk bod een onderbouwde prognose met +10% buffer voor onverwachte uitkomsten. Voor een snelle indicatie kunt u onze BPM-tool gebruiken.',
+      },
+      {
+        q: 'Geldt er een BPM-vrijstelling voor oldtimers?',
+        snippet: 'Ja. Auto\'s ouder dan 25 jaar zijn volledig BPM-vrijgesteld (100% afschrijving). Boven 40 jaar gelden ook MRB-vrijstelling, verlaagde invoerrechten via HS-9705 en milieuzone-vrijstelling.',
+        a: 'Voor klassiekers vlak onder de 25-jaarsgrens loont het soms om enkele maanden te wachten. Een paar maanden uitstel kan honderden tot duizenden euro\'s BPM-besparing opleveren. Per case maken wij die afweging samen met u.',
+      },
+      {
+        q: 'Wat is intracommunautaire verwerving?',
+        snippet: 'Een handelsmechanisme waarbij u een nieuwe auto in Duitsland tegen 0% BTW kunt aanschaffen, mits u in Nederland BTW betaalt. Vereist een Nederlands BTW-nummer en een "verklaring van hoedanigheid".',
+        a: 'Voor particulieren zelden van toepassing — dit speelt vrijwel uitsluitend bij zakelijke leverancier-tot-zakelijke koper transacties met geldige BTW-status. Wij begeleiden de afhandeling als het wel relevant is.',
+      },
     ],
   },
   {
-    title: 'TUV, DEKRA, KUS en Duitse documentatie',
+    title: 'TÜV, DEKRA, KÜS en bezichtiging',
     items: [
-      { q: 'Wat is TUV en waarom is het belangrijk?', a: 'TUV (Technischer Uberwachungsverein) is de Duitse periodieke keuringsinstantie — equivalent van de Nederlandse APK maar strenger. Een geldig TUV-rapport (Hauptuntersuchung) van de afgelopen 1-2 jaar is voor ons verplicht bij elke aankoop. Het toont dat de auto recent door een onafhankelijke Duitse keurmeester is goedgekeurd.' },
-      { q: 'Wat is het verschil tussen TUV, DEKRA en KUS?', a: 'Alle drie zijn Duitse keuringsinstanties die wettelijke Hauptuntersuchungen mogen uitvoeren. TUV is het grootste netwerk. DEKRA staat bekend om gespecialiseerde pre-purchase inspections. KUS is de derde grote speler. Voor onze sourcing werken we met alle drie afhankelijk van locatie en specialisatie van de werkplaats.' },
-      { q: 'Wat is een DEKRA pre-purchase inspection?', a: 'Een DEKRA pre-purchase rapport is een gedetailleerd technisch onderzoek vóór koop (€200-€350). Een onafhankelijke keurmeester onderzoekt de auto van bovenaf en onderop, controleert onderhoudshistorie, en levert een 10-15 paginas rapport met bevindingen. Voor jongere/duurdere autos vragen we dit standaard aan.' },
-      { q: 'Wat is het verschil tussen TUV en RDW?', a: 'TUV is de Duitse keuringsinstantie, RDW de Nederlandse. Een geldige Duitse TUV wordt niet automatisch erkend door de RDW. Na import moet de auto altijd door de Nederlandse RDW-keuring voor een NL-kenteken. Wel: een recente TUV-pas is een sterk signaal van technische conditie en versnelt de RDW-keuring soms.' },
-      { q: 'Wat betekent Scheckheftgepflegt precies?', a: 'Scheckheftgepflegt is Duits voor "onderhouden volgens het onderhoudsboekje" — dat wil zeggen dat alle voorgeschreven service-beurten op tijd en bij een gekwalificeerde werkplaats (meestal de merkdealer) zijn uitgevoerd, met stempel in het Scheckheft. Wij eisen dit als minimum-vereiste voor elke aankoop. Een auto zonder volledig Scheckheft is voor onze service een walk-away, ongeacht prijs — zonder bewijs van regelmatig onderhoud zijn alle andere garanties relatief.' },
-      { q: 'Wat betekent Unfallfrei echt in Duitsland?', a: 'Unfallfrei betekent letterlijk "ongeval-vrij" en wordt door Duitse verkopers vaak gebruikt om aan te geven dat de auto nooit een schade-historie heeft gehad. In de praktijk is dit een lossere claim dan u zou denken: Unfallfrei wordt vaak alleen toegepast op grote ongevallen met chassis-schade. Kleinere blikschade ("Bagatellschaden" — onder €750-€1.500 hersteld) wordt soms niet als Unfallfrei-strijdig gerekend. Wij vragen daarom altijd: (1) HU-database-check via Carfax of vergelijkbaar voor accident-historie, (2) lakdiktemeting bij bezichtiging, (3) expliciet doorvragen wat de verkoper onder "Unfall" verstaat. Een geschreven "Unfallfrei laut Verkäufer" is geen juridische garantie.' },
+      {
+        q: 'Wat is TÜV en waarom is het belangrijk?',
+        snippet: 'TÜV (Technischer Überwachungsverein) is de Duitse periodieke keuringsinstantie — equivalent van de Nederlandse APK maar strenger. Een geldig TÜV-rapport van 1-2 jaar oud is voor ons verplicht bij elke aankoop.',
+        a: 'Het toont dat de auto recent door een onafhankelijke Duitse keurmeester is goedgekeurd. Voor jongere auto\'s vragen wij aanvullend om de Hauptuntersuchungs-protocol — daarop staan ook lichte aanmerkingen die niet tot afkeuring leidden.',
+      },
+      {
+        q: 'Wat is het verschil tussen TÜV, DEKRA en KÜS?',
+        snippet: 'Alle drie zijn Duitse keuringsinstanties die wettelijke Hauptuntersuchungen mogen uitvoeren. TÜV is het grootste netwerk, DEKRA staat bekend om pre-purchase inspections, KÜS is de derde grote speler.',
+        a: 'Voor onze sourcing werken we met alle drie afhankelijk van locatie en specialisatie van de werkplaats. De keuze van het keuringsinstituut zegt niets over de kwaliteit van de auto zelf — alle drie hanteren dezelfde wettelijke normen.',
+      },
+      {
+        q: 'Wat is een DEKRA pre-purchase inspection?',
+        snippet: 'Een DEKRA pre-purchase rapport is een gedetailleerd technisch onderzoek vóór koop voor €200-€350. Een onafhankelijke keurmeester levert een 10-15 pagina\'s rapport met bevindingen.',
+        a: 'De keurmeester onderzoekt de auto van bovenaf en onderop, controleert onderhoudshistorie en doet een proefrit. Voor jongere en duurdere auto\'s vragen we dit standaard aan — €350 betalen op een €40.000 auto is verstandige risicoreductie.',
+      },
+      {
+        q: 'Wat is het verschil tussen TÜV en RDW?',
+        snippet: 'TÜV is de Duitse keuringsinstantie, RDW de Nederlandse. Een geldige Duitse TÜV wordt niet automatisch erkend door de RDW — na import moet de auto altijd door de Nederlandse RDW-keuring voor een NL-kenteken.',
+        a: 'Wel: een recente TÜV-pas is een sterk signaal van technische conditie en kan de RDW-keuring soms versnellen. Voor specifieke onderdelen (verlichting, banden, remmen) gelden in beide landen vergelijkbare normen.',
+      },
     ],
   },
   {
     title: 'RDW, documenten en kentekening',
     items: [
-      { q: 'Welke documenten heb ik nodig voor de RDW-keuring?', a: 'Het Duitse kentekenbewijs deel I (Fahrzeugschein) en deel II (Fahrzeugbrief), identiteitsbewijs, aankoopfactuur, en bij voorkeur het CoC-document (Certificate of Conformity, bewijst EU-typegoedkeuring) en recent TUV-rapport. Wij regelen alle documenten als onderdeel van onze service.' },
-      { q: 'Wat als de auto geen CoC-document heeft?', a: 'Voor Duitse premium-autos vanaf 1996 met EU-typegoedkeuring is een CoC niet altijd vereist — het Duitse kentekenbewijs is meestal voldoende. Voor specifieke uitvoeringen of bouwjaren waar de RDW twijfelt, kunnen wij een CoC bij de fabrikant aanvragen (€120-€300, 2-6 weken doorlooptijd).' },
-      { q: 'Hoe lang duurt de RDW-keuring zelf?', a: 'De keuring duurt 30-45 minuten op het keuringsstation. De doorlooptijd tot de afspraak kan 1-3 weken zijn door drukte. Wij plannen indien mogelijk al vóór aankomst in Welsum, zodat het traject niet onnodig wordt vertraagd.' },
-      { q: 'Hoe gaat de afmelding in Duitsland?', a: 'Het Duitse kenteken wordt formeel afgemeld bij de Kfz-Zulassungsstelle (de Stilllegung). Wij regelen dit met de Duitse verkoper of dealer. Daarna mag de auto met exportplaten naar Nederland of via auto-transporter. Na RDW-keuring krijgt de auto een Nederlands kenteken — de Duitse platen worden verwijderd.' },
-      { q: 'Komt het Duitse kenteken automatisch op de auto na import?', a: 'Nee. Het Duitse kenteken wordt afgemeld bij export, en in Nederland krijgt de auto een nieuw NL-kenteken na de RDW-keuring. De kentekenplaten worden fysiek vervangen.' },
+      {
+        q: 'Welke documenten heb ik nodig voor de RDW-keuring?',
+        snippet: 'Het Duitse kentekenbewijs deel I (Fahrzeugschein) en deel II (Fahrzeugbrief), identiteitsbewijs, aankoopfactuur, en bij voorkeur het CoC-document en recent TÜV-rapport.',
+        a: 'Wij regelen alle documenten als onderdeel van onze service. De Fahrzeugbrief (deel II) is daarbij de belangrijkste — die bewijst eigendom en bevat het volledige technische dossier. Zonder deel II kan geen RDW-keuring plaatsvinden.',
+      },
+      {
+        q: 'Wat als de auto geen CoC-document heeft?',
+        snippet: 'Voor Duitse premium-auto\'s vanaf 1996 met EU-typegoedkeuring is een CoC niet altijd vereist — het Duitse kentekenbewijs is meestal voldoende.',
+        a: 'Voor specifieke uitvoeringen of bouwjaren waar de RDW twijfelt, kunnen wij een CoC bij de fabrikant aanvragen (€120-€300, 2-6 weken doorlooptijd). Dit toetsen wij per kandidaatauto vóór bod zodat er geen verrassingen ontstaan.',
+      },
+      {
+        q: 'Hoe lang duurt de RDW-keuring zelf?',
+        snippet: 'De keuring zelf duurt 30 tot 45 minuten op het keuringsstation. De doorlooptijd tot de afspraak kan 1 tot 3 weken zijn door drukte bij RDW-locaties.',
+        a: 'Wij plannen indien mogelijk al vóór aankomst in Welsum, zodat het traject niet onnodig wordt vertraagd. Voor Duitse imports houden we structureel rekening met 2-5 weken voor de NL-fase (transport + RDW + BPM + kentekening).',
+      },
+      {
+        q: 'Hoe gaat de afmelding in Duitsland?',
+        snippet: 'Het Duitse kenteken wordt formeel afgemeld bij de Kfz-Zulassungsstelle (de Stilllegung). Wij regelen dit met de Duitse verkoper of dealer.',
+        a: 'Daarna mag de auto met rode of gele exportplaten naar Nederland rijden, of via auto-transporter zonder kenteken. Na RDW-keuring krijgt de auto een Nederlands kenteken en worden de Duitse platen verwijderd.',
+      },
+      {
+        q: 'Komt het Duitse kenteken automatisch op de auto na import?',
+        snippet: 'Nee. Het Duitse kenteken wordt afgemeld bij export, en in Nederland krijgt de auto een nieuw NL-kenteken na de RDW-keuring.',
+        a: 'De kentekenplaten worden fysiek vervangen op het RDW-station. U kunt eventueel een persoonlijke combinatie reserveren via de RDW — dat moet u dan zelf doen voorafgaand aan de keuring.',
+      },
     ],
   },
   {
-    title: 'Conditie, garantie en risicos',
+    title: 'Conditie, garantie en risico\'s',
     items: [
-      { q: 'Wat zijn de grootste risicos bij een Duitse auto-import?', a: 'Drie risicos komen het vaakst voor: (1) kilometerfraude (Tacho-Betrug) — historisch gevoelig in Duitse occasions; wij verifieren via drie bronnen: service-historie, dealer-stempels en HU-database. (2) verborgen schade-historie — wij vragen altijd HU-database-check en weigeren autos met "Unfallfahrzeug" of "Vorschaden" notitie. (3) ontbrekende of incomplete onderhoudsdocumentatie — wij eisen volledig Scheckheft.' },
-      { q: 'Hoe groot is het kilometerfraude-risico (Tacho-Betrug)?', a: 'Duitse occasions zijn historisch gevoelig voor kilometer-fraude, in Duitsland Tacho-Betrug genoemd. Brancheorganisaties schatten dit op circa 1 op de 3 occasions in de Duitse markt, alhoewel dit cijfer per bron en jaar verschilt en omstreden is. Onze werkwijze omvat verificatie van km-stand via service-historie, BMW/Mercedes/Audi/Porsche-dealerstempels en onafhankelijke databases (tellerrapporten, RDW-historie, Carfax). Bij twijfel: walk-away. Voor specifieke modellen kunnen wij ook een Duits Wertgutachten (waardetaxatie met km-controle) aanvragen ter aanvulling.' },
-      { q: 'Hoe verifieren jullie de onderhoudshistorie?', a: 'Wij eisen volledig Scheckheft (gestempeld onderhoudsboekje) of digitale dealer-records (Mercedes DSB/iSB, BMW Online, Audi DSB, Porsche PVI). Voor specifieke modellen vragen we een aanvullend dealer-rapport via WIS (Mercedes), ISTA (BMW) of het Porsche Vehicle Identification (PVI) systeem. Geen historie = geen bod.' },
-      { q: 'Geldt Nederlandse garantie ook op een Duitse import?', a: 'Nee — op autos gekocht in Duitsland geldt in beginsel Duitse wetgeving. Garantievoorwaarden verschillen per verkoper en contractvorm: een aankoop bij een erkende Duitse dealer (B2C) kent doorgaans 12 maanden garantie (Sachmangelhaftung). Particuliere verkopen (Privatverkauf) zijn vrijwel altijd "gekauft wie gesehen" zonder garantie. Wij werken consequent met erkende dealers waar B2C-bescherming geldt.' },
-      { q: 'Wat als de auto na aankoop een verborgen gebrek heeft?', a: 'Als onafhankelijk sourcing-consultant treden wij namens u op. Mocht er onverhoopt een verborgen gebrek opspelen, dan coördineren wij de claim richting de Duitse dealer onder de Sachmangelhaftung (12 maanden wettelijke garantie bij B2C). Bij complexere casus schakelen wij ons netwerk van Nederlandse experts en eventueel een DE-jurist in om uw recht te halen. Het traject doorlopen we samen — u staat er niet alleen voor.' },
-      { q: 'Wat is het risico van een auto die veel op de Autobahn heeft gereden?', a: 'Snelwegkilometers zijn voor de motor typisch beter dan stadskilometers — minder slijtage op koppeling, transmissie en remmen door constante belasting. Voor een Duitse premium-auto met 150.000 km vrijwel volledig op de Autobahn is de mechanische conditie vaak beter dan een vergelijkbare 80.000 km stadsauto. Wel let op: (1) steenslag op de neus en motorkap — bij hoge snelheden in Duitsland is dit cosmetisch zichtbaar, (2) staat van banden en velgen na intensief gebruik, (3) bij M-Sport / AMG / RS-uitvoeringen ook ophanging en achterasbussen extra controleren. Wij beoordelen tijdens de bezichtiging het complete plaatje — niet alleen het kilometrage.' },
+      {
+        q: 'Wat zijn de grootste risico\'s bij een Duitse auto-import?',
+        snippet: 'Drie risico\'s komen het vaakst voor: kilometerfraude, verborgen schade-historie ("Unfallfahrzeug" of "Vorschaden"), en ontbrekende onderhoudsdocumentatie. Wij verifiëren elk van deze.',
+        a: 'Onze werkwijze: drie-bronnen-check voor km-stand (service-historie, dealer-stempels, HU-database), eis voor volledig Scheckheft, en HU-database-check voor schade-historie. Bij twijfel op één van deze drie: walk-away.',
+      },
+      {
+        q: 'Hoe groot is het kilometerfraude-risico?',
+        snippet: 'Duitse occasions zijn historisch gevoelig voor kilometer-fraude — brancheorganisaties schatten dit op circa 1 op de 3 occasions, hoewel cijfers per bron en jaar verschillen.',
+        a: 'Onze werkwijze omvat verificatie via service-historie, BMW/Mercedes/Audi/Porsche-dealerstempels en onafhankelijke databases zoals Tacho-Betrug-services. Bij twijfel op de km-historie weigeren wij de aankoop, ongeacht hoe aantrekkelijk de overige specs lijken.',
+      },
+      {
+        q: 'Hoe verifiëren jullie de onderhoudshistorie?',
+        snippet: 'Wij eisen volledig Scheckheft (gestempeld onderhoudsboekje) of digitale dealer-records (Mercedes DSB/iSB, BMW Online, Audi DSB, Porsche PVI). Geen historie = geen bod.',
+        a: 'Voor specifieke modellen vragen we een aanvullend dealer-rapport via WIS (Mercedes), ISTA (BMW) of het Porsche Vehicle Identification (PVI) systeem. Deze fabrikanten houden volledige onderhoudsrecords centraal bij — voor elke werkplaatsbeurt staat datum, km-stand en verricht werk geregistreerd.',
+      },
+      {
+        q: 'Geldt Nederlandse garantie ook op een Duitse import?',
+        snippet: 'Nee — op auto\'s gekocht in Duitsland geldt in beginsel Duitse wetgeving. Bij erkende Duitse dealers (B2C) geldt doorgaans 12 maanden Sachmängelhaftung; particuliere verkopen zijn meestal "gekauft wie gesehen".',
+        a: 'Wij werken consequent met erkende Duitse dealers waar B2C-bescherming geldt — niet met privé-verkopers via Kleinanzeigen of vergelijkbare platformen. Dat is een bewuste keuze die uw juridische positie aanzienlijk versterkt.',
+      },
+      {
+        q: 'Wat als de auto na aankoop een verborgen gebrek heeft?',
+        snippet: 'Bij een erkende Duitse dealer geldt de wettelijke 12-maanden Sachmängelhaftung. Wij helpen bij correspondentie en eventueel een Nederlandse expert die kan beoordelen of een claim haalbaar is.',
+        a: 'Wij staan niet zelf garant voor verborgen gebreken — dat zou wettelijk en commercieel niet realistisch zijn voor een sourcing-bemiddelaar. Wel staan wij aan uw kant bij correspondentie met de Duitse dealer en kunnen wij doorverwijzen naar gespecialiseerde Nederlandse advocaten als nodig.',
+      },
     ],
   },
   {
     title: 'Kosten en specifieke vragen',
     items: [
-      { q: 'Hoeveel extra kost een auto importeren uit Duitsland all-in?', a: 'Bovenop de Duitse vraagprijs komen: DEKRA pre-purchase rapport (€200-€350), transport DE-NL (€300-€500), BPM (variabel, vaak €1.150-€4.000 afhankelijk van CO2 en leeftijd), RDW-keuring + kentekenregistratie (€450), eventueel reconditionering (€200-€500), en onze sourcing- en operationele fee. Geen invoerrechten of extra BTW voor gebruikte autos. Zie onze voorbeeld-traject-pagina voor een complete uitwerking.' },
-      { q: 'Hoeveel kan ik besparen door zelf te importeren in plaats van NL-dealer?', a: 'Tussen 5% en 25% afhankelijk van model, leeftijd en uitvoering. Het verschil zit in: lagere dealerwinst, meer aanbodkeuze in Duitsland, vaak betere uitvoeringen voor dezelfde prijs. Voor in Nederland populaire modellen (BMW M5, Mercedes E63 AMG, Porsche Macan GTS) is het verschil meestal het grootst.' },
-      { q: 'Welke modellen importeren jullie het meest uit Duitsland?', a: 'Sweet spot in onze ervaring: BMW 5-Serie F10/G30 (vooral 530d/540i M-Sport), Mercedes E-Klasse W212/W213, Audi A6/A7 C8 en RS-uitvoeringen, Porsche Cayenne/Macan en 911-modellen die in Europa nieuw zijn aangeschaft. Voor zeldzamere uitvoeringen kijken wij ook naar Japan — zie onze route-advies-tool.' },
-      { q: 'Hoe gaat de betaling aan de Duitse verkoper?', a: 'Via Nederlandse bankoverschrijving (SEPA). Voor grote bedragen (>€10.000) gebruiken wij escrow-mogelijkheden van de Duitse dealer of een notariele afhandeling. Wij betalen pas na bezichtiging en uw goedkeuring — nooit vooraf op basis van fotos.' },
-      { q: 'Wat als de wisselkoers verandert tussen bod en betaling?', a: 'Bij Duitse imports betreft het euros, dus geen wisselkoersrisico. Bij Japanse imports speelt dit wel (yen-euro), maar wij werken met conservatieve bid-grenzen die +/-3% afdekken.' },
-      { q: 'Past een Duitse auto in een Nederlandse milieuzone?', a: 'Voor moderne premium-autos (Euro 5/6 vanaf circa 2010-2013) zijn alle Nederlandse milieuzones toegankelijk. Diesels van vóór 2013 zijn beperkt voor specifieke steden zoals Amsterdam en Rotterdam. Voor oldtimers ouder dan 40 jaar geldt de wettelijke vrijstelling van milieuzones (definitie historisch voertuig in Nederland). Per kandidaatauto toetsen wij dit vooraf.' },
+      {
+        q: 'Hoeveel extra kost een auto importeren uit Duitsland all-in?',
+        snippet: 'Bovenop de Duitse vraagprijs komen typisch DEKRA-rapport (€200-€350), transport DE→NL (€300-€500), BPM (€1.150-€4.000 afhankelijk van CO₂ en leeftijd), RDW-keuring + kentekenregistratie (€450), eventueel reconditionering (€200-€500).',
+        a: 'Plus onze sourcing- en operationele fee. Geen invoerrechten of extra BTW voor gebruikte auto\'s (>6 maanden + >6.000 km). Zie onze voorbeeld-traject-pagina voor een complete uitwerking met concrete cijfers per onderdeel.',
+      },
+      {
+        q: 'Hoeveel kan ik besparen door zelf te importeren in plaats van NL-dealer?',
+        snippet: 'Tussen 5% en 25% afhankelijk van model, leeftijd en uitvoering. Voor in Nederland populaire modellen (BMW M5, Mercedes E63 AMG, Porsche Macan GTS) is het verschil meestal het grootst.',
+        a: 'Het verschil zit in lagere dealerwinst, meer aanbodkeuze in Duitsland, vaak betere uitvoeringen voor dezelfde prijs, en de mogelijkheid om gericht te zoeken naar specifieke kleur- en optie-combinaties die in Nederland zeldzaam zijn.',
+      },
+      {
+        q: 'Welke modellen importeren jullie het meest uit Duitsland?',
+        snippet: 'Sweet spot: BMW 5-Serie F10/G30 (vooral 530d/540i M-Sport), Mercedes E-Klasse W212/W213, Audi A6/A7 C8 en RS-uitvoeringen, Porsche Cayenne/Macan en 911 die in Europa nieuw zijn aangeschaft.',
+        a: 'Voor zeldzamere uitvoeringen kijken wij ook naar Japan — zie onze route-advies-tool om te bepalen welke route bij uw specifieke model past. Voor youngtimers (16+ jaar) is Duitsland vrijwel altijd de voorkeursroute vanwege snelheid en directe bezichtiging.',
+      },
+      {
+        q: 'Hoe gaat de betaling aan de Duitse verkoper?',
+        snippet: 'Via Nederlandse bankoverschrijving (SEPA). Voor grote bedragen (>€10.000) gebruiken wij escrow-mogelijkheden van de Duitse dealer of een notariële afhandeling.',
+        a: 'Wij betalen pas na bezichtiging en uw goedkeuring — nooit vooraf op basis van foto\'s. De aankoopfactuur komt op uw naam te staan, niet op de onze; u bent juridisch direct eigenaar van de auto.',
+      },
+      {
+        q: 'Wat als de wisselkoers verandert tussen bod en betaling?',
+        snippet: 'Bij Duitse imports betreft het euro\'s, dus geen wisselkoersrisico tussen bod en betaling. Bij Japanse imports speelt dit wel (yen-euro), maar wij werken met conservatieve bid-grenzen die ±3% afdekken.',
+        a: 'De Duitsland-route is daarmee structureel voorspelbaarder qua eindbedrag dan de Japan-route. Voor wie zekerheid over de totale kosten belangrijk vindt, is dit een argument om voor Duitsland te kiezen wanneer de auto in beide markten beschikbaar is.',
+      },
+      {
+        q: 'Past een Duitse auto in een Nederlandse milieuzone?',
+        snippet: 'Voor moderne premium-auto\'s (Euro 5/6 vanaf circa 2010-2013) zijn alle Nederlandse milieuzones toegankelijk. Diesels van vóór 2013 zijn beperkt voor specifieke steden zoals Amsterdam en Rotterdam.',
+        a: 'Voor klassiekers (oldtimers >40 jaar) gelden vrijstellingen op basis van de oldtimer-regeling. Per kandidaatauto toetsen wij de milieuzone-toegankelijkheid vooraf zodat u weet waar u de auto wel en niet kunt rijden.',
+      },
     ],
   },
 ];
 
+// Flatten voor FAQ schema — gebruik snippet + a als gecombineerde answer text
 const allFaqs = faqCategories.flatMap((c) => c.items);
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -83,14 +204,14 @@ const faqSchema = {
   mainEntity: allFaqs.map((f) => ({
     '@type': 'Question',
     name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
+    acceptedAnswer: { '@type': 'Answer', text: f.snippet + ' ' + f.a },
   })),
 };
 ---
 
 <BaseLayout
   title="FAQ — Auto importeren uit Duitsland | Rolvink Premium Car Imports"
-  description="32 veelgestelde vragen over auto importeren uit Duitsland: doorlooptijd, kosten, BPM-vrijstelling 25 jaar, RDW, TUV/DEKRA/KUS, Scheckheftgepflegt, Unfallfrei, Tacho-Betrug en Sachmangelhaftung."
+  description="30 veelgestelde vragen over auto importeren uit Duitsland: doorlooptijd, kosten, BPM, RDW, TÜV/DEKRA/KÜS, BTW, B2C-garantie en kilometerverificatie."
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
 
@@ -100,9 +221,7 @@ const faqSchema = {
 
       <div class="section-eyebrow">FAQ</div>
       <h1>Auto importeren <span class="accent">uit Duitsland</span>.</h1>
-      <p class="lead">De meest gestelde vragen over het Duitsland-traject — gegroepeerd in zes themas. Helder en eerlijk beantwoord op basis van onze ervaring met Duitse dealers, TUV/DEKRA/KUS en de RDW-procedure.</p>
-
-      <p class="legal-disclaimer"><em>Fiscale wetgeving, BPM-tabellen en douanerichtlijnen zijn aan verandering onderhevig. De hieronder genoemde bedragen en rekenmethodes zijn indicatief en gebaseerd op de regelgeving van 2026. Er kunnen geen rechten of juridische claims aan deze antwoorden worden ontleend. Voor actuele tarieven raadpleeg de <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener">Belastingdienst</a> of vraag ons om een onderbouwde prognose op uw specifieke geval.</em></p>
+      <p class="lead">De meest gestelde vragen over het Duitsland-traject — gegroepeerd in zes thema's. Helder en eerlijk beantwoord op basis van onze ervaring met Duitse dealers, TÜV/DEKRA/KÜS en de RDW-procedure.</p>
 
       {faqCategories.map((cat) => (
         <div class="faq-category">
@@ -111,17 +230,15 @@ const faqSchema = {
             {cat.items.map((f) => (
               <details class="faq-item">
                 <summary><span>{f.q}</span><span class="toggle" aria-hidden="true">+</span></summary>
-                <div class="faq-answer"><p>{f.a}</p></div>
+                <div class="faq-answer">
+                  <p class="faq-snippet">{f.snippet}</p>
+                  <p>{f.a}</p>
+                </div>
               </details>
             ))}
           </div>
         </div>
       ))}
-
-      <div class="author-signal">
-        <p><strong>Geschreven door Theo Rolvink</strong> — oprichter Rolvink Premium Car Imports, met jarenlange ervaring in de in- en verkoop van autos en motoren. <a href="/over">Lees meer over Theo</a>.</p>
-        <p class="updated">Laatst bijgewerkt: 28 mei 2026</p>
-      </div>
 
       <div class="page-cta">
         <a href="/contact" class="page-cta-btn">
@@ -136,11 +253,11 @@ const faqSchema = {
 <style>
   .faq-page { padding: 64px 0 96px; }
   .faq-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
-  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 28px; line-height: 1.6; }
-  .legal-disclaimer { max-width: 680px; padding: 14px 18px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 13px; line-height: 1.55; color: var(--color-text-tertiary); margin-bottom: 56px; }
-  .legal-disclaimer a { color: var(--color-copper); }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 680px; margin-bottom: 56px; line-height: 1.6; }
+
   .faq-category { margin-bottom: 48px; }
   .faq-category h2 { font-size: 22px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-medium); }
+
   .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--color-border-medium); }
   .faq-item { background: var(--color-white); }
   .faq-item summary { padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 16px; font-weight: 500; color: var(--color-text-primary); list-style: none; gap: 24px; }
@@ -149,13 +266,11 @@ const faqSchema = {
   .faq-item[open] .toggle { transform: rotate(45deg); }
   .faq-answer { padding: 0 24px 22px; }
   .faq-answer p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; max-width: 720px; }
-  .author-signal { max-width: 680px; margin-top: 48px; padding: 20px 22px; background: var(--color-cream); border-left: 3px solid var(--color-copper); }
-  .author-signal p { font-size: 14px; color: var(--color-text-secondary); margin: 0; line-height: 1.55; }
-  .author-signal strong { color: var(--color-text-primary); }
-  .author-signal a { color: var(--color-copper); }
-  .author-signal .updated { font-size: 12px; color: var(--color-text-tertiary); margin-top: 8px; }
-  .page-cta { margin-top: 32px; padding: 36px 28px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .faq-answer .faq-snippet { font-size: 15.5px; color: var(--color-text-primary); font-weight: 500; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--color-border-light, #e8e4dd); }
+
+  .page-cta { padding: 36px 28px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
   .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+
   @media (max-width: 768px) {
     .faq-page h1 { font-size: 36px; }
     .faq-category h2 { font-size: 19px; }
