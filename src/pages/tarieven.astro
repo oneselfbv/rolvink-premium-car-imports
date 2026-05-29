@@ -14,11 +14,6 @@ const lossDiensten = [
     body: 'Fysieke taxatie door een erkende DRZ-taxateur, te gebruiken als onderbouwing voor de BPM-aangifte volgens de tegenbewijsregeling.',
   },
   {
-    title: 'Sheet-vertaling Japanse veiling-sheet',
-    price: '€ 95',
-    body: 'Nederlandstalige duiding van een officiële Japanse auction-sheet — handig wanneer u zelf via een ander kanaal koopt en de conditie-rapportage wilt begrijpen.',
-  },
-  {
     title: 'Intake-gesprek',
     price: 'Gratis',
     body: 'Online via Google Meet, WhatsApp of telefonisch — maximaal 60 minuten (Duitsland-route) of 90 minuten (Japan-route). Geen verkoopdruk, eerlijk advies of er een match is.',
@@ -75,6 +70,7 @@ const lossDiensten = [
           </ul>
 
           <p class="tier-scope">Aanschafprijs van de auto, BPM, transport en RDW-kosten betaalt u zelf rechtstreeks (transparant gerapporteerd, geen marge bij ons).</p>
+          <a href="/contact" class="tier-cta">Plan intake-gesprek<span class="arrow" aria-hidden="true">→</span></a>
         </div>
 
         <!-- TIER 3: JAPAN -->
@@ -117,6 +113,7 @@ const lossDiensten = [
           </ul>
 
           <p class="tier-scope">Aanschafprijs (yen), binnenlands transport Japan, RoRo, douane-heffingen, BPM en RDW betaalt u zelf. Wij coördineren elke betaling transparant — u ziet elke factuur.</p>
+          <a href="/contact" class="tier-cta tier-cta-feature">Plan intake-gesprek<span class="arrow" aria-hidden="true">→</span></a>
         </div>
 
       </div>
@@ -152,10 +149,13 @@ const lossDiensten = [
       </div>
 
       <div class="page-cta">
+        <h2>Bespreek uw zoekopdracht — vrijblijvend.</h2>
+        <p>Een gratis intake-gesprek (Google Meet, WhatsApp of telefoon) waarin we uw profiel, route en realistische landed-cost doornemen. Geen verkoopdruk, geen verplichtingen.</p>
         <a href="/contact" class="page-cta-btn">
           Plan vrijblijvend intake-gesprek
           <span class="arrow" aria-hidden="true">→</span>
         </a>
+        <p class="page-cta-note">Binnen 24 uur reactie</p>
       </div>
     </div>
   </section>
@@ -343,7 +343,7 @@ const lossDiensten = [
   }
   .extra-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     background: var(--color-border-medium);
     border: 1px solid var(--color-border-medium);
@@ -441,6 +441,32 @@ const lossDiensten = [
     font-size: 18px;
     line-height: 1;
   }
+  .page-cta h2 { font-family: var(--font-display); font-size: 28px; font-weight: 600; margin-bottom: 12px; }
+  .page-cta p { font-size: 15px; color: var(--color-text-secondary); max-width: 560px; margin: 0 auto 24px; line-height: 1.6; }
+  .page-cta-note { margin-top: 16px; font-size: 13px; color: var(--color-text-tertiary); }
+
+  /* Per-tier conversie-CTA — onderaan elke prijskaart uitgelijnd */
+  .tier-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: 1.5px solid var(--color-copper-text);
+    color: var(--color-copper-text);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .tier-cta:hover { background: var(--color-copper-text); color: var(--color-cream); transform: translateY(-2px); }
+  .tier-cta-feature { background: var(--color-copper-text); color: var(--color-charcoal-dark); border-color: var(--color-copper-text); }
+  .tier-cta-feature:hover { background: var(--color-copper-dark); color: var(--color-cream); }
+  .tier-cta .arrow { font-size: 16px; line-height: 1; }
 
   /* Mobile */
   @media (max-width: 900px) {
