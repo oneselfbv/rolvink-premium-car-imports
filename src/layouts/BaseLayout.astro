@@ -18,17 +18,18 @@ const {
   noIndex = false,
 } = Astro.props;
 
-const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
-const canonicalURL = new URL(pathname, Astro.site).toString().replace(/\/$/, '');
+const rawPath = Astro.url.pathname || '/';
+const pathname = rawPath.endsWith('/') ? rawPath : rawPath + '/';
+const canonicalURL = new URL(pathname, Astro.site).toString();
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': 'https://www.rolvinkpremiumcarimports.nl/#organization',
   name: 'Rolvink Premium Car Imports',
-  url: 'https://www.rolvinkpremiumcarimports.nl',
+  url: 'https://www.rolvinkpremiumcarimports.nl/',
   logo: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg',
-  founder: { '@type': 'Person', name: 'Theo Rolvink', '@id': 'https://www.rolvinkpremiumcarimports.nl/over#theo' },
+  founder: { '@type': 'Person', name: 'Theo Rolvink', '@id': 'https://www.rolvinkpremiumcarimports.nl/over/#theo' },
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Veldweg 15',
@@ -48,7 +49,7 @@ const localBusinessSchema = {
   '@type': 'AutomotiveBusiness',
   '@id': 'https://www.rolvinkpremiumcarimports.nl/#localbusiness',
   name: 'Rolvink Premium Car Imports',
-  url: 'https://www.rolvinkpremiumcarimports.nl',
+  url: 'https://www.rolvinkpremiumcarimports.nl/',
   image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
   telephone: '+31638441395',
   email: 'contact@rolvinkpremiumcarimports.nl',

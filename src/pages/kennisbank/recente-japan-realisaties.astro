@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Recente Japan-realisaties' },
+];
+
+const publishedDate = '2026-05-29';
+const updatedDate = '2026-05-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Recente Japan-realisaties — wat brengt een LHD-import op de Japanse veiling op?',
+  description: 'Geanonimiseerde overzicht van recente verkopen op de Japanse veilingen binnen onze scope (BMW, Mercedes, Audi, Porsche). Hammerprijzen, conditie, kilometrage — als referentie voor wat realistisch is.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/recente-japan-realisaties/' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+
+// Public data - anonymized from internal Sold_log_Japan.md
+// Refresh: monthly
+const realisaties = {
+  mercedes: [
+    { model: 'E-Klasse W212', uitvoering: 'E300 4Matic Avantgarde', jaar: 2014, km: '48.000', grade: '4', hammerEur: 6150, lhd: true, periode: 'Q2 2026' },
+    { model: 'E-Klasse W212', uitvoering: 'E350 Avantgarde', jaar: 2014, km: '49.000', grade: '4', hammerEur: 5050, lhd: false, periode: 'Q2 2026' },
+    { model: 'E-Klasse W213', uitvoering: 'E200 Avantgarde AMG', jaar: 2018, km: '46.000', grade: '4.5', hammerEur: 10310, lhd: false, periode: 'Q2 2026' },
+    { model: 'E-Klasse Wagon S212', uitvoering: 'E300 4Matic Avantgarde', jaar: 2012, km: '73.000', grade: '4', hammerEur: 1360, lhd: true, periode: 'Q2 2026', note: 'niet verkocht — referentie' },
+    { model: 'E-Klasse Wagon S212', uitvoering: 'E300 4Matic Avantgarde', jaar: 2015, km: '179.000', grade: '3.5', hammerEur: 2600, lhd: true, periode: 'Q2 2026' },
+    { model: 'SL R230', uitvoering: 'SL350', jaar: 2003, km: '152.000', grade: '3.5', hammerEur: 1990, lhd: true, periode: 'Q2 2026' },
+    { model: 'SL R230', uitvoering: 'SL500 V8', jaar: 2005, km: '140.000', grade: 'n/v', hammerEur: 3785, lhd: true, periode: 'Q2 2026' },
+    { model: 'SL R230', uitvoering: 'SL500', jaar: 2008, km: '62.000', grade: '4.5', hammerEur: 11390, lhd: true, periode: 'Q2 2026' },
+    { model: 'CLK W209', uitvoering: 'CLK320 Cabriolet', jaar: 2003, km: '47.000', grade: '0 (note)', hammerEur: 1800, lhd: true, periode: 'Q1 2026' },
+  ],
+  bmw: [
+    { model: '5-Serie Touring F11', uitvoering: '523i Touring M-Sports', jaar: 2011, km: '97.000', grade: '4', hammerEur: 1810, lhd: true, periode: 'Q2 2026', note: 'enige LHD-Touring in 5 weken Japan-aanbod' },
+  ],
+  porsche: [
+    { model: '911 996', uitvoering: 'Carrera 4S', jaar: 2003, km: '94.000', grade: '4', hammerEur: 19700, lhd: true, periode: 'Q2 2026' },
+    { model: '911 991', uitvoering: 'Carrera Cabriolet', jaar: 2016, km: '51.000', grade: '4', hammerEur: 51800, lhd: true, periode: 'Q2 2026' },
+    { model: '911 993', uitvoering: 'Carrera', jaar: 1996, km: '90.000', grade: '3.5', hammerEur: 44550, lhd: true, periode: 'Q2 2026', note: 'klassieker >25j, gunstige BPM-positie' },
+    { model: '911 997', uitvoering: 'Carrera Exclusive Edition', jaar: 2008, km: '60.000', grade: '4', hammerEur: 29550, lhd: true, periode: 'Q2 2026', note: 'niet verkocht — referentie' },
+    { model: 'Cayman 987', uitvoering: 'Cayman S 3.4L', jaar: 2006, km: '129.000', grade: '4', hammerEur: 10950, lhd: true, periode: 'Q2 2026' },
+    { model: 'Boxster 987', uitvoering: 'Boxster 2.7L', jaar: 2006, km: '134.000', grade: '4', hammerEur: 6130, lhd: true, periode: 'Q2 2026' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Recente Japan-realisaties — wat brengt een LHD-import op? | Rolvink"
+  description="Geanonimiseerde recente verkopen op Japanse veilingen binnen onze scope: hammerprijzen, conditie, kilometrage. Referentie voor wat realistisch is."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Marktdata — Japan</div>
+        <h1>Recente <span class="accent">Japan-realisaties</span>.</h1>
+        <p class="lead">Wat brengt een LHD-Mercedes, BMW, Audi of Porsche feitelijk op aan de hamer van een Japanse veiling? Hieronder een geanonimiseerd overzicht van recente verkopen binnen onze sourcing-scope. Geen marketing-grafieken, geen geprojecteerde "vanaf"-prijzen — gewoon wat er reëel verkocht is, met conditie en kilometrage erbij.</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>·</span>
+              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            </>
+          )}
+        </div>
+      </header>
+
+      <AuthorByline variant="top" />
+
+      <div class="disclaimer">
+        Hammerprijzen zijn de prijs aan de veilinghamer — <strong>landed cost in Nederland ligt typisch 75-90% hoger</strong> door veiling- en brokerfees, RoRo-transport, 10% invoerrechten, 21% NL-BTW, BPM, RDW en onze sourcing-fee (zie <a href="/kennisbank/auto-importeren-japan">complete kosten-uitleg</a>). Voor klassiekers boven 25 jaar (geen BPM) en boven 40 jaar (HS-9705, verlaagd BTW 9%) ligt de multiplier lager. Bedragen geanonimiseerd uit ons interne bid-logboek; lot-nummers en exacte data weggelaten. Wisselkoers ten tijde van observatie ¥169/€.
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>Per merk</h2>
+        <ol>
+          <li><a href="#mercedes">Mercedes-Benz</a></li>
+          <li><a href="#bmw">BMW</a></li>
+          <li><a href="#porsche">Porsche</a></li>
+          <li><a href="#hoe-lezen">Hoe deze cijfers te lezen</a></li>
+        </ol>
+      </nav>
+
+      <section id="mercedes" class="content-section">
+        <h2>Mercedes-Benz</h2>
+        <p>Mercedes is binnen onze pijplijn het meest gevarieerde merk. SL R230 en R231 cabrio's vormen het sterkste Japanse LHD-aanbod, gevolgd door E-Klasse sedan W212 en de klassieke SL R107/R129. E-Klasse Wagons (S212/S213) zijn extreem zeldzaam in LHD-Japan — voor stations kiezen wij vrijwel altijd de Duitsland-route. Hieronder een selectie uit recente verkopen:</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Model</th><th>Uitvoering</th><th>Jaar</th><th>Km</th><th>Grade</th><th>LHD</th><th>Hammer</th><th>Periode</th></tr>
+          </thead>
+          <tbody>
+            {realisaties.mercedes.map((r) => (
+              <tr>
+                <td>{r.model}</td>
+                <td>{r.uitvoering}{r.note && <em class="note-inline"> · {r.note}</em>}</td>
+                <td>{r.jaar}</td>
+                <td>{r.km}</td>
+                <td>{r.grade}</td>
+                <td>{r.lhd ? '✓' : '—'}</td>
+                <td>€ {r.hammerEur.toLocaleString('nl-NL')}</td>
+                <td>{r.periode}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p>Patroon dat opvalt: een SL R230 met hoge kilometers (140-152K km) tikt af tussen € 2.000 en € 4.000 hammer, terwijl een schoon exemplaar met 62.000 km binnen 18 jaar oud naar € 11.000+ schiet. De spread tussen "fris" en "uitgereden" is op de Japanse veiling structureel groter dan op de Duitse markt — wat ruimte biedt voor gerichte sourcing, maar ook risico voor wie alleen op prijs koopt. Onze brede Mercedes-focus: <a href="/merk/mercedes-benz">/merk/mercedes-benz</a>. Voor de E-Klasse W212 specifiek: <a href="/kennisbank/mercedes-e-klasse-w212">koopgids</a>.</p>
+      </section>
+
+      <section id="bmw" class="content-section">
+        <h2>BMW</h2>
+        <p>BMW-LHD uit Japan concentreert zich op M-uitvoeringen en M-Sport pakketten van de 5- en 6-Serie. Standaard 3-Serie en 5-Serie sedan komt voor maar het volume is bescheiden. Tourings (estate) zijn praktisch nul — onderstaande F11-Touring observatie is illustratief voor hoe zeldzaam dat is:</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Model</th><th>Uitvoering</th><th>Jaar</th><th>Km</th><th>Grade</th><th>LHD</th><th>Hammer</th><th>Periode</th></tr>
+          </thead>
+          <tbody>
+            {realisaties.bmw.map((r) => (
+              <tr>
+                <td>{r.model}</td>
+                <td>{r.uitvoering}{r.note && <em class="note-inline"> · {r.note}</em>}</td>
+                <td>{r.jaar}</td>
+                <td>{r.km}</td>
+                <td>{r.grade}</td>
+                <td>{r.lhd ? '✓' : '—'}</td>
+                <td>€ {r.hammerEur.toLocaleString('nl-NL')}</td>
+                <td>{r.periode}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p>Onze brede BMW-focus: <a href="/merk/bmw">/merk/bmw</a>. Voor de 5-Serie sedan: <a href="/kennisbank/bmw-5-serie-f10-g30">koopgids F10/G30</a>.</p>
+      </section>
+
+      <section id="porsche" class="content-section">
+        <h2>Porsche</h2>
+        <p>Porsche is het merk met het sterkste Japanse LHD-aanbod in onze scope. 911-uitvoeringen verschijnen in alle generaties wekelijks; Cayman/Boxster regelmatig. Onderstaande recente verkopen geven een beeld van het prijsniveau per generatie:</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>Model</th><th>Uitvoering</th><th>Jaar</th><th>Km</th><th>Grade</th><th>LHD</th><th>Hammer</th><th>Periode</th></tr>
+          </thead>
+          <tbody>
+            {realisaties.porsche.map((r) => (
+              <tr>
+                <td>{r.model}</td>
+                <td>{r.uitvoering}{r.note && <em class="note-inline"> · {r.note}</em>}</td>
+                <td>{r.jaar}</td>
+                <td>{r.km}</td>
+                <td>{r.grade}</td>
+                <td>{r.lhd ? '✓' : '—'}</td>
+                <td>€ {r.hammerEur.toLocaleString('nl-NL')}</td>
+                <td>{r.periode}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p>De spread van € 6.000 voor een gangbare Boxster tot € 51.800 voor een schoon 991 Cabriolet illustreert waarom generatie-en uitvoeringskeuze het meeste effect heeft op landed cost. Voor de 911 specifiek: <a href="/kennisbank/porsche-911-modelgids">modelgids vijf generaties</a> en de <a href="/kennisbank/porsche-ims-lager-996-997">IMS-koopgids voor 996/997.1</a>. Voor de 997.2 — geen IMS — is een volledige <a href="/kennisbank/porsche-997-2-japan-vs-duitsland">Japan vs Duitsland kosten-vergelijking</a> beschikbaar. Onze brede Porsche-focus: <a href="/merk/porsche">/merk/porsche</a>.</p>
+      </section>
+
+      <section id="hoe-lezen" class="content-section">
+        <h2>Hoe deze cijfers te lezen</h2>
+        <p>Een paar bewuste keuzes in dit overzicht:</p>
+        <ul class="bullet-list">
+          <li><strong>Hammerprijs is geen landed cost.</strong> Een Cayman S van € 10.950 hammer kost na alle kosten typisch € 19.000-€ 21.000 op uw oprit in NL. De multiplier zit grotendeels in 10% invoerrechten + 21% NL-BTW + BPM + transport + onze fee. Voor de complete uitleg met voorbeeld: <a href="/voorbeeld-traject">voorbeeld-traject W212</a>.</li>
+          <li><strong>Conditie-grade is de belangrijkste variabele.</strong> Grade 4 of hoger is wat wij accepteren voor zelf-rij-zekerheid. Grade 3.5 vraagt nadere check; conditie 0 met letter-code (zoals R, RA, A, X) is voor ons doorgaans walk-away. Volledige uitleg: <a href="/kennisbank/japanse-veiling-grades">grades-gids</a>.</li>
+          <li><strong>LHD-status is essentieel voor NL-import.</strong> Een schoon ogend exemplaar dat RHD blijkt te zijn is voor de NL-markt een no-go (verkoopbaar maar tegen 30-50% korting). Wij filteren op LHD-only. Hoe wij dat herkennen: <a href="/kennisbank/lhd-rhd-groene-markering">LHD-RHD gids</a>.</li>
+          <li><strong>Klassiekers (>25 jaar) hebben gunstige fiscaliteit.</strong> Geen BPM, en voor >40 jaar (HS-9705) een verlaagd BTW-tarief van 9% plus 0% invoerrechten. Daarom kan een 993 voor € 44.550 hammer met een lager landed-cost multiplier uitkomen dan een moderne 991. Zie <a href="/kennisbank/bpm-importauto-2026">BPM-gids 2026</a>.</li>
+          <li><strong>"Niet verkocht" is ook data.</strong> Auto's die door de veiling gaan zonder hammer-down vertellen iets over wat de markt wel of niet betaalt. Wanneer eenzelfde auto driemaal wordt teruggebracht zonder verkoop, is dat een marktsignaal.</li>
+          <li><strong>Bedragen zijn momentopnamen.</strong> Wisselkoers, seizoens-effect en het toevallige aanbod van die week maken individuele prijzen variabel. Voor een onderbouwde prognose op uw concrete zoekopdracht: <a href="/contact">vraag een intake-gesprek</a>.</li>
+        </ul>
+        <p>Wij houden deze pagina maandelijks bij. Voor de actuele beschikbaarheid per merk en model: <a href="/route-advies">route-advies-tool</a>. Voor onze sourcing-tarieven: <a href="/tarieven">/tarieven</a>.</p>
+      </section>
+
+      <AuthorByline variant="bottom" />
+
+      <div class="page-cta">
+        <h2>Op zoek naar een specifieke auto?</h2>
+        <p>Vertel ons merk, model, uitvoering en budget. Wij screenen de Japanse veilingen wekelijks en geven u realistische landed-cost-prognoses op basis van actuele markt­data — niet op basis van marketing-tabellen.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related-block">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/japanse-veiling-grades">Japanse auction grades uitgelegd</a></li>
+          <li><a href="/kennisbank/japanse-auction-sheet-lezen">Japanse auction sheet lezen — complete gids</a></li>
+          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD bij Japanse veilingen</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/kennisbank/porsche-997-2-japan-vs-duitsland">997.2 — Japan vs Duitsland cost-vergelijking</a></li>
+          <li><a href="/voorbeeld-traject">Voorbeeld-traject W212 — volledig doorgerekend</a></li>
+          <li><a href="/route-advies">Route-advies — Japan of Duitsland?</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .article-header h1 { font-family: var(--font-serif); font-size: 64px; font-weight: 500; letter-spacing: 0.02em; margin: 16px 0 24px; line-height: 1.05; }
+  .article-header .lead { font-size: 19px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 24px; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 800px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-charcoal-dark); }
+  .disclaimer a { color: var(--color-copper); }
+
+  .toc { max-width: 760px; margin-bottom: 56px; padding: 24px 28px; background: var(--color-cream); border-left: 3px solid var(--color-copper); }
+  .toc h2 { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 14px; font-weight: 600; }
+  .toc ol { margin: 0; padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; }
+  .toc a:hover { color: var(--color-copper); text-decoration: underline; }
+
+  .content-section { max-width: 900px; margin-bottom: 56px; }
+  .content-section h2 { font-family: var(--font-display); font-size: 32px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .content-section p { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 18px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .bullet-list { padding-left: 20px; margin-bottom: 18px; }
+  .bullet-list li { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 12px; }
+  .bullet-list li strong { color: var(--color-charcoal-dark); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th, .cost-table td { padding: 9px 10px; border-bottom: 1px solid var(--color-border-soft); text-align: left; }
+  .cost-table th { background: var(--color-cream); color: var(--color-charcoal-dark); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; }
+  .cost-table .note-inline { color: var(--color-text-tertiary); font-style: italic; font-size: 13px; }
+
+  .page-cta { max-width: 760px; margin-top: 64px; padding: 36px 32px; background: var(--color-charcoal-dark); color: var(--color-cream); }
+  .page-cta h2 { font-family: var(--font-display); font-size: 26px; font-weight: 600; margin-bottom: 12px; color: var(--color-cream); }
+  .page-cta p { font-size: 15px; line-height: 1.55; margin-bottom: 20px; color: var(--color-cream-warm); }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-note { font-size: 12px; color: var(--color-cream-warm); margin-top: 16px; margin-bottom: 0; opacity: 0.8; }
+
+  .related-block { max-width: 760px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--color-border-medium); }
+  .related-block h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 20px; color: var(--color-text-primary); }
+  .related-block ul { list-style: none; padding: 0; margin: 0; }
+  .related-block li { padding: 10px 0 10px 20px; border-bottom: 1px solid var(--color-border-soft); position: relative; }
+  .related-block li::before { content: "→"; position: absolute; left: 0; color: var(--color-copper); font-weight: 600; }
+  .related-block a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related-block a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .article-header h1 { font-size: 44px; }
+    .content-section h2 { font-size: 26px; }
+    .content-section p, .bullet-list li { font-size: 16px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 6px 8px; }
+    .page-cta { padding: 28px 24px; }
+  }
+</style>

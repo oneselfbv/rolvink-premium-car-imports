@@ -4,15 +4,14 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://www.rolvinkpremiumcarimports.nl',
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   integrations: [
     mdx(),
     sitemap({
       serialize(item) {
-        // Strip trailing slashes so sitemap URLs match canonical convention exactly.
-        // Root URL keeps its trailing slash per sitemap-protocol convention.
-        if (item.url !== 'https://www.rolvinkpremiumcarimports.nl/') {
-          item.url = item.url.replace(/\/$/, '');
+        // Ensure trailing slash to match Vercel directory-style serving + BaseLayout canonical.
+        if (!item.url.endsWith('/')) {
+          item.url += '/';
         }
         return item;
       },
