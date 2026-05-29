@@ -1,0 +1,353 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Japanse auction sheet lezen' },
+];
+
+const publishedDate = '2026-05-29';
+const updatedDate = '2026-05-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Japanse auction sheet lezen — complete gids voor importkopers',
+  description: 'Hoe lees je een Japanse auction sheet: anatomie van de sheet, grade-systeem, letter-codes voor schade, RHD/LHD-mismatch valkuil, service-historie indicators en wat niet op een sheet staat.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/japanse-auction-sheet-lezen' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Japanse auction sheet lezen — complete gids | Rolvink"
+  description="Hoe lees je een Japanse auction sheet: anatomie van de sheet, grade-systeem, letter-codes voor schade, de RHD/LHD-mismatch valkuil, service-historie indicators en wat niet op een sheet staat."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Veiling-gids</div>
+        <h1>Japanse <span class="accent">auction sheet</span> lezen.</h1>
+        <p class="lead">De volledige uitleg van een Japans veiling-inspectierapport — anatomie, grade-systeem, letter-codes, de RHD/LHD-valkuil, Japanse termen voor service-historie en wat <em>niet</em> op een sheet staat (en hoe je daarmee omgaat).</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+        </div>
+      </header>
+
+      <div class="disclaimer">
+        Deze gids gebruikt het USS-formaat als referentie omdat dat het meest voorkomende sheet-type is. Andere veilinghuizen (JU, JAA, CAA, ARAI, ZIP, BAYAUC) hanteren vergelijkbare principes maar variëren in lay-out en specifieke notaties. De hier behandelde principes — grade, letter-codes, sheet-anatomie — gelden voor alle grote Japanse veilinghuizen.
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>Inhoud</h2>
+        <ol>
+          <li><a href="#wat-is-een-sheet">Wat is een Japanse auction sheet?</a></li>
+          <li><a href="#anatomie">Anatomie van een sheet</a></li>
+          <li><a href="#basis-info">Basisinformatie veld voor veld</a></li>
+          <li><a href="#grade">Het grade-systeem in vogelvlucht</a></li>
+          <li><a href="#letter-codes">Letter-codes voor schade</a></li>
+          <li><a href="#stuurpositie">Stuurpositie en de RHD/LHD-valkuil</a></li>
+          <li><a href="#service-historie">Service-historie indicators</a></li>
+          <li><a href="#opmerkingenvak">Het opmerkingenvak — waar de echte informatie zit</a></li>
+          <li><a href="#wat-niet">Wat NIET op een sheet staat</a></li>
+          <li><a href="#workflow">Onze werkwijze: sheet naar bod</a></li>
+          <li><a href="#cheat-sheet">Japanse termen — beknopte cheat-sheet</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-is-een-sheet" class="content-section">
+        <h2>Wat is een Japanse auction sheet?</h2>
+        <p>Een Japanse auction sheet is een gestandaardiseerd inspectierapport dat het veilinghuis door een onafhankelijke inspecteur laat opstellen voordat een auto onder de hamer komt. Het is verplicht voor elke ingeschreven auto, en het rapport is bindend in de zin dat afwijkingen tussen sheet en werkelijkheid grond zijn voor formele klachtenprocedures via het veilinghuis.</p>
+        <p>Voor internationale kopers — wij dus — is de sheet de belangrijkste vooraf-informatiebron. Vóór bod ontvangen we een digitale kopie via onze Japanse export-partner; vaak vergezeld van 20 tot 50 foto's inclusief onderkant en interieur. Een goede sheet-lezing maakt het verschil tussen een verstandig bod en een dure verrassing.</p>
+        <p>De grote veilinghuizen — USS, JU, JAA en regionale netwerken zoals CAA, ARAI, ZIP en BAYAUC — gebruiken vergelijkbare principes. De lay-out verschilt per huis maar de bouwstenen (basisinfo, grade, letter-codes, schadediagram, opmerkingenvak) zijn universeel.</p>
+      </section>
+
+      <section id="anatomie" class="content-section">
+        <h2>Anatomie van een sheet</h2>
+        <p>Een typische sheet is opgebouwd uit vier blokken:</p>
+        <ul class="bullet-list">
+          <li><strong>Bovenste blok — basisinfo</strong>: lotnummer, model, bouwjaar, cilinderinhoud, chassis-code, kilometerstand, stuurpositie, transmissie, brandstof, kleur en datum keuring.</li>
+          <li><strong>Middenblok — opties</strong>: aangevinkte uitrustingscodes (PS, PW, AW, AC, SR, navi, leder, etc.).</li>
+          <li><strong>Rechterzijde — conditie</strong>: numerieke grade, interior-grade, eventuele bijzondere markeringen.</li>
+          <li><strong>Hoofdmiddendeel — schadediagram</strong>: een viervoudig zijaanzicht van de auto (voor, links, rechts, achter) met letter-cijfer-codes op specifieke posities die de aard en omvang van eventuele schade aangeven.</li>
+          <li><strong>Onderaan — opmerkingenvak</strong>: vrijgeschreven tekst van de inspecteur. Hier komen nuances, waarschuwingen en details die niet in vakjes passen. Dit is verreweg het belangrijkste tekstblok om goed te lezen.</li>
+        </ul>
+      </section>
+
+      <section id="basis-info" class="content-section">
+        <h2>Basisinformatie veld voor veld</h2>
+        <p>Het bovenste blok kunt u snel scannen, maar deze velden zijn essentieel:</p>
+        <ul class="bullet-list">
+          <li><strong>車名 / 型式</strong> (shamei / katashiki) — model en chassis-code (bv. <em>DBA-211056C</em> voor een W211 E350). De chassis-code identificeert exacte uitvoering en motoruitvoering.</li>
+          <li><strong>初度登録</strong> (shodo touroku) — datum eerste registratie in Japan, meestal in Heisei-jaartelling. <em>Heisei 20</em> = 2008, <em>Heisei 21</em> = 2009, etc.</li>
+          <li><strong>走行</strong> (soukou) — kilometerstand, in km. <em>86,830 km</em> betekent letterlijk 86.830 km.</li>
+          <li><strong>排気量</strong> (haikiryou) — cilinderinhoud in cm³.</li>
+          <li><strong>ハンドル位置</strong> (handoru ichi) — stuurpositie: 左 (links/LHD) of 右 (rechts/RHD). Hier ligt een belangrijke valkuil; zie sectie 6.</li>
+          <li><strong>シフト</strong> (shifuto) — transmissie: AT (automaat) of MT (handgeschakeld).</li>
+          <li><strong>燃料</strong> (nenryou) — brandstof: ガソリン (benzine), ディーゼル (diesel), ハイブリッド (hybride).</li>
+          <li><strong>色</strong> (iro) — kleur, vaak met Mercedes-/BMW-specifieke kleurcode ernaast.</li>
+        </ul>
+      </section>
+
+      <section id="grade" class="content-section">
+        <h2>Het grade-systeem in vogelvlucht</h2>
+        <p>Voor de complete uitleg verwijzen we naar onze aparte <a href="/kennisbank/japanse-veiling-grades">grade-gids</a>. Kort samengevat:</p>
+        <ul class="bullet-list">
+          <li><strong>S of 6</strong>: showroom- / nieuwstaat (zeldzaam).</li>
+          <li><strong>5</strong>: vrijwel nieuwstaat — meestal jonge auto's onder 30.000 km.</li>
+          <li><strong>4,5</strong>: uitstekende staat, minimale gebruikssporen, doorgaans onder 100.000 km.</li>
+          <li><strong>4</strong>: goede staat met normale gebruikssporen passend bij km-stand en bouwjaar, zonder accident-historie.</li>
+          <li><strong>3,5 en lager</strong>: zichtbare slijtage of kleine reparaties. Wij sourcen niet onder grade 4.</li>
+          <li><strong>Letter-codes R, RA, A, X, XX</strong>: signaleren respectievelijk grote reparatie, lichte reparatie, aanvullende notitie, niet onafhankelijk geïnspecteerd, of total loss. Wij bieden niet op auto's met deze codes, ongeacht het numerieke grade.</li>
+        </ul>
+        <p>Het interior-grade staat los: <strong>A</strong> (uitstekend), <strong>B</strong> (goed), <strong>C</strong> (gemiddeld), <strong>D</strong> (slecht). Een Grade 4 met interior C is een veelvoorkomend profiel — verkeerstaat is goed, binnenkant heeft normale slijtage.</p>
+      </section>
+
+      <section id="letter-codes" class="content-section">
+        <h2>Letter-codes voor schade</h2>
+        <p>Het schadediagram in het hoofdmiddendeel toont de auto vanuit vier perspectieven. Op specifieke posities (paneel-zones, ruiten, velgen) staan codes die de aard en omvang van schade aangeven. De code bestaat uit een letter (type schade) gevolgd door een cijfer (omvang):</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Letter</th><th>Betekenis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>Scratch / kras</td></tr>
+            <tr><td>U</td><td>Dent / deuk</td></tr>
+            <tr><td>B</td><td>Dent + scratch / deuk + kras gecombineerd</td></tr>
+            <tr><td>E</td><td>Uitsteekdeuk (van binnenuit naar buiten)</td></tr>
+            <tr><td>P</td><td>Paint repair / lakreparatie</td></tr>
+            <tr><td>W</td><td>Lakwaving / Welving in lak (mogelijk teken van eerdere reparatie)</td></tr>
+            <tr><td>X</td><td>Vervangen paneel</td></tr>
+            <tr><td>XX</td><td>Vervangen paneel slecht uitgevoerd</td></tr>
+            <tr><td>S</td><td>Roest / corrosie</td></tr>
+            <tr><td>C</td><td>Corrosion / corrosie</td></tr>
+            <tr><td>Y</td><td>Crack / scheur (vaak ruit of plastic)</td></tr>
+            <tr><td>R</td><td>Repaired / gerepareerd (algemeen)</td></tr>
+            <tr><td>G</td><td>Stone chip / steenslag</td></tr>
+          </tbody>
+        </table>
+
+        <p>De cijfers geven de omvang aan:</p>
+        <ul class="bullet-list">
+          <li><strong>1</strong> — klein (typisch onder 5 cm), nauwelijks zichtbaar van afstand.</li>
+          <li><strong>2</strong> — duidelijk zichtbaar, tussen 5 en 20 cm.</li>
+          <li><strong>3</strong> — groot, meer dan 20 cm, of meerdere markeringen samen.</li>
+          <li><strong>4</strong> — uitgebreid, panel-werk noodzakelijk om mooi te herstellen.</li>
+        </ul>
+
+        <p>Voorbeelden in de praktijk:</p>
+        <ul class="bullet-list">
+          <li><strong>A1</strong> — lichte kras, cosmetisch verwaarloosbaar.</li>
+          <li><strong>U2</strong> — duidelijk zichtbare deuk, niet te negeren.</li>
+          <li><strong>X</strong> (op een rechterportier) — paneel is ooit vervangen. Op zich niet diskwalificerend, maar wel een vraag waard.</li>
+          <li><strong>XX</strong> — vervangen paneel met slechte aansluiting of kleurmismatch. Stop teken voor onze sourcing.</li>
+        </ul>
+
+        <p>Onze vuistregels: codes 1 en 2 zijn meestal acceptabel binnen onze grade 4-grens. Codes 3 en 4 vragen extra inspectie. <strong>X is een gesprekspunt, XX is een afblaas-signaal</strong> — onbetrouwbare reparatie staat haaks op wat wij voor klanten zoeken.</p>
+      </section>
+
+      <section id="stuurpositie" class="content-section">
+        <h2>Stuurpositie en de RHD/LHD-valkuil</h2>
+        <p>Hier zit een specifieke valkuil die ervaren inkopers kennen en beginners vaak missen. Het veld <strong>ハンドル位置</strong> in het bovenste blok toont in principe 左 (links) of 右 (rechts). Maar omdat de auto in Japan geregistreerd is, kan dit veld in het Japanse veilingsysteem automatisch defaulten op 右 — ongeacht de werkelijke configuratie van de auto.</p>
+        <p>Het bewijs van LHD zit dan vaak in het <strong>opmerkingenvak</strong>: een notitie van de inspecteur zoals <em>左ハンドル</em> (hidari handoru, linkerhandel), <em>左H</em> als afkorting, of een Engelse markering <em>LEFT STEERING WHEEL</em>. Die opmerking is de fysieke waarneming van de inspecteur en weegt zwaarder dan het automatisch ingevulde veld.</p>
+        <p>De praktische regel: <strong>als bovenaan 右 staat maar in de opmerkingen 左ハンドル, bevestigt het opmerkingenvak de werkelijkheid</strong>. Wij vragen in zo'n geval altijd een dashboard-foto recht van voren bij onze Japanse partner ter dubbele verificatie. Eén foto, vijf seconden werk, en je hebt 100% zekerheid voordat er een bod uitgaat.</p>
+        <p>Aanvullend: op broker-platforms zoals <a href="/kennisbank/lhd-rhd-groene-markering">Japan Car Direct (JCD) bestaat een groene UI-markering</a> voor LHD-rijen in de zoekresultaten. Dat is een UI-helper van JCD zelf, geen kenmerk van de officiële veilinghuizen. Op andere platforms (Carvector, Provide Cars en vergelijkbaren) bestaat die markering niet — de tekstuele bevestiging in de sheet is de universele werkwijze.</p>
+      </section>
+
+      <section id="service-historie" class="content-section">
+        <h2>Service-historie indicators</h2>
+        <p>Japanse sheets noteren in het opmerkingenvak of er documentatie aanwezig is. De volgende termen zijn essentieel om te herkennen:</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Japanse term</th><th>Betekenis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>整備記録あり (seibi kiroku ari)</td><td>Onderhoudsgegevens aanwezig</td></tr>
+            <tr><td>記録簿あり (kirokubo ari)</td><td>Service-boek aanwezig</td></tr>
+            <tr><td>取扱説明書あり (toriatsukai setsumeisho ari)</td><td>Handleiding aanwezig</td></tr>
+            <tr><td>スペアキー (supeakii)</td><td>Reservesleutel aanwezig</td></tr>
+            <tr><td>なし (nashi)</td><td>Niet aanwezig / afwezig</td></tr>
+            <tr><td>不明 (fumei)</td><td>Onbekend / niet gecontroleerd</td></tr>
+            <tr><td>修復歴あり (shuufukureki ari)</td><td><strong>Accident-historie aanwezig</strong> — kritiek waarschuwingsteken</td></tr>
+            <tr><td>修復歴なし (shuufukureki nashi)</td><td>Geen accident-historie</td></tr>
+            <tr><td>ワンオーナー (wan oonaa)</td><td>One-owner — slechts één eigenaar gehad</td></tr>
+            <tr><td>禁煙 (kinen)</td><td>Niet-roker auto</td></tr>
+            <tr><td>ガラスコーティング (garasu kootingu)</td><td>Glaslaag / nano-coating aangebracht</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>修復歴あり</strong> (accident history) is een afblaas-signaal voor onze sourcing. Het betekent dat de auto in het verleden constructief gerepareerd is — chassis, frame of structurele delen. Onafhankelijk van het cijfer-grade zegt deze notitie iets fundamenteels over de auto.</p>
+        <p>De Shaken-historie (Japanse 2-jaarlijkse APK) is in Japan goed gedocumenteerd. <strong>整備記録あり</strong> samen met service-stempels bij Mercedes/BMW/Audi/Porsche-dealers geeft een kilometer-verificatie die in Europa zeldzaam is voor occasions van dezelfde leeftijd.</p>
+      </section>
+
+      <section id="opmerkingenvak" class="content-section">
+        <h2>Het opmerkingenvak — waar de echte informatie zit</h2>
+        <p>Het opmerkingenvak onderaan de sheet is verreweg het belangrijkste tekstblok. Hier schrijft de inspecteur vrij wat hij heeft waargenomen — context die niet in vakjes past, waarschuwingen, en details die het verschil maken. Een paar voorbeelden van wat hier kan staan:</p>
+        <ul class="bullet-list">
+          <li>Bevestiging van LHD wanneer het bovenste veld het tegenovergestelde aangeeft (zoals besproken in sectie 6).</li>
+          <li>Specifieke schadebeschrijvingen die niet in een letter-code passen — bijvoorbeeld een lichtkras op de dakrand of een verkleuring van de lak na zonblootstelling.</li>
+          <li>Notities over de motor: stationair geluid bij koude start, eventuele rooklozigheid, transmissieschakeling.</li>
+          <li>Bijzondere uitrusting die niet in de standaard optie-vinkjes valt — bijvoorbeeld een specifieke audio-upgrade of aftermarket-onderdelen.</li>
+          <li>Verklaringen over modificaties — <em>社外マフラー</em> (aftermarket uitlaat), <em>社外ホイール</em> (aftermarket wielen).</li>
+          <li>Bevestiging van LPG-installatie, wanneer aanwezig.</li>
+        </ul>
+        <p>Voor onze klanten vertalen wij dit opmerkingenvak altijd integraal — niet alleen de samenvatting. Een misgelopen zin kan een bod ondersteunen of juist afbreken.</p>
+      </section>
+
+      <section id="wat-niet" class="content-section">
+        <h2>Wat NIET op een sheet staat</h2>
+        <p>Net zo belangrijk als wat er wel op staat, is wat ontbreekt. De sheet is een momentopname; niet alle relevante informatie zit erin. Voor onze klanten vragen wij standaard aanvullende informatie op:</p>
+        <ul class="bullet-list">
+          <li><strong>LPG-installatie status</strong> — wanneer aanwezig is dat soms opgenomen, maar vaak alleen pas zichtbaar via foto's onder de motorkap. Voor LPG-conversies vragen wij merk (Prins, BRC, Vialle, KME) en TÜV-eingetragen status.</li>
+          <li><strong>Recente reparaties met facturen</strong> — sheet vermeldt alleen aanwezigheid van service-boek, niet wat er recent is uitgevoerd. Wij vragen om kopieën van laatste 2 jaar onderhoudsfacturen.</li>
+          <li><strong>Eigenaar-historie</strong> — aantal vorige eigenaren zit in de Shaken-papieren, niet altijd op de sheet zelf. Onze partner kan dat opvragen.</li>
+          <li><strong>Actuele banden-, rem- en vloeistofcondities</strong> — sheet is statisch, condities kunnen tussen keuring en transport veranderen.</li>
+          <li><strong>Motoruitvoering-bevestiging</strong> — voor specifieke modellen waar het verschil tussen uitvoeringen materieel is (M272 port-injection vs CGI, M113 vs M273, M54 vs N52), vragen we expliciete motornummer-bevestiging.</li>
+          <li><strong>Originele kentekenplaat-historie</strong> — bij zeldzame import-uitvoeringen kan dit relevant zijn voor authenticiteitsbewijs.</li>
+        </ul>
+      </section>
+
+      <section id="workflow" class="content-section">
+        <h2>Onze werkwijze: sheet naar bod</h2>
+        <p>Voor elke kandidaatauto die uw profiel raakt, doorlopen wij het volgende traject voordat er ook maar één yen wordt geboden:</p>
+        <ol class="numbered-list">
+          <li>Sheet-vertaling: integraal Nederlandstalige uitleg van alle velden inclusief opmerkingenvak.</li>
+          <li>Foto-analyse: minimaal 20-30 foto's inclusief onderkant, motorruimte, interieur en kentekenplaat.</li>
+          <li>Chassis-decode: bevestiging van exacte motoruitvoering, productiedatum en optie-codes via VIN of chassis-suffix.</li>
+          <li>Risico-rapport: wat zien we wel, wat zien we niet, en welke aanvullende informatie vragen we op bij onze Japanse partner.</li>
+          <li>Bod-strategie: maximumbod gebaseerd op landed cost, NL-marktwaarde en geschatte risico-marge.</li>
+          <li>Klant-akkoord: u tekent expliciet voor bod-mandaat voordat er wordt geboden.</li>
+          <li>Bieden: via onze Japanse export-partner, met realtime status-updates.</li>
+          <li>Bij hammer-down: pre-shipment foto's en bevestiging dat de werkelijke auto matcht met de sheet. Bij significante afwijking volgt formele klachtenprocedure via het veilinghuis.</li>
+        </ol>
+      </section>
+
+      <section id="cheat-sheet" class="content-section">
+        <h2>Japanse termen — beknopte cheat-sheet</h2>
+        <p>Voor wie de sheet zelf wil scannen, hieronder de meest voorkomende termen op een rij:</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr><th>Term</th><th>Romaji</th><th>Betekenis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>車名</td><td>shamei</td><td>Model / merk</td></tr>
+            <tr><td>型式</td><td>katashiki</td><td>Chassis-code</td></tr>
+            <tr><td>初度登録</td><td>shodo touroku</td><td>Datum eerste registratie</td></tr>
+            <tr><td>走行</td><td>soukou</td><td>Kilometerstand</td></tr>
+            <tr><td>排気量</td><td>haikiryou</td><td>Cilinderinhoud</td></tr>
+            <tr><td>ハンドル位置</td><td>handoru ichi</td><td>Stuurpositie</td></tr>
+            <tr><td>左ハンドル / 左H</td><td>hidari handoru</td><td>LHD (links)</td></tr>
+            <tr><td>右ハンドル / 右H</td><td>migi handoru</td><td>RHD (rechts)</td></tr>
+            <tr><td>シフト</td><td>shifuto</td><td>Transmissie</td></tr>
+            <tr><td>燃料</td><td>nenryou</td><td>Brandstof</td></tr>
+            <tr><td>修復歴あり</td><td>shuufukureki ari</td><td>Accident-historie aanwezig</td></tr>
+            <tr><td>修復歴なし</td><td>shuufukureki nashi</td><td>Geen accident-historie</td></tr>
+            <tr><td>整備記録あり</td><td>seibi kiroku ari</td><td>Onderhoudsgegevens aanwezig</td></tr>
+            <tr><td>記録簿あり</td><td>kirokubo ari</td><td>Service-boek aanwezig</td></tr>
+            <tr><td>ワンオーナー</td><td>wan oonaa</td><td>One owner</td></tr>
+            <tr><td>禁煙</td><td>kinen</td><td>Niet-roker auto</td></tr>
+            <tr><td>落札</td><td>rakusatsu</td><td>Verkocht (hammer down)</td></tr>
+            <tr><td>流札</td><td>ryuusatsu</td><td>Niet verkocht (reserve niet gehaald)</td></tr>
+            <tr><td>商談</td><td>shoudan</td><td>Verkocht na onderhandeling</td></tr>
+            <tr><td>取消</td><td>torikeshi</td><td>Geannuleerd</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="page-cta">
+        <h2>Zelf een sheet zien die u wilt laten doorlezen?</h2>
+        <p>Stuur de sheet door tijdens een intake-gesprek. Wij vertalen integraal, decoden het chassis-nummer, en geven een eerlijk advies over wat de sheet wel en niet zegt.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/japanse-veiling-grades">Japanse auction grades uitgelegd</a></li>
+          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD bij Japanse veilingen</a></li>
+          <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+          <li><a href="/kennisbank/mercedes-m272-v6-motor">Mercedes M272 V6 — motorgids (incl. chassis-decode tips)</a></li>
+          <li><a href="/kennisbank/faq-japan">FAQ — Auto importeren uit Japan</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-copper); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list { padding-left: 24px; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .bullet-list em { font-style: italic; }
+
+  .numbered-list { padding-left: 24px; }
+  .numbered-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { background: var(--color-cream); }
+  .page-cta-note { font-size: 13px; color: rgba(245, 241, 234, 0.6); margin-top: 16px; }
+
+  .related { max-width: 760px; margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 16px; }
+  .related ul { padding-left: 0; list-style: none; }
+  .related li { padding: 8px 0; font-size: 16px; }
+  .related a { color: var(--color-text-primary); text-decoration: none; }
+  .related a:hover { color: var(--color-copper); }
+
+  @media (max-width: 900px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+    .page-cta h2 { font-size: 22px; }
+    .toc, .disclaimer { padding: 22px 24px; }
+    .cost-table { font-size: 13px; }
+  }
+</style>

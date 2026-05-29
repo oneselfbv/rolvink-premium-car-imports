@@ -50,6 +50,33 @@ const niet = [
       <h1>Onze <span class="accent">selectiecriteria</span>.</h1>
       <p class="lead">Wij beperken ons bewust tot vier merken en strikte kwaliteitseisen. Hieronder transparant wat we wél en niet sourcen — zodat u snel weet of we een match zijn. Per merk geven we ook aan welk segment via Japan loopt en welk via Duitsland.</p>
 
+      <section class="why-section">
+        <h2>Waarom beperken wij ons tot vier merken?</h2>
+        <p>De keuze voor BMW, Mercedes-Benz, Audi en Porsche is geen modegril of arbitraire selectie. Het is een bewuste discipline die voor onze klanten drie concrete voordelen oplevert.</p>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-num">01</div>
+            <h3>Diepe modelkennis per merk</h3>
+            <p>Vier merken serieus volgen betekent dat wij elke generatie, elke motoruitvoering en elke bekende valkuil per model uit het hoofd kennen. Dat is het verschil tussen "we hebben een 2014 E350 voor u gevonden" en "we hebben een 2014 E350 met de port-injection M272 boven de balansas-cutoff voor u gevonden". Voor klanten die het verschil weten te waarderen is dat een gesprek waard.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-num">02</div>
+            <h3>Sterke en bewezen restwaarde</h3>
+            <p>Deze vier Duitse merken hebben in het premium segment een aantoonbaar sterkere restwaarde-curve dan generieke alternatieven. Bij doorverkoop of inruil is dat direct in euro's voelbaar. Volume-merken zoals VW Tiguan, Land Rover Discovery of Volvo XC60 zijn prima auto's, maar de prijsdaling per jaar is structureel steiler.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-num">03</div>
+            <h3>Breed onderhoud- en specialistennetwerk</h3>
+            <p>Voor BMW, Mercedes, Audi en Porsche zijn in Nederland en omringende landen tientallen onafhankelijke specialisten beschikbaar tegen redelijke tarieven. Onderdelen zijn breed verkrijgbaar, ook voor oudere modellen. Voor zeldzamere merken kunt u afhankelijk zijn van één specialist of dure dealer-tarieven.</p>
+          </div>
+        </div>
+
+        <p>Daarbij geldt: <strong>al deze merken zijn structureel sterker vertegenwoordigd in de Japanse LHD-veilingmarkt</strong> dan andere premium-merken (Range Rover, Volvo, Jaguar). Voor de Japan-route is dit niet alleen een commerciële keuze, maar ook een feitelijke beperking van wat er met regelmaat beschikbaar komt. Een Porsche 911 in LHD vinden we op JCD elke maand; een Range Rover Sport in LHD aanzienlijk minder vaak.</p>
+
+        <p>Zou u graag een Lexus, Volvo, Range Rover of klassieke Italiaan via ons sourcen? Wij verwijzen u dan eerlijk naar collega's die zich daarin specialiseren. Doen waar je goed in bent, niet alles voor iedereen.</p>
+      </section>
+
       <h2>Wat wij wél sourcen</h2>
       <div class="grid">
         {wel.map((item) => (
@@ -86,6 +113,42 @@ const niet = [
   .selectie-page { padding: 64px 0 96px; }
   .selectie-page h1 { font-size: 64px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
   .selectie-page h2 { font-size: 28px; font-weight: 600; margin-bottom: 28px; }
+
+  .why-section { margin-bottom: 72px; max-width: 920px; }
+  .why-section h2 { font-size: 32px; margin-bottom: 20px; }
+  .why-section > p { font-size: 17px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 32px; max-width: 720px; }
+  .why-section > p strong { color: var(--color-text-primary); font-weight: 600; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .why-card {
+    background: var(--color-cream-warm);
+    padding: 28px 24px;
+    border-top: 3px solid var(--color-copper);
+  }
+  .why-num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-copper);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .why-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .why-card p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
   .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 64px; line-height: 1.6; }
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .card { background: var(--color-white); padding: 28px 28px; border-left: 3px solid var(--color-copper); }
@@ -118,6 +181,8 @@ const niet = [
   @media (max-width: 768px) {
     .selectie-page h1 { font-size: 40px; }
     .grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-section h2 { font-size: 24px; }
     .page-cta { padding: 36px 24px; }
   }
 </style>
