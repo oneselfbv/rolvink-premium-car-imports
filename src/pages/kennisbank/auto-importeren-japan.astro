@@ -100,12 +100,12 @@ const articleSchema = {
         <h2>Conditie grades: 1 tot 5 (plus de letter-codes)</h2>
         <p>De Japanse veiling-conditieschaal loopt van 1 (zeer slecht) tot 5 (vrijwel nieuw), met halve stappen. Daarnaast bestaan letter-codes voor schadegevallen: R, RA, A, X. Wij accepteren uitsluitend <strong>grade 4 of hoger zonder R/RA/A/X-codes</strong>. Onder die grens beginnen risico's op verborgen issues sterk toe te nemen.</p>
         <ul class="grade-list">
-          <li><strong>Grade 5</strong> — Vrijwel nieuwstaat, onder 30.000 km. Zeldzaam in oudere bouwjaren.</li>
-          <li><strong>Grade 4.5</strong> — Uitstekende staat, minimale gebruikssporen, onder 100.000 km.</li>
-          <li><strong>Grade 4</strong> — Goede staat, normale gebruikssporen passend bij km-stand, geen bekende schade- of herstelhistorie.</li>
-          <li><strong>Grade 3.5</strong> — Gemiddelde staat, zichtbare sporen en mogelijk kleine reparaties nodig. <em>Wij weigeren.</em></li>
-          <li><strong>Grade 3</strong> — Onder gemiddeld, opknapper. <em>Wij weigeren.</em></li>
-          <li><strong>R / RA</strong> — Reparatie-historie geregistreerd (R = ingrijpend, RA = licht). <em>Wij weigeren.</em></li>
+          <li><span class="g-label">Grade 5</span><span class="g-desc">Vrijwel nieuwstaat, onder 30.000 km. Zeldzaam in oudere bouwjaren.</span></li>
+          <li><span class="g-label">Grade 4.5</span><span class="g-desc">Uitstekende staat, minimale gebruikssporen, onder 100.000 km.</span></li>
+          <li><span class="g-label">Grade 4</span><span class="g-desc">Goede staat, normale gebruikssporen passend bij km-stand, geen bekende schade- of herstelhistorie.</span></li>
+          <li><span class="g-label">Grade 3.5</span><span class="g-desc">Gemiddelde staat, zichtbare sporen en mogelijk kleine reparaties nodig. <em>Wij weigeren.</em></span></li>
+          <li><span class="g-label">Grade 3</span><span class="g-desc">Onder gemiddeld, opknapper. <em>Wij weigeren.</em></span></li>
+          <li><span class="g-label">R / RA</span><span class="g-desc">Reparatie-historie geregistreerd (R = ingrijpend, RA = licht). <em>Wij weigeren.</em></span></li>
         </ul>
         <p>Een uitgebreidere uitleg per grade — inclusief alle letter-codes — staat in onze <a href="/kennisbank/japanse-veiling-grades">complete gids over Japanse auction grades</a>.</p>
       </section>
@@ -232,8 +232,8 @@ const articleSchema = {
   .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
   .toc ol { padding-left: 24px; }
   .toc li { padding: 5px 0; font-size: 15px; }
-  .toc a { color: var(--color-text-primary); text-decoration: none; transition: color 0.2s; }
-  .toc a:hover { color: var(--color-copper-text); }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
 
   .content-section { max-width: 760px; margin-bottom: 56px; }
   .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
@@ -243,8 +243,12 @@ const articleSchema = {
   .content-section strong { color: var(--color-text-primary); font-weight: 600; }
 
   .grade-list { padding-left: 0; list-style: none; margin-bottom: 16px; }
-  .grade-list li { padding: 8px 0; border-bottom: 1px solid var(--color-border-soft); font-size: 15px; color: var(--color-text-secondary); }
+  .grade-list li { display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--color-border-soft); font-size: 15px; color: var(--color-text-secondary); }
   .grade-list li:last-child { border-bottom: none; }
+  .grade-list .g-label { font-weight: 600; color: var(--color-text-primary); white-space: nowrap; }
+  .grade-list .g-desc { line-height: 1.55; }
+  .grade-list .g-desc em { font-style: italic; color: var(--color-copper-text); }
+  @media (max-width: 768px) { .grade-list li { grid-template-columns: 74px 1fr; gap: 12px; } }
 
   .step-list { padding-left: 0; list-style: none; counter-reset: step; }
   .step-list li { padding: 20px 0; border-bottom: 1px solid var(--color-border-soft); }

@@ -10,21 +10,29 @@ const breadcrumbs = [
 const wel = [
   {
     title: 'BMW',
+    slug: 'bmw',
+    alt: 'Zwarte BMW 4-Serie M-Sport op een bergweg — sourcing van premium BMW-uitvoeringen',
     body: 'Het brede premium-aanbod van BMW — onder andere 3-, 4-, 5-, 6-, 7- en 8-Serie, alle M-uitvoeringen (M2/M3/M4/M5/M6/M8), Z-roadsters en de X-Series (X3/X5/X6/X7). Voorkeur voor benzine 6-cilinder en V8, optioneel xDrive.',
     routes: 'Via Japan vooral M-Performance en zeldzamere uitvoeringen met lage km; via Duitsland het volledige 3/4/5/6/7/8/X-spectrum inclusief daily drivers.',
   },
   {
     title: 'Mercedes-Benz',
+    slug: 'mercedes',
+    alt: 'Mercedes-AMG GT in mat zwart, vooraanzicht met Panamericana-grille',
     body: 'Het brede premium-aanbod van Mercedes-Benz — onder andere C-, E- en S-Klasse over alle moderne generaties, CLS, SL/SLK, GLE/GLS, G-Klasse en AMG-uitvoeringen. Klassieke modellen (R107, R129, W124 Cosworth) op aanvraag.',
     routes: 'Via Japan vooral AMG-uitvoeringen, SL-cabrio\'s en klassiekers met lage km; via Duitsland het volledige aanbod inclusief estates en G-Klasse.',
   },
   {
     title: 'Audi',
+    slug: 'audi',
+    alt: 'Audi RS7 Sportback en RS6 Avant bij zonsondergang',
     body: 'Het brede premium-aanbod van Audi — onder andere A6/A7/A8 over alle moderne generaties, RS-uitvoeringen (RS4, RS5, RS6, RS7), S-modellen, Q5/Q7/Q8 en TT/TT RS. Voorkeur voor quattro-uitvoeringen met volledige onderhoudshistorie. Achtergrond: <a href="/kennisbank/audi-quattro-rs-koopgids">complete Audi quattro &amp; RS-koopgids</a>.',
     routes: 'Via Japan vooral RS- en S-uitvoeringen die in Europa zeldzaam zijn; via Duitsland het volledige A6/A7/A8/Q-spectrum.',
   },
   {
     title: 'Porsche',
+    slug: 'porsche',
+    alt: 'Witte Porsche 911 GT3 RS bij een haven — import van zeldzame uitvoeringen',
     body: 'Het brede premium-aanbod van Porsche — 911 in alle generaties (993/996/997/991/992) en uitvoeringen (Carrera/Targa/Turbo/GT3), Cayman/Boxster (986/987/981/718), Cayenne, Macan en Panamera in sportieve uitvoeringen. Klassieke air-cooled op aanvraag. Voor 996/997.1 koop: lees onze <a href="/kennisbank/porsche-ims-lager-996-997">IMS-koopgids</a>. Voor 997.2: zie ook de <a href="/kennisbank/porsche-997-2-japan-vs-duitsland">Japan vs Duitsland cost-vergelijking</a>.',
     routes: 'Via Japan vooral 911 in LHD over alle generaties, Cayman/Boxster S/GTS en zeldzame uitvoeringen; via Duitsland tevens Cayenne, Macan en Panamera.',
   },
@@ -81,9 +89,31 @@ const niet = [
       <div class="grid">
         {wel.map((item) => (
           <div class="card card-wel">
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
-            <p class="routes"><strong>Routes:</strong> {item.routes}</p>
+            <figure class="card-img">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset={`/images/brand-${item.slug}-600.webp 600w, /images/brand-${item.slug}-1200.webp 1200w`}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <img
+                  class="img-graded"
+                  src={`/images/brand-${item.slug}-1200.jpg`}
+                  srcset={`/images/brand-${item.slug}-600.jpg 600w, /images/brand-${item.slug}-1200.jpg 1200w`}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                  alt={item.alt}
+                />
+              </picture>
+            </figure>
+            <div class="card-body">
+              <h3>{item.title}</h3>
+              <p set:html={item.body} />
+              <p class="routes"><strong>Routes:</strong> {item.routes}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -92,8 +122,10 @@ const niet = [
       <div class="grid">
         {niet.map((item) => (
           <div class="card card-niet">
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
+            <div class="card-body">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -151,8 +183,27 @@ const niet = [
   }
   .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 64px; line-height: 1.6; }
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .card { background: var(--color-white); padding: 28px 28px; border-left: 3px solid var(--color-copper-text); }
-  .card-niet { border-left-color: var(--color-text-tertiary); }
+
+  /* Card = sharp-cornered editorial block; image full-bleed on top, padded body below.
+     Left accent encodes intent: copper = wél sourcen, charcoal = categorisch nee. */
+  .card { background: var(--color-white); padding: 0; border-left: 3px solid var(--color-copper-text); overflow: hidden; }
+  .card-niet { border-left-color: var(--color-charcoal); }
+  .card-body { padding: 28px 28px; }
+
+  .card-img {
+    margin: 0;
+    aspect-ratio: 3 / 2;          /* reserve space → geen CLS bij lazy-load */
+    overflow: hidden;
+    border-radius: 0;              /* sharp corners, consistent met ServiceStrip */
+    background: var(--color-cream-warm);
+  }
+  .card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
   .card h3 { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
   .card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
   .card p.routes {
