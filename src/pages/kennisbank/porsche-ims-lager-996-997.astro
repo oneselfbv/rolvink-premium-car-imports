@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'Porsche IMS-lager 996/997 — koopgids' },
+];
+
+const publishedDate = '2026-05-29';
+const updatedDate = '2026-05-29';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Porsche IMS-lager 996/997 — de complete koopgids voor importkopers',
+  description: 'Welke Porsche 911-bouwjaren hebben IMS-risico, welke generaties zijn IMS-vrij, wat doen retrofit-kits en welke pre-purchase checks horen daarbij. Met onderbouwde nuance over uitvalsstatistieken.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/porsche-ims-lager-996-997' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="Porsche IMS-lager 996/997 — koopgids importkopers | Rolvink"
+  description="Welke 911-bouwjaren hebben IMS-risico, welke zijn IMS-vrij, hoe werken retrofit-kits en wat checken wij vóór bod. Met onderbouwde nuance op de uitvalsstatistiek."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Modelgids — Porsche 911</div>
+        <h1>Het Porsche <span class="accent">IMS-lager</span> — 996 en 997.1.</h1>
+        <p class="lead">Geen enkel onderwerp houdt 911-kopers zo bezig als de IMS-bearing. De feiten zijn minder dramatisch dan internet-fora suggereren, en minder onschuldig dan sommige verkopers beweren. Hier het nuchtere verhaal: wat het is, welke bouwjaren risico lopen, welke generaties géén IMS hebben, welke retrofit-kits bestaan en wat wij vóór elk bod controleren.</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 29 mei 2026</time>
+          {publishedDate !== updatedDate && (
+            <>
+              <span>·</span>
+              <time datetime={updatedDate}>Bijgewerkt {new Date(updatedDate).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+            </>
+          )}
+        </div>
+      </header>
+
+      <AuthorByline variant="top" />
+
+      <div class="disclaimer">
+        Deze gids is bedoeld voor oriëntatie bij de aankoop of import van een Porsche 996 of 997.1. Wij baseren ons op publieke technische documentatie, branche-kennis, gedocumenteerde class-action zaken en onze eigen sourcing-ervaring. <strong>Uitvalsstatistieken voor het IMS-lager wisselen aanzienlijk per bron en jaargang</strong> — wij citeren waar mogelijk de bandbreedte in plaats van een enkel cijfer. Bovenstaande is geen technisch advies voor uw eigen voertuig.
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>In deze gids</h2>
+        <ol>
+          <li><a href="#wat-is-ims">Wat is het IMS-lager?</a></li>
+          <li><a href="#generaties">Welke 911-generaties hebben IMS — en welke niet</a></li>
+          <li><a href="#varianten">De drie bearing-varianten: dual-row, single-row, sealed</a></li>
+          <li><a href="#hoe-faalt">Hoe een IMS-lager faalt — symptomen en gevolg</a></li>
+          <li><a href="#statistiek">De statistiek: wat zegt de data écht?</a></li>
+          <li><a href="#bore-scoring">Bore-scoring — het andere M96/M97-thema</a></li>
+          <li><a href="#kits">Retrofit-kits: IMS Retrofit versus IMS Solution</a></li>
+          <li><a href="#checken">Pre-purchase checks die wij doen</a></li>
+          <li><a href="#vrij">Welke 911-uitvoeringen zijn IMS-vrij?</a></li>
+          <li><a href="#rolvink">Wat dit betekent voor onze sourcing</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-is-ims" class="content-section">
+        <h2>Wat is het IMS-lager?</h2>
+        <p>IMS staat voor <em>Intermediate Shaft</em>, de tussenas in een Porsche M96- of vroege M97-motor die de aandrijving van de bovenliggende nokkenassen verzorgt vanaf de krukas. Aan het vliegwiel-uiteinde van die tussenas zit een afgedicht kogellager — het IMS-lager. Porsche ontwierp dit lager oorspronkelijk als een levenslange component die nooit onderhoud zou behoeven.</p>
+        <p>In de praktijk blijkt dat niet altijd zo. Bij een deel van de M96- en vroege M97-motoren raakt de afdichting van het lager beschadigd, sluipt olie naar binnen, ontstaat slijtage aan de loopvlakken en uiteindelijk faalt het lager. Wanneer dat gebeurt belandt metaalpoeder in de gehele smeercirculatie en kan de motor in de meeste gevallen niet zonder volledige revisie of vervanging worden gered. De reparatiekosten lopen in dat scenario typisch op tot tussen de € 15.000 en € 25.000 — wat het de meest gevreesde fabrieks-zwakte uit de moderne Porsche-geschiedenis maakt.</p>
+        <p>De goede nuance: niet elke M96/M97-motor faalt. De grote meerderheid haalt ruime kilometrages zonder problemen, mits met regelmaat gereden en regelmatig met juiste olie ververst. De vraag is daarmee niet "of het kan", maar "hoe groot is het risico per generatie, hoe weeg je dat tegen de prijs van een retrofit, en welke pre-purchase checks zijn realistisch?"</p>
+      </section>
+
+      <section id="generaties" class="content-section">
+        <h2>Welke 911-generaties hebben IMS — en welke niet</h2>
+        <p>De IMS-discussie geldt voor een specifieke periode in de 911-historie. Buiten die periode is er geen IMS-risico, simpelweg omdat de motor anders gebouwd is.</p>
+        <ul class="bullet-list">
+          <li><strong>911 996 (1997-2005)</strong> — M96-motor, IMS aanwezig. Dit is de generatie waarin het thema startte.</li>
+          <li><strong>911 997.1 (2005-2008)</strong> — eveneens IMS aanwezig. Vroege jaren gebruiken een M96-afgeleide, latere jaren een M97 met dezelfde IMS-architectuur.</li>
+          <li><strong>911 997.2 (2009-2012)</strong> — <strong>geen IMS-risico</strong>. Porsche introduceerde hier de 9A1-motor met directe inspuiting waarbij de tussenas en het bijbehorende lager volledig zijn weggeontworpen. Dit is de eerste 911-generatie waarvoor IMS geen onderwerp meer is.</li>
+          <li><strong>911 991 (2011-2019) en 992 (2019-heden)</strong> — beide gebaseerd op de 9A1-architectuur of opvolgers daarvan. Geen IMS-risico.</li>
+          <li><strong>911 Turbo (996/997) en GT3-uitvoeringen</strong> — gebruiken de Mezger-motor (codenaam M96/80), een compleet ander en duurder ontwerp afgeleid van de race-techniek. Deze motor heeft geen IMS-lager zoals in de reguliere Carrera. GT3, GT2 en Turbo's uit deze periode zijn daarmee IMS-vrij, maar zitten in een aanzienlijk hoger prijssegment.</li>
+          <li><strong>Boxster 986/987.1 en Cayman 987.1</strong> — gebruiken dezelfde M96/M97-motorfamilie en hebben hetzelfde IMS-risico. Boxster 987.2 (2009+) en Cayman 987.2 hebben de 9A1, en zijn IMS-vrij.</li>
+        </ul>
+        <p>De praktische conclusie voor 911-kopers: voor een geheel zorgenvrije IMS-positie kies je <strong>997.2 of nieuwer</strong>, of een Mezger-motor (Turbo/GT3). Daaronder geldt dat alle 996 en 997.1 in het verhaal zitten — met grote verschillen per bouwjaar en per lager-type. Zie de volgende sectie.</p>
+      </section>
+
+      <section id="varianten" class="content-section">
+        <h2>De drie bearing-varianten</h2>
+        <p>Binnen de IMS-periode (996 + 997.1) heeft Porsche drie verschillende lagervarianten gebruikt. Het type lager dat in een specifieke motor zit is een sterke voorspeller voor het uitvalsrisico en bepaalt of een retrofit-kit überhaupt toepasbaar is. De cesuren liggen niet exact op bouwjaar maar zijn voor 95% met het bouwjaar af te leiden.</p>
+        <h3>Dual-row (1997 — circa medio 1999)</h3>
+        <p>De vroegste 996's kregen een dubbel-rij kogellager — twee rijen kogels naast elkaar, met meer dragend oppervlak. In onze ervaring en volgens gangbare branche-analyses (waaronder publicaties van LN Engineering) toont deze lagervariant historisch het laagste uitvalspercentage. Wie een vroege 996 Carrera koopt heeft daarmee structureel minder IMS-risico dan iemand met een uit de late jaren — al blijft "minder" niet hetzelfde als "geen".</p>
+        <h3>Single-row (circa medio 1999 — 2005)</h3>
+        <p>Vanaf modeljaar 2000 koos Porsche voor een enkel-rij lager met minder loopvlak. Dit is de variant waarover de meeste IMS-zorg gaat. De rapportages over uitval lopen sterk uiteen — daarover meer in de statistiek-sectie. Het belangrijkste voor kopers: deze lagervariant is met een retrofit-kit (zoals de LN Engineering IMS Retrofit) <strong>vervangbaar zonder de motor te splitsen</strong>. Dat maakt 996 met single-row en 997.1 2005 de meest gewilde retrofit-kandidaten.</p>
+        <h3>Sealed / non-serviceable (circa 2006 — 2008)</h3>
+        <p>In de latere 997.1 — vooral in combinatie met de 3,8L M97-uitvoering en in de bijbehorende Boxster S / Cayman S — is het IMS-lager fysiek anders gemonteerd en niet meer zonder demontage van de motor toegankelijk. In de praktijk betekent dat: een externe retrofit-kit lost het niet op. Wel ligt het rapportische uitvalsrisico voor deze sealed variant volgens meerdere bronnen lager dan voor de single-row van 2000-2005, mede omdat het lager intern beter is afgedicht. Pre-purchase oliemonster-analyse en service-historie zijn voor deze groep van extra belang.</p>
+      </section>
+
+      <section id="hoe-faalt" class="content-section">
+        <h2>Hoe een IMS-lager faalt — symptomen en gevolg</h2>
+        <p>IMS-uitval begint vrijwel altijd geleidelijk en zonder duidelijke waarschuwing op het dashboard. Het mechanisme: de afdichting van het lager raakt beschadigd, motor-olie sluipt langzaam in, het smerende vet wordt verdrijft, en de loopvlakken slijten af. Naarmate dat proces vordert, raken kleine metaaldeeltjes los en circuleren door het motorblok. Vroege symptomen die soms herkenbaar zijn:</p>
+        <ul class="bullet-list">
+          <li><strong>Metaaldeeltjes in de oliefilter</strong> bij elke verversing. Wie de oliefilter opensnijdt en glinsterende metaalflinters aantreft, is in een vroeg stadium gewaarschuwd.</li>
+          <li><strong>Verhoogde metaalwaarden in oliemonster-analyse</strong> (Blackstone Labs of vergelijkbaar). Met name ijzer, koper en aluminium boven de gangbare bandbreedte voor M96/M97.</li>
+          <li><strong>Lichte rammel of tik bij koud stationair toerental</strong>, vooral van rechts-achter de motorruimte. Lang niet altijd hoorbaar — vaak verdwijnt het symptoom op bedrijfstemperatuur.</li>
+          <li><strong>Verhoogd olieverbruik</strong>. Niet uniek voor IMS (zie bore-scoring), maar in combinatie met de bovenstaande wel een signaal.</li>
+        </ul>
+        <p>Het gevolg bij volledige uitval: de tussenas blokkeert, de nokkenas-distributie loopt uit synchronisatie met de krukas, kleppen raken zuigers en de motor is in vrijwel alle gevallen <strong>economisch total loss</strong>. Een complete vervangmotor bij Porsche kost € 18.000 — € 25.000 inclusief montage; een revisie bij een gespecialiseerde werkplaats vergelijkbaar. Voor 996-uitvoeringen in het lagere prijssegment ligt dat boven de marktwaarde van de auto zelf.</p>
+      </section>
+
+      <section id="statistiek" class="content-section">
+        <h2>De statistiek: wat zegt de data écht?</h2>
+        <p>Hier zit veel ruis in. Het IMS-thema heeft jarenlange juridische, technische en marketing-stof opgeleverd, met cijfers die afhankelijk van de bron tussen "minder dan 1%" en "tot 10%" liggen. Een eerlijke samenvatting:</p>
+        <ul class="bullet-list">
+          <li><strong>Porsche's officiële positie</strong> (mede onderbouwd in de Eisen v. Porsche class-action uit de Verenigde Staten, geschikt rond 2014) is dat de IMS-uitval substantieel onder de 1% ligt en geen fabricage-fout vormt.</li>
+          <li><strong>De positie van eisers in die class-action</strong> en van onafhankelijke partijen als LN Engineering en Jake Raby is dat de feitelijke uitval voor de single-row periode 2000-2005 dichter bij 5-10% ligt, met variabele uitkomsten per bouwjaar en gebruikspatroon.</li>
+          <li><strong>Branche-consensus</strong> bij gespecialiseerde Porsche-werkplaatsen in Europa en de VS hanteert in onze ervaring een werkbare schatting in de orde van 4-8% over de levensduur voor 2000-2005 single-row, lager (1-3%) voor de vroege dual-row en eveneens lager voor de sealed 2006-2008 variant.</li>
+        </ul>
+        <p>Wat betekent dat voor een aankoopbeslissing? Niet dat je elke 996 of 997.1 moet vermijden. Wel dat het verstandig is om voor 2000-2005 single-row uitvoeringen een retrofit-kit als onderdeel van het aankoopplan in te calculeren, of de retrofit-kosten in de bod-strategie te verdisconteren. Hoe wij dat per case aanpakken staat in de sectie <a href="#rolvink">Wat dit betekent voor onze sourcing</a>.</p>
+      </section>
+
+      <section id="bore-scoring" class="content-section">
+        <h2>Bore-scoring — het andere M96/M97-thema</h2>
+        <p>Naast IMS bestaat er bij de M96/M97-motoren een tweede bekend risico: cilinder-scoring oftewel <em>bore-scoring</em>. Het verschijnsel: krasvorming op de cilinderwand, zichtbaar met een endoscoop als verticale strepen op het loopvlak. Treedt vooral op bij de M96 3,6L (2002-2005) en de M97 3,8L (2006-2008), en met name aan cilinder 6 en cilinder 4. De oorzaak is omstreden — kandidaten zijn aluminium-tin coating-degradatie, te schrale brandstofmengsels in bepaalde gebruikspatronen, en kortritten zonder volledige opwarming.</p>
+        <p>Vroege symptomen: <strong>verhoogd olieverbruik (vaak meer dan 1 liter per 1.000 kilometer)</strong>, vermogensverlies, soms tikken bij koude start. Diagnostiek: borescoop-inspectie via de bougie-openingen — dit kost typisch € 80-€ 150 bij een Porsche-specialist en wij doen het standaard pre-purchase voor 996/997.1 in onze sourcing.</p>
+        <p>Belangrijk voor kopers: bore-scoring is een <strong>onafhankelijk risico</strong> dat los staat van IMS-status. Een motor kan IMS-vrij geretrofit zijn en alsnog bore-scoring vertonen, of andersom. Een 911 Turbo of GT3 met Mezger-motor is van beide vrij. Een 997.2 met 9A1 ook.</p>
+      </section>
+
+      <section id="kits" class="content-section">
+        <h2>Retrofit-kits — IMS Retrofit versus IMS Solution</h2>
+        <p>Voor de single-row IMS-variant (en sommige dual-row) zijn er twee gangbare retrofit-opties, beide ontwikkeld door LN Engineering in samenwerking met Porsche-specialist Jake Raby:</p>
+        <h3>IMS Retrofit Kit</h3>
+        <p>Vervangt het originele kogellager door een nieuw, ceramisch enkel- of dubbel-rij kogellager met betere lagerlevensduur en strakkere toleranties. Materiaalkosten typisch € 1.000-€ 1.400, arbeid € 1.800-€ 3.000 inclusief koppeling-revisie en achter-krukas-keerring (RMS) die toch open ligt wanneer de versnellingsbak eraf is. Praktische totaal-investering: <strong>€ 3.000-€ 4.500 all-in</strong>, afhankelijk van werkplaats en welke bijkomende slijtdelen worden meegenomen.</p>
+        <p>De gedachte achter de Retrofit Kit: vervang het matig presterende fabriekslager door een beter exemplaar van dezelfde architectuur. Vereist nog steeds periodieke vervanging (typisch elke 75.000-100.000 km), maar het uitvalsrisico zakt aanzienlijk.</p>
+        <h3>IMS Solution</h3>
+        <p>Een fundamenteel andere oplossing: vervangt de gehele kogellager-architectuur door een olie-gevoede glijlager. Geen kogels meer, alleen een continu door motorolie gesmeerd loopvlak. Wordt door LN Engineering en specialisten beschouwd als <strong>permanente oplossing</strong> die nooit meer vervanging behoeft. Materiaalkosten typisch € 2.500-€ 3.200, arbeid vergelijkbaar met Retrofit. Praktische totaal-investering: <strong>€ 4.500-€ 6.500 all-in</strong>.</p>
+        <h3>Wat te kiezen</h3>
+        <p>In onze ervaring: voor een 911 die zelf actief gereden wordt en regelmatig onderhoud krijgt, is de Retrofit Kit de pragmatische keuze. Voor een 911 die als lange-termijn investering wordt gehouden, of een uitvoering met hoge kilometerstanden waar geen tweede ronde demontage gewenst is, is de IMS Solution de logische keuze. Belangrijk: <strong>voor de sealed 2006-2008 variant is geen externe retrofit-kit beschikbaar</strong>. Daar is alleen pre-purchase risicobeperking via oliemonster en service-historie de werkbare strategie.</p>
+      </section>
+
+      <section id="checken" class="content-section">
+        <h2>Pre-purchase checks die wij doen</h2>
+        <p>Voor elke 996 of 997.1 die wij in beeld krijgen — Japan- of Duitsland-route — voeren wij voor het uitbrengen van een bod de volgende controles uit. Niet alles is overal mogelijk, maar wij streven naar minimaal vier van de zes.</p>
+        <ul class="bullet-list">
+          <li><strong>Identificeer het lager-type</strong> via bouwjaar (en bij twijfel via motornummer): pre-MY2000 dual-row, MY2000-2005 single-row, MY2006-2008 sealed.</li>
+          <li><strong>Service-historie uitlezen</strong> op gedocumenteerde IMS-retrofit. Bij Duitsland-route altijd Scheckheft + facturen van Porsche-werkplaats of erkende specialist. Bij Japan-route: vertaling van de service-stempels en aanvullende foto's van het motorruim-typeplaatje.</li>
+          <li><strong>Borescoop-inspectie</strong> via de bougie-openingen — wij regelen dit bij Duitse aankoop bij een onafhankelijke Porsche-werkplaats, bij Japanse aankoop via onze partner in Yokohama. Kosten € 80-€ 150 per inspectie, onmisbaar voor 996/997.1.</li>
+          <li><strong>Oliefilter-snede</strong> bij de eerste verversing na aankomst NL. Wij doen dit standaard voor 996/997.1 en bewaren een sample voor referentie.</li>
+          <li><strong>Oliemonster-analyse</strong> (Blackstone Labs of equivalente Europese partner) bij de eerste verversing. Verhoogde metaalwaarden zijn een vroeg-signaal voor zowel IMS als bore-scoring.</li>
+          <li><strong>Geluidstest bij koude start</strong> en op stationair toerental, met aandacht voor tikken of rammelen vanaf rechts-achter de motorruimte.</li>
+        </ul>
+        <p>Geen van deze checks geeft een garantie. Wel verlagen ze de kans op een verrassing en geven ze ons en de eindklant onderbouwd inzicht in de feitelijke conditie. Een motor die op alle zes punten schoon scoort is geen IMS-vrije motor maar wel een motor waarvoor de inschatting van resterend risico realistisch is.</p>
+      </section>
+
+      <section id="vrij" class="content-section">
+        <h2>Welke 911-uitvoeringen zijn IMS-vrij?</h2>
+        <p>Wie het IMS-thema volledig wil omzeilen heeft drie routes:</p>
+        <ul class="bullet-list">
+          <li><strong>911 997.2 Carrera, Carrera S, Carrera 4S (2009-2012)</strong> — de 9A1-motor heeft geen tussenas zoals in M96/M97. Geen IMS, geen bore-scoring, en in onze ervaring de meest aanbevolen 996/997-instap voor wie de Porsche-DNA wil zonder M96-erfenis. Sterk LHD-aanbod via Japan. Zie ook onze <a href="/kennisbank/porsche-911-modelgids#sweet-spot-997-2">911-modelgids voor de 997.2-sweet-spot</a>.</li>
+          <li><strong>911 991 (2011-2019), 992 (2019-heden)</strong> — 9A1-afgeleide motoren, vanaf 991.2 (2016) met turbo. Vergelijkbaar IMS-vrij, hogere prijsklasse, andere koop-overwegingen.</li>
+          <li><strong>911 Turbo, GT2, GT3 (alle 996/997 jaargangen)</strong> — Mezger-motor, geen IMS-architectuur en geen bore-scoring. Wel hogere onderhoudskosten in absolute zin en aanzienlijk hoger prijssegment. Voor liefhebbers met budget vaak een sterke combinatie.</li>
+        </ul>
+        <p>Daaronder, in het 996-segment vanaf € 25.000-€ 45.000 en het 997.1-segment vanaf € 35.000-€ 55.000, blijft IMS een onderwerp dat aandacht verdient. Niet als koop-blokker, wel als checklist-item.</p>
+      </section>
+
+      <section id="rolvink" class="content-section">
+        <h2>Wat dit betekent voor onze sourcing</h2>
+        <p>In de praktijk leidt het IMS-verhaal voor ons tot drie sourcing-regels die wij bij elke 911-opdracht hanteren:</p>
+        <ul class="bullet-list">
+          <li><strong>Bij voorkeur 997.2 of nieuwer.</strong> Voor kopers zonder uitgesproken voorkeur voor een eerdere generatie sturen wij altijd 997.2 voor als instap, gevolgd door 991 als er meer budget is. Dit zijn de meest zorgenvrije 911's uit moderne tijd.</li>
+          <li><strong>996 en 997.1 alleen met gedocumenteerde IMS-actie of expliciet budget voor retrofit.</strong> Wij stellen geen 996/997.1 voor zonder dat één van twee waar is: ofwel is er bewijs van een eerder uitgevoerde IMS Retrofit of IMS Solution in de service-historie, ofwel wordt de retrofit-kost (typisch € 3.500-€ 6.000 all-in) als directe post-aankomst-investering in de landed-cost-prognose opgenomen. Geen IMS-actie, geen budget, geen advies.</li>
+          <li><strong>Geen IMS-retrofit-kit voor 2006-2008 sealed.</strong> Externe retrofit is op deze variant niet mogelijk. Voor die jaargangen werken wij uitsluitend met oliemonster-analyse, borescoop-inspectie en aantoonbare service-historie als risicobeperking. Bij twijfel: walk-away.</li>
+        </ul>
+        <p>Voor wie de Porsche-DNA wil zonder M96/M97-overwegingen: de 9A1-motor in de 997.2 is een vrijwel onbesproken pareltje — atmosferisch, zelf-aanzuigend, geen IMS, geen bore-scoring, post-facelift infotainment, en LHD-aanbod uit Japan is structureel sterk. Onze meest aanbevolen 911-instap in 2026.</p>
+        <p>Voor de proces-kant: zie onze <a href="/kennisbank/auto-importeren-japan">complete Japan-import-gids</a> en <a href="/kennisbank/auto-importeren-duitsland">Duitsland-import-gids</a>, of vergelijk routes via de <a href="/route-advies">route-advies-tool</a>. Onze sourcing-fee staat op <a href="/tarieven">/tarieven</a>; een volledig doorgerekende voorbeeldcase op <a href="/voorbeeld-traject">/voorbeeld-traject</a>. Voor de bredere Porsche-context: <a href="/kennisbank/porsche-911-modelgids">911-modelgids over vijf generaties</a> en <a href="/merk/porsche">onze Porsche-focus</a>.</p>
+      </section>
+
+      <AuthorByline variant="bottom" />
+
+      <div class="page-cta">
+        <h2>Op zoek naar een 996, 997.1 of 997.2?</h2>
+        <p>Vertel ons generatie, uitvoering en budget. Wij screenen Japan en Duitsland wekelijks en voeren voor elk 996/997.1-kandidaat een volledige pre-purchase check uit. Geen actie zonder uw groen licht.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related-block">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/porsche-911-modelgids">Porsche 911 — modelgids vijf generaties</a></li>
+          <li><a href="/kennisbank/japanse-auction-sheet-lezen">Japanse auction sheet lezen — complete gids</a></li>
+          <li><a href="/kennisbank/japanse-veiling-grades">Japanse auction grades uitgelegd</a></li>
+          <li><a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD bij Japanse veilingen</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importauto's — gids 2026</a></li>
+          <li><a href="/merk/porsche">Onze Porsche-focus</a></li>
+          <li><a href="/bpm-calculator">BPM-tool — bereken indicatief uw BPM</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .article-header h1 { font-family: var(--font-serif); font-size: 64px; font-weight: 500; letter-spacing: 0.02em; margin: 16px 0 24px; line-height: 1.05; }
+  .article-header .lead { font-size: 19px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 24px; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-charcoal-dark); }
+
+  .toc { max-width: 760px; margin-bottom: 56px; padding: 24px 28px; background: var(--color-cream); border-left: 3px solid var(--color-copper); }
+  .toc h2 { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 14px; font-weight: 600; }
+  .toc ol { margin: 0; padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 15px; }
+  .toc a { color: var(--color-text-primary); text-decoration: none; }
+  .toc a:hover { color: var(--color-copper); text-decoration: underline; }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-family: var(--font-display); font-size: 32px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .content-section h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin: 28px 0 12px; color: var(--color-charcoal-dark); }
+  .content-section p { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 18px; }
+  .content-section a { color: var(--color-copper); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .bullet-list { padding-left: 20px; margin-bottom: 18px; }
+  .bullet-list li { font-size: 17px; line-height: 1.65; color: var(--color-text-primary); margin-bottom: 10px; }
+  .bullet-list li strong { color: var(--color-charcoal-dark); }
+
+  .page-cta { max-width: 760px; margin-top: 64px; padding: 36px 32px; background: var(--color-charcoal-dark); color: var(--color-cream); }
+  .page-cta h2 { font-family: var(--font-display); font-size: 26px; font-weight: 600; margin-bottom: 12px; color: var(--color-cream); }
+  .page-cta p { font-size: 15px; line-height: 1.55; margin-bottom: 20px; color: var(--color-cream-warm); }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px; background: var(--color-copper); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-note { font-size: 12px; color: var(--color-cream-warm); margin-top: 16px; margin-bottom: 0; opacity: 0.8; }
+
+  .related-block { max-width: 760px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--color-border-medium); }
+  .related-block h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 20px; color: var(--color-text-primary); }
+  .related-block ul { list-style: none; padding: 0; margin: 0; }
+  .related-block li { padding: 10px 0 10px 20px; border-bottom: 1px solid var(--color-border-soft); position: relative; }
+  .related-block li::before { content: "→"; position: absolute; left: 0; color: var(--color-copper); font-weight: 600; }
+  .related-block a { color: var(--color-text-primary); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .related-block a:hover { color: var(--color-copper); }
+
+  @media (max-width: 768px) {
+    .article-header h1 { font-size: 44px; }
+    .content-section h2 { font-size: 26px; }
+    .content-section h3 { font-size: 19px; }
+    .content-section p, .bullet-list li { font-size: 16px; }
+    .page-cta { padding: 28px 24px; }
+  }
+</style>
