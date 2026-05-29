@@ -1,0 +1,485 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Tarieven' },
+];
+
+const lossDiensten = [
+  {
+    title: 'DRZ-taxatierapport voor tegenbewijsregeling',
+    price: '€ 350',
+    body: 'Fysieke taxatie door een erkende DRZ-taxateur, te gebruiken als onderbouwing voor de BPM-aangifte volgens de tegenbewijsregeling.',
+  },
+  {
+    title: 'BPM-koerslijst-rapport voor zelfindiening',
+    price: '€ 79',
+    body: 'Onderbouwde BPM-berekening volgens de koerslijst-methode (X-Ray of Eurotax), opgeleverd als rapport dat u zelf bij de Belastingdienst kunt indienen.',
+  },
+  {
+    title: 'Sheet-vertaling Japanse veiling-sheet',
+    price: '€ 95',
+    body: 'Nederlandstalige duiding van een officiële Japanse auction-sheet — handig wanneer u zelf via een ander kanaal koopt en de conditie-rapportage wilt begrijpen.',
+  },
+  {
+    title: 'Intake-gesprek',
+    price: 'Gratis',
+    body: 'Online, via WhatsApp of in Welsum — maximaal 60 minuten (Duitsland-route) of 90 minuten (Japan-route). Geen verkoopdruk, eerlijk advies of er een match is.',
+  },
+];
+---
+
+<BaseLayout
+  title="Tarieven — Sourcing Duitsland & Japan | Rolvink Premium Car Imports"
+  description="Transparante tarieven voor onze sourcing-diensten. Premium BPM Quick-Scan vanaf €149, Duitsland-traject vanaf €2.500, Japan-traject vanaf €3.250 met gefaseerde betalingen."
+>
+  <section class="tariff-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">Tarieven</div>
+      <h1>Transparante prijzen <span class="accent">vóór</span> u tekent.</h1>
+      <p class="lead">Wij rekenen geen kickback over BPM-besparing, geen marge op de aanschafprijs en geen verborgen handling-fee. U betaalt onze sourcing-fee in fasen — zodat uw werkkapitaal niet maandenlang stilstaat op de oceaan.</p>
+
+      <!-- THREE-TIER PRICING -->
+      <div class="tier-grid">
+
+        <!-- TIER 1: QUICK-SCAN -->
+        <div class="tier tier-quickscan">
+          <div class="tier-tag">Laagdrempelige eerste stap</div>
+          <h2>Premium BPM Quick-Scan</h2>
+          <div class="tier-price">€ 149 <span class="tier-vat">incl. btw</span></div>
+          <p class="tier-lead">U heeft een auto online gevonden en wilt weten of import zinvol is. Binnen 24 uur ontvangt u een handmatig gecontroleerd fiscaal rapport.</p>
+
+          <h3>Wat u ontvangt</h3>
+          <ul class="tier-list">
+            <li>BPM-berekening via de drie officiële methoden (forfaitaire afschrijving, koerslijst, tegenbewijs)</li>
+            <li>Onderbouwde inschatting van NL-marktwaarde na import</li>
+            <li>Technische risico-opmerking per model (bv. IMS bij 996, ketting-issue bij N52, kleppendeksel-lekkages)</li>
+            <li>Concreet go/no-go-advies: wel of niet bieden — en boven welke prijs zeker niet</li>
+          </ul>
+
+          <div class="tier-foot">
+            <p class="tier-foot-key">Verrekenbaar</p>
+            <p class="tier-foot-text">Besluit u de auto via ons te sourcen? Dan trekken wij de € 149 volledig af van de sourcing-fee.</p>
+          </div>
+
+          <p class="tier-scope">Scope: één auto-URL per scan. Vragen over meerdere auto's? Plan een intake.</p>
+        </div>
+
+        <!-- TIER 2: DUITSLAND -->
+        <div class="tier tier-de">
+          <div class="tier-tag">Snelste route</div>
+          <h2>Sourcing-traject Duitsland</h2>
+          <div class="tier-price">vanaf € 2.500 <span class="tier-vat">incl. btw</span></div>
+          <p class="tier-lead">Voor wie binnen 2 tot 4 weken in de auto wil rijden. Wij sourcen bij erkende Duitse premium-dealers, bezichtigen ter plaatse en regelen het volledige traject tot aflevering aan huis.</p>
+
+          <h3>Gefaseerde betaling</h3>
+          <div class="phase-block">
+            <div class="phase">
+              <div class="phase-step">Fase 1</div>
+              <div class="phase-amount">€ 750</div>
+              <div class="phase-when">Bij start — retainer</div>
+              <p>Vóór wij gaan zoeken. Verrekenbaar met de eindfee bij succesvolle aankoop. Niet-restitueerbaar bij annulering door opdrachtgever na bod-akkoord.</p>
+            </div>
+            <div class="phase">
+              <div class="phase-step">Fase 2</div>
+              <div class="phase-amount">€ 1.750</div>
+              <div class="phase-when">Bij aflevering — restbetaling</div>
+              <p>Bij sleuteloverdracht op uw adres in Nederland, met kenteken, APK en alle documentatie compleet.</p>
+            </div>
+          </div>
+
+          <h3>Wat ons traject inhoudt</h3>
+          <ul class="tier-list">
+            <li>Intake-gesprek + profiel-document met must-haves en deal-breakers</li>
+            <li>Kandidaatvoorstellen (3-5 auto's binnen 1-2 weken)</li>
+            <li>Bezichtiging ter plaatse in Duitsland vóór bod</li>
+            <li>Dealer-onderhandeling op uw belang, transport DE→NL, RDW-keuring, BPM-aangifte via voordeligste methode, kentekening</li>
+            <li>Aflevering aan huis in NL</li>
+          </ul>
+
+          <p class="tier-scope">Aanschafprijs van de auto, BPM, transport en RDW-kosten betaalt u zelf rechtstreeks (transparant gerapporteerd, geen marge bij ons).</p>
+        </div>
+
+        <!-- TIER 3: JAPAN -->
+        <div class="tier tier-jp tier-feature">
+          <div class="tier-tag">Onze specialisatie</div>
+          <h2>Sourcing-traject Japan</h2>
+          <div class="tier-price">€ 3.250 <span class="tier-vat">introductie-tarief</span></div>
+          <p class="tier-price-note">Voor de eerste 10 klanten in 2026, in ruil voor case-study en review-recht. Daarna € 4.500 standaard.</p>
+          <p class="tier-lead">Voor wie een zeldzame LHD-uitvoering uit Japan zoekt — lagere kilometers, droger klimaat, Shaken-discipline. Reken op 10 tot 14 weken vanaf veiling tot Nederlandse kentekenplaat.</p>
+
+          <h3>Gefaseerde betaling — drie fases</h3>
+          <div class="phase-block">
+            <div class="phase">
+              <div class="phase-step">Fase 1</div>
+              <div class="phase-amount">€ 1.250</div>
+              <div class="phase-when">Bij start — retainer</div>
+              <p>Vóór wij beginnen met de wekelijkse veiling-screening op USS, JU en JAA. Verrekenbaar met eindfee bij succes.</p>
+            </div>
+            <div class="phase">
+              <div class="phase-step">Fase 2</div>
+              <div class="phase-amount">Aanschaf + transport</div>
+              <div class="phase-when">Direct na hammer-down</div>
+              <p>U betaalt de gewonnen auctie-prijs (in yen, gecommuniceerd vooraf) plus binnen-Japan-transport en RoRo-zeevracht. U koopt de auto direct via volmacht; wij staan ertussen als coördinator, niet als wederverkoper.</p>
+            </div>
+            <div class="phase">
+              <div class="phase-step">Fase 3</div>
+              <div class="phase-amount">€ 2.000 + invoer</div>
+              <div class="phase-when">Bij aflevering — restbetaling</div>
+              <p>Restant sourcing-fee (€ 2.000 bij introductie-tarief, € 3.250 bij standaard) plus 10% invoerrechten, 21% BTW, BPM en RDW-kosten. Pas bij sleuteloverdracht in Nederland.</p>
+            </div>
+          </div>
+
+          <h3>Wat ons Japan-traject inhoudt</h3>
+          <ul class="tier-list">
+            <li>Uitgebreid intake-gesprek (90 min) — profiel, conditie-grens, kleurvoorkeur, must-haves</li>
+            <li>Wekelijkse JCD/USS/JU/JAA-screening met Nederlandstalige sheet-vertaling per kandidaat</li>
+            <li>Bod-strategie en bieden via onze gevestigde Japanse export-partner</li>
+            <li>Coördinatie binnenlands transport Japan, exportformaliteiten, RoRo-zeevracht</li>
+            <li>Douane-afhandeling Rotterdam, RDW-keuring, BPM-aangifte, kentekening</li>
+            <li>Aflevering aan huis in NL</li>
+          </ul>
+
+          <p class="tier-scope">Aanschafprijs (yen), binnenlands transport Japan, RoRo, douane-heffingen, BPM en RDW betaalt u zelf. Wij coördineren elke betaling transparant — u ziet elke factuur.</p>
+        </div>
+
+      </div>
+
+      <!-- LOSSE DIENSTEN -->
+      <div class="extra-section">
+        <h2 class="extra-heading">Losse diensten</h2>
+        <p class="extra-lead">Niet elke vraag vereist een volledig sourcing-traject. Voor specifieke onderdelen van het importproces kunt u losse diensten afnemen.</p>
+
+        <div class="extra-grid">
+          {lossDiensten.map((d) => (
+            <div class="extra-item">
+              <div class="extra-row">
+                <h3>{d.title}</h3>
+                <div class="extra-price">{d.price}</div>
+              </div>
+              <p>{d.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- TRANSPARANTIE-DISCLAIMER -->
+      <div class="transparency-block">
+        <h2>Onze financiële spelregels</h2>
+        <ul class="transparency-list">
+          <li><strong>Geen kickback op BPM-besparing.</strong> Wat wij voor u besparen via de gunstigste methode komt 100% bij u terecht. Wij rekenen onze sourcing-fee, niets meer.</li>
+          <li><strong>Geen marge op de aanschafprijs.</strong> U betaalt rechtstreeks aan de Duitse dealer of via de Japanse veiling-partner. Wij koppelen elk bedrag terug met factuur.</li>
+          <li><strong>Geen verborgen handling-kosten.</strong> Transport, douane, BPM, RDW worden tegen kostprijs doorberekend, met onderliggende facturen.</li>
+          <li><strong>Heldere voorwaarden vooraf.</strong> Vóór de retainer ondertekent u een opdrachtovereenkomst waarin de scope, betalingsfasen en annuleringsregeling expliciet staan vermeld.</li>
+        </ul>
+      </div>
+
+      <div class="page-cta">
+        <a href="/contact" class="page-cta-btn">
+          Plan vrijblijvend intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tariff-page { padding: 64px 0 96px; }
+  .tariff-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 760px; margin-bottom: 64px; line-height: 1.6; }
+
+  /* Three-tier grid */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 96px;
+  }
+  .tier {
+    background: var(--color-white);
+    padding: 36px 32px;
+    border: 1px solid var(--color-border-medium);
+    display: flex;
+    flex-direction: column;
+  }
+  .tier-feature {
+    border: 2px solid var(--color-copper);
+    background: var(--color-cream-warm);
+  }
+  .tier-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 16px;
+  }
+  .tier h2 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+  .tier-price {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+  .tier-vat {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0;
+  }
+  .tier-price-note {
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .tier-lead {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .tier h3 {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin: 0 0 16px;
+  }
+  .tier-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .tier-list li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    padding: 8px 0 8px 22px;
+    position: relative;
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+  .tier-list li:last-child { border-bottom: none; }
+  .tier-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-copper);
+    font-weight: 600;
+  }
+
+  .phase-block {
+    margin-bottom: 28px;
+  }
+  .phase {
+    padding: 16px 0;
+    border-top: 1px solid var(--color-border-medium);
+  }
+  .phase:last-child {
+    border-bottom: 1px solid var(--color-border-medium);
+  }
+  .phase-step {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 4px;
+  }
+  .phase-amount {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+  }
+  .phase-when {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .phase p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .tier-foot {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-medium);
+    margin-bottom: 16px;
+  }
+  .tier-foot-key {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 6px;
+  }
+  .tier-foot-text {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .tier-scope {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    margin: 16px 0 0;
+    line-height: 1.5;
+  }
+
+  /* Losse diensten */
+  .extra-section { margin-bottom: 80px; }
+  .extra-heading {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .extra-lead {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+  .extra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--color-border-medium);
+    border: 1px solid var(--color-border-medium);
+  }
+  .extra-item {
+    background: var(--color-white);
+    padding: 28px 28px;
+  }
+  .extra-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .extra-item h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+  .extra-price {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-copper);
+    white-space: nowrap;
+  }
+  .extra-item p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Transparantie-block */
+  .transparency-block {
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    padding: 56px 48px;
+    margin-bottom: 64px;
+  }
+  .transparency-block h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 28px;
+    color: var(--color-cream);
+  }
+  .transparency-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .transparency-list li {
+    padding: 14px 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-cream);
+    border-bottom: 1px solid rgba(245, 241, 234, 0.15);
+  }
+  .transparency-list li:last-child { border-bottom: none; }
+  .transparency-list strong {
+    color: var(--color-copper);
+    font-weight: 600;
+  }
+
+  /* CTA */
+  .page-cta {
+    padding: 48px 28px;
+    background: var(--color-cream-warm);
+    text-align: center;
+  }
+  .page-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: var(--color-copper);
+    color: var(--color-charcoal-dark);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .page-cta-btn:hover {
+    background: var(--color-copper-dark);
+    color: var(--color-cream);
+  }
+  .page-cta-btn .arrow {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .tariff-page h1 { font-size: 36px; }
+    .tier-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .extra-grid {
+      grid-template-columns: 1fr;
+    }
+    .transparency-block {
+      padding: 36px 24px;
+    }
+    .transparency-block h2 { font-size: 22px; }
+    .extra-heading { font-size: 24px; }
+  }
+</style>
