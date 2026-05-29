@@ -331,6 +331,11 @@ footer ul li {
   opacity: 0.4;
 }
 
+/* When a real <img> is dropped in, hide the placeholder label/underline + bg */
+.image-slot--placeholder:has(img) { background: transparent; }
+.image-slot--placeholder:has(img)::before,
+.image-slot--placeholder:has(img)::after { display: none; }
+
 /* Headline clamp — tight letter-spacing collides on narrow screens */
 .hero h1, h1.hero-headline {
   font-size: clamp(40px, 8vw, 82px) !important;
