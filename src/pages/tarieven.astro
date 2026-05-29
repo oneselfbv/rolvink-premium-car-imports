@@ -33,7 +33,7 @@ const lossDiensten = [
 
 <BaseLayout
   title="Tarieven — Sourcing Duitsland & Japan | Rolvink Premium Car Imports"
-  description="Transparante tarieven voor onze sourcing-diensten. Premium BPM Quick-Scan €99, Duitsland-traject vanaf €2.250, Japan-traject € 3.250 met gefaseerde betalingen."
+  description="Transparante tarieven voor onze sourcing-diensten. Sourcing Duitsland vanaf €2.250, Sourcing Japan €3.250 met gefaseerde betalingen."
 >
   <section class="tariff-page">
     <div class="container">
@@ -43,33 +43,11 @@ const lossDiensten = [
       <h1>Transparante prijzen <span class="accent">vóór</span> u tekent.</h1>
       <p class="lead">Wij rekenen geen kickback over BPM-besparing, geen marge op de aanschafprijs en geen verborgen handling-fee. U betaalt onze sourcing-fee in fasen — zodat uw werkkapitaal niet maandenlang stilstaat op de oceaan.</p>
 
-      <!-- THREE-TIER PRICING -->
+      <!-- TWO-TIER PRICING -->
       <div class="tier-grid">
 
-        <!-- TIER 1: QUICK-SCAN -->
-        <div class="tier tier-quickscan">
-          <div class="tier-tag">Laagdrempelige eerste stap</div>
-          <h2>Premium BPM Quick-Scan</h2>
-          <div class="tier-price">€ 99 <span class="tier-vat">incl. btw</span></div>
-          <p class="tier-lead">U heeft een auto online gevonden en wilt weten of import zinvol is. Binnen 24 uur ontvangt u een handmatig gecontroleerd fiscaal rapport.</p>
+        <!-- TIER 1: DUITSLAND -->
 
-          <h3>Wat u ontvangt</h3>
-          <ul class="tier-list">
-            <li>BPM-berekening via de drie officiële methoden (forfaitaire afschrijving, koerslijst, tegenbewijs)</li>
-            <li>Onderbouwde inschatting van NL-marktwaarde na import</li>
-            <li>Technische risico-opmerking per model (bv. IMS bij 996, ketting-issue bij N52, kleppendeksel-lekkages)</li>
-            <li>Concreet go/no-go-advies: wel of niet bieden — en boven welke prijs zeker niet</li>
-          </ul>
-
-          <div class="tier-foot">
-            <p class="tier-foot-key">Verrekenbaar</p>
-            <p class="tier-foot-text">Besluit u de auto via ons te sourcen? Dan trekken wij de € 99 volledig af van de sourcing-fee.</p>
-          </div>
-
-          <p class="tier-scope">Scope: één auto-URL per scan. Vragen over meerdere auto's? Plan een intake.</p>
-        </div>
-
-        <!-- TIER 2: DUITSLAND -->
         <div class="tier tier-de">
           <div class="tier-tag">Snelste route</div>
           <h2>Sourcing-traject Duitsland</h2>
@@ -195,9 +173,12 @@ const lossDiensten = [
   /* Three-tier grid */
   .tier-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
     margin-bottom: 96px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .tier {
     background: var(--color-white);

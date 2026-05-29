@@ -1,0 +1,525 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'BPM-tool' },
+];
+---
+
+<BaseLayout
+  title="BPM-tool — Indicatieve BPM-berekening voor importauto's | Rolvink"
+  description="Bereken indicatief de BPM voor uw importauto via de forfaitaire methode. Bouwjaar, CO2-uitstoot en brandstof — direct een richtbedrag voor uw oriëntatie."
+>
+  <section class="bpm-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">BPM-tool</div>
+      <h1>Bereken <span class="accent">indicatief</span> de BPM van uw importauto.</h1>
+      <p class="lead">Deze tool geeft een richtbedrag op basis van de forfaitaire afschrijvingsmethode. Voor moderne premium-auto's is de koerslijst-methode vaak voordeliger — wij rekenen dat per geval voor u door tijdens een intake-gesprek.</p>
+
+      <!-- CALCULATOR FORM -->
+      <div class="calc-wrapper">
+        <form id="bpm-form" class="calc-form" novalidate>
+          <div class="field">
+            <label for="bouwjaar">Bouwjaar / datum eerste toelating</label>
+            <input
+              type="month"
+              id="bouwjaar"
+              name="bouwjaar"
+              required
+              min="1990-01"
+              max="2026-12"
+            />
+            <small>Datum waarop de auto voor het eerst is geregistreerd (in Duitsland of Japan).</small>
+          </div>
+
+          <div class="field">
+            <label for="brandstof">Brandstof</label>
+            <select id="brandstof" name="brandstof" required>
+              <option value="">— Kies brandstof —</option>
+              <option value="benzine">Benzine</option>
+              <option value="diesel">Diesel</option>
+              <option value="hybride">Hybride (PHEV)</option>
+              <option value="elektrisch">Elektrisch (EV)</option>
+            </select>
+          </div>
+
+          <div class="field" id="co2-field">
+            <label for="co2">CO₂-uitstoot (g/km)</label>
+            <input
+              type="number"
+              id="co2"
+              name="co2"
+              required
+              min="0"
+              max="500"
+              step="1"
+              placeholder="bv. 145"
+            />
+            <small>Te vinden op het Duitse kentekenbewijs (Kraftstoffverbrauch CO₂ kombiniert) of de NEDC/WLTP-papieren.</small>
+          </div>
+
+          <button type="submit" class="calc-btn">Bereken indicatie</button>
+        </form>
+
+        <div id="result" class="result" hidden>
+          <h2 class="result-title">Indicatieve BPM</h2>
+          <div class="result-grid">
+            <div class="result-item">
+              <div class="result-label">Bruto BPM</div>
+              <div class="result-value" id="result-bruto">—</div>
+              <div class="result-note">Volgens CO₂-grondslag</div>
+            </div>
+            <div class="result-item">
+              <div class="result-label">Afschrijving</div>
+              <div class="result-value" id="result-afschr">—</div>
+              <div class="result-note" id="result-leeftijd">—</div>
+            </div>
+            <div class="result-item result-final">
+              <div class="result-label">Netto BPM</div>
+              <div class="result-value" id="result-netto">—</div>
+              <div class="result-note">Indicatief — forfaitaire methode</div>
+            </div>
+          </div>
+          <p class="result-explain" id="result-explain"></p>
+        </div>
+
+        <div id="error" class="error" hidden>
+          <p id="error-msg"></p>
+        </div>
+      </div>
+
+      <!-- DISCLAIMER + UITLEG -->
+      <div class="disclaimer-block">
+        <h2>Hoe interpreteer ik deze uitkomst?</h2>
+        <p>De bovenstaande indicatie is gebaseerd op de <strong>forfaitaire afschrijvingstabel</strong> — één van de drie officiële methoden om BPM te berekenen bij import van een gebruikte auto. De andere twee methoden zijn:</p>
+        <ul class="explain-list">
+          <li><strong>Koerslijst-methode</strong> — gebaseerd op commerciële restwaardetabellen (X-Ray, Eurotax). Voor premium-auto's met snelle waardedaling vaak voordeliger dan forfait.</li>
+          <li><strong>Tegenbewijs (DRZ-taxatie)</strong> — een fysieke taxatie door een erkende taxateur. Loont bij auto's met aantoonbaar lagere waarde dan koerslijst-norm.</li>
+        </ul>
+        <p>Welke methode het meest oplevert verschilt per voertuig. Wij rekenen alle drie door en kiezen de gunstigste. Bij de meeste W212, F10 en 911-uitvoeringen scheelt dat €500 tot €2.000 ten opzichte van forfait alleen.</p>
+
+        <p class="small-print">Deze tool is uitsluitend bedoeld voor oriëntatie. De definitieve BPM-vaststelling gebeurt door de Belastingdienst op basis van de aangifte. Tarieven worden jaarlijks aangepast — voor de actuele tarieftabel zie <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/auto_en_vervoer/belastingen_op_auto_en_motor/bpm/" rel="nofollow noopener" target="_blank">belastingdienst.nl/bpm</a>. Wij aanvaarden geen aansprakelijkheid voor verschillen tussen deze indicatie en de definitieve aanslag.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="page-cta">
+        <h2 class="cta-title">Wilt u een onderbouwde berekening per voertuig?</h2>
+        <p class="cta-text">Plan een vrijblijvend intake-gesprek. Wij rekenen alle drie BPM-methoden door voor uw specifieke kandidaatauto, vergelijken met de NL-marktwaarde, en adviseren of import zinvol is.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .bpm-page { padding: 64px 0 96px; }
+  .bpm-page h1 { font-size: 48px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 760px; margin-bottom: 56px; line-height: 1.6; }
+
+  /* Calculator */
+  .calc-wrapper {
+    max-width: 880px;
+    margin: 0 auto 64px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border-medium);
+    padding: 48px 40px;
+  }
+  .calc-form {
+    display: grid;
+    gap: 24px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+  .field label {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 10px;
+  }
+  .field input,
+  .field select {
+    font-family: var(--font-body);
+    font-size: 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--color-border-medium);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+  }
+  .field input:focus,
+  .field select:focus {
+    outline: 2px solid var(--color-copper);
+    outline-offset: -1px;
+  }
+  .field small {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+    line-height: 1.5;
+  }
+  .calc-btn {
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    border: none;
+    padding: 18px 28px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .calc-btn:hover {
+    background: var(--color-copper);
+  }
+
+  /* Result */
+  .result {
+    margin-top: 36px;
+    padding-top: 36px;
+    border-top: 2px solid var(--color-copper);
+  }
+  .result-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--color-border-medium);
+    border: 1px solid var(--color-border-medium);
+    margin-bottom: 24px;
+  }
+  .result-item {
+    background: var(--color-white);
+    padding: 22px 20px;
+  }
+  .result-final {
+    background: var(--color-cream-warm);
+  }
+  .result-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin-bottom: 8px;
+  }
+  .result-value {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .result-note {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    line-height: 1.4;
+  }
+  .result-explain {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    padding: 16px;
+    background: var(--color-cream);
+    border-left: 3px solid var(--color-copper);
+  }
+
+  /* Error */
+  .error {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: rgba(184, 115, 51, 0.08);
+    border-left: 3px solid var(--color-copper);
+  }
+  .error p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-text-primary);
+  }
+
+  /* Disclaimer block */
+  .disclaimer-block {
+    background: var(--color-cream-warm);
+    padding: 48px 40px;
+    margin-bottom: 64px;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .disclaimer-block h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .disclaimer-block p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin-bottom: 18px;
+  }
+  .explain-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px;
+  }
+  .explain-list li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    padding: 10px 0 10px 22px;
+    position: relative;
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+  .explain-list li:last-child { border-bottom: none; }
+  .explain-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-copper);
+    font-weight: 600;
+  }
+  .explain-list strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+  .small-print {
+    font-size: 12px !important;
+    color: var(--color-text-tertiary) !important;
+    line-height: 1.55 !important;
+    margin-top: 20px !important;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-soft);
+  }
+  .small-print a {
+    color: var(--color-copper);
+    text-decoration: underline;
+  }
+
+  /* CTA */
+  .page-cta {
+    padding: 56px 48px;
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    text-align: center;
+  }
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-cream);
+  }
+  .cta-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(245, 241, 234, 0.85);
+    margin-bottom: 32px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .page-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: var(--color-copper);
+    color: var(--color-charcoal-dark);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .page-cta-btn:hover {
+    background: var(--color-cream);
+  }
+
+  @media (max-width: 900px) {
+    .bpm-page h1 { font-size: 32px; }
+    .calc-wrapper { padding: 32px 24px; }
+    .result-grid { grid-template-columns: 1fr; }
+    .result-value { font-size: 22px; }
+    .disclaimer-block { padding: 32px 24px; }
+    .page-cta { padding: 36px 24px; }
+    .cta-title { font-size: 22px; }
+  }
+</style>
+
+<script is:inline>
+  /* BPM Calculator — Forfaitaire methode, indicatief
+     Tarieven gebaseerd op 2025/2026 grondslag personenauto's.
+     Bron: Belastingdienst BPM-tarieftabel. Update jaarlijks. */
+
+  const CO2_SCHIJVEN_BENZINE = [
+    { tot: 79,  basis: 0,        per_gram: 2.00 },
+    { tot: 114, basis: 158,      per_gram: 82.75 },
+    { tot: 159, basis: 3054.25,  per_gram: 113.06 },
+    { tot: 179, basis: 8141.95,  per_gram: 184.44 },
+    { tot: Infinity, basis: 11830.75, per_gram: 558.55 },
+  ];
+
+  const DIESELTOESLAG_PER_GRAM = 109.79;
+  const DIESEL_VRIJE_VOET = 67;
+
+  /* Forfaitaire afschrijvingstabel (vereenvoudigd, in maanden) */
+  function afschrijving(maanden) {
+    if (maanden < 1)   return 0.08;
+    if (maanden < 3)   return 0.12;
+    if (maanden < 5)   return 0.17;
+    if (maanden < 9)   return 0.22;
+    if (maanden < 18)  return 0.28;
+    if (maanden < 30)  return 0.38;
+    if (maanden < 42)  return 0.46;
+    if (maanden < 54)  return 0.52;
+    if (maanden < 66)  return 0.58;
+    if (maanden < 78)  return 0.64;
+    if (maanden < 90)  return 0.70;
+    if (maanden < 102) return 0.75;
+    if (maanden < 114) return 0.80;
+    if (maanden < 180) return 0.86;
+    if (maanden < 240) return 0.90;
+    if (maanden < 300) return 0.94;
+    return 1.00; // >25 jaar oldtimer: vrijgesteld
+  }
+
+  function bruto_bpm_benzine(co2) {
+    let bpm = 0;
+    let vorige_grens = 0;
+    for (const schijf of CO2_SCHIJVEN_BENZINE) {
+      if (co2 <= vorige_grens) break;
+      const tot = Math.min(co2, schijf.tot);
+      if (tot > vorige_grens) {
+        if (vorige_grens === 0) {
+          /* eerste schijf: basis + per_gram * (tot - 0) */
+          bpm = schijf.basis + schijf.per_gram * tot;
+        } else {
+          /* hogere schijf: gebruik vaste basis op grens, dan per_gram boven die grens */
+          bpm = schijf.basis + schijf.per_gram * (tot - vorige_grens);
+        }
+      }
+      vorige_grens = schijf.tot;
+      if (co2 <= schijf.tot) break;
+    }
+    return Math.round(bpm);
+  }
+
+  function bereken_bpm() {
+    const bouwjaar = document.getElementById('bouwjaar').value;
+    const brandstof = document.getElementById('brandstof').value;
+    const co2 = parseInt(document.getElementById('co2').value, 10);
+
+    /* Validatie */
+    if (!bouwjaar) return show_error('Vul een bouwjaar / datum eerste toelating in.');
+    if (!brandstof) return show_error('Kies een brandstoftype.');
+    if (brandstof !== 'elektrisch' && (isNaN(co2) || co2 < 0 || co2 > 500)) {
+      return show_error('Vul een geldige CO₂-uitstoot in (0-500 g/km).');
+    }
+
+    /* Leeftijd in maanden */
+    const datum_eerste = new Date(bouwjaar + '-15');
+    const vandaag = new Date();
+    const maanden = (vandaag.getFullYear() - datum_eerste.getFullYear()) * 12 +
+                    (vandaag.getMonth() - datum_eerste.getMonth());
+
+    if (maanden < 0) return show_error('Datum eerste toelating ligt in de toekomst.');
+
+    const leeftijd_jaren = (maanden / 12).toFixed(1);
+
+    /* Bruto-BPM */
+    let bruto = 0;
+    let toelichting = '';
+
+    if (brandstof === 'elektrisch') {
+      bruto = 0;
+      toelichting = 'Volledig elektrische voertuigen zijn in Nederland tot nader bericht BPM-vrijgesteld. Controleer de actuele tariefstelling voor uw bouwjaar bij de Belastingdienst.';
+    } else if (brandstof === 'benzine' || brandstof === 'hybride') {
+      bruto = bruto_bpm_benzine(co2);
+      toelichting = brandstof === 'hybride'
+        ? 'Voor PHEV-hybrides geldt dezelfde CO₂-grondslag als benzine. Bij zeer lage CO₂ (onder 50 g/km) kunnen specifieke regelingen gelden.'
+        : '';
+    } else if (brandstof === 'diesel') {
+      bruto = bruto_bpm_benzine(co2);
+      const diesel_extra = Math.max(0, (co2 - DIESEL_VRIJE_VOET)) * DIESELTOESLAG_PER_GRAM;
+      bruto += diesel_extra;
+      toelichting = `Voor diesel komt een dieseltoeslag bovenop de standaard CO₂-grondslag (€${DIESELTOESLAG_PER_GRAM.toFixed(2)} per gram boven ${DIESEL_VRIJE_VOET} g/km).`;
+    }
+
+    bruto = Math.round(bruto);
+
+    /* Afschrijving */
+    const afschr_pct = afschrijving(maanden);
+    const netto = Math.round(bruto * (1 - afschr_pct));
+
+    /* Output */
+    hide_error();
+    document.getElementById('result-bruto').textContent = format_eur(bruto);
+    document.getElementById('result-afschr').textContent = (afschr_pct * 100).toFixed(0) + '%';
+    document.getElementById('result-leeftijd').textContent = leeftijd_jaren + ' jaar oud';
+    document.getElementById('result-netto').textContent = format_eur(netto);
+
+    let explain = '';
+    if (maanden >= 300) {
+      explain = `Deze auto is ouder dan 25 jaar — onder de oldtimer-regeling 100% afgeschreven en dus BPM-vrijgesteld. ${toelichting}`;
+    } else if (afschr_pct >= 0.90) {
+      explain = `Door de hoge leeftijd is de BPM grotendeels afgeschreven. ${toelichting}`;
+    } else {
+      explain = `Indicatie via forfaitaire methode op basis van ${leeftijd_jaren} jaar leeftijd. ${toelichting} Voor moderne premium-auto's is de koerslijst-methode regelmatig €500 tot €2.000 voordeliger — wij toetsen dit per voertuig.`;
+    }
+    document.getElementById('result-explain').textContent = explain;
+    document.getElementById('result').hidden = false;
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function format_eur(n) {
+    return '€ ' + n.toLocaleString('nl-NL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  function show_error(msg) {
+    document.getElementById('error-msg').textContent = msg;
+    document.getElementById('error').hidden = false;
+    document.getElementById('result').hidden = true;
+  }
+
+  function hide_error() {
+    document.getElementById('error').hidden = true;
+  }
+
+  /* Show/hide CO2 field for elektrisch */
+  document.getElementById('brandstof').addEventListener('change', (e) => {
+    const co2_field = document.getElementById('co2-field');
+    if (e.target.value === 'elektrisch') {
+      co2_field.style.display = 'none';
+      document.getElementById('co2').removeAttribute('required');
+    } else {
+      co2_field.style.display = 'flex';
+      document.getElementById('co2').setAttribute('required', '');
+    }
+  });
+
+  document.getElementById('bpm-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    bereken_bpm();
+  });
+</script>
