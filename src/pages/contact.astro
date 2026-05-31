@@ -272,3 +272,10 @@ const FORMSPREE_ACTION = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
     .contact-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script is:inline>
+  /* Conversie-tracking: vuur form_submit alleen bij bevestigde Formspree-inzending (?sent=true) */
+  if (new URLSearchParams(location.search).get('sent') === 'true' && typeof gtag === 'function') {
+    gtag('event', 'form_submit', { form: 'intake' });
+  }
+</script>

@@ -489,6 +489,7 @@ const breadcrumbs = [
     }
     document.getElementById('result-explain').textContent = explain;
     document.getElementById('result').hidden = false;
+    try { if (typeof gtag === 'function') gtag('event', 'bpm_calculator_gebruikt', { brandstof: brandstof }); } catch(e) {}
     document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
