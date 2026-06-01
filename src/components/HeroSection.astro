@@ -1,10 +1,10 @@
 ---
-// Homepage hero — H1 + brands list + sources list + CTAs
-// D1: subtiele SVG-noise textuur als achtergrond (papier-grain)
-// D3: primary CTA als button, secondary als tekst-link daaronder
+// Homepage hero — full-bleed donkere auto-visual (BMW M3 sunset) + lichte tekst
+// Gradient-overlay: donker links (leesbare tekst) -> lichter rechts (auto schemert door)
 ---
 
 <section class="hero">
+  <div class="hero-photo" aria-hidden="true"></div>
   <div class="hero-texture" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-grid">
@@ -43,30 +43,35 @@
     position: relative;
     padding: var(--space-hero-top) 0 var(--space-section-bottom);
     overflow: hidden;
-  }
-  /* D1: subtiele papier-grain textuur als achtergrond — tactiel, niet schreeuwerig */
-  .hero-texture {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.5;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.16 0 0 0 0 0.16 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    background-size: 240px 240px;
-    z-index: 0;
-  }
-  .hero .container { position: relative; z-index: 1; }
-  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 100px; align-items: end; }
-  .hero h1 { font-size: 82px; margin-bottom: 32px; line-height: 0.95; font-weight: 600; }
-  .hero-lead { font-size: 19px; max-width: 480px; color: var(--color-text-secondary); margin-bottom: 40px; }
-  .hero-cta-row {
+    background: #161616;
+    min-height: 620px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
+    align-items: center;
   }
+  .hero-photo {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: url("/images/hero-911.jpg");
+    background-size: cover;
+    background-position: center 32%;
+  }
+  .hero-photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg, rgba(18,18,18,0.94) 0%, rgba(18,18,18,0.86) 38%, rgba(18,18,18,0.55) 70%, rgba(18,18,18,0.35) 100%);
+  }
+  .hero-texture {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.35; z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
+  }
+  .hero .container { position: relative; z-index: 2; width: 100%; }
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 100px; align-items: center; }
+  .hero h1 { font-size: 82px; margin-bottom: 32px; line-height: 0.95; font-weight: 600; color: var(--color-cream); }
+  .hero h1 .accent { color: var(--color-copper); }
+  .hero-lead { font-size: 19px; max-width: 480px; color: rgba(245,241,234,0.82); margin-bottom: 40px; }
+  .hero-cta-row { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
   .cta-primary {
     display: inline-flex; align-items: center; gap: 12px;
-    background: var(--color-copper); color: var(--color-charcoal-dark);
+    background: var(--color-copper); color: #1A1A1A;
     font-family: var(--font-body); font-size: 13px; font-weight: 600;
     letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
     padding: 16px 30px; transition: background 0.2s, transform 0.2s;
@@ -74,37 +79,29 @@
   .cta-primary:hover { background: var(--color-cream); transform: translateY(-1px); }
   .cta-primary .arrow { font-size: 14px; transition: transform 0.2s; }
   .cta-primary:hover .arrow { transform: translateX(3px); }
-  /* D3: secondary link i.p.v. tweede button — minder retail-occasion energie */
   .hero-secondary-link {
-    font-family: var(--font-display);
-    font-size: 15px;
-    font-style: italic;
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    transition: color 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    font-family: var(--font-display); font-size: 15px; font-style: italic;
+    color: rgba(245,241,234,0.72); text-decoration: none; transition: color 0.2s;
+    display: inline-flex; align-items: center; gap: 6px;
   }
-  .hero-secondary-link:hover { color: var(--color-copper); }
-  .hero-secondary-link .arrow-small {
-    font-size: 13px;
-    color: var(--color-copper);
-    transition: transform 0.2s;
-  }
+  .hero-secondary-link:hover { color: var(--color-cream); }
+  .hero-secondary-link .arrow-small { font-size: 13px; color: var(--color-copper); transition: transform 0.2s; }
   .hero-secondary-link:hover .arrow-small { transform: translateX(3px); }
 
-  .hero-side { padding-bottom: 16px; }
-  .hero-block { padding: 18px 0; border-top: 1px solid var(--color-border-medium); }
-  .hero-block:last-child { border-bottom: 1px solid var(--color-border-medium); }
-  .hero-block-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 10px; font-weight: 500; }
+  .hero-side { padding-bottom: 0; }
+  .hero-block { padding: 18px 0; border-top: 1px solid rgba(245,241,234,0.16); }
+  .hero-block:last-child { border-bottom: 1px solid rgba(245,241,234,0.16); }
+  .hero-block-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 10px; font-weight: 600; }
   .hero-list li { font-family: var(--font-serif); font-size: 17px; font-weight: 500; letter-spacing: 0.04em; padding: 2px 0; line-height: 1.4; }
-  .hero-list a { color: var(--color-charcoal-dark); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
+  .hero-list a { color: var(--color-cream); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
   .hero-list a::after { content: "→"; color: var(--color-copper); opacity: 0; transform: translateX(-6px); transition: opacity 0.2s, transform 0.2s; font-size: 14px; }
   .hero-list a:hover { color: var(--color-copper); }
   .hero-list a:hover::after { opacity: 1; transform: translateX(0); }
 
   @media (max-width: 768px) {
+    .hero { min-height: 560px; }
+    .hero-photo { background-position: center 28%; }
+    .hero-photo::after { background: linear-gradient(180deg, rgba(18,18,18,0.80) 0%, rgba(18,18,18,0.62) 45%, rgba(18,18,18,0.88) 100%); }
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero h1 { font-size: 44px; }
   }
