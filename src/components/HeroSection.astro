@@ -1,31 +1,39 @@
 ---
-// Homepage hero — full-bleed dark backdrop, koptekst overlaid
-// Vervangt eerdere 2-column layout met losse image-rectangle.
-// Auditor brief: laat beeld ademen, full-bleed met overlay, niet als geïsoleerd blokje.
+// Homepage hero — H1 + brands list + sources list + CTAs
+// D1: subtiele SVG-noise textuur als achtergrond (papier-grain)
+// D3: primary CTA als button, secondary als tekst-link daaronder
 ---
 
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-texture" aria-hidden="true"></div>
   <div class="container">
-    <div class="hero-content">
-      <h1>Duitse premium-auto's, <br/>uit Europa en <span class="accent">Japan</span>.</h1>
-      <p class="hero-lead">Persoonlijk gesourced voor wie het juiste exemplaar zoekt — niet het eerste.</p>
-      <div class="hero-cta-row">
-        <a href="/contact" class="cta">Start uw zoekopdracht<span class="arrow">→</span></a>
-        <a href="/werkwijze" class="hero-secondary-link">of bekijk eerst de werkwijze <span class="arrow-small">→</span></a>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Duitse premium-auto's,<br/>uit Europa en <span class="accent">Japan</span>.</h1>
+        <p class="hero-lead">Persoonlijk gesourced voor wie het juiste exemplaar zoekt — niet het eerste.</p>
+        <div class="hero-cta-row">
+          <a href="/contact" class="cta">Start uw zoekopdracht<span class="arrow">→</span></a>
+          <a href="/werkwijze" class="hero-secondary-link">of bekijk eerst de werkwijze <span class="arrow-small">→</span></a>
+        </div>
       </div>
-      <div class="hero-brands">
-        <span class="hero-brands-label">Onze focus</span>
-        <ul class="hero-brand-list">
-          <li><a href="/merk/bmw">BMW</a></li>
-          <li><span aria-hidden="true">·</span></li>
-          <li><a href="/merk/mercedes-benz">Mercedes-Benz</a></li>
-          <li><span aria-hidden="true">·</span></li>
-          <li><a href="/merk/audi">Audi</a></li>
-          <li><span aria-hidden="true">·</span></li>
-          <li><a href="/merk/porsche">Porsche</a></li>
-        </ul>
-      </div>
+      <aside class="hero-side">
+        <div class="hero-block">
+          <div class="hero-block-label">Onze focus</div>
+          <ul class="hero-list">
+            <li><a href="/merk/bmw">BMW</a></li>
+            <li><a href="/merk/mercedes-benz">Mercedes-Benz</a></li>
+            <li><a href="/merk/audi">Audi</a></li>
+            <li><a href="/merk/porsche">Porsche</a></li>
+          </ul>
+        </div>
+        <div class="hero-block">
+          <div class="hero-block-label">Wij sourcen uit</div>
+          <ul class="hero-list">
+            <li><a href="/bron/europa">Europa</a></li>
+            <li><a href="/bron/japan">Japan</a></li>
+          </ul>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -33,66 +41,35 @@
 <style>
   .hero {
     position: relative;
-    min-height: 88vh;
-    display: flex;
-    align-items: center;
-    padding: 80px 0 64px;
+    padding: var(--space-hero-top) 0 var(--space-section-bottom);
     overflow: hidden;
-    color: var(--color-cream);
-    background: var(--color-charcoal-dark);
   }
-  .hero-bg {
+  /* D1: subtiele papier-grain textuur als achtergrond — tactiel, niet schreeuwerig */
+  .hero-texture {
     position: absolute;
     inset: 0;
-    background-image: url('/images/hero-911.jpg');
-    background-size: cover;
-    background-position: center 40%;
-    filter: saturate(0.85) contrast(0.92) brightness(0.85) sepia(0.10);
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.16 0 0 0 0 0.16 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
     z-index: 0;
   }
-  .hero-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(20,18,15,0.88) 0%, rgba(20,18,15,0.55) 55%, rgba(20,18,15,0.20) 100%);
-  }
   .hero .container { position: relative; z-index: 1; }
-  .hero-content {
-    max-width: 720px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-  .hero h1 {
-    font-size: clamp(40px, 7.2vw, 82px);
-    letter-spacing: clamp(-1.5px, -0.3vw, -2.46px);
-    line-height: 0.95;
-    font-weight: 600;
-    margin: 0;
-    color: var(--color-cream);
-  }
-  .hero h1 .accent { color: var(--color-copper); }
-  .hero-lead {
-    font-size: 19px;
-    max-width: 540px;
-    color: rgba(245, 241, 234, 0.82);
-    line-height: 1.55;
-    margin: 0;
-  }
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 100px; align-items: end; }
+  .hero h1 { font-size: 82px; margin-bottom: 32px; line-height: 0.95; font-weight: 600; }
+  .hero-lead { font-size: 19px; max-width: 480px; color: var(--color-text-secondary); margin-bottom: 40px; }
   .hero-cta-row {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 18px;
   }
-  .hero .cta { color: var(--color-cream); }
-  .hero .cta::after { background: var(--color-copper); }
-  .hero .cta .arrow { color: var(--color-copper); }
+  /* D3: secondary link i.p.v. tweede button — minder retail-occasion energie */
   .hero-secondary-link {
     font-family: var(--font-display);
     font-size: 15px;
     font-style: italic;
-    color: rgba(245, 241, 234, 0.72);
+    color: var(--color-text-secondary);
     text-decoration: none;
     transition: color 0.2s;
     display: inline-flex;
@@ -105,49 +82,20 @@
     color: var(--color-copper);
     transition: transform 0.2s;
   }
+  .hero-secondary-link:hover .arrow-small { transform: translateX(3px); }
 
-  .hero-brands {
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(245, 241, 234, 0.18);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .hero-brands-label {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--color-copper);
-    font-weight: 500;
-  }
-  .hero-brand-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 16px;
-  }
-  .hero-brand-list li { line-height: 1; }
-  .hero-brand-list a {
-    font-family: var(--font-serif);
-    font-size: 17px;
-    letter-spacing: 0.06em;
-    color: rgba(245, 241, 234, 0.92);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .hero-brand-list a:hover { color: var(--color-copper); }
-  .hero-brand-list li[aria-hidden] { color: rgba(245, 241, 234, 0.35); font-family: var(--font-serif); font-size: 15px; }
+  .hero-side { padding-bottom: 16px; }
+  .hero-block { padding: 18px 0; border-top: 1px solid var(--color-border-medium); }
+  .hero-block:last-child { border-bottom: 1px solid var(--color-border-medium); }
+  .hero-block-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 10px; font-weight: 500; }
+  .hero-list li { font-family: var(--font-serif); font-size: 17px; font-weight: 500; letter-spacing: 0.04em; padding: 2px 0; line-height: 1.4; }
+  .hero-list a { color: var(--color-charcoal-dark); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
+  .hero-list a::after { content: "→"; color: var(--color-copper); opacity: 0; transform: translateX(-6px); transition: opacity 0.2s, transform 0.2s; font-size: 14px; }
+  .hero-list a:hover { color: var(--color-copper); }
+  .hero-list a:hover::after { opacity: 1; transform: translateX(0); }
 
-  @media (max-width: 900px) {
-    .hero { min-height: 82vh; padding: 64px 0 48px; }
-    .hero-bg::after {
-      background: linear-gradient(180deg, rgba(20,18,15,0.65) 0%, rgba(20,18,15,0.82) 100%);
-    }
-    .hero-content { max-width: 100%; gap: 24px; }
-    .hero-brand-list { gap: 12px; }
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { font-size: 44px; }
   }
 </style>
