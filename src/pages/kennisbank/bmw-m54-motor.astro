@@ -1,0 +1,295 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'BMW M54 zes-in-lijn — motorgids' },
+];
+
+const publishedDate = '2026-06-01';
+const updatedDate = '2026-06-01';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'BMW M54 zes-in-lijn (2000-2006) - de laatste pure atmosferische BMW-zes',
+  description: 'Technische gids voor de BMW M54 - varianten M54B22/B25/B30, sterke en zwakke punten (koelsysteem, DISA, VANOS, CCV), LPG, onderhoud en welke modellen wij sourcen.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-m54-motor/' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="BMW M54 motorgids - varianten, zwakke punten, koopadvies | Rolvink"
+  description="Alles over de BMW M54 zes-in-lijn: varianten M54B22/B25/B30, bekende zwakke punten (koelsysteem, DISA, VANOS), onderhoud en waar op te letten bij aankoop of import."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Motorgids</div>
+        <h1>BMW <span class="accent">M54</span> zes-in-lijn.</h1>
+        <p class="lead">De M54 is voor veel liefhebbers de laatste 'pure' atmosferische zes-in-lijn van BMW - soepel, lineair en zonder turbo. Geliefd in de E46 en E39, en vandaag een gewilde import. Alles over de varianten, de bekende zwakke punten en welke uitvoeringen wij gericht sourcen.</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 1 juni 2026</time>
+        </div>
+      </header>
+
+      <figure class="cornerstone-hero">
+        <picture>
+          <source srcset="/images/brand-bmw-1200.webp 1200w, /images/brand-bmw-600.webp 600w" sizes="(max-width: 760px) 100vw, 760px" type="image/webp" />
+          <img src="/images/brand-bmw-1200.jpg" srcset="/images/brand-bmw-1200.jpg 1200w, /images/brand-bmw-600.jpg 600w" sizes="(max-width: 760px) 100vw, 760px" alt="BMW met M54 zes-in-lijn motor" width="1200" height="400" loading="eager" decoding="async" />
+        </picture>
+      </figure>
+
+      <ul class="kerncijfers" aria-label="Kerncijfers BMW M54 zes-in-lijn — motorgids">
+        <li><span class="kc-val">2000-2006</span><span class="kc-lab">Productiejaren</span></li>
+        <li><span class="kc-val">2.2-3.0 L</span><span class="kc-lab">Cilinderinhoud</span></li>
+        <li><span class="kc-val">170-231 pk</span><span class="kc-lab">Vermogensrange</span></li>
+        <li><span class="kc-val">Double VANOS</span><span class="kc-lab">Klepregeling</span></li>
+      </ul>
+
+      <AuthorByline variant="top" />
+
+      <div class="disclaimer">
+        Deze gids is bedoeld voor oriëntatie bij de aankoop of import van een BMW met deze motor. Wij baseren de informatie op publieke technische documentatie en gangbare branche-kennis. Voor een specifieke voertuigdiagnose raadpleegt u een BMW-specialist of erkende werkplaats. <strong>Wij geven geen technisch onderhoudsadvies vervangend voor inspectie ter plaatse.</strong>
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>Inhoud</h2>
+        <ol>
+          <li><a href="#wat-is-m54">Wat is de M54 en waarom is hij relevant?</a></li>
+          <li><a href="#geschiedenis">Plaats in BMW's zes-in-lijn-geschiedenis</a></li>
+          <li><a href="#blueprint">Technische blueprint</a></li>
+          <li><a href="#varianten">Varianten en toepassingen</a></li>
+          <li><a href="#sterk">Waarom geldt de M54 als degelijk?</a></li>
+          <li><a href="#zwak">Bekende zwakke punten</a></li>
+          <li><a href="#lpg">LPG-geschiktheid</a></li>
+          <li><a href="#onderhoud">Onderhoud en service-intervallen</a></li>
+          <li><a href="#checken">Wat te checken bij aankoop</a></li>
+          <li><a href="#sourcen">Welke uitvoeringen sourcen wij?</a></li>
+          <li><a href="#marktwaarde">Marktwaarde-indicatie Nederland</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-is-m54" class="content-section">
+        <h2>Wat is de M54 en waarom is hij relevant?</h2>
+        <p>De M54 is de atmosferische zes-in-lijn benzinemotor die BMW tussen 2000 en 2006 in productie had. Het is de laatste evolutie van de klassieke BMW-zes voordat turbo's (N54/N55) het overnamen, en juist daarom geliefd: een lineaire vermogensopbouw, een hoog toerental en het kenmerkende soepele zes-in-lijn-karakter zonder de complexiteit van drukvulling. Voor importkopers is de M54 relevant omdat hij in vrijwel de hele courante BMW-line-up van dat tijdvak zat - E46 3-Serie, E39 5-Serie, E53 X5, E83 X3 en de Z3/Z4 roadsters.</p>
+        <p>De M54 deelt zijn basisarchitectuur met de eerdere M52, maar voegde onder meer Double VANOS (variabele nokkenastiming op in- en uitlaat), een elektronische gasklep en de DISA variabele inlaat toe. Het resultaat is een motor die zowel onderin soepel als bovenin levendig aanvoelt.</p>
+      </section>
+
+      <section id="geschiedenis" class="content-section">
+        <h2>Plaats in BMW's zes-in-lijn-geschiedenis</h2>
+        <p>De lijn loopt van de M50 via de M52 naar de M54, en daarna naar de N52. Waar de M52 de overstap naar aluminium en VANOS maakte, perfectioneerde de M54 het atmosferische recept: Double VANOS als standaard, een soepelere koppelkromme en meer vermogen per liter. De opvolger - de <a href="/kennisbank/bmw-n52-motor">N52</a> - bracht een lichter magnesium-aluminium blok en Valvetronic, maar introduceerde ook nieuwe aandachtspunten. Voor wie de mechanische eenvoud van een atmosferische zes zoekt, blijft de M54 het referentieblok.</p>
+      </section>
+
+      <section id="blueprint" class="content-section">
+        <h2>Technische blueprint</h2>
+        <p>De M54 is een atmosferische DOHC zes-in-lijn met aluminium blok, 24 kleppen, Double VANOS en DISA variabele inlaat. De distributie verloopt via een ketting. Hieronder de kerngegevens per variant.</p>
+        <table class="cost-table">
+          <thead><tr><th>Variant</th><th>Inhoud</th><th>Vermogen</th></tr></thead>
+          <tbody>
+            <tr><td>M54B22</td><td>2.171 cc</td><td>168 pk / 210 Nm</td></tr>
+            <tr><td>M54B25</td><td>2.494 cc</td><td>189 pk / 245 Nm</td></tr>
+            <tr><td>M54B30</td><td>2.979 cc</td><td>228 pk / 300 Nm</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note"><em>Vermogenscijfers volgens fabrieksopgave. Voor de Noord-Amerikaanse markt bestond een 'ZHP'-uitvoering van de M54B30 met aangepaste nokkenassen en software (circa 235 pk); die uitvoering komt op de Europese en Japanse markt nauwelijks voor.</em></p>
+      </section>
+
+      <section id="varianten" class="content-section">
+        <h2>Varianten en toepassingen</h2>
+        <p>De M54 kreeg drie cilinderinhouden, elk over meerdere modellen verdeeld:</p>
+        <ul class="bullet-list">
+          <li><strong>M54B22 (2.2, 168 pk)</strong> - onder meer E46 320i, E39 520i, Z4 2.2i. De instapper: soepel, zuinig, maar bescheiden in vermogen.</li>
+          <li><strong>M54B25 (2.5, 189 pk)</strong> - onder meer E46 325i, E39 525i, E83 X3 2.5i, Z4 2.5i. De middenmoter, vaak de meest uitgebalanceerde keuze.</li>
+          <li><strong>M54B30 (3.0, 228 pk)</strong> - onder meer E46 330i, E39 530i, E53 X5 3.0i, E83 X3 3.0i, Z4 3.0i. De krachtigste en meest gewilde uitvoering - vooral de E46 330i en E39 530i met handbak.</li>
+        </ul>
+      </section>
+
+      <section id="sterk" class="content-section">
+        <h2>Waarom geldt de M54 als degelijk?</h2>
+        <p>Onder BMW-specialisten staat de M54 te boek als een robuust onderblok met een lange levensduur, mits het onderhoud op orde is. De krukas, drijfstangen en zuigers zijn ruim bemeten; de motor draait soepel en is relatief eenvoudig te onderhouden vergeleken met de latere turbo- en directinjectie-blokken. Onderdelen zijn breed verkrijgbaar en betaalbaar, en de kennis bij specialisten is groot. Dat maakt de M54 tot een dankbaar blok voor wie een youngtimer wil rijden zonder verrassingen - op voorwaarde dat de bekende slijtdelen preventief worden aangepakt.</p>
+      </section>
+
+      <section id="zwak" class="content-section">
+        <h2>Bekende zwakke punten</h2>
+        <p>Geen enkele motor is zonder aandachtspunten. Bij de M54 zijn de bekende kwetsbaarheden goed gedocumenteerd en bovenal beheersbaar - mits je weet waar je op moet letten. De belangrijkste:</p>
+        <ul class="pitfall-list">
+          <li><strong>Koelsysteem (grootste aandachtspunt)</strong> - veel onderdelen zijn van kunststof: waterpomp, thermostaat, expansievat, radiateur en slangen verouderen en kunnen falen. Branche-advies is om dit pakket preventief te vervangen (in de praktijk vaak rond de 130.000-160.000 km). Een gefaalde waterpomp kan tot oververhitting leiden.</li>
+          <li><strong>DISA-klep</strong> - de klep in het variabele inlaatspruitstuk staat bekend om vroegtijdige slijtage door materiaalkeuze; in het ergste geval kan een losgeraakt onderdeel schade veroorzaken. Symptomen: ruwe stationair, 'lean'-foutcodes en verlies van koppel onder- en middenin. Een revisiekit is een gangbare oplossing.</li>
+          <li><strong>VANOS-afdichtingen</strong> - de afdichtingen van de Double VANOS verharden met de tijd, wat koppel en respons kost. Vervangen door verbeterde (Viton) afdichtingen is een bekende en duurzame fix.</li>
+          <li><strong>CCV / carterontluchting</strong> - vooral in een koud klimaat kan het CCV-systeem (olieafscheider) verstoppen of bevriezen, waarna olie de inlaat in kan worden gezogen. Periodieke vervanging hoort bij het onderhoud.</li>
+          <li><strong>Olielekkages</strong> - de kleppendeksel-pakking en de oliefilterhuis-pakking lekken doorgaans als eerste; op zich klein werk, maar wel iets om op te controleren.</li>
+        </ul>
+        <p>Stuk voor stuk zijn dit bekende punten met bekende oplossingen. Een M54 met een gedocumenteerde koelsysteem-revisie en aangepakte VANOS/DISA is een wezenlijk geruster bezit dan een exemplaar waarbij dat nog moet gebeuren.</p>
+      </section>
+
+      <section id="lpg" class="content-section">
+        <h2>LPG-geschiktheid</h2>
+        <p>Atmosferische zessen worden in Nederland regelmatig op LPG gereden, maar bij de M54 is voorzichtigheid op zijn plaats: bij langdurig LPG-gebruik bestaat risico op klepzitting-recessie als er geen aanvullende klepbescherming (bijvoorbeeld een additief-systeem) wordt toegepast. Wie een M54 op LPG overweegt, doet er goed aan dit met een ervaren LPG-installateur en een BMW-specialist af te stemmen en de installatie en het onderhoud aantoonbaar op orde te houden. Dit is een afweging die per voertuig verschilt; laat u hierover concreet adviseren voordat u tot ombouw overgaat.</p>
+      </section>
+
+      <section id="onderhoud" class="content-section">
+        <h2>Onderhoud en service-intervallen</h2>
+        <p>De M54 is gevoelig voor de kwaliteit van het onderhoud meer dan voor de hoeveelheid kilometers. Een paar vuistregels die specialisten gangbaar adviseren:</p>
+        <ul class="bullet-list">
+          <li><strong>Olie verversen</strong> - korter dan het oorspronkelijke 'longlife'-interval; veel specialisten adviseren elke 10.000-15.000 km of jaarlijks, met een passende olie.</li>
+          <li><strong>Koelsysteem</strong> - preventieve revisie van pomp, thermostaat en kunststofdelen op leeftijd/kilometrage, niet pas na een storing.</li>
+          <li><strong>VANOS en DISA</strong> - bij merkbaar koppelverlies of ruwe loop tijdig reviseren.</li>
+          <li><strong>CCV</strong> - periodiek controleren/vervangen, zeker bij gebruik in koud klimaat.</li>
+        </ul>
+      </section>
+
+      <section id="checken" class="content-section">
+        <h2>Wat te checken bij aankoop</h2>
+        <p>Bij elke kandidaat met M54-motor lopen wij dezelfde punten na:</p>
+        <ul class="bullet-list">
+          <li>Koude start en stationair loop - luister naar ruwheid die op VANOS/DISA kan wijzen.</li>
+          <li>Historie van het koelsysteem - is pomp/thermostaat ooit vervangen, en wanneer?</li>
+          <li>Olielekkage onderzijde - kleppendeksel en oliefilterhuis.</li>
+          <li>Foutcodes uitlezen - 'lean'-codes kunnen op DISA of valse lucht wijzen.</li>
+          <li>Complete onderhoudshistorie en consistente kilometerstand.</li>
+        </ul>
+      </section>
+
+      <section id="sourcen" class="content-section">
+        <h2>Welke uitvoeringen sourcen wij?</h2>
+        <p>Onze voorkeur gaat uit naar de krachtigste, best gebalanceerde uitvoeringen in nette staat: een <strong>E46 330i</strong> of <strong>E39 530i</strong> (bij voorkeur handgeschakeld), of een <strong>Z4 3.0i</strong>. Lage kilometerstand, complete historie en bij voorkeur een aantoonbaar aangepakt koelsysteem zijn leidend. Of de Japan- of Duitsland-route het meest oplevert, hangt af van de exacte uitvoering - dat wegen we per geval af in het <a href="/route-advies">route-advies</a>. Wat wij wel en niet sourcen staat op onze <a href="/selectie">selectie-pagina</a>.</p>
+      </section>
+
+      <section id="marktwaarde" class="content-section">
+        <h2>Marktwaarde-indicatie Nederland</h2>
+        <p>Onderstaande bandbreedtes zijn indicatief en bedoeld om een orde van grootte te geven; de werkelijke prijs hangt sterk af van uitvoering, kilometerstand, transmissie en onderhoudsstaat.</p>
+        <table class="cost-table">
+          <thead><tr><th>Model</th><th>Periode</th><th>Indicatie NL</th></tr></thead>
+          <tbody>
+            <tr><td>E46 320i / 325i</td><td>2000-2005</td><td>&euro; 2.500 - &euro; 6.500</td></tr>
+            <tr><td>E46 330i</td><td>2000-2005</td><td>&euro; 4.500 - &euro; 9.500</td></tr>
+            <tr><td>E39 525i / 530i</td><td>2000-2003</td><td>&euro; 3.500 - &euro; 8.500</td></tr>
+            <tr><td>E53 X5 3.0i</td><td>2000-2006</td><td>&euro; 4.000 - &euro; 9.000</td></tr>
+            <tr><td>Z4 2.5i / 3.0i</td><td>2002-2006</td><td>&euro; 6.000 - &euro; 14.000</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note"><em>Indicatieve bandbreedte voor courante exemplaren met redelijke tot goede historie en geen bekende schade- of herstelhistorie; cijfers wisselen per bron en moment. Uitzonderlijk gave of zeer lage-km exemplaren liggen hoger. Voor een BPM-indicatie bij import zie onze <a href="/bpm-calculator">BPM-tool</a>.</em></p>
+      </section>
+
+      <AuthorByline variant="bottom" />
+
+      <div class="page-cta">
+        <h2>Op zoek naar een BMW met M54-motor?</h2>
+        <p>Vertel ons welke uitvoering u zoekt - een 330i, een 530i of een Z4 3.0i. Wij screenen de Japanse veilingen en Duitse premium-dealers op nette exemplaren met deze atmosferische zes. Geen actie zonder uw groen licht.</p>
+        <a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&#8594;</span></a>
+        <p class="page-cta-note">Binnen 24 uur reactie &middot; Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/bmw-n52-motor">BMW N52 - de opvolger met magnesiumblok</a></li>
+          <li><a href="/kennisbank/bmw-5-serie-f10-g30">BMW 5-Serie F10/G30 - modelgids</a></li>
+          <li><a href="/kennisbank/japanse-auction-sheet-lezen">Japanse auction sheet lezen - complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland - complete gids</a></li>
+          <li><a href="/bpm-calculator">BPM-tool - bereken indicatief uw BPM</a></li>
+          <li><a href="/merk/bmw">Onze BMW-focus</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-hero { margin: 4px 0 30px; max-width: 760px; aspect-ratio: 3 / 1; overflow: hidden; border-top: 3px solid var(--color-copper-text); }
+  .cornerstone-hero img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.82) contrast(0.96) brightness(1.02) sepia(0.10); }
+  .kerncijfers { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; padding: 0; margin: 0 0 40px; max-width: 760px; }
+  .kerncijfers li { flex: 1 1 150px; padding: 13px 16px; background: var(--color-cream); border: 1px solid var(--color-border-medium); border-left: 3px solid var(--color-copper-text); }
+  .kerncijfers .kc-val { display: block; font-family: var(--font-display); font-size: 23px; line-height: 1.05; color: var(--color-copper-text); }
+  .kerncijfers .kc-lab { display: block; margin-top: 5px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-secondary); }
+  @media (max-width: 600px) { .cornerstone-hero { aspect-ratio: 16 / 9; } .kerncijfers li { flex-basis: 42%; } .kerncijfers .kc-val { font-size: 20px; } }
+
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list, .pitfall-list { padding-left: 24px; }
+  .bullet-list li, .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong, .pitfall-list strong { color: var(--color-text-primary); }
+  .bullet-list em, .pitfall-list em { font-style: italic; }
+
+  .recommendation-list { padding-left: 24px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .recommendation-list strong { color: var(--color-text-primary); }
+  .recommendation-list em { font-style: italic; color: var(--color-copper-text); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:nth-child(2),
+  .cost-table tbody tr td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .table-note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper-text); }
+  .table-note em { font-style: italic; }
+  .table-note a { color: var(--color-copper-text); text-decoration: underline; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { background: var(--color-cream); }
+  .page-cta-note { font-size: 13px; color: rgba(245, 241, 234, 0.6); margin-top: 16px; }
+
+  .related { max-width: 760px; margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { padding-left: 0; list-style: none; }
+  .related li { padding: 8px 0; font-size: 16px; }
+  .related a { color: var(--color-text-primary); text-decoration: none; }
+  .related a:hover { color: var(--color-copper-text); }
+
+  @media (max-width: 900px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+    .page-cta h2 { font-size: 22px; }
+    .toc, .disclaimer { padding: 22px 24px; }
+  }
+
+  /* Consistente list-markers — lijsten moeten als lijst leesbaar zijn (auditor) */
+  .bullet-list, .pitfall-list { padding-left: 0; }
+  .bullet-list li, .pitfall-list li { display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before, .pitfall-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+
+  /* Verder-lezen links zichtbaar als links (auditor: UI) */
+  .related a, .related-block a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .related a:hover, .related-block a:hover { color: var(--color-charcoal-dark); }
+</style>

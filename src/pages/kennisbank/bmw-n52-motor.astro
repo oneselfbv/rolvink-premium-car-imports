@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'BMW N52 zes-in-lijn - motorgids' },
+];
+
+const publishedDate = '2026-06-01';
+const updatedDate = '2026-06-01';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'BMW N52 zes-in-lijn (2004-2015) - magnesiumblok, Valvetronic en de bekende aandachtspunten',
+  description: 'Technische gids voor de BMW N52 - varianten N52B25/B30, magnesium-aluminium blok, Valvetronic, zwakke punten (elektrische waterpomp, kleppendeksel, excentriekas-sensor), onderhoud en welke modellen wij sourcen.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-n52-motor/' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+---
+
+<BaseLayout
+  title="BMW N52 motorgids - varianten, zwakke punten, koopadvies | Rolvink"
+  description="Alles over de BMW N52 zes-in-lijn: varianten N52B25/B30, magnesiumblok en Valvetronic, bekende zwakke punten (waterpomp, kleppendeksel, excentriekas-sensor), onderhoud en koopadvies."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Motorgids</div>
+        <h1>BMW <span class="accent">N52</span> zes-in-lijn.</h1>
+        <p class="lead">De N52 volgde de M54 op met een lichter magnesium-aluminium blok, Valvetronic en een elektrische waterpomp - soepel en zuinig, maar met een eigen set aandachtspunten. Alles over de varianten, de bekende zwakke punten en welke uitvoeringen wij gericht sourcen.</p>
+        <div class="article-meta">
+          <time datetime={publishedDate}>Gepubliceerd 1 juni 2026</time>
+        </div>
+      </header>
+
+      <figure class="cornerstone-hero">
+        <picture>
+          <source srcset="/images/brand-bmw-1200.webp 1200w, /images/brand-bmw-600.webp 600w" sizes="(max-width: 760px) 100vw, 760px" type="image/webp" />
+          <img src="/images/brand-bmw-1200.jpg" srcset="/images/brand-bmw-1200.jpg 1200w, /images/brand-bmw-600.jpg 600w" sizes="(max-width: 760px) 100vw, 760px" alt="BMW met N52 zes-in-lijn motor" width="1200" height="400" loading="eager" decoding="async" />
+        </picture>
+      </figure>
+
+      <ul class="kerncijfers" aria-label="Kerncijfers BMW N52 zes-in-lijn - motorgids">
+        <li><span class="kc-val">2004-2015</span><span class="kc-lab">Productiejaren</span></li>
+        <li><span class="kc-val">2.5-3.0 L</span><span class="kc-lab">Cilinderinhoud</span></li>
+        <li><span class="kc-val">174-268 pk</span><span class="kc-lab">Vermogensrange</span></li>
+        <li><span class="kc-val">Magnesium-alu</span><span class="kc-lab">Bloktype</span></li>
+      </ul>
+
+      <AuthorByline variant="top" />
+
+      <div class="disclaimer">
+        Deze gids is bedoeld voor oriëntatie bij de aankoop of import van een BMW met deze motor. Wij baseren de informatie op publieke technische documentatie en gangbare branche-kennis. Voor een specifieke voertuigdiagnose raadpleegt u een BMW-specialist of erkende werkplaats. <strong>Wij geven geen technisch onderhoudsadvies vervangend voor inspectie ter plaatse.</strong>
+      </div>
+
+      <nav class="toc" aria-label="Inhoud">
+        <h2>Inhoud</h2>
+        <ol>
+          <li><a href="#wat-is-n52">Wat is de N52 en waarom is hij relevant?</a></li>
+          <li><a href="#geschiedenis">Plaats in BMW's zes-in-lijn-geschiedenis</a></li>
+          <li><a href="#blueprint">Technische blueprint</a></li>
+          <li><a href="#varianten">Varianten en toepassingen</a></li>
+          <li><a href="#sterk">Sterke punten</a></li>
+          <li><a href="#zwak">Bekende zwakke punten</a></li>
+          <li><a href="#lpg">LPG-geschiktheid</a></li>
+          <li><a href="#onderhoud">Onderhoud en service-intervallen</a></li>
+          <li><a href="#checken">Wat te checken bij aankoop</a></li>
+          <li><a href="#sourcen">Welke uitvoeringen sourcen wij?</a></li>
+          <li><a href="#marktwaarde">Marktwaarde-indicatie Nederland</a></li>
+        </ol>
+      </nav>
+
+      <section id="wat-is-n52" class="content-section">
+        <h2>Wat is de N52 en waarom is hij relevant?</h2>
+        <p>De N52 is de atmosferische zes-in-lijn die BMW vanaf 2004 introduceerde als opvolger van de <a href="/kennisbank/bmw-m54-motor">M54</a>. Hij debuteerde op de E90 3-Serie en de E60 5-Serie en bleef lang in productie. Voor importkopers is de N52 interessant omdat hij in een breed scala aan gewilde modellen zit - E90/E91/E92/E93, E60, E63, E70 X5 en de Z4 - en omdat hij het soepele, hoogtoerige zes-in-lijn-karakter combineert met lager verbruik dan zijn voorganger.</p>
+        <p>Belangrijke verschillen met de M54: een lichter blok van magnesium-aluminium composiet, BMW's Valvetronic (traploos variabele klepheffing in plaats van een gasklep), Double VANOS en een elektrische in plaats van riemaangedreven waterpomp.</p>
+      </section>
+
+      <section id="geschiedenis" class="content-section">
+        <h2>Plaats in BMW's zes-in-lijn-geschiedenis</h2>
+        <p>De N52 staat tussen de atmosferische M54 en de latere turbo-blokken (N54/N55). Het is daarmee een van de laatste grote atmosferische zessen van BMW, met als kenmerkende noviteit het magnesium-aluminium blok dat fors gewicht bespaarde. Waar de M54 mechanisch eenvoudiger is, biedt de N52 meer efficiëntie en een nog soepeler loop - tegen de prijs van enkele specifieke slijtdelen die hieronder aan bod komen.</p>
+      </section>
+
+      <section id="blueprint" class="content-section">
+        <h2>Technische blueprint</h2>
+        <p>De N52 is een atmosferische DOHC zes-in-lijn met een composietblok van magnesium en aluminium, Valvetronic, Double VANOS, een elektrische waterpomp en een variabele oliepomp. Twee hoofd-cilinderinhouden, met meerdere vermogensvarianten per toepassing.</p>
+        <table class="cost-table">
+          <thead><tr><th>Variant</th><th>Inhoud</th><th>Vermogen (afhankelijk van toepassing)</th></tr></thead>
+          <tbody>
+            <tr><td>N52B25</td><td>2.497 cc</td><td>circa 177 - 218 pk</td></tr>
+            <tr><td>N52B30</td><td>2.996 cc</td><td>circa 218 - 268 pk</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note"><em>De totale vermogensrange van de N52-familie ligt indicatief tussen 174 en 268 pk, afhankelijk van variant, afstelling en model. Cijfers per uitvoering kunnen afwijken; controleer de exacte specificatie van het betreffende voertuig.</em></p>
+      </section>
+
+      <section id="varianten" class="content-section">
+        <h2>Varianten en toepassingen</h2>
+        <ul class="bullet-list">
+          <li><strong>N52B25 (2.5)</strong> - onder meer E90 323i/325i, E60 523i/525i, Z4 2.5si. De instap- en middenuitvoeringen.</li>
+          <li><strong>N52B30 (3.0)</strong> - onder meer E90 328i/330i, E60 530i, E63 630i, E70 X5 3.0si, Z4 3.0si. De krachtigere en meest gewilde uitvoeringen, met de 330i en 530i als populaire keuzes.</li>
+        </ul>
+      </section>
+
+      <section id="sterk" class="content-section">
+        <h2>Sterke punten</h2>
+        <p>De N52 staat bekend als een soepele, verfijnde en relatief zuinige zes-in-lijn. Het lichte composietblok komt de gewichtsverdeling ten goede, en Valvetronic levert een prettige, directe gasrespons. Als atmosferisch blok mist hij de complexiteit (en de specifieke risico's) van turbo en hogedruk-directinjectie. Met tijdig onderhoud en aandacht voor de bekende slijtdelen is het een dankbare, comfortabele motor voor dagelijks gebruik - en breed verkrijgbaar door de grote productieaantallen.</p>
+      </section>
+
+      <section id="zwak" class="content-section">
+        <h2>Bekende zwakke punten</h2>
+        <p>De aandachtspunten van de N52 zijn goed gedocumenteerd. Ze hangen deels met elkaar samen - een olielek kan bijvoorbeeld een sensor aantasten. De belangrijkste:</p>
+        <ul class="pitfall-list">
+          <li><strong>Elektrische waterpomp</strong> - een bekend slijtdeel dat kan falen (in de praktijk vaak na enkele jaren/rond de hogere kilometerstanden), met oververhitting of een noodloop tot gevolg. De thermostaat faalt vaak in hetzelfde tijdvak; specialisten adviseren beide tegelijk te vervangen om arbeidskosten te besparen.</li>
+          <li><strong>Kleppendeksel en pakking (kunststof)</strong> - het kunststof kleppendeksel kan door de motorwarmte kromtrekken of scheuren, met olielekkage als gevolg. Een veelvoorkomende reparatie op hogere kilometerstanden.</li>
+          <li><strong>Oliefilterhuis-pakking</strong> - lekt op hogere kilometerstanden vrijwel altijd; op zich bekend en goed te verhelpen.</li>
+          <li><strong>Excentriekas-sensor (Valvetronic)</strong> - de afdichting van deze sensor kan gaan lekken, waarna olie de connector vervuilt en de sensor faalt. Symptomen lopen van verminderd vermogen tot afslaan. De plek is lastig bereikbaar; reken op gespecialiseerd werk.</li>
+          <li><strong>VANOS / CCV</strong> - net als bij de M54 verdienen de VANOS-afdichtingen en de carterontluchting aandacht op leeftijd.</li>
+          <li><strong>Olieverbruik</strong> - sommige exemplaren gebruiken meetbaar olie; controleer het niveau en de historie.</li>
+        </ul>
+        <p>Geen van deze punten maakt de N52 een slechte motor - het zijn bekende slijtdelen met bekende oplossingen. Een exemplaar met aantoonbaar vervangen waterpomp, kleppendeksel en pakkingen staat er aanzienlijk geruster voor.</p>
+      </section>
+
+      <section id="lpg" class="content-section">
+        <h2>LPG-geschiktheid</h2>
+        <p>Voor de N52 wordt LPG door veel specialisten afgeraden of met nadruk ontraden, mede vanwege het magnesium-aluminium composietblok en de warmtehuishouding van de motor. Wie hier toch over nadenkt, doet er goed aan dit uitgebreid af te stemmen met een ervaren LPG-installateur en BMW-specialist en de risico's per voertuig te wegen. Wij adviseren de N52 in beginsel op benzine te rijden; laat u in elk geval concreet en onafhankelijk adviseren voordat u tot ombouw besluit.</p>
+      </section>
+
+      <section id="onderhoud" class="content-section">
+        <h2>Onderhoud en service-intervallen</h2>
+        <ul class="bullet-list">
+          <li><strong>Olie verversen</strong> - korter dan het oorspronkelijke longlife-interval; jaarlijks of elke 10.000-15.000 km is een gangbaar specialisten-advies.</li>
+          <li><strong>Waterpomp en thermostaat</strong> - als preventief setje vervangen op leeftijd/kilometrage, niet pas na uitval.</li>
+          <li><strong>Kleppendeksel en pakkingen</strong> - controleren op lekkage; bij de eerste tekenen aanpakken om vervolgschade (o.a. aan de excentriekas-sensor) te voorkomen.</li>
+          <li><strong>VANOS / CCV</strong> - periodiek nalopen op leeftijd.</li>
+        </ul>
+      </section>
+
+      <section id="checken" class="content-section">
+        <h2>Wat te checken bij aankoop</h2>
+        <ul class="bullet-list">
+          <li>Historie van koelsysteem - is de elektrische waterpomp (en thermostaat) ooit vervangen?</li>
+          <li>Olielekkages - kleppendeksel, oliefilterhuis en de omgeving van de excentriekas-sensor.</li>
+          <li>Olieverbruik - vraag naar bijvulgedrag en controleer het niveau.</li>
+          <li>Foutcodes uitlezen - let op Valvetronic/excentriekas-meldingen.</li>
+          <li>Complete onderhoudshistorie en consistente kilometerstand.</li>
+        </ul>
+      </section>
+
+      <section id="sourcen" class="content-section">
+        <h2>Welke uitvoeringen sourcen wij?</h2>
+        <p>Onze voorkeur gaat uit naar de 3.0-uitvoeringen in nette staat met lage kilometerstand en complete historie: een <strong>E90/E91 330i</strong>, een <strong>E60 530i</strong> of een <strong>E70 X5 3.0si</strong>. Een aantoonbaar aangepakte waterpomp en kleppendeksel-pakking zijn een sterk pluspunt. Welke route - Japan of Duitsland - het gunstigst is, wegen we per uitvoering af via het <a href="/route-advies">route-advies</a>. Wat wij wel en niet sourcen staat op onze <a href="/selectie">selectie-pagina</a>.</p>
+      </section>
+
+      <section id="marktwaarde" class="content-section">
+        <h2>Marktwaarde-indicatie Nederland</h2>
+        <p>Onderstaande bandbreedtes zijn indicatief; de werkelijke prijs hangt af van uitvoering, kilometerstand, transmissie en onderhoudsstaat.</p>
+        <table class="cost-table">
+          <thead><tr><th>Model</th><th>Periode</th><th>Indicatie NL</th></tr></thead>
+          <tbody>
+            <tr><td>E90/E91 325i / 330i</td><td>2005-2011</td><td>&euro; 4.000 - &euro; 11.000</td></tr>
+            <tr><td>E60 523i / 525i / 530i</td><td>2005-2010</td><td>&euro; 4.500 - &euro; 11.000</td></tr>
+            <tr><td>E63 630i</td><td>2004-2010</td><td>&euro; 9.000 - &euro; 18.000</td></tr>
+            <tr><td>E70 X5 3.0si</td><td>2007-2010</td><td>&euro; 8.000 - &euro; 16.000</td></tr>
+            <tr><td>Z4 sDrive (E89) 2.5i / 3.0i</td><td>2009-2011</td><td>&euro; 12.000 - &euro; 24.000</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note"><em>Indicatieve bandbreedte voor courante exemplaren met redelijke tot goede historie en geen bekende schade- of herstelhistorie; cijfers wisselen per bron en moment. Uitzonderlijk gave of zeer lage-km exemplaren liggen hoger. Voor een BPM-indicatie bij import zie onze <a href="/bpm-calculator">BPM-tool</a>.</em></p>
+      </section>
+
+      <AuthorByline variant="bottom" />
+
+      <div class="page-cta">
+        <h2>Op zoek naar een BMW met N52-motor?</h2>
+        <p>Vertel ons welke uitvoering u zoekt - een E90 330i, een E60 530i of een X5 3.0si. Wij screenen de Japanse veilingen en Duitse premium-dealers op nette exemplaren met deze atmosferische zes. Geen actie zonder uw groen licht.</p>
+        <a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&#8594;</span></a>
+        <p class="page-cta-note">Binnen 24 uur reactie &middot; Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/bmw-m54-motor">BMW M54 - de voorganger zonder Valvetronic</a></li>
+          <li><a href="/kennisbank/bmw-5-serie-f10-g30">BMW 5-Serie F10/G30 - modelgids</a></li>
+          <li><a href="/kennisbank/japanse-auction-sheet-lezen">Japanse auction sheet lezen - complete gids</a></li>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland - complete gids</a></li>
+          <li><a href="/bpm-calculator">BPM-tool - bereken indicatief uw BPM</a></li>
+          <li><a href="/merk/bmw">Onze BMW-focus</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-hero { margin: 4px 0 30px; max-width: 760px; aspect-ratio: 3 / 1; overflow: hidden; border-top: 3px solid var(--color-copper-text); }
+  .cornerstone-hero img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.82) contrast(0.96) brightness(1.02) sepia(0.10); }
+  .kerncijfers { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; padding: 0; margin: 0 0 40px; max-width: 760px; }
+  .kerncijfers li { flex: 1 1 150px; padding: 13px 16px; background: var(--color-cream); border: 1px solid var(--color-border-medium); border-left: 3px solid var(--color-copper-text); }
+  .kerncijfers .kc-val { display: block; font-family: var(--font-display); font-size: 23px; line-height: 1.05; color: var(--color-copper-text); }
+  .kerncijfers .kc-lab { display: block; margin-top: 5px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-secondary); }
+  @media (max-width: 600px) { .cornerstone-hero { aspect-ratio: 16 / 9; } .kerncijfers li { flex-basis: 42%; } .kerncijfers .kc-val { font-size: 20px; } }
+
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list, .pitfall-list { padding-left: 24px; }
+  .bullet-list li, .pitfall-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .bullet-list strong, .pitfall-list strong { color: var(--color-text-primary); }
+  .bullet-list em, .pitfall-list em { font-style: italic; }
+
+  .recommendation-list { padding-left: 24px; }
+  .recommendation-list li { padding: 12px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .recommendation-list strong { color: var(--color-text-primary); }
+  .recommendation-list em { font-style: italic; color: var(--color-copper-text); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .cost-table tbody tr td:nth-child(2),
+  .cost-table tbody tr td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .table-note { font-size: 13px; color: var(--color-text-tertiary); padding: 12px 16px; background: var(--color-cream-warm); border-left: 2px solid var(--color-copper-text); }
+  .table-note em { font-style: italic; }
+  .table-note a { color: var(--color-copper-text); text-decoration: underline; }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { background: var(--color-cream); }
+  .page-cta-note { font-size: 13px; color: rgba(245, 241, 234, 0.6); margin-top: 16px; }
+
+  .related { max-width: 760px; margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { padding-left: 0; list-style: none; }
+  .related li { padding: 8px 0; font-size: 16px; }
+  .related a { color: var(--color-text-primary); text-decoration: none; }
+  .related a:hover { color: var(--color-copper-text); }
+
+  @media (max-width: 900px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+    .page-cta h2 { font-size: 22px; }
+    .toc, .disclaimer { padding: 22px 24px; }
+  }
+
+  /* Consistente list-markers — lijsten moeten als lijst leesbaar zijn (auditor) */
+  .bullet-list, .pitfall-list { padding-left: 0; }
+  .bullet-list li, .pitfall-list li { display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before, .pitfall-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+
+  /* Verder-lezen links zichtbaar als links (auditor: UI) */
+  .related a, .related-block a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .related a:hover, .related-block a:hover { color: var(--color-charcoal-dark); }
+</style>
