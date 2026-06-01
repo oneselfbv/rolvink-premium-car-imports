@@ -12,7 +12,7 @@
         <h1>Duitse premium-auto's,<br/>uit Europa en <span class="accent">Japan</span>.</h1>
         <p class="hero-lead">Persoonlijk gesourced voor wie het juiste exemplaar zoekt — niet het eerste.</p>
         <div class="hero-cta-row">
-          <a href="/contact" class="cta">Start uw zoekopdracht<span class="arrow">→</span></a>
+          <a href="/contact" class="cta-primary">Start uw zoekopdracht<span class="arrow">→</span></a>
           <a href="/werkwijze" class="hero-secondary-link">of bekijk eerst de werkwijze <span class="arrow-small">→</span></a>
         </div>
       </div>
@@ -64,6 +64,16 @@
     align-items: flex-start;
     gap: 18px;
   }
+  .cta-primary {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--color-copper); color: var(--color-charcoal-dark);
+    font-family: var(--font-body); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+    padding: 16px 30px; transition: background 0.2s, transform 0.2s;
+  }
+  .cta-primary:hover { background: var(--color-cream); transform: translateY(-1px); }
+  .cta-primary .arrow { font-size: 14px; transition: transform 0.2s; }
+  .cta-primary:hover .arrow { transform: translateX(3px); }
   /* D3: secondary link i.p.v. tweede button — minder retail-occasion energie */
   .hero-secondary-link {
     font-family: var(--font-display);

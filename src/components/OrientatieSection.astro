@@ -1,0 +1,49 @@
+---
+// Homepage -> kennisbank interne linking (SEO: link equity + thematische relevantie)
+const gidsen = [
+  { href: '/kennisbank/auto-importeren-japan', title: 'Auto importeren uit Japan', desc: 'Het complete proces — van veilingsheet tot kenteken, met kosten en doorlooptijd.' },
+  { href: '/kennisbank/auto-importeren-duitsland', title: 'Auto importeren uit Duitsland', desc: 'De snelle EU-route: TÜV, bezichtiging vooraf en geen invoerrechten.' },
+  { href: '/kennisbank/bpm-importauto-2026', title: 'BPM berekenen voor importauto’s', desc: 'Drie methoden, vrijstellingen en wat het concreet doet met de eindprijs.' },
+  { href: '/kennisbank/porsche-911-modelgids', title: 'Porsche 911 modelgids', desc: 'Generaties, het IMS-vraagstuk bij 996/997.1 en de sweet-spots per type.' },
+  { href: '/kennisbank/japanse-veiling-grades', title: 'Japanse veiling-grades uitgelegd', desc: 'Wat grade 4, 4.5 en de letter-codes (R/RA) betekenen voor het risico.' },
+];
+---
+
+<section class="orientatie">
+  <div class="container">
+    <div class="section-eyebrow">Begin met oriënteren</div>
+    <h2>Eerst lezen, dan pas zoeken.</h2>
+    <p class="orientatie-intro">Voordat u een opdracht geeft, helpt het om de routes, kosten en valkuilen te begrijpen. Dit zijn de gidsen waar de meeste kopers mee starten.</p>
+
+    <ul class="orientatie-grid">
+      {gidsen.map((g) => (
+        <li class="orientatie-card">
+          <a href={g.href}>
+            <span class="oc-title">{g.title}<span class="oc-arrow" aria-hidden="true">→</span></span>
+            <span class="oc-desc">{g.desc}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a href="/kennisbank" class="orientatie-all">Bekijk de volledige kennisbank<span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<style>
+  .orientatie { padding: 88px 0; background: var(--color-cream-warm); }
+  .orientatie h2 { font-size: 40px; font-weight: 600; margin: 8px 0 14px; line-height: 1.1; }
+  .orientatie-intro { max-width: 620px; font-size: 18px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 44px; }
+  .orientatie-grid { list-style: none; padding: 0; margin: 0 0 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .orientatie-card { background: var(--color-white); border-left: 3px solid var(--color-copper-text); }
+  .orientatie-card a { display: block; padding: 22px 24px; height: 100%; text-decoration: none; transition: background 0.2s; }
+  .orientatie-card a:hover { background: var(--color-cream); }
+  .oc-title { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-family: var(--font-display); font-size: 19px; color: var(--color-charcoal-dark); margin-bottom: 8px; line-height: 1.2; }
+  .oc-arrow { color: var(--color-copper-text); font-size: 16px; transition: transform 0.2s; flex-shrink: 0; }
+  .orientatie-card a:hover .oc-arrow { transform: translateX(3px); }
+  .oc-desc { display: block; font-size: 14px; color: var(--color-text-secondary); line-height: 1.55; }
+  .orientatie-all { display: inline-flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-copper-text); text-decoration: none; }
+  .orientatie-all .arrow { transition: transform 0.2s; }
+  .orientatie-all:hover .arrow { transform: translateX(4px); }
+  @media (max-width: 900px) { .orientatie-grid { grid-template-columns: 1fr; } .orientatie h2 { font-size: 30px; } }
+</style>
