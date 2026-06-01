@@ -53,6 +53,17 @@ const articleSchema = {
         </div>
       </header>
 
+      <figure class="cornerstone-hero">
+        <img src="/images/traject-auction.jpg" alt="Technische keuring en identificatie bij import" width="1600" height="533" loading="eager" decoding="async" />
+      </figure>
+
+      <ul class="kerncijfers" aria-label="Kerncijfers RDW-keuring">
+        <li><span class="kc-val">2–3 wkn</span><span class="kc-lab">Doorlooptijd keuring</span></li>
+        <li><span class="kc-val">± € 450</span><span class="kc-lab">RDW + APK + kenteken</span></li>
+        <li><span class="kc-val">APK</span><span class="kc-lab">Inbegrepen</span></li>
+        <li><span class="kc-val">COC</span><span class="kc-lab">Versnelt toelating</span></li>
+      </ul>
+
       <AuthorByline variant="top" />
 
       <div class="disclaimer">
@@ -216,6 +227,19 @@ const articleSchema = {
 </BaseLayout>
 
 <style>
+  /* Kennisbank visual treatment — hero + kerncijfers (consistent met route-advies/realisaties) */
+  .cornerstone-hero { margin: 4px 0 30px; max-width: 760px; aspect-ratio: 3 / 1; overflow: hidden; border-top: 3px solid var(--color-copper-text); }
+  .cornerstone-hero img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.82) contrast(0.96) brightness(1.02) sepia(0.10); }
+  .kerncijfers { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; padding: 0; margin: 0 0 40px; max-width: 760px; }
+  .kerncijfers li { flex: 1 1 150px; padding: 13px 16px; background: var(--color-cream); border: 1px solid var(--color-border-medium); border-left: 3px solid var(--color-copper-text); }
+  .kerncijfers .kc-val { display: block; font-family: var(--font-display); font-size: 23px; line-height: 1.05; color: var(--color-copper-text); }
+  .kerncijfers .kc-lab { display: block; margin-top: 5px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-secondary); }
+  @media (max-width: 600px) {
+    .cornerstone-hero { aspect-ratio: 16 / 9; }
+    .kerncijfers li { flex-basis: 42%; }
+    .kerncijfers .kc-val { font-size: 20px; }
+  }
+
   .cornerstone-page { padding: 64px 0 96px; }
   .article-header { max-width: 760px; margin-bottom: 32px; }
   .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
