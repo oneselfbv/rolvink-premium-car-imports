@@ -29,6 +29,7 @@ const personSchema = {
     'Youngtimer'
   ],
   url: 'https://www.rolvinkpremiumcarimports.nl/over/',
+  image: 'https://www.rolvinkpremiumcarimports.nl/images/theo-rolvink.jpg',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Welsum',
@@ -53,6 +54,12 @@ const personSchema = {
       <p class="lead">Een persoonlijke sourcing-consultancy is per definitie afhankelijk van de persoon. Hier het verhaal.</p>
 
       <article class="prose">
+        <figure class="over-portrait">
+          <picture>
+            <source srcset="/images/theo-rolvink.webp" type="image/webp" />
+            <img src="/images/theo-rolvink.jpg" alt="Theo Rolvink, oprichter van Rolvink Premium Car Imports" width="180" height="180" loading="eager" decoding="async" />
+          </picture>
+        </figure>
         <p>Mijn passie voor premium auto's en motoren is geen recente keuze, maar een rode draad die al jarenlang door mijn leven loopt. Ik heb in die jaren <strong>uitgebreide ervaring opgebouwd met de in- en verkoop van bijzondere voertuigen</strong> — altijd met een focus op kwaliteit, uitvoering en historie. Wat begon als een persoonlijke obsessie voor techniek en esthetiek, is uitgegroeid tot Rolvink Premium Car Imports.</p>
 
         <p>Het idee achter het bedrijf is bewust kleinschalig. Niet zoveel mogelijk auto's leveren, maar het <em>juiste</em> exemplaar vinden voor de juiste eigenaar. Geen massa-import, geen snelle handel, geen volume-druk. Wel: een persoonlijke sourcing-aanpak waarin selectie, transparantie en geduld centraal staan.</p>
@@ -88,6 +95,9 @@ const personSchema = {
 <style>
   .over-page { padding: 80px 0 80px; }
   .over-page h1 { font-family: var(--font-serif); font-size: 88px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 16px; }
+  .over-portrait { float: right; width: 180px; height: 180px; margin: 4px 0 22px 32px; border-radius: 50%; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+  .over-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 600px) { .over-portrait { float: none; margin: 0 auto 24px; width: 150px; height: 150px; } }
   .lead { font-size: 19px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 56px; line-height: 1.5; font-style: italic; font-family: 'EB Garamond', serif; font-size: 22px; }
   .prose { max-width: 680px; }
   .prose p { font-size: 17px; line-height: 1.7; color: var(--color-text-primary); margin-bottom: 24px; }
