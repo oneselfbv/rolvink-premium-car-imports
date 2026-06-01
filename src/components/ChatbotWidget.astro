@@ -156,54 +156,57 @@
     "Algemeen|Route-advies":{u:"/route-advies",t:"Doe het route-advies"},
     "Algemeen|Service, levering en betaling":{u:"/werkwijze",t:"Bekijk de werkwijze"}
   };
-  var SYN = {
-    kosten:['prijs','prijzen','tarief','tarieven','kost','kosten','euro','geld','betalen','duur','kostenplaatje'],
-    bpm:['bpm','belasting','belastingen','heffing'],
-    doorlooptijd:['hoelang','lang','wachttijd','doorlooptijd','weken','tijd','snel','duurt','levertijd','wachten'],
-    lhd:['lhd','stuur','links','linksgestuurd','linksgestuurde'],
-    rhd:['rhd','rechts','rechtsgestuurd'],
-    conditie:['grade','grades','conditie','staat','kwaliteit','schade'],
-    rdw:['rdw','keuring','kenteken','kentekenen','apk','keuren','registratie','typegoedkeuring'],
-    garantie:['garantie','garanties','risico','risicos'],
-    veiling:['veiling','veilingen','auction','uss','jcd','ju','jaa','sheet','bieden','bod'],
-    contact:['contact','bellen','afspraak','intake','intakegesprek','mailen','aanvragen'],
-    merk:['merk','merken','bmw','mercedes','audi','porsche','model','modellen'],
-    transport:['transport','verschepen','zeevracht','roro','verzending','vervoer'],
-    invoerrechten:['invoerrechten','douane','importheffing','inklaring'],
-    btw:['btw','omzetbelasting'],
-    levering:['levering','leveren','afleveren','aflevering','bezorgen','thuisbezorgd','ophalen'],
-    financiering:['financiering','financieren','lease','leasen','lenen','betaling','termijn'],
-    inruil:['inruil','inruilen','overnemen','huidige'],
-    duitsland:['duitsland','duitse','europa','duits'],
-    japan:['japan','japanse','japans']
+  var SYN={
+   kosten:['prijs','prijzen','tarief','tarieven','kost','kosten','kostprijs','euro','geld','betalen','betaal','betaald','kwijt','kostenplaatje','cost','price','expensive','much','pay','budget'],
+   bpm:['bpm','belasting','belastingen','heffing','tax'],
+   doorlooptijd:['hoelang','lang','wachttijd','doorlooptijd','weken','duurt','levertijd','levering','wachten','snel','time','long','fast','quick'],
+   lhd:['lhd','stuur','links','linksgestuurd','linksgestuurde','steering'],
+   rhd:['rhd','rechts','rechtsgestuurd'],
+   conditie:['grade','grades','conditie','staat','kwaliteit','schade','condition'],
+   rdw:['rdw','keuring','kenteken','kentekenen','apk','keuren','registratie','typegoedkeuring','grijs','geel'],
+   garantie:['garantie','garanties','veilig','veiligheid','betrouwbaar','zeker','vertrouwen','safe','warranty'],
+   risico:['risico','risicos','probleem','problemen','mis','fout'],
+   veiling:['veiling','veilingen','auction','uss','jcd','ju','jaa','sheet','bieden','bod'],
+   bezichtiging:['bezichtigen','bezichtiging','proefrit','proefrijden','bekijken','zien','inspectie','inspecteren','testrit','vooraf'],
+   contact:['contact','bellen','afspraak','intake','intakegesprek','mailen','mail','email','telefoon','telefoonnummer','nummer','bereikbaar','bereiken','waar','locatie','adres','gevestigd','vestiging','bezoek','bezoeken','langskomen'],
+   merk:['merk','merken','bmw','mercedes','mercedez','audi','porsche','porche','beemer','model','modellen','skyline','gtr','r34','r32','supra','brand','brands'],
+   transport:['transport','verschepen','zeevracht','roro','verzending','vervoer','ship','shipping'],
+   invoerrechten:['invoerrechten','douane','importheffing','inklaring','invoerrecht'],
+   btw:['btw','omzetbelasting','vat'],
+   levering:['leveren','afleveren','aflevering','bezorgen','thuisbezorgd','ophalen','thuis'],
+   financiering:['financiering','financieren','lease','leasen','lenen','termijn'],
+   inruil:['inruil','inruilen','overnemen'],
+   werkwijze:['werkwijze','proces','stappen','traject','werken','werkt','aanpak','info','informatie','uitleg','begin','doen','dienst','diensten','aanbod'],
+   oldtimer:['oldtimer','klassieker','klassiekers','klassiek','antiek','youngtimer'],
+   duitsland:['duitsland','duitse','duits','europa'],
+   japan:['japan','japanse','japans','jdm']
   };
-  function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim(); }
-  var STOP = {'de':1,'het':1,'een':1,'en':1,'van':1,'ik':1,'je':1,'mijn':1,'wat':1,'hoe':1,'is':1,'op':1,'te':1,'voor':1,'met':1,'of':1,'dat':1,'in':1,'naar':1,'aan':1,'bij':1,'om':1,'zijn':1,'wordt':1,'kan':1,'ook':1,'niet':1,'er':1,'als':1,'maar':1,'jullie':1,'me':1,'mij':1,'dan':1,'wel':1,'heb':1,'hebben':1};
-  function expand(tokens){
-    var set={};
-    tokens.forEach(function(t){
-      set[t]=1;
-      for(var k in SYN){ if(SYN[k].indexOf(t)>-1){ SYN[k].forEach(function(x){set[x]=1;}); set[k]=1; } }
-    });
-    return Object.keys(set);
-  }
-  FAQS.forEach(function(f){ f._q=norm(f.q); f._cat=norm(f.category+' '+f.market); f._body=norm(f.snippet+' '+f.a); });
+  var norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+  var STOP={de:1,het:1,een:1,en:1,van:1,ik:1,je:1,mijn:1,wat:1,hoe:1,is:1,op:1,te:1,voor:1,met:1,of:1,dat:1,in:1,naar:1,aan:1,bij:1,om:1,zijn:1,wordt:1,kan:1,ook:1,niet:1,er:1,als:1,maar:1,jullie:1,me:1,mij:1,dan:1,wel:1,the:1,do:1,you:1,does:1,it:1,a:1,i:1,my:1,hoeveel:1,waarom:1,wanneer:1,welk:1,welke:1,ben:1,moet:1,krijg:1,mag:1};
+  var STRONG={bpm:1,btw:1,rdw:1,lhd:1,rhd:1,invoerrechten:1,oldtimer:1,veiling:1,financiering:1,inruil:1};
+  function concepts(toks){var seen={},list=[];toks.forEach(function(tok){var gk=null;for(var k in SYN){if(SYN[k].indexOf(tok)>-1){gk=k;break;}}var key=gk||tok;if(seen[key])return;seen[key]=1;list.push({key:key,forms:gk?SYN[gk].concat([gk]):[tok]});});return list;}
   function score(query){
-    var qn=norm(query);
-    var toks=qn.split(' ').filter(function(t){return t.length>2 && !STOP[t];});
-    if(!toks.length) toks=qn.split(' ').filter(Boolean);
-    var ex=expand(toks);
-    return FAQS.map(function(f){
-      var s=0;
-      ex.forEach(function(t){
-        if(f._q.indexOf(t)>-1) s+=5;
-        if(f._cat.indexOf(t)>-1) s+=2;
-        if(f._body.indexOf(t)>-1) s+=1;
-      });
-      if(qn.length>4 && f._q.indexOf(qn)>-1) s+=12;
-      return {f:f,s:s};
-    }).sort(function(a,b){return b.s-a.s;});
+   var qn=norm(query);
+   var toks=qn.split(' ').filter(t=>t.length>2&&!STOP[t]);
+   if(!toks.length)toks=qn.split(' ').filter(Boolean);
+   var cons=concepts(toks);
+   var wantJP=cons.some(c=>c.key==='japan'), wantDE=cons.some(c=>c.key==='duitsland');
+   return FAQS.map(function(f){
+    var s=0;
+    cons.forEach(function(c){
+     var inQ=c.forms.some(x=>f._qW.has(x));
+     var inC=c.forms.some(x=>f._cW.has(x));
+     var inB=c.forms.some(x=>f._bW.has(x));
+     var st=STRONG[c.key]; if(inQ)s+=st?9:5; else if(inC)s+=st?4:3; else if(inB)s+=st?2:1;
+    });
+    f._strongTitle.forEach(function(k){ if(!cons.some(c=>c.key===k)) s-=3; });
+    if(qn.length>4&&f._q.indexOf(qn)>-1)s+=12;
+    if(wantJP&&!wantDE){ if(f.market==='Japan')s+=3; else if(f.market==='Duitsland')s-=4; }
+    if(wantDE&&!wantJP){ if(f.market==='Duitsland')s+=3; else if(f.market==='Japan')s-=4; }
+    return {f:f,s:s};
+   }).sort((a,b)=>b.s-a.s);
   }
+  FAQS.forEach(f=>{f._q=norm(f.q);f._cat=norm(f.category+' '+f.market);f._body=norm(f.snippet+' '+f.a);f._qW=new Set(f._q.split(' '));f._cW=new Set(f._cat.split(' '));f._bW=new Set(f._body.split(' '));f._strongTitle=Object.keys(STRONG).filter(k=>(SYN[k]||[k]).concat([k]).some(x=>f._qW.has(x)));});
   // category index
   var CATS=[]; var catMap={};
   FAQS.forEach(function(f){ var key=f.market+'|'+f.category; if(!catMap[key]){catMap[key]={market:f.market,category:f.category,items:[]}; CATS.push(catMap[key]);} catMap[key].items.push(f); });
@@ -276,7 +279,9 @@
     var best=ranked[0];
     if(!best || best.s < 3){
       track('chatbot_no_match',{query:query});
-      var d=addBot('Daar heb ik niet direct een kant-en-klaar antwoord op. Bekijk de onderwerpen hieronder, of stel je vraag rechtstreeks aan Theo — dan denkt hij met je situatie mee.');
+      var isEN=/\b(you|the|do|does|how|what|english|car|cost|price|import|please|hello|hi)\b/.test((query||'').toLowerCase()) && !/\b(de|het|een|wat|hoe|jullie|ik|kost|auto)\b/.test((query||'').toLowerCase());
+      var nm = isEN ? 'I mainly have Dutch answers ready. Browse the topics below, or message Theo directly — he\'ll be happy to help in English too.' : 'Daar heb ik niet direct een kant-en-klaar antwoord op. Bekijk de onderwerpen hieronder, of stel je vraag rechtstreeks aan Theo — dan denkt hij met je situatie mee.';
+      var d=addBot(nm);
       var bub=d.querySelector('.rv-bubble');
       var b=document.createElement('button'); b.className='rv-chip rv-cat'; b.style.marginTop='10px'; b.textContent='📚 Bekijk alle onderwerpen'; b.addEventListener('click',showCategories); bub.appendChild(b);
       var br=document.createElement('div'); br.style.marginTop='4px';
