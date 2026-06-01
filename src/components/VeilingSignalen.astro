@@ -1,0 +1,87 @@
+---
+// Marktsignalen — een greep uit recente LHD-kandidaten die we volgden op Japanse veilingen.
+// EERLIJK GEKADERD: dit is GEEN actueel aanbod, maar illustratie van het type kandidaat + onze rekenwijze.
+// Theo werkt deze lijst periodiek bij. Cijfers indicatief, peildatum onderaan.
+const peildatum = 'mei 2026';
+const signalen = [
+  { model: 'Mercedes SL 350 (R230)', jaar: '2003', km: '152.000 km', grade: '3.5', hammer: '€ 1.990', landed: '± € 7.200', nl: '€ 14.000 – 16.500' },
+  { model: 'Mercedes E 300 4MATIC (W212)', jaar: '2014', km: '48.000 km', grade: '4', hammer: '€ 6.150', landed: '± € 14.300', nl: '€ 17.500 – 21.000' },
+  { model: 'Porsche Cayman S (987)', jaar: '2006', km: '129.000 km', grade: '4', hammer: '€ 10.950', landed: '± € 20.300', nl: '€ 22.000 – 28.000' },
+  { model: 'BMW 523i Touring M Sport (F11)', jaar: '2011', km: '97.000 km', grade: '4', hammer: '€ 1.811', landed: '± € 8.500', nl: '€ 11.000 – 14.000' },
+  { model: 'Mercedes SL 500 (R230)', jaar: '2008', km: '62.000 km', grade: '4.5', hammer: '€ 11.390', landed: '± € 22.300', nl: '€ 25.000 – 32.000' },
+  { model: 'Porsche 911 Carrera 4S (996)', jaar: '2003', km: '94.000 km', grade: '4', hammer: '€ 19.700', landed: '± € 35.900', nl: '€ 42.000 – 52.000' },
+];
+---
+
+<section class="signalen">
+  <div class="container">
+    <div class="signalen-head">
+      <div class="section-eyebrow">Marktsignalen</div>
+      <h2>Wat we recent op de veiling zagen.</h2>
+      <p class="signalen-intro">
+        Een greep uit de linksgestuurde kandidaten die we de afgelopen weken volgden op Japanse veilingen — met onze indicatieve doorrekening van hamerprijs naar Nederlandse straatprijs. Zo werken we, elke week opnieuw.
+      </p>
+    </div>
+
+    <div class="signalen-grid">
+      {signalen.map((s) => (
+        <article class="kaart">
+          <div class="kaart-top">
+            <h3>{s.model}</h3>
+            <span class="grade" title="Conditie-grade op de Japanse veilingschaal">grade {s.grade}</span>
+          </div>
+          <div class="kaart-meta">{s.jaar} · {s.km}</div>
+          <dl class="kaart-cijfers">
+            <div><dt>Hamerprijs ≈</dt><dd>{s.hammer}</dd></div>
+            <div><dt>Landed NL</dt><dd>{s.landed}</dd></div>
+            <div><dt>NL-richtprijs</dt><dd class="nl">{s.nl}</dd></div>
+          </dl>
+        </article>
+      ))}
+    </div>
+
+    <p class="signalen-disclaimer">
+      Cijfers indicatief, peildatum {peildatum}. <strong>Dit is geen actueel aanbod</strong> — het is het type kandidaat dat wij voor opdrachtgevers volgen en doorrekenen. Landed cost omvat fees, transport, invoerrechten, BTW, BPM en kentekening; de definitieve BPM bepalen we per voertuig via de gunstigste van drie methoden.
+    </p>
+    <a href="#zoekprofiel" class="signalen-cta">Zoek je zoiets? Laat je zoekprofiel achter <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<style>
+  .signalen { background: var(--color-cream); padding: var(--space-section-top) 0 var(--space-section-bottom); }
+  .signalen-head { max-width: 640px; margin-bottom: 48px; }
+  .signalen h2 { font-size: 48px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 18px; color: var(--color-text-primary); }
+  .signalen-intro { font-size: 17px; line-height: 1.6; color: var(--color-text-secondary); margin: 0; }
+
+  .signalen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .kaart {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-soft);
+    border-radius: 2px;
+    padding: 24px 24px 20px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .kaart:hover { border-color: var(--color-copper); transform: translateY(-2px); }
+  .kaart-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .kaart h3 { font-family: var(--font-serif); font-size: 18px; font-weight: 600; line-height: 1.25; margin: 0; color: var(--color-charcoal-dark); letter-spacing: 0.01em; }
+  .grade { flex: 0 0 auto; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-copper-text); border: 1px solid var(--color-copper); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+  .kaart-meta { font-size: 13px; color: var(--color-text-tertiary); letter-spacing: 0.02em; margin-top: -4px; }
+  .kaart-cijfers { display: flex; flex-direction: column; gap: 8px; margin: 0; border-top: 1px solid var(--color-border-soft); padding-top: 14px; }
+  .kaart-cijfers > div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .kaart-cijfers dt { font-size: 13px; color: var(--color-text-secondary); margin: 0; }
+  .kaart-cijfers dd { font-size: 14px; font-weight: 600; color: var(--color-charcoal-dark); margin: 0; }
+  .kaart-cijfers dd.nl { color: var(--color-copper-text); }
+
+  .signalen-disclaimer { font-size: 13px; line-height: 1.6; color: var(--color-text-tertiary); max-width: 760px; margin: 32px 0 0; }
+  .signalen-cta {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 22px;
+    color: var(--color-copper-text); text-decoration: none; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; transition: gap 0.2s;
+  }
+  .signalen-cta:hover { gap: 14px; }
+  .signalen-cta .arrow { font-size: 16px; }
+
+  @media (max-width: 900px) { .signalen-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .signalen-grid { grid-template-columns: 1fr; } .signalen h2 { font-size: 34px; } }
+</style>

@@ -69,6 +69,7 @@
 
   .rv-intake { display:inline-block; margin-top:10px; color:var(--rv-copper); font-weight:600; font-size:13px; text-decoration:none; border-bottom:1px solid var(--rv-copper); }
   .rv-intake:hover{ color:var(--rv-copper-dark); }
+  .rv-ennote{ color:#8a7a5f; font-size:12.5px; font-style:italic; }
 
   .rv-cta {
     display:inline-flex; align-items:center; gap:8px; margin-top:10px; margin-right:8px;
@@ -157,33 +158,34 @@
     "Algemeen|Service, levering en betaling":{u:"/werkwijze",t:"Bekijk de werkwijze"}
   };
   var SYN={
-   kosten:['prijs','prijzen','tarief','tarieven','kost','kosten','kostprijs','euro','geld','betalen','betaal','betaald','kwijt','kostenplaatje','cost','price','expensive','much','pay','budget'],
+   kosten:['prijs','prijzen','tarief','tarieven','kost','kosten','kostprijs','euro','geld','betalen','betaal','betaald','kwijt','kostenplaatje','cost','price','expensive','much','pay','budget','allin'],
    bpm:['bpm','belasting','belastingen','heffing','tax'],
-   doorlooptijd:['hoelang','lang','wachttijd','doorlooptijd','weken','duurt','levertijd','levering','wachten','snel','time','long','fast','quick'],
+   doorlooptijd:['hoelang','lang','wachttijd','doorlooptijd','weken','duurt','levertijd','levering','wachten','snel','time','long','fast','quick','take','takes','duration'],
    lhd:['lhd','stuur','links','linksgestuurd','linksgestuurde','steering'],
    rhd:['rhd','rechts','rechtsgestuurd'],
    conditie:['grade','grades','conditie','staat','kwaliteit','schade','condition'],
    rdw:['rdw','keuring','kenteken','kentekenen','apk','keuren','registratie','typegoedkeuring','grijs','geel'],
+   tuv:['tuv','dekra','kus'],
    garantie:['garantie','garanties','veilig','veiligheid','betrouwbaar','zeker','vertrouwen','safe','warranty'],
    risico:['risico','risicos','probleem','problemen','mis','fout'],
    veiling:['veiling','veilingen','auction','uss','jcd','ju','jaa','sheet','bieden','bod'],
    bezichtiging:['bezichtigen','bezichtiging','proefrit','proefrijden','bekijken','zien','inspectie','inspecteren','testrit','vooraf'],
    contact:['contact','bellen','afspraak','intake','intakegesprek','mailen','mail','email','telefoon','telefoonnummer','nummer','bereikbaar','bereiken','waar','locatie','adres','gevestigd','vestiging','bezoek','bezoeken','langskomen'],
-   merk:['merk','merken','bmw','mercedes','mercedez','audi','porsche','porche','beemer','model','modellen','skyline','gtr','r34','r32','supra','brand','brands'],
+   merk:['merk','merken','bmw','mercedes','mercedez','audi','porsche','porche','beemer','model','modellen','skyline','gtr','r34','r32','supra','brand','brands','911','gt3','m2','m3','m5','rs3','rs4','rs6','amg','cayman','boxster','panamera','cayenne','macan','quattro'],
    transport:['transport','verschepen','zeevracht','roro','verzending','vervoer','ship','shipping'],
    invoerrechten:['invoerrechten','douane','importheffing','inklaring','invoerrecht'],
    btw:['btw','omzetbelasting','vat'],
    levering:['leveren','afleveren','aflevering','bezorgen','thuisbezorgd','ophalen','thuis'],
    financiering:['financiering','financieren','lease','leasen','lenen','termijn'],
    inruil:['inruil','inruilen','overnemen'],
-   werkwijze:['werkwijze','proces','stappen','traject','werken','werkt','aanpak','info','informatie','uitleg','begin','doen','dienst','diensten','aanbod'],
+   werkwijze:['werkwijze','proces','stappen','traject','werken','werkt','aanpak','info','informatie','uitleg','begin','doen','dienst','diensten'],
    oldtimer:['oldtimer','klassieker','klassiekers','klassiek','antiek','youngtimer'],
-   duitsland:['duitsland','duitse','duits','europa'],
-   japan:['japan','japanse','japans','jdm']
+   duitsland:['duitsland','duitse','duits','europa','germany','german'],
+   japan:['japan','japanse','japans','jdm','japanese']
   };
   var norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
-  var STOP={de:1,het:1,een:1,en:1,van:1,ik:1,je:1,mijn:1,wat:1,hoe:1,is:1,op:1,te:1,voor:1,met:1,of:1,dat:1,in:1,naar:1,aan:1,bij:1,om:1,zijn:1,wordt:1,kan:1,ook:1,niet:1,er:1,als:1,maar:1,jullie:1,me:1,mij:1,dan:1,wel:1,the:1,do:1,you:1,does:1,it:1,a:1,i:1,my:1,hoeveel:1,waarom:1,wanneer:1,welk:1,welke:1,ben:1,moet:1,krijg:1,mag:1};
-  var STRONG={bpm:1,btw:1,rdw:1,lhd:1,rhd:1,invoerrechten:1,oldtimer:1,veiling:1,financiering:1,inruil:1};
+  var STOP={de:1,het:1,een:1,en:1,van:1,ik:1,je:1,mijn:1,wat:1,hoe:1,is:1,op:1,te:1,voor:1,met:1,of:1,dat:1,in:1,naar:1,aan:1,bij:1,om:1,zijn:1,wordt:1,kan:1,ook:1,niet:1,er:1,als:1,maar:1,jullie:1,me:1,mij:1,dan:1,wel:1,the:1,do:1,you:1,does:1,it:1,a:1,i:1,my:1,hoeveel:1,waarom:1,wanneer:1,welk:1,welke:1,ben:1,moet:1,krijg:1,mag:1,from:1,to:1};
+  var STRONG={bpm:1,btw:1,rdw:1,lhd:1,rhd:1,invoerrechten:1,oldtimer:1,veiling:1,financiering:1,inruil:1,kosten:1,tuv:1};
   function concepts(toks){var seen={},list=[];toks.forEach(function(tok){var gk=null;for(var k in SYN){if(SYN[k].indexOf(tok)>-1){gk=k;break;}}var key=gk||tok;if(seen[key])return;seen[key]=1;list.push({key:key,forms:gk?SYN[gk].concat([gk]):[tok]});});return list;}
   function score(query){
    var qn=norm(query);
@@ -274,25 +276,10 @@
     scrollDown();
   }
 
-  function answer(query){
-    var ranked=score(query);
-    var best=ranked[0];
-    if(!best || best.s < 3){
-      track('chatbot_no_match',{query:query});
-      var isEN=/\b(you|the|do|does|how|what|english|car|cost|price|import|please|hello|hi)\b/.test((query||'').toLowerCase()) && !/\b(de|het|een|wat|hoe|jullie|ik|kost|auto)\b/.test((query||'').toLowerCase());
-      var nm = isEN ? 'I mainly have Dutch answers ready. Browse the topics below, or message Theo directly — he\'ll be happy to help in English too.' : 'Daar heb ik niet direct een kant-en-klaar antwoord op. Bekijk de onderwerpen hieronder, of stel je vraag rechtstreeks aan Theo — dan denkt hij met je situatie mee.';
-      var d=addBot(nm);
-      var bub=d.querySelector('.rv-bubble');
-      var b=document.createElement('button'); b.className='rv-chip rv-cat'; b.style.marginTop='10px'; b.textContent='📚 Bekijk alle onderwerpen'; b.addEventListener('click',showCategories); bub.appendChild(b);
-      var br=document.createElement('div'); br.style.marginTop='4px';
-      var cta=document.createElement('a'); cta.className='rv-cta'; cta.href='/contact'; cta.innerHTML='Plan een gratis intake &rarr;'; cta.addEventListener('click',function(){ track('chatbot_contact_click',{from:'no_match'}); }); br.appendChild(cta);
-      if(WA){ var wa=document.createElement('a'); wa.className='rv-cta rv-wa'; wa.href=waLink(); wa.target='_blank'; wa.rel='noopener'; wa.textContent='WhatsApp'; wa.addEventListener('click',function(){ track('chatbot_whatsapp_click',{from:'no_match'}); }); br.appendChild(wa); }
-      bub.appendChild(br);
-      return;
-    }
-    var f=best.f;
-    track('chatbot_query',{query:query, matched:f.q});
-    var d=addBot('<strong>'+esc(f.q)+'</strong><br>'+esc(f.snippet));
+  function isEnglishQ(q){ q=(q||'').toLowerCase(); return /\b(you|the|do|does|how|what|english|cost|price|import|importing|please|hello|hi|long|take|takes|germany|german|japanese|brand|safe|warranty)\b/.test(q) && !/\b(de|het|een|wat|hoe|jullie|ik|kost|auto|wij|jij|hoeveel|welke|merken)\b/.test(q); }
+  var MODELS=['911','gt3','m2','m3','m5','rs3','rs4','rs6','amg','cayman','boxster','panamera','cayenne','macan','quattro','skyline','gtr','r34','r32','supra'];
+  function renderOne(f, query, primary){
+    var d=addBot((primary&&isEnglishQ(query)?'<em class="rv-ennote">I’ll answer in Dutch — for English, message Theo via WhatsApp below.</em><br><br>':'')+'<strong>'+esc(f.q)+'</strong><br>'+esc(f.snippet));
     var bub=d.querySelector('.rv-bubble');
     if(f.a && f.a.length){
       var more=document.createElement('span'); more.className='rv-more'; more.textContent='Meer details';
@@ -300,7 +287,6 @@
       more.addEventListener('click',function(){ var open=extra.style.display!=='none'; extra.style.display=open?'none':'block'; more.textContent=open?'Meer details':'Minder'; scrollDown(); });
       bub.appendChild(document.createElement('br')); bub.appendChild(more); bub.appendChild(extra);
     }
-    // deeplink for this category
     var link=CATLINKS[f.market+'|'+f.category];
     if(link){
       var dl=document.createElement('a'); dl.className='rv-deeplink'; dl.href=link.u;
@@ -308,18 +294,49 @@
       dl.addEventListener('click',function(){ track('chatbot_deeplink_click',{to:link.u}); });
       bub.appendChild(document.createElement('br')); bub.appendChild(dl);
     }
-    // related
+    return bub;
+  }
+  function answer(query){
+    var ranked=score(query);
+    var best=ranked[0];
+    var ql=(query||'').toLowerCase();
+    if(!best || best.s < 3){
+      track('chatbot_no_match',{query:query});
+      var nm = isEnglishQ(query) ? 'I mainly have Dutch answers ready. Browse the topics below, or message Theo directly — he’ll be happy to help in English too.' : 'Daar heb ik niet direct een kant-en-klaar antwoord op. Bekijk de onderwerpen hieronder, of stel je vraag rechtstreeks aan Theo — dan denkt hij met je situatie mee.';
+      var d=addBot(nm); var bub0=d.querySelector('.rv-bubble');
+      var b=document.createElement('button'); b.className='rv-chip rv-cat'; b.style.marginTop='10px'; b.textContent='📚 Bekijk alle onderwerpen'; b.addEventListener('click',showCategories); bub0.appendChild(b);
+      var br=document.createElement('div'); br.style.marginTop='4px';
+      var cta=document.createElement('a'); cta.className='rv-cta'; cta.href='/contact'; cta.innerHTML='Plan een gratis intake &rarr;'; cta.addEventListener('click',function(){ track('chatbot_contact_click',{from:'no_match'}); }); br.appendChild(cta);
+      if(WA){ var wa=document.createElement('a'); wa.className='rv-cta rv-wa'; wa.href=waLink(); wa.target='_blank'; wa.rel='noopener'; wa.textContent='WhatsApp'; wa.addEventListener('click',function(){ track('chatbot_whatsapp_click',{from:'no_match'}); }); br.appendChild(wa); }
+      bub0.appendChild(br); scrollDown(); return;
+    }
+    var f=best.f;
+    track('chatbot_query',{query:query, matched:f.q});
+    var bub=renderOne(f, query, true);
+    var hasModel = MODELS.some(function(m){ return (' '+norm(query)+' ').indexOf(' '+m+' ')>-1; });
+    if(hasModel && f.category!=='Route-advies'){
+      var rl=document.createElement('a'); rl.className='rv-deeplink'; rl.href='/route-advies';
+      rl.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>Specifiek model? Doe het route-advies';
+      rl.addEventListener('click',function(){ track('chatbot_deeplink_click',{to:'/route-advies-model'}); });
+      bub.appendChild(document.createElement('br')); bub.appendChild(rl);
+    }
     var rel=ranked.slice(1).filter(function(r){return r.s>=3;}).slice(0,3).map(function(r){return {label:r.f.q};});
     if(rel.length){ bub.appendChild(labelEl('Gerelateerd')); bub.appendChild(chipRow(rel,function(it){ ask(it.label); })); }
-    // feedback
     var fb=document.createElement('div'); fb.className='rv-feedback';
     var span=document.createElement('span'); span.textContent='Was dit nuttig?'; fb.appendChild(span);
     function fbBtn(emoji,helpful){ var b=document.createElement('button'); b.className='rv-fb-btn'; b.textContent=emoji; b.setAttribute('aria-label',helpful?'Nuttig':'Niet nuttig'); b.addEventListener('click',function(){ track('chatbot_feedback',{matched:f.q,helpful:helpful}); fb.innerHTML=''; var t=document.createElement('span'); t.textContent=helpful?'Bedankt voor je feedback!':'Bedankt — voor een persoonlijk antwoord:'; fb.appendChild(t); if(!helpful){ var c=document.createElement('a'); c.className='rv-intake'; c.href='/contact'; c.style.marginLeft='6px'; c.textContent='plan een gratis intake →'; c.addEventListener('click',function(){ track('chatbot_contact_click',{from:'feedback'}); }); fb.appendChild(c); } scrollDown(); }); return b; }
     fb.appendChild(fbBtn('👍',true)); fb.appendChild(fbBtn('👎',false));
     bub.appendChild(fb);
-    // soft intake link
     var intake=document.createElement('a'); intake.className='rv-intake'; intake.href='/contact'; intake.textContent='Liever direct overleg? Plan een gratis intake →'; intake.style.display='block'; intake.addEventListener('click',function(){ track('chatbot_contact_click',{from:'answer'}); });
     bub.appendChild(intake);
+    var compound = /\b(en|of|and|plus)\b/.test(ql) || ql.indexOf('&')>-1 || ql.indexOf('+')>-1;
+    var second = ranked[1];
+    if(compound && second && second.s>=5 && second.f.category!==f.category){
+      addBot('<em class="rv-ennote">Je noemde meerdere dingen — ook relevant:</em>');
+      renderOne(second.f, query, false);
+    }
+    scrollDown();
+    if(typeof requestAnimationFrame==='function') requestAnimationFrame(scrollDown);
   }
 
   function ask(text){ addUser(text); setTimeout(function(){ answer(text); }, 180); }

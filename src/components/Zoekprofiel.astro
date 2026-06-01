@@ -1,0 +1,127 @@
+---
+// Lead-capture zonder backend: bouwt op submit een WhatsApp-deeplink met het ingevulde profiel.
+// Werkt direct (WhatsApp is live). Vuurt GA-event 'zoekprofiel_submit'.
+const WA = '31638441395';
+---
+
+<section class="zp dark-section" id="zoekprofiel">
+  <div class="container">
+    <div class="zp-grid">
+      <div class="zp-intro">
+        <div class="zp-label">Geen haast, wel scherp</div>
+        <h2>Laat je <span class="accent">zoekprofiel</span> achter.</h2>
+        <p>Nog geen exemplaar op het oog? Vertel ons wat je zoekt. Zodra er een passende kandidaat op een veiling verschijnt, signaleren wij het — met sheet, foto's en onze doorrekening. Vrijblijvend, geen verkoopdruk.</p>
+        <ul class="zp-usps">
+          <li>We bieden pas met jouw expliciete groen licht</li>
+          <li>Alleen grade 4+ en geen schade-historie</li>
+          <li>Een directe lijn met Theo — geen call-center</li>
+        </ul>
+      </div>
+
+      <form class="zp-form" id="zpForm" novalidate>
+        <div class="zp-row">
+          <label>Merk
+            <select name="merk" required>
+              <option value="">Kies…</option>
+              <option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Porsche</option>
+              <option>Nog niet zeker</option>
+            </select>
+          </label>
+          <label>Model / uitvoering
+            <input type="text" name="model" placeholder="bv. SL 500, M3, Cayman S" />
+          </label>
+        </div>
+        <div class="zp-row">
+          <label>Budget (rijklaar)
+            <select name="budget">
+              <option value="">Kies…</option>
+              <option>tot € 15.000</option><option>€ 15.000 – 25.000</option>
+              <option>€ 25.000 – 40.000</option><option>€ 40.000 – 75.000</option><option>€ 75.000+</option>
+            </select>
+          </label>
+          <label>Voorkeur bronmarkt
+            <select name="bron">
+              <option value="">Geen voorkeur</option><option>Japan</option><option>Duitsland / Europa</option>
+            </select>
+          </label>
+        </div>
+        <div class="zp-row">
+          <label>Termijn
+            <select name="termijn">
+              <option value="">Kies…</option><option>Zo snel mogelijk</option><option>Binnen 3 maanden</option>
+              <option>Dit jaar</option><option>Oriënterend</option>
+            </select>
+          </label>
+          <label>Je naam
+            <input type="text" name="naam" placeholder="Voornaam" />
+          </label>
+        </div>
+        <button type="submit" class="zp-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.039z"/></svg>
+          Verstuur via WhatsApp
+        </button>
+        <p class="zp-note">Opent WhatsApp met je profiel ingevuld — jij verstuurt zelf. Liever mailen? <a href="/contact">Via het contactformulier</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function(){
+    var form = document.getElementById('zpForm');
+    if(!form) return;
+    var WA = "31638441395";
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var f = new FormData(form);
+      var merk = (f.get('merk')||'').toString().trim();
+      if(!merk){ var sel=form.querySelector('[name=merk]'); sel.focus(); sel.style.borderColor='#c0563a'; return; }
+      var lines = [
+        'Hoi Theo, hier is mijn zoekprofiel:',
+        '• Merk: ' + (merk || '-'),
+        '• Model/uitvoering: ' + ((f.get('model')||'-')),
+        '• Budget: ' + ((f.get('budget')||'-')),
+        '• Bronmarkt: ' + ((f.get('bron')||'geen voorkeur')),
+        '• Termijn: ' + ((f.get('termijn')||'-')),
+        '• Naam: ' + ((f.get('naam')||'-'))
+      ];
+      var msg = lines.join('\n');
+      try { if(typeof window.gtag==='function'){ window.gtag('event','zoekprofiel_submit',{merk:merk, bron:(f.get('bron')||'geen voorkeur')}); } } catch(err){}
+      window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+  })();
+</script>
+
+<style>
+  .zp { background: var(--color-charcoal-dark); color: var(--color-cream); padding: var(--space-section-top) 0 var(--space-section-bottom); }
+  .zp-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 72px; align-items: start; }
+  .zp-label { color: var(--color-copper); font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 18px; }
+  .zp h2 { font-size: 52px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 20px; color: var(--color-cream); }
+  .zp-intro p { font-size: 16px; line-height: 1.65; color: rgba(245,241,234,0.72); margin: 0 0 22px; max-width: 460px; }
+  .zp-usps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .zp-usps li { position: relative; padding-left: 26px; font-size: 14.5px; color: rgba(245,241,234,0.85); line-height: 1.5; }
+  .zp-usps li::before { content: "✓"; position: absolute; left: 0; color: var(--color-copper); font-weight: 700; }
+
+  .zp-form { background: rgba(245,241,234,0.04); border: 1px solid rgba(184,115,51,0.22); border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .zp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .zp-form label { display: flex; flex-direction: column; gap: 7px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(245,241,234,0.7); }
+  .zp-form input, .zp-form select {
+    font-family: inherit; font-size: 15px; padding: 11px 13px; border-radius: 2px;
+    background: var(--color-cream); border: 1px solid transparent; color: var(--color-charcoal-dark);
+    text-transform: none; letter-spacing: 0; font-weight: 400;
+  }
+  .zp-form input::placeholder { color: #9a9387; }
+  .zp-form input:focus, .zp-form select:focus { outline: none; border-color: var(--color-copper); }
+  .zp-submit {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-top: 6px;
+    background: #25D366; color: #06351a; border: none; border-radius: 3px; padding: 14px 20px;
+    font-family: var(--font-display); font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.18s;
+  }
+  .zp-submit:hover { background: #1fb955; }
+  .zp-submit svg { width: 19px; height: 19px; }
+  .zp-note { font-size: 12.5px; color: rgba(245,241,234,0.55); margin: 2px 0 0; line-height: 1.5; }
+  .zp-note a { color: var(--color-copper); text-decoration: underline; }
+
+  @media (max-width: 900px) { .zp-grid { grid-template-columns: 1fr; gap: 40px; } .zp h2 { font-size: 38px; } }
+  @media (max-width: 520px) { .zp-row { grid-template-columns: 1fr; } }
+</style>
