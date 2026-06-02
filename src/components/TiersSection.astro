@@ -85,6 +85,9 @@ const jpBullets = [
     aspect-ratio: 3 / 2;
     margin: 0;
   }
+  .tier-img-box { overflow: hidden; }
+  .tier-img-box picture { display: block; width: 100%; height: 100%; }
+  .tier-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   @media (max-width: 768px) {
     .tier-grid { grid-template-columns: 1fr; }
