@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Pagina niet gevonden — Rolvink"
+  description="Deze pagina bestaat niet (meer). Ga terug naar de homepage of bekijk de kennisbank."
+  noIndex={true}
+>
+  <section class="nf">
+    <div class="container">
+      <div class="section-eyebrow">404</div>
+      <h1>Deze pagina bestaat niet.</h1>
+      <p class="lead">Mogelijk is de link verouderd of verkeerd getypt. Hieronder kom je weer op weg.</p>
+      <ul class="nf-links">
+        <li><a href="/">Naar de homepage</a></li>
+        <li><a href="/kennisbank">Kennisbank — gidsen over import, BPM en modellen</a></li>
+        <li><a href="/route-advies">Route-advies: Japan of Duitsland?</a></li>
+        <li><a href="/contact">Contact / intake plannen</a></li>
+      </ul>
+      <a href="/contact" class="cta">Plan een intake-gesprek<span class="arrow">→</span></a>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .nf { padding: 96px 0 120px; }
+  .nf h1 { font-size: 56px; font-weight: 600; margin: 8px 0 16px; line-height: 1.05; }
+  .nf .lead { font-size: 19px; color: var(--color-text-secondary); max-width: 600px; margin-bottom: 32px; line-height: 1.6; }
+  .nf-links { list-style: none; padding: 0; margin: 0 0 40px; max-width: 560px; }
+  .nf-links li { padding: 12px 0; border-top: 1px solid var(--color-border-medium); }
+  .nf-links li:last-child { border-bottom: 1px solid var(--color-border-medium); }
+  .nf-links a { color: var(--color-copper-text); text-decoration: none; font-size: 17px; }
+  .nf-links a:hover { text-decoration: underline; }
+  @media (max-width: 768px){ .nf h1 { font-size: 38px; } }
+</style>

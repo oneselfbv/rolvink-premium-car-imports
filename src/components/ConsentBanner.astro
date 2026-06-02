@@ -1,0 +1,40 @@
+---
+// AVG/cookiewet: analytics-cookies (GA4) laden pas na expliciete toestemming.
+---
+<div id="rv-consent" class="rv-consent" hidden role="dialog" aria-label="Cookie-toestemming">
+  <div class="rv-consent-inner">
+    <p class="rv-consent-text">
+      We gebruiken alleen anonieme analyse-cookies (Google Analytics, met geanonimiseerd IP) om de site te verbeteren — geen advertentie-tracking. Meer in onze <a href="/privacy">privacyverklaring</a>.
+    </p>
+    <div class="rv-consent-actions">
+      <button type="button" class="rv-c-decline" id="rv-decline">Weigeren</button>
+      <button type="button" class="rv-c-accept" id="rv-accept">Accepteren</button>
+    </div>
+  </div>
+</div>
+<script is:inline>
+  (function(){
+    var KEY='rv-consent';
+    var el=document.getElementById('rv-consent');
+    if(!el) return;
+    var choice=null; try{ choice=localStorage.getItem(KEY); }catch(e){}
+    if(choice!=='granted' && choice!=='denied'){ el.hidden=false; }
+    function set(v){ try{ localStorage.setItem(KEY,v); }catch(e){} el.hidden=true; if(v==='granted' && window.rvLoadGA) window.rvLoadGA(); }
+    var a=document.getElementById('rv-accept'), d=document.getElementById('rv-decline');
+    if(a) a.addEventListener('click', function(){ set('granted'); });
+    if(d) d.addEventListener('click', function(){ set('denied'); });
+  })();
+</script>
+<style>
+  .rv-consent{ position:fixed; left:0; right:0; bottom:0; z-index:10000; background:var(--color-charcoal-dark,#1f1f1f); color:var(--color-cream,#f5f1ea); border-top:2px solid var(--color-copper,#b87333); }
+  .rv-consent[hidden]{ display:none; }
+  .rv-consent-inner{ max-width:1100px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  .rv-consent-text{ flex:1 1 320px; font-size:13.5px; line-height:1.5; margin:0; color:rgba(245,241,234,0.85); }
+  .rv-consent-text a{ color:var(--color-copper,#b87333); text-decoration:underline; }
+  .rv-consent-actions{ display:flex; gap:10px; flex-shrink:0; }
+  .rv-consent button{ font-family:inherit; font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:11px 22px; cursor:pointer; border:1px solid var(--color-copper,#b87333); transition:background .2s; }
+  .rv-c-decline{ background:transparent; color:var(--color-cream,#f5f1ea); }
+  .rv-c-accept{ background:var(--color-copper,#b87333); color:#1a1a1a; }
+  .rv-c-accept:hover{ background:var(--color-cream,#f5f1ea); }
+  @media(max-width:600px){ .rv-consent-inner{ padding:14px 16px; gap:12px; } .rv-consent-actions{ width:100%; } .rv-consent button{ flex:1; } }
+</style>

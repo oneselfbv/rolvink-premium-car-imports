@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyMobileCTA from '../components/StickyMobileCTA.astro';
 import ChatbotWidget from '../components/ChatbotWidget.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -95,6 +96,7 @@ const serviceSchema = {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   {noIndex && <meta name="robots" content="noindex,nofollow" />}
   {!noIndex && <meta name="robots" content="index,follow,max-image-preview:large" />}
 
@@ -128,12 +130,19 @@ const serviceSchema = {
 
   <slot name="head" />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QM941210BY"></script>
   <script is:inline>
+    /* GA4 consent-gated: stub altijd aanwezig (geen cookies/netwerk); echte GA4 pas na toestemming */
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-QM941210BY', { anonymize_ip: true });
+    window.gtag = function(){ dataLayer.push(arguments); };
+    window.rvLoadGA = function(){
+      if (window.__rvGA) return; window.__rvGA = true;
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QM941210BY';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-QM941210BY', { anonymize_ip: true });
+    };
+    try { if (localStorage.getItem('rv-consent') === 'granted') window.rvLoadGA(); } catch (e) {}
   </script>
 </head>
 <body>
@@ -145,6 +154,7 @@ const serviceSchema = {
   <Footer />
   <StickyMobileCTA />
   <ChatbotWidget />
+  <ConsentBanner />
 </body>
 </html>
 
