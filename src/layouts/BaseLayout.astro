@@ -103,6 +103,7 @@ const serviceSchema = {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
+  {pathname === '/' && <link rel="preload" as="image" href="/images/hero-911.webp" type="image/webp" fetchpriority="high" />}
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />

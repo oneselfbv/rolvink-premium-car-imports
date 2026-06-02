@@ -26,7 +26,10 @@ const jpBullets = [
         <!-- Slot 4a: bronmarkten Duitsland 4:3, light. /public/images/bron-duitsland.jpg -->
         <figure class="tier-image">
           <div class="image-slot image-slot--placeholder image-slot--light tier-img-box" data-label="German autobahn">
-            <img class="img-graded" src="/images/bron-duitsland.jpg" alt="Zwarte Mercedes-Benz C-Klasse driekwart vooraanzicht op weg" loading="lazy" />
+            <picture>
+              <source srcset="/images/bron-duitsland.webp" type="image/webp" />
+              <img class="img-graded" src="/images/bron-duitsland.jpg" alt="Zwarte Mercedes-Benz C-Klasse driekwart vooraanzicht op weg" loading="lazy" width="1170" height="780" decoding="async" />
+            </picture>
           </div>
         </figure>
         <div class="tier-tag">Uit Duitsland</div>
@@ -43,7 +46,10 @@ const jpBullets = [
         <!-- Slot 4b: bronmarkten Japan 4:3, dark overlay. /public/images/bron-japan.jpg -->
         <figure class="tier-image">
           <div class="image-slot image-slot--placeholder img-on-dark tier-img-box" data-label="classic JDM import">
-            <img class="img-graded" src="/images/bron-japan.jpg" alt="Porsche 911 op Ginza-straat in Tokyo" loading="lazy" />
+            <picture>
+              <source srcset="/images/bron-japan.webp" type="image/webp" />
+              <img class="img-graded" src="/images/bron-japan.jpg" alt="Porsche 911 op Ginza-straat in Tokyo" loading="lazy" width="600" height="901" decoding="async" />
+            </picture>
           </div>
         </figure>
         <div class="tier-tag">Uit Japan</div>

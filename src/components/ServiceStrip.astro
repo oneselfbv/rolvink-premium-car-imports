@@ -8,7 +8,7 @@ const disciplines = [
     title: 'Sourcing',
     body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Wekelijkse kandidaten met onze duiding.',
     img: '/images/traject-auction.jpg',
-    alt: 'Audi RS7 Sportback in stadshof — sourcing van premium-uitvoeringen'
+    alt: 'BMW M3 (G80) head-on met gele LED-koplampen — sourcing van premium-uitvoeringen'
   },
   {
     num: '02',
@@ -40,7 +40,10 @@ const disciplines = [
       {disciplines.map((d) => (
         <li class="strip-card">
           <figure class="strip-card-img">
-            <img class="img-graded" src={d.img} alt={d.alt} loading="lazy" width="1600" height="900" />
+            <picture>
+              <source srcset={d.img.replace('.jpg', '.webp')} type="image/webp" />
+              <img class="img-graded" src={d.img} alt={d.alt} loading="lazy" width="1600" height="900" decoding="async" />
+            </picture>
           </figure>
           <div class="strip-card-body">
             <div class="strip-num">{d.num}</div>
