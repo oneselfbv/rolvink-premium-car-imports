@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" role="img" aria-label="Bergweg bij gouden uur — sfeerbeeld motorimport">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="0.45" stop-color="#241a13"/>
+      <stop offset="0.72" stop-color="#7c4e26"/>
+      <stop offset="0.86" stop-color="#c8843c"/>
+      <stop offset="1" stop-color="#e0a458"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.62" cy="0.92" r="0.42">
+      <stop offset="0" stop-color="#ffe9c2"/>
+      <stop offset="0.35" stop-color="#f0b566"/>
+      <stop offset="1" stop-color="#c8843c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#caa06a" stop-opacity="0.0"/>
+      <stop offset="0.5" stop-color="#3a2e22"/>
+      <stop offset="1" stop-color="#1a1714"/>
+    </linearGradient>
+    <linearGradient id="vig" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.45"/>
+      <stop offset="0.25" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="0.85" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="700" fill="url(#sky)"/>
+  <circle cx="992" cy="470" r="300" fill="url(#sun)"/>
+
+  <!-- mountain layers (far -> near) -->
+  <path d="M0 470 L250 360 L470 440 L700 330 L920 430 L1180 350 L1420 440 L1600 380 L1600 470 Z" fill="#6e4a2a" opacity="0.55"/>
+  <path d="M0 500 L300 410 L560 480 L860 390 L1140 470 L1380 405 L1600 470 L1600 500 Z" fill="#4a3320" opacity="0.8"/>
+  <path d="M0 470 L1600 470 L1600 700 L0 700 Z" fill="#241c15"/>
+
+  <!-- road -->
+  <path d="M740 470 L860 470 L1180 700 L300 700 Z" fill="url(#road)"/>
+  <!-- centre dashes -->
+  <g fill="#e6c187" opacity="0.85">
+    <polygon points="797,486 803,486 805,502 795,502"/>
+    <polygon points="792,520 808,520 812,544 788,544"/>
+    <polygon points="785,560 815,560 821,592 779,592"/>
+    <polygon points="775,612 825,612 834,652 766,652"/>
+  </g>
+
+  <!-- distant rider/bike silhouette on the road -->
+  <g fill="#161210" transform="translate(772,452) scale(0.9)">
+    <ellipse cx="6" cy="34" rx="8" ry="8"/>
+    <ellipse cx="34" cy="34" rx="8" ry="8"/>
+    <path d="M2 30 L14 16 L26 14 L34 30 L24 30 L18 22 L10 30 Z"/>
+    <path d="M16 18 C18 6 24 4 27 2 L29 6 C26 8 22 10 22 18 Z"/>
+    <ellipse cx="21" cy="6" rx="4.2" ry="4.6"/>
+    <path d="M17 12 L26 10 L27 20 L18 21 Z"/>
+  </g>
+
+  <rect width="1600" height="700" fill="url(#vig)"/>
+</svg>

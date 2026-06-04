@@ -22,8 +22,8 @@ const lossDiensten = [
 ---
 
 <BaseLayout
-  title="Tarieven — sourcing Duitsland & Japan | Rolvink"
-  description="Transparante tarieven voor onze sourcing-diensten. Sourcing Duitsland vanaf €2.250, Sourcing Japan €3.250 met gefaseerde betalingen."
+  title="Tarieven — sourcing auto's & motoren | Rolvink"
+  description="Transparante tarieven: sourcing Duitsland vanaf €2.250, Japan €3.250, en het nieuwe motor-traject vanaf €1.250 — met gefaseerde betalingen."
 >
   <section class="tariff-page">
     <div class="container">
@@ -128,6 +128,45 @@ const lossDiensten = [
           <a href="/contact" class="tier-cta tier-cta-feature">Plan intake-gesprek<span class="arrow" aria-hidden="true">→</span></a>
         </div>
 
+      </div>
+
+
+      <!-- MOTOR-TRAJECT -->
+      <div class="moto-tariff">
+        <figure class="moto-tariff-img">
+          <img src="/images/moto-sfeer.svg" width="1600" height="700" loading="lazy" decoding="async" alt="Open bergweg bij gouden uur — sourcing-traject motoren" />
+        </figure>
+        <div class="moto-tariff-body">
+          <div class="tier-tag">Nieuw — Motoren</div>
+          <h2>Sourcing-traject Motor</h2>
+          <div class="tier-price">€ 1.250 <span class="tier-vat">incl. btw</span></div>
+          <p class="tier-lead">Voor de import van een (BMW-)motor uit Duitsland. Binnen de EU, dus geen invoerrechten of zeevracht — doorgaans 1 tot 3 weken. Wij sourcen op mobile.de en Kleinanzeigen.de, beoordelen de modelspecifieke zwakke punten, en regelen alles tot Nederlands kenteken.</p>
+          <h3>Gefaseerde betaling</h3>
+          <div class="phase-block">
+            <div class="phase">
+              <div class="phase-step">Fase 1</div>
+              <div class="phase-amount">€ 500</div>
+              <div class="phase-when">Bij start — retainer</div>
+              <p>Vóór wij gaan zoeken. Verrekenbaar met de eindfee bij succesvolle aankoop.</p>
+            </div>
+            <div class="phase">
+              <div class="phase-step">Fase 2</div>
+              <div class="phase-amount">€ 750</div>
+              <div class="phase-when">Bij aflevering — restbetaling</div>
+              <p>Bij overdracht met Nederlands kenteken en alle documentatie compleet.</p>
+            </div>
+          </div>
+          <h3>Wat ons motor-traject inhoudt</h3>
+          <ul class="tier-list">
+            <li>Intake + profiel: model, bouwjaar, uitvoering en budget</li>
+            <li>Gerichte screening op mobile.de en Kleinanzeigen.de</li>
+            <li>Beoordeling van de modelspecifieke aandachtspunten (recalls, servorem, oliepomp, etc.)</li>
+            <li>Onderhandeling, transport DE→NL, RDW-keuring, motor-BPM-aangifte en kentekening</li>
+            <li>Aflevering met Nederlands kenteken</li>
+          </ul>
+          <p class="tier-scope">Aanschafprijs, transport, motor-BPM en RDW betaalt u zelf, transparant gerapporteerd zonder marge bij ons. Zie de <a href="/kennisbank/motor-bpm-importeren">motor-BPM-pagina</a> en het <a href="/motoren">motoren-overzicht</a>.</p>
+          <a href="/contact" class="tier-cta">Plan intake-gesprek<span class="arrow" aria-hidden="true">&#8594;</span></a>
+        </div>
       </div>
 
       <!-- LOSSE DIENSTEN -->
@@ -505,5 +544,15 @@ const lossDiensten = [
     }
     .transparency-block h2 { font-size: 22px; }
     .extra-heading { font-size: 24px; }
+  }
+
+  /* Motor-traject (horizontale feature) */
+  .moto-tariff { display: grid; grid-template-columns: 0.92fr 1.08fr; max-width: 1100px; margin: 0 auto 96px; border: 1px solid var(--color-border-medium); background: var(--color-white); overflow: hidden; }
+  .moto-tariff-img { margin: 0; }
+  .moto-tariff-img img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; display: block; }
+  .moto-tariff-body { padding: 36px 32px; }
+  @media (max-width: 900px) {
+    .moto-tariff { grid-template-columns: 1fr; }
+    .moto-tariff-img img { min-height: 220px; }
   }
 </style>
