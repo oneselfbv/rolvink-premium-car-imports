@@ -15,7 +15,7 @@ interface Props {
 
 const {
   title,
-  description = "Persoonlijke sourcing-service voor Duitse premium-auto's uit Europa en Japan. BMW, Mercedes-Benz, Audi, Porsche.",
+  description = "Persoonlijke sourcing-service voor Duitse premium-auto's en -motoren uit Europa en Japan. BMW, Mercedes-Benz, Audi, Porsche.",
   ogImage = '/og-image.jpg',
   noIndex = false,
 } = Astro.props;
@@ -42,7 +42,7 @@ const organizationSchema = {
   },
   telephone: '+31638441395',
   email: 'contact@rolvinkpremiumcarimports.nl',
-  description: "Persoonlijke sourcing-service voor Duitse premium-auto's (BMW, Mercedes-Benz, Audi, Porsche) uit Europa en Japan.",
+  description: "Persoonlijke sourcing-service voor Duitse premium-auto's en -motoren (BMW, Mercedes-Benz, Audi, Porsche) uit Europa en Japan.",
   sameAs: [],
 };
 
@@ -77,7 +77,7 @@ const localBusinessSchema = {
     description: 'Op afspraak',
   }],
   areaServed: { '@type': 'Country', name: 'Netherlands' },
-  description: "Persoonlijke sourcing-service voor Duitse premium-auto's uit Europa en Japan. Bezichtigingen en afspraken in Welsum, gemeente Olst-Wijhe.",
+  description: "Persoonlijke sourcing-service voor Duitse premium-auto's en -motoren uit Europa en Japan. Bezichtigingen en afspraken in Welsum, gemeente Olst-Wijhe.",
 };
 
 const serviceSchema = {
@@ -86,7 +86,7 @@ const serviceSchema = {
   serviceType: 'Automotive Import Sourcing',
   provider: { '@type': 'Organization', name: 'Rolvink Premium Imports', '@id': 'https://www.rolvinkpremiumcarimports.nl/#organization' },
   areaServed: { '@type': 'Country', name: 'Netherlands' },
-  description: "Persoonlijke sourcing van Duitse premium-auto's (BMW, Mercedes-Benz, Audi, Porsche) uit Europa en Japan. Inclusief import, BPM, RDW-keuring en aflevering aan huis.",
+  description: "Persoonlijke sourcing van Duitse premium-auto's en -motoren (BMW, Mercedes-Benz, Audi, Porsche) uit Europa en Japan. Inclusief import, BPM, RDW-keuring en aflevering aan huis.",
   audience: { '@type': 'Audience', audienceType: 'Particuliere kopers en kleine dealers' },
 };
 ---

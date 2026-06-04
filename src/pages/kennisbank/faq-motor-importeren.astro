@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'FAQ motor importeren' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const qas = [
+  ['Waarom een motor uit Duitsland importeren?', 'Duitsland heeft de grootste tweedehands-motormarkt van Europa: meer aanbod, meer keuze in uitvoering en kleur, en vaak scherpere prijzen dan in Nederland. Zeker op recente BMW-modellen (R 1250 GS, R 1300 GS) loopt het verschil op tot circa 5.000 euro.'],
+  ['Hoe lang duurt het importeren van een motor?', 'Doorgaans 1 tot 3 weken: ophalen of transport, RDW-keuring, BPM-aangifte en Nederlands kenteken. Veel sneller dan import uit Japan, omdat Duitsland binnen de EU ligt en er geen zeevracht of douane aan te pas komt.'],
+  ['Hoeveel BPM betaal ik op een motor?', 'Veel minder dan op een auto. Motor-BPM is 19,4% van de netto-catalogusprijs boven 2.133 euro, min 210 euro, en voor gebruikte motoren geldt daarop nog een afschrijvingskorting. Bij oudere motoren komt dat vaak op een paar honderd euro uit. Zie onze motor-BPM-pagina.'],
+  ['Betaal ik invoerrechten of extra BTW?', 'Geen invoerrechten, want Duitsland ligt in de EU. BTW alleen als de motor als nieuw geldt (jonger dan 6 maanden of minder dan 6.000 km); anders is de Duitse BTW al voldaan. Bij inkoop van een particulier of margehandelaar kan de margeregeling gelden.'],
+  ['Welke BMW-motoren importeren jullie?', 'Het hele BMW-gamma: de GS-boxers (R 1250 GS, R 1300 GS, R 1150 GS), de R nineT, S 1000 (RR/XR/R), K 1600, de F-serie (F 750/850/900 GS) en de klassieke airheads (R 80/R 100). Per model hebben we een koopgids met de aandachtspunten.'],
+  ['Waar moet ik op letten bij een gebruikte BMW-motor?', 'Dat verschilt per model en generatie: de servorem bij de R 1150 GS, de gearbox-recall bij de R 1250 GS, de startrelais-recall bij de R 1300 GS, het olieverbruik bij de R nineT. Onze model-koopgidsen behandelen dit per type. Algemeen geldt: complete servicehistorie, uitgevoerde terugroepacties en geen valschade.'],
+  ['Kan ik ook een specifiek model laten zoeken?', 'Ja. Geef het type, bouwjaar, uitvoering en budget door, dan screenen wij de Duitse markt (mobile.de, Kleinanzeigen.de en erkende dealers) en stellen we passende kandidaten voor — met een eerlijke rijklaar-prijs vooraf.'],
+  ['Wat kost importeren naast de aankoopprijs?', 'Bovenop de Duitse prijs komen: transport (circa 150-350 euro of zelf rijden), RDW-keuring en kentekening, de lage motor-BPM, en eventueel BTW via de margeregeling. Geen invoerrechten. Wij rekenen het totaal vooraf voor je uit.'],
+  ['Regelen jullie de RDW-keuring en het kenteken?', 'Ja. Wij verzorgen het hele traject van Duitse aankoop tot Nederlands kenteken: transport, RDW-keuring, BPM-aangifte en kentekening. Jij krijgt de motor rijklaar afgeleverd.'],
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: qas.map(([q,a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'FAQ — motor importeren uit Duitsland', description: 'Antwoorden op de meest gestelde vragen over het importeren van een (BMW-)motor uit Duitsland: BPM, BTW, doorlooptijd, kosten en proces.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/faq-motor-importeren/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+---
+<BaseLayout title="FAQ — motor importeren uit Duitsland | Rolvink" description="Veelgestelde vragen over het importeren van een BMW-motor uit Duitsland: BPM, BTW, doorlooptijd, kosten en het proces.">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">FAQ</div>
+      <h1>Motor importeren — <span class="accent">veelgestelde vragen</span>.</h1>
+      <p class="lead">De meest gestelde vragen over het importeren van een (BMW-)motor uit Duitsland, kort en duidelijk beantwoord.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 5 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Algemene informatie, geen fiscaal of juridisch advies.</strong> Bedragen en doorlooptijden zijn indicatief (juni 2026) en verschillen per situatie. Voor jouw concrete geval plannen we een gratis intakegesprek.</div>
+    <section class="content-section">
+      {qas.map(([q,a]) => (<div><h2 style="font-size:22px;margin-bottom:8px;">{q}</h2><p>{a}</p></div>))}
+    </section>
+    <div class="page-cta"><h2>Vraag niet beantwoord?</h2><p>Plan een gratis, vrijblijvend intakegesprek — online, via WhatsApp of in Welsum. Wij beantwoorden je specifieke vraag binnen 24 uur.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+      <li><a href="/kennisbank/motor-bpm-importeren">BPM bij motorimport</a></li>
+      <li><a href="/kennisbank/bmw-r1250gs-koopgids">BMW R 1250 GS — koopgids</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>

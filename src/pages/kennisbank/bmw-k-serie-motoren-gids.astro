@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BMW K-serie motoren — techniekgids' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BMW K-serie motoren — van flying brick tot zescilinder', description: 'De BMW K-serie: de liggende flying brick (K100/K1100), de transversale viercilinder (K1200/K1300) en de zescilinder K1600 — met de zwakke punten per type.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-k-serie-motoren-gids/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Wat is een "flying brick"?', acceptedAnswer: { '@type': 'Answer', text: 'De bijnaam voor de eerste K-motoren (K100/K1100, vanaf 1983): een liggende drie- of viercilinder die op zijn kant is gemonteerd, met de krukas rechts en de kleppen links. Vloeistofgekoeld en zeer duurzaam.' } },
+  { '@type': 'Question', name: 'Wat is het verschil tussen de K1200 en K1300?', acceptedAnswer: { '@type': 'Answer', text: 'Beide zijn transversale viercilinders. De K1200 (vanaf 2005) is 1.157cc met circa 165 pk; de K1300 (vanaf 2009) is 1.293cc met tot circa 175 pk, met meer koppel en verbeterde brandstofhuishouding.' } },
+  { '@type': 'Question', name: 'Welke K-motor is het meest betrouwbaar?', acceptedAnswer: { '@type': 'Answer', text: 'Alle K-motoren staan als duurzaam bekend. De flying bricks zijn legendarisch robuust (let op splines en uitgaande as), de K1600 zescilinder is heel betrouwbaar mits dealer-onderhouden, en de K1300 loste de fuelings-issues van de K1200 op.' } } ] };
+---
+<BaseLayout title="BMW K-serie motoren — flying brick tot zescilinder | Rolvink" description="De BMW K-serie: de liggende flying brick (K100/K1100), de transversale viercilinder (K1200/K1300) en de zescilinder K1600, met zwakke punten per type.">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Motorgids</div>
+      <h1>BMW K-serie motoren — <span class="accent">flying brick tot zescilinder</span>.</h1>
+      <p class="lead">Naast de boxer bouwde BMW met de K-serie een tweede technische lijn: van de iconische liggende "flying brick" tot de fluwelen zescilinder van de K 1600. Hier de evolutie en de zwakke punten per type.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 6 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Techniekinformatie is observatie, geen technisch advies.</strong> Samengesteld uit openbare bronnen (K-bike-fora, technische naslag) en eigen ervaring. Per exemplaar verschillen de aandachtspunten; voor diagnose: een BMW-Motorrad-werkplaats.</div>
+    <nav class="toc"><h2>In deze gids</h2><ol>
+      <li><a href="#overzicht">De K-serie in het kort</a></li>
+      <li><a href="#generaties">De motoren op een rij</a></li>
+      <li><a href="#brick">Flying brick (K100 / K1100)</a></li>
+      <li><a href="#transversaal">Transversale viercilinder (K1200 / K1300)</a></li>
+      <li><a href="#zes">Zescilinder (K1600)</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="overzicht" class="content-section"><h2>De K-serie in het kort</h2>
+      <p>De K-serie startte in 1983 als BMW's moderne, vloeistofgekoelde alternatief naast de luchtgekoelde boxer. In de loop der jaren evolueerde de motor van een liggende drie-/viercilinder ("flying brick") naar een rechtopstaande transversale viercilinder, en uiteindelijk naar de befaamde zescilinder van de K 1600. Sportief-tourend van karakter, en altijd met schachtaandrijving.</p></section>
+    <section id="generaties" class="content-section"><h2>De motoren op een rij</h2>
+      <table class="cost-table"><thead><tr><th>Type</th><th>Periode</th><th>Kenmerk</th></tr></thead><tbody>
+        <tr><td>K75 / K100 / K1100 (flying brick)</td><td>1983-1996</td><td>Liggend, 3- of 4-cilinder, vloeistofgekoeld</td></tr>
+        <tr><td>K1200 (transversaal)</td><td>2005-2008</td><td>1.157cc viercilinder, ~165 pk</td></tr>
+        <tr><td>K1300</td><td>2009-2016</td><td>1.293cc viercilinder, ~175 pk</td></tr>
+        <tr><td>K1600</td><td>2011-heden</td><td>1.649cc zescilinder, ~160 pk</td></tr>
+      </tbody></table></section>
+    <section id="brick" class="content-section"><h2>Flying brick (K100 / K1100)</h2>
+      <p>De originele K-motor ligt op zijn kant, met de krukas rechts en de kleppen links — uniek in motorland en vrijwel onverwoestbaar. In 1991 ging de K100 (987cc) naar 1.097cc en werd het de K1100.</p>
+      <p><strong>Aandachtspunten:</strong> de uitgaande as werd op vroege modellen door zes klinknagels vastgehouden die los kunnen werken (later twaalf — retrofitbaar); de splines van aandrijfas en versnellingsbak-ingangsas moeten regelmatig gesmeerd worden, anders slijten ze; en de ABS van die tijd vraagt regelmatig remvloeistof verversen omdat de regelunit anders vast kan lopen. Verder een legendarisch duurzaam blok.</p></section>
+    <section id="transversaal" class="content-section"><h2>Transversale viercilinder (K1200 / K1300)</h2>
+      <p>Met de K1200S (2005) zette BMW de viercilinder rechtop en dwars in het frame, 55° voorover gekanteld — beter voor de luchtinlaat en een lager zwaartepunt. De K1300 (2009) vergrootte dit naar 1.293cc met meer koppel.</p>
+      <p><strong>Aandachtspunten:</strong> vroege brandstofhuishouding op de K1200GT kon schokkerig zijn bij lage toeren (verholpen op de K1300); eindaandrijving-uitval komt voor; de slijtage-indicator van de voorremblokken gaf valse meldingen door te strak gemonteerde kabelbinders; en de K1300GT had schakelaarblok-problemen. Verder een sterk, snel blok.</p></section>
+    <section id="zes" class="content-section"><h2>Zescilinder (K1600)</h2>
+      <p>De 1.649cc zescilinder (2011) is opmerkelijk compact — slechts enkele centimeters breder dan de viercilinder — en ongekend soepel. Vanaf 1.500 toeren is al meer dan 70% van het koppel beschikbaar. Het hart van de K 1600 GT/GTL luxe-tourers.</p>
+      <p><strong>Aandachtspunten:</strong> let op ontstekingsspoelen, een wenende waterpomp en (op 2019-2020 GT/GTL) de link-strut-recall. Zie onze <a href="/kennisbank/bmw-k1600-koopgids">K 1600-koopgids</a> voor het volledige beeld.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Wat is een "flying brick"?</h3><p>De bijnaam voor de eerste K-motoren (K100/K1100, vanaf 1983): een liggende drie- of viercilinder die op zijn kant is gemonteerd, met de krukas rechts en de kleppen links. Vloeistofgekoeld en zeer duurzaam.</p>
+      <h3>Wat is het verschil tussen de K1200 en K1300?</h3><p>Beide zijn transversale viercilinders. De K1200 (vanaf 2005) is 1.157cc met circa 165 pk; de K1300 (vanaf 2009) is 1.293cc met tot circa 175 pk, met meer koppel en verbeterde brandstofhuishouding.</p>
+      <h3>Welke K-motor is het meest betrouwbaar?</h3><p>Alle K-motoren staan als duurzaam bekend. De flying bricks zijn legendarisch robuust (let op splines en uitgaande as), de K1600 zescilinder is heel betrouwbaar mits dealer-onderhouden, en de K1300 loste de fuelings-issues van de K1200 op.</p></section>
+    <div class="page-cta"><h2>Welke K past bij u?</h2><p>Of het nu een klassieke flying brick of een moderne K 1600 is — wij vinden het juiste exemplaar in Duitsland, beoordeeld op de zwakke punten van dat type, met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-k1600-koopgids">BMW K 1600 GT / GTL — koopgids</a></li>
+      <li><a href="/kennisbank/bmw-boxermotoren-gids">BMW boxermotoren — techniekgids</a></li>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>

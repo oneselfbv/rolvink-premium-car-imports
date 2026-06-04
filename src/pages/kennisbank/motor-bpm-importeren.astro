@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BPM bij motorimport' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BPM bij het importeren van een motor (2026)', description: 'Hoe motor-BPM werkt: percentage van de netto-catalogusprijs, de afschrijvingskorting voor gebruikte motoren, en waarom het veel lager uitvalt dan auto-BPM.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/motor-bpm-importeren/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Hoeveel BPM betaal je op een geimporteerde motor?', acceptedAnswer: { '@type': 'Answer', text: 'De bruto BPM is 19,4% van de netto-catalogusprijs boven 2.133 euro, min 210 euro (tot 2.133 euro is het 9,6%). Voor een gebruikte motor geldt daarop nog een afschrijvingskorting, waardoor het eindbedrag bij oudere motoren vaak slechts enkele honderden euro is.' } },
+  { '@type': 'Question', name: 'Is motor-BPM lager dan auto-BPM?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, veel lager en eenvoudiger. Auto-BPM is gebaseerd op CO2-uitstoot en loopt snel op; motor-BPM is een percentage van de netto-catalogusprijs met een vaste aftrek en daarna afschrijving.' } },
+  { '@type': 'Question', name: 'Betaal je BTW en invoerrechten bij een motor uit Duitsland?', acceptedAnswer: { '@type': 'Answer', text: 'Geen invoerrechten, want Duitsland ligt in de EU. BTW alleen als de motor als nieuw geldt (jonger dan 6 maanden of minder dan 6.000 km); anders is de Duitse BTW al voldaan. Bij inkoop van een particulier of margehandelaar kan de margeregeling gelden.' } } ] };
+---
+<BaseLayout title="BPM bij motorimport — zo werkt het (2026) | Rolvink" description="Hoe motor-BPM werkt: percentage van de netto-catalogusprijs, afschrijvingskorting voor gebruikte motoren, en waarom het veel lager is dan auto-BPM.">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Belasting</div>
+      <h1>BPM bij het importeren van een <span class="accent">motor</span>.</h1>
+      <p class="lead">Goed nieuws voor motorimport: de BPM op motoren is veel lager en eenvoudiger dan op auto's. Geen CO₂-grondslag, maar een percentage van de netto-catalogusprijs — en voor gebruikte motoren vaak nog maar een paar honderd euro.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 5 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Algemene informatie, geen fiscaal advies.</strong> Gebaseerd op de regels van de Belastingdienst (2026). BPM is maatwerk per voertuig; raadpleeg de Belastingdienst of een adviseur voor uw concrete situatie.</div>
+    <nav class="toc"><h2>Op deze pagina</h2><ol>
+      <li><a href="#hoe">Hoe motor-BPM wordt berekend</a></li>
+      <li><a href="#gebruikt">Gebruikte motor: afschrijvingskorting</a></li>
+      <li><a href="#voorbeeld">Rekenvoorbeeld</a></li>
+      <li><a href="#overig">BTW, invoerrechten &amp; margeregeling</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="hoe" class="content-section"><h2>Hoe motor-BPM wordt berekend</h2>
+      <p>De bruto BPM voor een motor is een percentage van de <strong>netto-catalogusprijs</strong> (de Nederlandse consumentenprijs zonder BPM en zonder btw, op de datum eerste toelating, inclusief opties):</p>
+      <table class="cost-table"><thead><tr><th>Netto-catalogusprijs</th><th>Percentage</th><th>Aftrek</th></tr></thead><tbody>
+        <tr><td>t/m €2.133</td><td>9,6%</td><td>€0</td></tr>
+        <tr><td>boven €2.133</td><td>19,4%</td><td>€210</td></tr>
+      </tbody></table>
+      <p>Voor een motor zonder CO₂-uitstoot (elektrisch) geldt sinds 1 januari 2025 een vast bedrag in plaats van een percentage.</p></section>
+    <section id="gebruikt" class="content-section"><h2>Gebruikte motor: afschrijvingskorting</h2>
+      <p>Een motor met meer dan 3.000 km geldt als gebruikt. Op de bruto BPM mag je dan een <strong>afschrijvingskorting</strong> toepassen, via één van drie methoden (je mag de gunstigste kiezen): de forfaitaire tabel, een koerslijst, of een taxatierapport. Hoe ouder de motor, hoe hoger de afschrijving — en hoe lager de uiteindelijke BPM.</p></section>
+    <section id="voorbeeld" class="content-section"><h2>Rekenvoorbeeld</h2>
+      <p>Een geïmporteerde motor met een netto-catalogusprijs van €7.000:</p>
+      <ul class="bullet-list">
+        <li>€7.000 × 19,4% = €1.358</li>
+        <li>€1.358 − €210 = <strong>€1.148 bruto BPM</strong></li>
+        <li>Is de motor 10 jaar oud, dan kan de afschrijving 80-90% zijn → eindbedrag vaak <strong>€150-€350</strong>.</li>
+      </ul>
+      <p>Ter vergelijking: BPM op een auto wordt op CO₂-uitstoot berekend en loopt al snel in de duizenden euro's. Voor motoren is BPM dus een veel kleinere kostenpost — een wezenlijk voordeel van motorimport.</p></section>
+    <section id="overig" class="content-section"><h2>BTW, invoerrechten &amp; margeregeling</h2>
+      <ul class="bullet-list">
+        <li><strong>Geen invoerrechten.</strong> Duitsland ligt in de EU; geen douane.</li>
+        <li><strong>BTW alleen bij "nieuw".</strong> Een motor jonger dan 6 maanden óf met minder dan 6.000 km geldt als nieuw → 21% NL-btw. Anders is de Duitse btw al voldaan.</li>
+        <li><strong>Margeregeling.</strong> Koop je als handelaar bij een particulier of margehandelaar, dan kun je vaak de margeregeling toepassen (btw alleen over de winstmarge). Let op: bij een intracommunautaire levering (btw-verlegd) mag dat niet.</li>
+      </ul></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Hoeveel BPM betaal je op een geïmporteerde motor?</h3><p>De bruto BPM is 19,4% van de netto-catalogusprijs boven €2.133, min €210 (tot €2.133 is het 9,6%). Voor een gebruikte motor geldt daarop nog een afschrijvingskorting, waardoor het eindbedrag bij oudere motoren vaak slechts enkele honderden euro's is.</p>
+      <h3>Is motor-BPM lager dan auto-BPM?</h3><p>Ja, veel lager en eenvoudiger. Auto-BPM is gebaseerd op CO₂-uitstoot en loopt snel op; motor-BPM is een percentage van de netto-catalogusprijs met een vaste aftrek en daarna afschrijving.</p>
+      <h3>Betaal je BTW en invoerrechten bij een motor uit Duitsland?</h3><p>Geen invoerrechten, want Duitsland ligt in de EU. BTW alleen als de motor als nieuw geldt (jonger dan 6 maanden of minder dan 6.000 km); anders is de Duitse btw al voldaan. Bij inkoop van een particulier of margehandelaar kan de margeregeling gelden.</p></section>
+    <div class="page-cta"><h2>Benieuwd naar de BPM voor een concrete motor?</h2><p>Wij rekenen vóór de inkoop de motor-BPM en alle bijkomende kosten voor je uit, zodat je een eerlijke rijklaar-prijs vooraf hebt.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+      <li><a href="/kennisbank/bpm-importauto-2026">BPM voor auto's — gids 2026</a></li>
+      <li><a href="/kennisbank/rdw-keuring-import">RDW-keuring voor import</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>

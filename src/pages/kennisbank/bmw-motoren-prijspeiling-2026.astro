@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BMW-motoren prijspeiling 2026' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BMW-motoren prijspeiling — Duitsland vs Nederland (juni 2026)', description: 'Live prijsvergelijking van BMW-motoren tussen Duitsland (mobile.de, Kleinanzeigen) en Nederland (Marktplaats), per modelfamilie, met het Duitse prijsvoordeel.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-motoren-prijspeiling-2026/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Op welke BMW-motoren is het Duitse prijsvoordeel het grootst?', acceptedAnswer: { '@type': 'Answer', text: 'Op de recente modellen: de R 1300 GS en R 1250 GS liggen in Duitsland indicatief circa 5.000 euro onder de Nederlandse occasionprijs, de K 1600 nog meer. Op oudere modellen hangt het verschil sterk af van bouwjaar en kilometerstand.' } },
+  { '@type': 'Question', name: 'Hoe betrouwbaar zijn deze prijzen?', acceptedAnswer: { '@type': 'Answer', text: 'Het zijn medianen uit een live scan van juni 2026. Voor recente modellen (smal bouwjaar) is de vergelijking betrouwbaar; voor families met een brede bouwjaar-spreiding bepalen wij het voordeel per concreet exemplaar.' } } ] };
+---
+<BaseLayout title="BMW-motoren prijspeiling — Duitsland vs Nederland 2026 | Rolvink" description="Live prijsvergelijking van BMW-motoren tussen Duitsland en Nederland, per modelfamilie, met het Duitse prijsvoordeel (juni 2026).">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Marktdata</div>
+      <h1>BMW-motoren prijspeiling — <span class="accent">Duitsland vs Nederland</span>.</h1>
+      <p class="lead">Wat scheelt een BMW-motor in Duitsland écht ten opzichte van Nederland? Wij scanden mobile.de, Kleinanzeigen.de en Marktplaats en zetten de prijzen per modelfamilie naast elkaar. Het scherpste voordeel zit op de recente GS-modellen.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 5 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Momentopname, geen garantie.</strong> Medianen uit een live scan (juni 2026) van mobile.de, Kleinanzeigen.de en Marktplaats. NL-bedragen zijn vraagprijzen van occasions. Voor recente modellen is de vergelijking betrouwbaar; bij families met brede bouwjaren bepaalt het concrete exemplaar het verschil. Geen fiscaal advies.</div>
+    <nav class="toc"><h2>Op deze pagina</h2><ol>
+      <li><a href="#zuiver">De zuivere vergelijking — recente modellen</a></li>
+      <li><a href="#volledig">Alle families op een rij</a></li>
+      <li><a href="#marge">Wat betekent dit voor de prijs?</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="zuiver" class="content-section"><h2>De zuivere vergelijking — recente modellen</h2>
+      <p>Bij recente modellen is het bouwjaar vanzelf vergelijkbaar, dus dit is de meest betrouwbare vergelijking. Hier is Duitsland duidelijk goedkoper:</p>
+      <table class="cost-table"><thead><tr><th>Model</th><th>NL-occasionprijs</th><th>Duits prijsvoordeel</th></tr></thead><tbody>
+        <tr><td>R 1300 GS (2023+)</td><td>±€29.945</td><td>circa €5.000-5.500</td></tr>
+        <tr><td>R 1250 GS (2019-2024)</td><td>±€20.975</td><td>circa €5.000</td></tr>
+        <tr><td>K 1600 GT/GTL</td><td>±€17.495</td><td>circa €6.500</td></tr>
+        <tr><td>S 1000 (RR/XR/R)</td><td>±€17.950</td><td>circa €2.500</td></tr>
+        <tr><td>R nineT</td><td>±€12.995</td><td>circa €2.000</td></tr>
+      </tbody></table></section>
+    <section id="volledig" class="content-section"><h2>Alle families op een rij</h2>
+      <table class="cost-table"><thead><tr><th>Familie</th><th>NL-occasionprijs (indicatief)</th></tr></thead><tbody>
+        <tr><td>R 1300 GS</td><td>€25.000 – €35.000</td></tr>
+        <tr><td>R 1250 GS</td><td>€16.000 – €26.000</td></tr>
+        <tr><td>R 1200 GS</td><td>€6.000 – €17.000</td></tr>
+        <tr><td>R nineT</td><td>€10.000 – €15.000</td></tr>
+        <tr><td>S 1000 RR / XR / R</td><td>€8.000 – €25.000+</td></tr>
+        <tr><td>K 1600 GT / GTL</td><td>€8.500 – €19.500</td></tr>
+        <tr><td>F 750 / 850 / 900 GS</td><td>€4.000 – €15.000</td></tr>
+        <tr><td>R 1150 GS (oilhead)</td><td>€3.000 – €6.000</td></tr>
+        <tr><td>Klassiek airhead (R 80 / R 100)</td><td>€4.250 – €15.000</td></tr>
+      </tbody></table>
+      <p>De brede prijsranges bij oudere families komen door verschillen in bouwjaar, kilometerstand en uitvoering. Daar bepalen wij het Duitse voordeel per concreet exemplaar.</p></section>
+    <section id="marge" class="content-section"><h2>Wat betekent dit voor de prijs?</h2>
+      <p>Op een recente R 1250 GS scheelt de inkoop in Duitsland al snel €5.000. Na transport, RDW, de lage motor-BPM en eventueel btw via de margeregeling levert dat een reële besparing op ten opzichte van een vergelijkbare Nederlandse occasion — terwijl je in Duitsland bovendien meer keuze hebt in uitvoering en kleur. Op klassiekers en youngtimers (R nineT, airheads) is het voordeel kleiner maar zit de waarde in het ruime aanbod en de juiste staat.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Op welke BMW-motoren is het Duitse prijsvoordeel het grootst?</h3><p>Op de recente modellen: de R 1300 GS en R 1250 GS liggen in Duitsland indicatief circa €5.000 onder de Nederlandse occasionprijs, de K 1600 nog meer. Op oudere modellen hangt het verschil sterk af van bouwjaar en kilometerstand.</p>
+      <h3>Hoe betrouwbaar zijn deze prijzen?</h3><p>Het zijn medianen uit een live scan van juni 2026. Voor recente modellen (smal bouwjaar) is de vergelijking betrouwbaar; voor families met een brede bouwjaar-spreiding bepalen wij het voordeel per concreet exemplaar.</p></section>
+    <div class="page-cta"><h2>Benieuwd naar jouw model?</h2><p>Vertel ons model, bouwjaar en budget — wij doen een bouwjaar-gematchte prijsvergelijking en regelen de hele import met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+      <li><a href="/kennisbank/bmw-r1250gs-koopgids">BMW R 1250 GS — koopgids</a></li>
+      <li><a href="/kennisbank/motor-bpm-importeren">BPM bij motorimport</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
