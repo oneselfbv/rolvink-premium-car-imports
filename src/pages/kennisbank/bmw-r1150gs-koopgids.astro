@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'BMW R 1150 GS koopgids' },
+];
+const publishedDate = '2026-06-04';
+const updatedDate = '2026-06-04';
+
+const articleSchema = {
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'BMW R 1150 GS — koopgids (1999-2005)',
+  description: 'De klassieke oilhead-adventure: techniek, de kwetsbare Integral ABS servorem, eindaandrijving-splines, wat te checken voor bod en prijzen Duitsland vs Nederland.',
+  datePublished: publishedDate, dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-r1150gs-koopgids/' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+const faqSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Wat is het grootste aandachtspunt bij een R 1150 GS?', acceptedAnswer: { '@type': 'Answer', text: 'De Integral ABS servorem. De servo-eenheid kan duur uitvallen (niet te reviseren, vervanging loopt in de duizenden euro), vaak door verouderde rubber remleidingen en uitgesteld remvloeistof verversen. Controleer de remwerking, het onderhoud en of het systeem ooit is vervangen of omgebouwd.' } },
+    { '@type': 'Question', name: 'Hoe betrouwbaar is de R 1150 GS?', acceptedAnswer: { '@type': 'Answer', text: 'Als rauwe, simpele oilhead-boxer is hij robuust en goed zelf te onderhouden. Let wel op de servorem, de smering van de eindaandrijving-splines (stond niet in het onderhoudsschema) en de distributiekettingspanner bij hoge kilometerstanden.' } },
+    { '@type': 'Question', name: 'Is de R 1150 GS een verstandige klassieker-instap?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. Het is een geliefde, karaktervolle adventure met groeiende liefhebberswaarde, en in Duitsland ruim en goedkoop te vinden. Mits de servorem en eindaandrijving in orde zijn, een verstandige instap.' } },
+    { '@type': 'Question', name: 'Wat kost een R 1150 GS in Duitsland versus Nederland?', acceptedAnswer: { '@type': 'Answer', text: 'In Nederland liggen nette exemplaren indicatief tussen 3.000 en 6.000 euro. In Duitsland is het aanbod groter en vaak scherper geprijsd. Door de lage BPM op oudere motoren blijven de importkosten beperkt.' } },
+  ],
+};
+---
+<BaseLayout
+  title="BMW R 1150 GS koopgids — oilhead & servorem | Rolvink"
+  description="Welke R 1150 GS kopen? Oilhead-techniek, de kwetsbare Integral ABS servorem, eindaandrijving-splines, checklist en prijzen Duitsland vs Nederland (1999-2005)."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+      <header class="article-header">
+        <div class="section-eyebrow">Motor-modelgids</div>
+        <h1>BMW R 1150 GS — <span class="accent">koopgids</span>.</h1>
+        <p class="lead">De rauwe, karaktervolle oilhead-adventure (1999-2005) die de GS-legende groot maakte. Een geliefde klassieker-instap met groeiende liefhebberswaarde — mits je de juiste aandachtspunten kent. Het belangrijkste: de Integral ABS servorem.</p>
+        <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 7 minuten</span></div>
+      </header>
+      <AuthorByline variant="top" />
+      <div class="disclaimer">
+        <strong>Modelinformatie is observatie, geen technisch advies.</strong> De aandachtspunten komen uit openbare bronnen (BMW-eigenaarsfora, oilhead-specialisten) en eigen ervaring; per exemplaar verschilt het. Voor een concrete beoordeling raadpleeg een gespecialiseerde BMW-Boxer-werkplaats. Prijzen zijn indicatief (juni 2026).
+      </div>
+      <nav class="toc">
+        <h2>In deze gids</h2>
+        <ol>
+          <li><a href="#overzicht">R 1150 GS in vogelvlucht</a></li>
+          <li><a href="#servorem">Het hoofdpunt: de Integral ABS servorem</a></li>
+          <li><a href="#aandacht">Overige aandachtspunten</a></li>
+          <li><a href="#checken">Wat te checken voor bod</a></li>
+          <li><a href="#prijzen">Prijzen — Duitsland vs Nederland</a></li>
+          <li><a href="#faq">Veelgestelde vragen</a></li>
+        </ol>
+      </nav>
+
+      <section id="overzicht" class="content-section">
+        <h2>R 1150 GS in vogelvlucht</h2>
+        <p>De R 1150 GS (1999-2004, Adventure tot 2005) is de opvolger van de R 1100 GS en de directe voorganger van de R 1200 GS. Het hart is de <strong>1.130cc oilhead-boxer</strong> (lucht/oliegekoeld, vier kleppen per cilinder) met circa 85 pk, gekoppeld aan Telelever-voorvering, Paralever-achterbrug en schachtaandrijving. Rauwer en simpeler dan de moderne GS — en juist daarom geliefd: goed zelf te onderhouden, onverwoestbaar gevoel, en de motor die de Adventure-cultuur (denk Long Way Round) mainstream maakte.</p>
+      </section>
+
+      <section id="servorem" class="content-section">
+        <h2>Het hoofdpunt: de Integral ABS servorem</h2>
+        <p>Dit is het belangrijkste aandachtspunt van deze generatie. Veel R 1150 GS'en hebben <strong>BMW Integral ABS met servo-bekrachtiging</strong>. De <strong>servo-eenheid kan duur uitvallen</strong>: het onderdeel is niet te reviseren en vervanging loopt al snel in de duizenden euro's.</p>
+        <p>De uitval komt vaak niet door de servo zelf, maar door <strong>verouderde originele rubber remleidingen</strong> die van binnen opzwellen/dichtslibben, en door <strong>uitgesteld remvloeistof verversen</strong> (BMW schrijft elke 2 jaar voor). Vervuiling beschadigt vervolgens de ABS/servo-module.</p>
+        <p><strong>Bij koop dus altijd:</strong> remwerking testen (geen ABS-storingslampen, geen blijvend "klapperende" servo bij contact-aan), de onderhoudshistorie van de remvloeistof checken, en kijken of de motor nog op de originele rubber leidingen rijdt. Sommige eigenaren hebben het servosysteem bewust verwijderd en omgebouwd naar conventionele remmen met stalen leidingen — dat is geen diskwalificatie, maar moet je weten en beoordelen.</p>
+      </section>
+
+      <section id="aandacht" class="content-section">
+        <h2>Overige aandachtspunten</h2>
+        <ul class="bullet-list">
+          <li><strong>Eindaandrijving-splines.</strong> Het onderhoudsschema schreef smering van de aandrijfas-splines níet voor; veel eigenaren ontdekten versleten/geroeste splines pas bij een defecte eindaandrijving. Vraag of de splines ooit gesmeerd/gecontroleerd zijn.</li>
+          <li><strong>Distributiekettingspanner.</strong> Vroege oilhead-spanners kunnen rond de 80.000 km opgeven — bekend, maar niet onder garantie. Luister naar ratelen bij koude start.</li>
+          <li><strong>Brandstofinjectie / "surging".</strong> Oilheads kunnen schokkerig lopen bij lage toeren; vaak een kwestie van afstelling/throttle bodies synchroniseren.</li>
+          <li><strong>Valschade.</strong> Als adventure vaak gevallen of off-road geweest — check cilinderkoppen, crashbars, stuuruiteinden en frame.</li>
+        </ul>
+      </section>
+
+      <section id="checken" class="content-section">
+        <h2>Wat te checken voor bod</h2>
+        <ul class="bullet-list">
+          <li>Servorem: werking, ABS-lampen, remvloeistof-historie, originele rubber leidingen of vervangen/omgebouwd.</li>
+          <li>Eindaandrijving: ooit splines gesmeerd? Geen speling of olielekkage.</li>
+          <li>Servicehistorie + facturen; klepspeling en throttle-sync recent gedaan.</li>
+          <li>Sporen van valschade / off-road gebruik.</li>
+          <li>Algemene staat: roest, lekkages, banden, accu.</li>
+        </ul>
+      </section>
+
+      <section id="prijzen" class="content-section">
+        <h2>Prijzen — Duitsland vs Nederland</h2>
+        <table class="cost-table">
+          <thead><tr><th>Markt</th><th>Prijsniveau occasion</th></tr></thead>
+          <tbody>
+            <tr><td>Nederland (Marktplaats)</td><td>€3.000 – €6.000 (nette exemplaren)</td></tr>
+            <tr><td>Duitsland</td><td>groter aanbod, vaak scherper geprijsd</td></tr>
+          </tbody>
+        </table>
+        <p>Door de <strong>lage BPM op oudere motoren</strong> blijven de importkosten beperkt — bij dit bouwjaar vaak slechts enkele honderden euro's na afschrijving. Een goede, servorem-gezonde R 1150 GS is daarmee een aantrekkelijke en betaalbare klassieker-instap.</p>
+      </section>
+
+      <section id="faq" class="content-section">
+        <h2>Veelgestelde vragen</h2>
+        <h3>Wat is het grootste aandachtspunt bij een R 1150 GS?</h3>
+        <p>De Integral ABS servorem. De servo-eenheid kan duur uitvallen (niet te reviseren, vervanging loopt in de duizenden euro's), vaak door verouderde rubber remleidingen en uitgesteld remvloeistof verversen. Controleer de remwerking, het onderhoud en of het systeem ooit is vervangen of omgebouwd.</p>
+        <h3>Hoe betrouwbaar is de R 1150 GS?</h3>
+        <p>Als rauwe, simpele oilhead-boxer is hij robuust en goed zelf te onderhouden. Let wel op de servorem, de smering van de eindaandrijving-splines en de distributiekettingspanner bij hoge kilometerstanden.</p>
+        <h3>Is de R 1150 GS een verstandige klassieker-instap?</h3>
+        <p>Ja. Het is een geliefde, karaktervolle adventure met groeiende liefhebberswaarde, en in Duitsland ruim en goedkoop te vinden. Mits de servorem en eindaandrijving in orde zijn, een verstandige instap.</p>
+        <h3>Wat kost een R 1150 GS in Duitsland versus Nederland?</h3>
+        <p>In Nederland liggen nette exemplaren indicatief tussen €3.000 en €6.000. In Duitsland is het aanbod groter en vaak scherper geprijsd. Door de lage BPM op oudere motoren blijven de importkosten beperkt.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Op zoek naar een gezonde R 1150 GS?</h2>
+        <p>Wij screenen de Duitse markt en beoordelen juist de kwetsbare punten — servorem, eindaandrijving, historie — vóór we bieden. Inclusief eerlijke rijklaar-prijs en het hele importtraject tot Nederlands kenteken.</p>
+        <a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/bmw-boxermotoren-gids">BMW boxermotoren — van airhead tot ShiftCam</a></li>
+          <li><a href="/kennisbank/bmw-r1250gs-koopgids">BMW R 1250 GS — koopgids</a></li>
+          <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importvoertuigen — gids 2026</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>

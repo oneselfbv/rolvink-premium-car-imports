@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'BMW boxermotoren — techniekgids' },
+];
+const publishedDate = '2026-06-04';
+const updatedDate = '2026-06-04';
+
+const articleSchema = {
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'BMW boxermotoren — van airhead tot ShiftCam',
+  description: 'De evolutie van de BMW tweecilinder boxer: airhead, oilhead, hexhead, camhead, wasserboxer en ShiftCam — met de zwakke punten en koopadvies per generatie.',
+  datePublished: publishedDate, dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-boxermotoren-gids/' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+const faqSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Wat is het verschil tussen een airhead en een oilhead?', acceptedAnswer: { '@type': 'Answer', text: 'De airhead (1969-1996) is luchtgekoeld met twee kleppen per cilinder en carburateurs/eenvoudige techniek. De oilhead (1993-2005, R1100/R1150) is lucht/oliegekoeld met vier kleppen, brandstofinjectie en meer vermogen.' } },
+    { '@type': 'Question', name: 'Wat betekent wasserboxer?', acceptedAnswer: { '@type': 'Answer', text: 'De wasserboxer (vanaf 2013, R1200GS LC) is de deels vloeistofgekoelde boxer met precisiekoeling rond de heetste delen, voor meer vermogen en strengere emissienormen.' } },
+    { '@type': 'Question', name: 'Welke boxergeneratie is het meest geschikt voor import?', acceptedAnswer: { '@type': 'Answer', text: 'Dat hangt af van uw doel: ShiftCam (R1250) voor moderne prestaties en volume, oilhead (R1150) als betaalbare karaktervolle klassieker, en airhead voor de echte liefhebber/collector. Elke generatie heeft eigen aandachtspunten.' } },
+  ],
+};
+---
+<BaseLayout
+  title="BMW boxermotoren — van airhead tot ShiftCam | Rolvink"
+  description="De evolutie van de BMW boxer: airhead, oilhead, hexhead, camhead, wasserboxer en ShiftCam. Verschillen, zwakke punten en koopadvies per generatie."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+      <header class="article-header">
+        <div class="section-eyebrow">Motorgids</div>
+        <h1>BMW boxermotoren — <span class="accent">airhead tot ShiftCam</span>.</h1>
+        <p class="lead">Al meer dan vijftig jaar is de liggende tweecilinder boxer het hart van BMW Motorrad. Wie een BMW-motor importeert, koopt eigenlijk een motorgeneratie. Hier de hele evolutie op een rij — met per generatie de bekende zwakke punten en wat het betekent voor de koop.</p>
+        <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 8 minuten</span></div>
+      </header>
+      <AuthorByline variant="top" />
+      <div class="disclaimer">
+        <strong>Techniekinformatie is observatie, geen technisch advies.</strong> Samengesteld uit openbare bronnen (BMW-eigenaarsfora, boxer-specialisten, technische naslag) en eigen ervaring. Per exemplaar kunnen aandachtspunten verschillen; voor diagnose raadpleeg een gespecialiseerde BMW-Boxer-werkplaats.
+      </div>
+      <nav class="toc">
+        <h2>In deze gids</h2>
+        <ol>
+          <li><a href="#overzicht">De boxer in het kort</a></li>
+          <li><a href="#generaties">De generaties op een rij</a></li>
+          <li><a href="#airhead">Airhead (1969-1996)</a></li>
+          <li><a href="#oilhead">Oilhead (1993-2005)</a></li>
+          <li><a href="#hexhead">Hexhead &amp; Camhead (2004-2013)</a></li>
+          <li><a href="#wasserboxer">Wasserboxer (2013-2018)</a></li>
+          <li><a href="#shiftcam">ShiftCam (2019-heden)</a></li>
+          <li><a href="#kiezen">Welke kiezen voor import?</a></li>
+          <li><a href="#faq">Veelgestelde vragen</a></li>
+        </ol>
+      </nav>
+
+      <section id="overzicht" class="content-section">
+        <h2>De boxer in het kort</h2>
+        <p>De BMW-boxer is een liggende tweecilinder waarbij de cilinders horizontaal naar buiten steken — goed voor een lage zwaartepuntligging, koeling in de rijwind en het karakteristieke "kantelen" bij gasgeven. Door de jaren ging de motor van luchtgekoeld en simpel naar deels vloeistofgekoeld met variabele kleptiming, maar het basisconcept bleef.</p>
+      </section>
+
+      <section id="generaties" class="content-section">
+        <h2>De generaties op een rij</h2>
+        <table class="cost-table">
+          <thead><tr><th>Generatie</th><th>Periode</th><th>Kenmerk</th></tr></thead>
+          <tbody>
+            <tr><td>Airhead (type 247)</td><td>1969-1996</td><td>Luchtgekoeld, 2 kleppen</td></tr>
+            <tr><td>Oilhead</td><td>1993-2005</td><td>Lucht/olie, 4 kleppen, injectie</td></tr>
+            <tr><td>Hexhead</td><td>2004-2010</td><td>R1200, balansas, lichter</td></tr>
+            <tr><td>Camhead</td><td>2010-2013</td><td>Hexhead met dubbele bovenliggende nokkenas</td></tr>
+            <tr><td>Wasserboxer</td><td>2013-2018</td><td>Deels vloeistofgekoeld (R1200 LC)</td></tr>
+            <tr><td>ShiftCam</td><td>2019-heden</td><td>R1250/R1300, variabele kleptiming &amp; -lift</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="airhead" class="content-section">
+        <h2>Airhead (1969-1996)</h2>
+        <p>De luchtgekoelde type-247-boxer met twee kleppen per cilinder — simpel, robuust en de basis van de R 80 G/S en R 100 GS die het Adventure-segment uitvonden. Geliefd bij sleutelaars en collectors.</p>
+        <p><strong>Aandachtspunten:</strong> het oliefilterhuis-gebied is het bekendste (en duurste) probleemgebied. Gebruik olie met voldoende ZDDP om slijtage aan nokkenas en klepstoters te voorkomen. Verder grotendeels onverwoestbaar bij goed onderhoud.</p>
+      </section>
+
+      <section id="oilhead" class="content-section">
+        <h2>Oilhead (1993-2005)</h2>
+        <p>De eerste moderne boxer: lucht/oliegekoeld, vier kleppen, brandstofinjectie, met de nokkenas halverwege de kop en korte stoterstangen. Te vinden in onder meer de R 1100 en R 1150 (GS/RT/R/S).</p>
+        <p><strong>Aandachtspunten:</strong> de vroege distributiekettingspanner kan rond de 80.000 km opgeven; de smering van de eindaandrijving-splines stond niet in het onderhoudsschema (controleren!); en op modellen met Integral ABS is de <strong>servorem</strong> een bekend, duur zwak punt — zie onze <a href="/kennisbank/bmw-r1150gs-koopgids">R 1150 GS-koopgids</a>. Verder kan de injectie schokkerig lopen (synchronisatie).</p>
+      </section>
+
+      <section id="hexhead" class="content-section">
+        <h2>Hexhead &amp; Camhead (2004-2013)</h2>
+        <p>Met de R 1200 (vanaf 2004) kwam de <strong>hexhead</strong>: groter, lichter, meer vermogen en een balansas voor minder trillingen — herkenbaar aan de zeshoekige kleppendeksels. Vanaf 2010 kreeg deze als <strong>camhead</strong> dubbele bovenliggende nokkenassen, nog steeds lucht/oliegekoeld. Een grote sprong in rijdynamiek ten opzichte van de oilhead.</p>
+        <p><strong>Aandachtspunten:</strong> let bij vroege R1200-modellen ook op de eindaandrijving en (op uitvoeringen met Integral ABS) de servorem; verder reguliere boxer-checks (klepspeling, koppeling).</p>
+      </section>
+
+      <section id="wasserboxer" class="content-section">
+        <h2>Wasserboxer (2013-2018)</h2>
+        <p>De R 1200 GS LC introduceerde in 2013 de <strong>wasserboxer</strong>: deels vloeistofgekoeld, met precisiekoeling rond de heetste delen. Meer vermogen, soepeler, en klaar voor strengere emissienormen — het begin van de moderne, elektronicarijke GS.</p>
+        <p><strong>Aandachtspunten:</strong> moderne motor met meer elektronica; let op servicehistorie, eventuele terugroepacties en (zoals bij elke GS) valschade.</p>
+      </section>
+
+      <section id="shiftcam" class="content-section">
+        <h2>ShiftCam (2019-heden)</h2>
+        <p>De huidige generatie (R 1250 vanaf 2019, R 1300 vanaf 2023) met <strong>ShiftCam</strong>: variabele kleptiming én klephefffing aan de inlaatzijde via een nokkenas die tussen een deellast- en vollast-nok schuift. Resultaat: meer koppel over het hele toerenbereik en betere efficiëntie.</p>
+        <p><strong>Aandachtspunten:</strong> controleer bij de R1250 dat de gearbox-ingangsas-recall (2019-2023) en software-updates zijn uitgevoerd. Zie onze <a href="/kennisbank/bmw-r1250gs-koopgids">R 1250 GS-koopgids</a>.</p>
+      </section>
+
+      <section id="kiezen" class="content-section">
+        <h2>Welke kiezen voor import?</h2>
+        <ul class="bullet-list">
+          <li><strong>Volume &amp; modern:</strong> ShiftCam (R 1250 GS) — groot Duits aanbod, breed gevraagd in NL.</li>
+          <li><strong>Betaalbare klassieker:</strong> oilhead (R 1150 GS) — karaktervol, goedkoop, mits servorem en eindaandrijving gezond.</li>
+          <li><strong>Liefhebber/collector:</strong> airhead (R 80 / R 100) — simpel, onverwoestbaar, stijgende liefhebberswaarde.</li>
+          <li><strong>Sweet spot rijplezier/waarde:</strong> hexhead/camhead (R 1200 GS 2008-2013) — modern genoeg, scherp geprijsd.</li>
+        </ul>
+      </section>
+
+      <section id="faq" class="content-section">
+        <h2>Veelgestelde vragen</h2>
+        <h3>Wat is het verschil tussen een airhead en een oilhead?</h3>
+        <p>De airhead (1969-1996) is luchtgekoeld met twee kleppen per cilinder en eenvoudige techniek. De oilhead (1993-2005, R1100/R1150) is lucht/oliegekoeld met vier kleppen, brandstofinjectie en meer vermogen.</p>
+        <h3>Wat betekent wasserboxer?</h3>
+        <p>De wasserboxer (vanaf 2013, R1200GS LC) is de deels vloeistofgekoelde boxer met precisiekoeling rond de heetste delen, voor meer vermogen en strengere emissienormen.</p>
+        <h3>Welke boxergeneratie is het meest geschikt voor import?</h3>
+        <p>Dat hangt af van uw doel: ShiftCam (R1250) voor moderne prestaties en volume, oilhead (R1150) als betaalbare karaktervolle klassieker, en airhead voor de echte liefhebber. Elke generatie heeft eigen aandachtspunten.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Welke boxer past bij u?</h2>
+        <p>Vertel ons wat u zoekt — modern, klassiek of collector — en wij vinden het juiste exemplaar in Duitsland, beoordeeld op de zwakke punten van die generatie, met een eerlijke rijklaar-prijs vooraf.</p>
+        <a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/bmw-r1250gs-koopgids">BMW R 1250 GS — koopgids</a></li>
+          <li><a href="/kennisbank/bmw-r1150gs-koopgids">BMW R 1150 GS — koopgids</a></li>
+          <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
