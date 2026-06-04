@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BMW R 1300 GS koopgids' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BMW R 1300 GS — koopgids (2023-heden)', description: 'De volledig nieuwe 1300 ShiftCam-boxer, nieuw frame, de startrelais-recall, opties als Automated Shift Assistant en prijzen Duitsland vs Nederland.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-r1300gs-koopgids/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Wat is nieuw aan de R 1300 GS ten opzichte van de R 1250 GS?', acceptedAnswer: { '@type': 'Answer', text: 'Een volledig nieuwe 1.300cc ShiftCam-boxer met circa 145 pk (14 pk meer dan de 1250), een nieuw frame, nieuwe EVO-vering en moderne elektronica. Compacter en lichter aanvoelend dan de 1250.' } },
+  { '@type': 'Question', name: 'Zijn er terugroepacties op de R 1300 GS?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. BMW riep wereldwijd circa 25.000 exemplaren (bouw juli 2023 - maart 2024) terug vanwege een startrelais dat vocht kon binnenlaten en corroderen; het relais is vervangen en er kwam een software-update. Controleer dat dit is uitgevoerd.' } },
+  { '@type': 'Question', name: 'Wat kost een R 1300 GS importeren uit Duitsland?', acceptedAnswer: { '@type': 'Answer', text: 'Duitse occasions liggen indicatief circa 5.000 euro onder de Nederlandse prijs. Het is een jong, duur model, dus het euro-voordeel is in absolute zin groot; let wel op resterende fabrieksgarantie.' } } ] };
+---
+<BaseLayout title="BMW R 1300 GS koopgids — nieuwe boxer & recall | Rolvink" description="Welke R 1300 GS kiezen? De nieuwe 1300 ShiftCam-boxer, nieuw frame, de startrelais-recall, opties en prijzen Duitsland vs Nederland (2023-heden).">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Motor-modelgids</div>
+      <h1>BMW R 1300 GS — <span class="accent">koopgids</span>.</h1>
+      <p class="lead">De nieuwste generatie GS (2023+): een volledig nieuwe 1300 ShiftCam-boxer, nieuw frame en de hoogste prijs in het segment. In Duitsland al ruim als jonge occasion te vinden — met het grootste euro-voordeel van alle modellen.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 6 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Modelinformatie is observatie, geen technisch advies.</strong> De R 1300 GS is een jong model met beperkte langetermijndata; aandachtspunten komen uit openbare bronnen (terugroep-databases, reviews, eigenaarsfora). Per exemplaar verschilt het; raadpleeg een BMW-Motorrad-werkplaats. Prijzen indicatief (juni 2026).</div>
+    <nav class="toc"><h2>In deze gids</h2><ol>
+      <li><a href="#overzicht">R 1300 GS in vogelvlucht</a></li>
+      <li><a href="#nieuw">Wat is er nieuw</a></li>
+      <li><a href="#aandacht">Aandachtspunten &amp; recall</a></li>
+      <li><a href="#checken">Wat te checken voor bod</a></li>
+      <li><a href="#prijzen">Prijzen — Duitsland vs Nederland</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="overzicht" class="content-section"><h2>R 1300 GS in vogelvlucht</h2>
+      <p>De R 1300 GS verving in 2023 de R 1250 GS en is een schone lei: nieuw blok, nieuw frame, nieuwe vering. De <strong>1.300cc ShiftCam-boxer levert circa 145 pk</strong> (zo'n 14 pk meer dan de 1250) en de motor zit nu compacter in een nieuw hoofdframe, wat de GS lichter en wendbaarder laat aanvoelen. Het is het vlaggenschip van het GS-gamma — en navenant geprijsd.</p></section>
+    <section id="nieuw" class="content-section"><h2>Wat is er nieuw</h2>
+      <ul class="bullet-list">
+        <li><strong>Nieuwe 1300 ShiftCam-boxer.</strong> Variabele kleptiming én -lift, meer vermogen en koppel dan de 1250.</li>
+        <li><strong>Nieuw frame &amp; vering.</strong> Compacter hoofdframe en doorontwikkelde EVO Telelever/Paralever.</li>
+        <li><strong>Moderne elektronica.</strong> Rijmodi, radar-opties (ACC), matrix-koplamp en uitgebreide assistentie.</li>
+        <li><strong>Automated Shift Assistant (vanaf 2024).</strong> Optioneel semi-automatisch schakelen — gewild, beïnvloedt de prijs.</li>
+      </ul></section>
+    <section id="aandacht" class="content-section"><h2>Aandachtspunten &amp; recall</h2>
+      <ul class="bullet-list">
+        <li><strong>Startrelais-recall (bouw juli 2023 - maart 2024).</strong> BMW riep wereldwijd circa 25.000 machines terug: het startrelais kon door onvoldoende afdichting vocht binnenlaten en corroderen (risico op uitval/oververhitting). Opgelost door een ander relais + software-update. <strong>Controleer dat dit is uitgevoerd.</strong></li>
+        <li><strong>Schakelaarblok rechts.</strong> Enkele meldingen van vochtindringing; let op correcte werking van de knoppen.</li>
+        <li><strong>Vroege bedrading.</strong> Incidenteel verkeerd aangesloten knipperlichten af fabriek — even controleren.</li>
+        <li><strong>Jong model.</strong> Let op resterende fabrieksgarantie en of die EU-breed geldt (BMW-garantie is doorgaans internationaal, maar verifieer).</li>
+      </ul></section>
+    <section id="checken" class="content-section"><h2>Wat te checken voor bod</h2>
+      <ul class="bullet-list">
+        <li>Startrelais-recall en software-updates aantoonbaar uitgevoerd.</li>
+        <li>Resterende fabrieksgarantie (datum eerste registratie) en geldigheid in NL/EU.</li>
+        <li>Optieniveau (radar/ACC, Automated Shift Assistant, matrix-licht) — bepaalt rijplezier én herverkoopwaarde.</li>
+        <li>Servicehistorie via BMW, en gebruikssporen (GS = vaak gereisd/licht terrein).</li>
+      </ul></section>
+    <section id="prijzen" class="content-section"><h2>Prijzen — Duitsland vs Nederland</h2>
+      <table class="cost-table"><thead><tr><th>Markt</th><th>Prijsniveau occasion</th></tr></thead><tbody>
+        <tr><td>Nederland (Marktplaats)</td><td>€25.000 – €35.000 (mediaan ±€30.000)</td></tr>
+        <tr><td>Duitsland (jonge occasion)</td><td>indicatief ±€5.000 lager</td></tr>
+      </tbody></table>
+      <p>Doordat de R 1300 GS jong en duur is, is het euro-voordeel in absolute zin het grootst van alle modellen. De lage motor-BPM en de korte EU-doorlooptijd maken dit — naast de R 1250 GS — een sterk volumemodel voor import, mits je let op garantie en de recall.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Wat is nieuw aan de R 1300 GS ten opzichte van de R 1250 GS?</h3><p>Een volledig nieuwe 1.300cc ShiftCam-boxer met circa 145 pk (14 pk meer dan de 1250), een nieuw frame, nieuwe EVO-vering en moderne elektronica. Compacter en lichter aanvoelend dan de 1250.</p>
+      <h3>Zijn er terugroepacties op de R 1300 GS?</h3><p>Ja. BMW riep wereldwijd circa 25.000 exemplaren (bouw juli 2023 - maart 2024) terug vanwege een startrelais dat vocht kon binnenlaten en corroderen; het relais is vervangen en er kwam een software-update. Controleer dat dit is uitgevoerd.</p>
+      <h3>Wat kost een R 1300 GS importeren uit Duitsland?</h3><p>Duitse occasions liggen indicatief circa €5.000 onder de Nederlandse prijs. Het is een jong, duur model, dus het euro-voordeel is in absolute zin groot; let wel op resterende fabrieksgarantie.</p></section>
+    <div class="page-cta"><h2>Op zoek naar een R 1300 GS?</h2><p>Vertel ons optieniveau en budget — wij vinden een jonge Duitse occasion, controleren recall en garantie, en regelen het hele importtraject met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-r1250gs-koopgids">BMW R 1250 GS — koopgids</a></li>
+      <li><a href="/kennisbank/bmw-boxermotoren-gids">BMW boxermotoren — airhead tot ShiftCam</a></li>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>

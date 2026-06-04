@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BMW R 80 / R 100 airhead koopgids' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BMW R 80 / R 100 airhead — koopgids voor klassiekers', description: 'De luchtgekoelde boxer-klassiekers (R 80 G/S, R 100 GS, R 80/100 RT/RS/R): techniek, zwakke punten, wat te checken en prijzen voor de collector-instap.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-r80-r100-airhead-koopgids/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Wat is een airhead?', acceptedAnswer: { '@type': 'Answer', text: 'De luchtgekoelde BMW-boxer (type 247, 1969-1996) met twee kleppen per cilinder. Simpel, robuust en goed zelf te onderhouden. De R 80 G/S en R 100 GS uit deze familie legden de basis voor het hele adventure-segment.' } },
+  { '@type': 'Question', name: 'Waar moet ik op letten bij een airhead?', acceptedAnswer: { '@type': 'Answer', text: 'Het oliefilterhuis-gebied (bekend probleemgebied), het gebruik van olie met voldoende ZDDP voor de nokkenas, de laadstroom (diodeplaat), klepspeling, en de staat van de aandrijfas en lagers. Verder zijn het onverwoestbare, restaureerbare motoren.' } },
+  { '@type': 'Question', name: 'Zijn airheads een goede investering?', acceptedAnswer: { '@type': 'Answer', text: 'De liefhebberswaarde is door de jaren gestegen, zeker voor de iconische R 80 G/S. Prijzen schommelen, maar nette, originele exemplaren met historie blijven gewild. Het is meer een passie-aankoop dan een snelle handel.' } } ] };
+---
+<BaseLayout title="BMW R 80 / R 100 airhead koopgids — klassieke boxer | Rolvink" description="De luchtgekoelde boxer-klassiekers (R 80 G/S, R 100 GS, RT/RS/R): techniek, zwakke punten, checklist en prijzen voor de collector-instap.">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Motor-modelgids</div>
+      <h1>BMW R 80 / R 100 — <span class="accent">airhead koopgids</span>.</h1>
+      <p class="lead">De luchtgekoelde boxer-klassiekers die de BMW-legende schreven. Simpel, onverwoestbaar en restaureerbaar — en met de R 80 G/S de motor die het hele adventure-genre uitvond. Voor de liefhebber dé collector-instap, ruim te vinden in Duitsland.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 7 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Modelinformatie is observatie, geen technisch advies.</strong> Samengesteld uit openbare bronnen (airhead-specialisten, eigenaarsverenigingen) en eigen ervaring. Bij klassiekers verschilt de staat enorm per exemplaar; laat een twijfelgeval altijd door een airhead-specialist beoordelen. Prijzen indicatief (juni 2026).</div>
+    <nav class="toc"><h2>In deze gids</h2><ol>
+      <li><a href="#overzicht">De airhead in het kort</a></li>
+      <li><a href="#modellen">De belangrijkste modellen</a></li>
+      <li><a href="#aandacht">Zwakke punten &amp; aandachtspunten</a></li>
+      <li><a href="#checken">Wat te checken voor bod</a></li>
+      <li><a href="#prijzen">Prijzen &amp; liefhebberswaarde</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="overzicht" class="content-section"><h2>De airhead in het kort</h2>
+      <p>"Airhead" is de bijnaam voor de luchtgekoelde BMW-boxer (type 247, 1969-1996): twee kleppen per cilinder, eenvoudige techniek en een blok dat vrijwel volledig zelf te onderhouden is. Het is de generatie waarmee BMW de naam van onverwoestbare reismotoren vestigde — en met de R 80 G/S (1980) de motor die het adventure-segment letterlijk uitvond. Voor liefhebbers is het de toegangspoort tot de klassieke BMW-wereld.</p></section>
+    <section id="modellen" class="content-section"><h2>De belangrijkste modellen</h2>
+      <ul class="bullet-list">
+        <li><strong>R 80 G/S (1980-1987).</strong> De originele GS en het meest gezochte exemplaar — Dakar-erfgoed, stijgende waarde.</li>
+        <li><strong>R 100 GS (1987-1996).</strong> Grotere, sterkere opvolger met Paralever-achterbrug; praktische klassieke reisenduro.</li>
+        <li><strong>R 80 / R 100 RT &amp; RS.</strong> De tourer (RT) en sport-tourer (RS) met kuip — comfortabel en betaalbaarder.</li>
+        <li><strong>R 80 / R 100 R (roadster).</strong> Naakte roadsters, de "mystic" en latere uitvoeringen.</li>
+      </ul></section>
+    <section id="aandacht" class="content-section"><h2>Zwakke punten &amp; aandachtspunten</h2>
+      <ul class="bullet-list">
+        <li><strong>Oliefilterhuis-gebied.</strong> Het bekendste (en potentieel duurste) probleemgebied — controleer op lekkage en eerdere reparaties.</li>
+        <li><strong>ZDDP-olie.</strong> Airheads hebben olie met voldoende ZDDP nodig om slijtage (spalling) aan nokkenas en klepstoters te voorkomen; vraag welke olie gebruikt is.</li>
+        <li><strong>Laadsysteem.</strong> De diodeplaat en het laadcircuit zijn op leeftijd een aandachtspunt — check de laadspanning.</li>
+        <li><strong>Aandrijfas &amp; lagers.</strong> Schachtaandrijving is robuust maar controleer op speling en lekkage; klepspeling regelmatig stellen.</li>
+        <li><strong>Originaliteit &amp; roest.</strong> Bij klassiekers bepalen originaliteit, matching numbers en blik-/chroomstaat de waarde sterk.</li>
+      </ul></section>
+    <section id="checken" class="content-section"><h2>Wat te checken voor bod</h2>
+      <ul class="bullet-list">
+        <li>Oliefilterhuis-gebied droog en geen geschiedenis van problemen.</li>
+        <li>Laadspanning, compressie en geluid bij koude start (geen ratelen/tikken).</li>
+        <li>Documentatie/historie, matching numbers, originaliteit van uitvoering.</li>
+        <li>Blik- en chroomstaat, frame, en eerdere restauraties (wie, wanneer, kwaliteit).</li>
+      </ul></section>
+    <section id="prijzen" class="content-section"><h2>Prijzen &amp; liefhebberswaarde</h2>
+      <table class="cost-table"><thead><tr><th>Markt</th><th>Prijsniveau</th></tr></thead><tbody>
+        <tr><td>R 80 G/S (origineel, net)</td><td>indicatief €9.000 – €13.000</td></tr>
+        <tr><td>R 100 GS / RT / RS / R</td><td>indicatief €4.000 – €10.000</td></tr>
+        <tr><td>Duitsland</td><td>ruim aanbod, vaak scherpe deals (ook particulier)</td></tr>
+      </tbody></table>
+      <p>De liefhebberswaarde is over de jaren gestegen, met de R 80 G/S als blikvanger. Prijzen schommelen en kopers zijn prijsbewuster dan tijdens de piek van 2021-2022, maar nette, originele exemplaren met historie blijven gewild. Door <strong>nihil tot zeer lage BPM</strong> op deze leeftijd en het ruime, vaak goedkope Duitse (en Italiaanse) aanbod is dit een aantrekkelijk segment — meer een passie- dan een volumelijn.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Wat is een airhead?</h3><p>De luchtgekoelde BMW-boxer (type 247, 1969-1996) met twee kleppen per cilinder. Simpel, robuust en goed zelf te onderhouden. De R 80 G/S en R 100 GS uit deze familie legden de basis voor het hele adventure-segment.</p>
+      <h3>Waar moet ik op letten bij een airhead?</h3><p>Het oliefilterhuis-gebied (bekend probleemgebied), het gebruik van olie met voldoende ZDDP voor de nokkenas, de laadstroom (diodeplaat), klepspeling, en de staat van de aandrijfas en lagers. Verder zijn het onverwoestbare, restaureerbare motoren.</p>
+      <h3>Zijn airheads een goede investering?</h3><p>De liefhebberswaarde is door de jaren gestegen, zeker voor de iconische R 80 G/S. Prijzen schommelen, maar nette, originele exemplaren met historie blijven gewild. Het is meer een passie-aankoop dan een snelle handel.</p></section>
+    <div class="page-cta"><h2>Op zoek naar een klassieke airhead?</h2><p>Een goede airhead kopen draait om staat en historie. Wij beoordelen juist die punten in Duitsland — oliefilterhuis, laadsysteem, originaliteit — en regelen het hele importtraject met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-boxermotoren-gids">BMW boxermotoren — airhead tot ShiftCam</a></li>
+      <li><a href="/kennisbank/bmw-r1150gs-koopgids">BMW R 1150 GS — koopgids</a></li>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>

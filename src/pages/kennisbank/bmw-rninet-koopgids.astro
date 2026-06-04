@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BMW R nineT koopgids' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BMW R nineT — koopgids (2014-heden)', description: 'De modern classic met de laatste lucht/oliegekoelde boxer: uitvoeringen, aandachtspunten (olieverbruik, bedrading), checklist en prijzen Duitsland vs Nederland.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-rninet-koopgids/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Is de BMW R nineT betrouwbaar?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. De lucht/oliegekoelde 1.170cc boxer is een beproefd blok dat moeiteloos 150.000-300.000 km haalt bij onderhoud. Let op olieverbruik in de eerste fase en op vroege bedradingskwesties.' } },
+  { '@type': 'Question', name: 'Welke R nineT-uitvoeringen zijn er?', acceptedAnswer: { '@type': 'Answer', text: 'De roadster (basis), Pure, Scrambler, Racer, Urban G/S en /5. Allemaal delen ze dezelfde boxer; ze verschillen vooral in styling, wielen en uitrusting.' } },
+  { '@type': 'Question', name: 'Waar moet ik op letten bij een gebruikte R nineT?', acceptedAnswer: { '@type': 'Answer', text: 'Olieverbruik (en niet overvullen — dat kan de achterste hoofdkeerring beschadigen), de bedrading naar koplamp/teller bij vroege modellen, de ABS-sensor en het feit dat de basisvering niet instelbaar is.' } } ] };
+---
+<BaseLayout title="BMW R nineT koopgids — modern classic boxer | Rolvink" description="Welke R nineT kiezen? Uitvoeringen (Pure/Scrambler/Racer), aandachtspunten, checklist en prijzen Duitsland vs Nederland (2014-heden).">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Motor-modelgids</div>
+      <h1>BMW R nineT — <span class="accent">koopgids</span>.</h1>
+      <p class="lead">De modern classic die de retro-golf voor BMW inluidde, met de láátste lucht/oliegekoelde boxer als hart. Een customizing-icoon met sterke restwaarde — geliefd, gewild, en in Duitsland ruim te vinden.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 6 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Modelinformatie is observatie, geen technisch advies.</strong> Samengesteld uit openbare bronnen (eigenaarsfora, reviews) en eigen ervaring; per exemplaar kan het verschillen. Voor diagnose: een gespecialiseerde BMW-Motorrad-werkplaats. Prijzen indicatief (juni 2026).</div>
+    <nav class="toc"><h2>In deze gids</h2><ol>
+      <li><a href="#overzicht">R nineT in vogelvlucht</a></li>
+      <li><a href="#uitvoeringen">De uitvoeringen</a></li>
+      <li><a href="#aandacht">Aandachtspunten</a></li>
+      <li><a href="#checken">Wat te checken voor bod</a></li>
+      <li><a href="#prijzen">Prijzen — Duitsland vs Nederland</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="overzicht" class="content-section"><h2>R nineT in vogelvlucht</h2>
+      <p>De R nineT verscheen in 2014 als eerbetoon aan 90 jaar BMW Motorrad: een kale roadster rond de <strong>1.170cc lucht/oliegekoelde boxer</strong> (circa 109 pk), met USD-voorvork, schachtaandrijving en een bewust pure, sleutelvriendelijke opzet. Het werd dé basis voor de customizing-scene en groeide uit tot een hele familie. Omdat het blok beproefd is en de motor gewild blijft, houdt de R nineT zijn waarde goed.</p></section>
+    <section id="uitvoeringen" class="content-section"><h2>De uitvoeringen</h2>
+      <p>Allemaal delen ze dezelfde boxer; het verschil zit in styling, wielen en uitrusting:</p>
+      <ul class="bullet-list">
+        <li><strong>R nineT (roadster).</strong> Het origineel met USD-vork en spaakwielen — de premium-uitvoering.</li>
+        <li><strong>Pure.</strong> De toegankelijke basis: telescoopvork, gietwielen, scherper geprijsd.</li>
+        <li><strong>Scrambler.</strong> Hoger uitlaat, ruigere look, lichte off-road uitstraling.</li>
+        <li><strong>Racer.</strong> Cafe-racer met kuip en lage clip-ons (productie korter).</li>
+        <li><strong>Urban G/S.</strong> Eerbetoon aan de R 80 G/S, witte tank, enduro-tint.</li>
+        <li><strong>/5 (Slash Five).</strong> Heritage-editie met klassieke kleuren.</li>
+      </ul></section>
+    <section id="aandacht" class="content-section"><h2>Aandachtspunten</h2>
+      <ul class="bullet-list">
+        <li><strong>Olieverbruik.</strong> Vooral de eerste ~15.000 km kan de motor olie gebruiken; check het peil regelmatig. <strong>Niet overvullen</strong> — overvullen kan de achterste hoofdkeerring beschadigen.</li>
+        <li><strong>Bedrading (vroege modellen).</strong> De kabelboom naar koplamp/teller kan langs het stuur schuren en breken; controleer op haperende verlichting/instrumenten.</li>
+        <li><strong>ABS-sensor.</strong> Komt op fora terug als incidenteel punt — let op ABS-storingslampen.</li>
+        <li><strong>Niet-instelbare vering (basis).</strong> Comfort is smaakafhankelijk; veel exemplaren hebben aftermarket-vering — beoordeel kwaliteit.</li>
+        <li><strong>Tube-banden / zadel.</strong> Sommige uitvoeringen hebben binnenbanden; comfort van het zadel is een bekende klacht.</li>
+      </ul></section>
+    <section id="checken" class="content-section"><h2>Wat te checken voor bod</h2>
+      <ul class="bullet-list">
+        <li>Oliepeil/-verbruik en geen sporen van overvullen; servicehistorie compleet.</li>
+        <li>Bedrading koplamp/teller (vroege modellen) zonder schuren/breuk.</li>
+        <li>Originaliteit vs. customizing — veel R nineT's zijn omgebouwd; beoordeel kwaliteit en of het de NL-verkoop helpt of hindert.</li>
+        <li>ABS-werking, banden, kettingloos (schacht) eindaandrijving zonder lekkage.</li>
+      </ul></section>
+    <section id="prijzen" class="content-section"><h2>Prijzen — Duitsland vs Nederland</h2>
+      <table class="cost-table"><thead><tr><th>Markt</th><th>Prijsniveau occasion</th></tr></thead><tbody>
+        <tr><td>Nederland (Marktplaats)</td><td>€10.000 – €15.000</td></tr>
+        <tr><td>Duitsland (mobile.de)</td><td>indicatief ±€2.000 lager, ruimer aanbod</td></tr>
+      </tbody></table>
+      <p>De R nineT houdt zijn waarde goed, dus het Duitse voordeel is wat kleiner dan op de GS — maar het aanbod is groter en je kunt gerichter de juiste uitvoering/kleur vinden. Een nette, originele roadster of een smaakvol opgebouwd exemplaar verkoopt in NL vlot.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Is de BMW R nineT betrouwbaar?</h3><p>Ja. De lucht/oliegekoelde 1.170cc boxer is een beproefd blok dat moeiteloos 150.000-300.000 km haalt bij onderhoud. Let op olieverbruik in de eerste fase en op vroege bedradingskwesties.</p>
+      <h3>Welke R nineT-uitvoeringen zijn er?</h3><p>De roadster (basis), Pure, Scrambler, Racer, Urban G/S en /5. Allemaal delen ze dezelfde boxer; ze verschillen vooral in styling, wielen en uitrusting.</p>
+      <h3>Waar moet ik op letten bij een gebruikte R nineT?</h3><p>Olieverbruik (en niet overvullen — dat kan de achterste hoofdkeerring beschadigen), de bedrading naar koplamp/teller bij vroege modellen, de ABS-sensor en het feit dat de basisvering niet instelbaar is.</p></section>
+    <div class="page-cta"><h2>Op zoek naar een R nineT?</h2><p>Vertel ons uitvoering, bouwjaar en of u origineel of opgebouwd zoekt — wij vinden de juiste in Duitsland en regelen het hele importtraject, met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-boxermotoren-gids">BMW boxermotoren — airhead tot ShiftCam</a></li>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+      <li><a href="/kennisbank/bmw-r1250gs-koopgids">BMW R 1250 GS — koopgids</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
