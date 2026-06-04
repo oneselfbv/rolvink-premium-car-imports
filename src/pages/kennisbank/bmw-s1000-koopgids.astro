@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BMW S 1000 RR / XR / R koopgids' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BMW S 1000 RR / XR / R — koopgids', description: 'De viercilinder S 1000-familie: RR superbike, XR adventure-sport en R roadster. Generaties, recalls, aandachtspunten en prijzen Duitsland vs Nederland.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-s1000-koopgids/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Wat is het verschil tussen de S 1000 RR, XR en R?', acceptedAnswer: { '@type': 'Answer', text: 'Ze delen de viercilinder: de RR is de pure superbike, de XR een adventure-sporttourer (rechtere zit, langere vering) en de R een naked roadster. Alledrie razendsnel; de XR is het meest praktisch voor langere ritten.' } },
+  { '@type': 'Question', name: 'Welke bouwjaren S 1000 RR kun je beter mijden?', acceptedAnswer: { '@type': 'Answer', text: 'Wees voorzichtig met de eerste generatie 2010-2011, met 2011-2014 (terugroep brandstofpomp, en 2012 drijfstang) en met 2016-2017 (bout van de achterveer-deflectiehefboom). De derde generatie en de ShiftCam (vanaf 2019) gelden als beter.' } },
+  { '@type': 'Question', name: 'Is de S 1000 XR betrouwbaar?', acceptedAnswer: { '@type': 'Answer', text: 'Over het algemeen ja. De vroege 2015-2016 had wat first-generation kwaaltjes (trillingen, distributiekettingspanner); vanaf de 2017-update (Euro4) is veel verbeterd.' } } ] };
+---
+<BaseLayout title="BMW S 1000 RR / XR / R koopgids — superbike & sport | Rolvink" description="Welke S 1000 kiezen? RR superbike, XR adventure-sport, R roadster: generaties, recalls, aandachtspunten en prijzen Duitsland vs Nederland.">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Motor-modelgids</div>
+      <h1>BMW S 1000 — <span class="accent">RR / XR / R koopgids</span>.</h1>
+      <p class="lead">De viercilinder S 1000-familie bracht BMW naar de absolute top van het sportsegment. Of je nu de RR-superbike, de veelzijdige XR of de naakte R zoekt — hier de generaties, de recalls om op te letten, en wat een goede S 1000 kost.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 6 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Modelinformatie is observatie, geen technisch advies.</strong> Samengesteld uit openbare bronnen (eigenaarsfora, reviews, terugroep-databases) en eigen ervaring; per exemplaar verschilt het. Voor diagnose: een BMW-Motorrad-werkplaats. Prijzen indicatief (juni 2026).</div>
+    <nav class="toc"><h2>In deze gids</h2><ol>
+      <li><a href="#overzicht">De S 1000-familie</a></li>
+      <li><a href="#varianten">RR vs XR vs R</a></li>
+      <li><a href="#aandacht">Aandachtspunten &amp; recalls per generatie</a></li>
+      <li><a href="#checken">Wat te checken voor bod</a></li>
+      <li><a href="#prijzen">Prijzen — Duitsland vs Nederland</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="overzicht" class="content-section"><h2>De S 1000-familie</h2>
+      <p>De S 1000 RR debuteerde in 2009/2010 als BMW's eerste echte superbike en zette het merk in één klap op de kaart in het sportsegment. Rond dezelfde viercilinder (circa 1.000cc) bouwde BMW later de <strong>S 1000 XR</strong> (2015, adventure-sport) en de <strong>S 1000 R</strong> (naked roadster). Razendsnel, elektronicarijk en in Duitsland ruim te vinden — maar let goed op generatie en historie.</p></section>
+    <section id="varianten" class="content-section"><h2>RR vs XR vs R</h2>
+      <ul class="bullet-list">
+        <li><strong>S 1000 RR.</strong> De pure superbike — maximale prestaties, scherpe zit. Vanaf 2019 met ShiftCam. Voor het circuit en de fervente sportrijder.</li>
+        <li><strong>S 1000 XR.</strong> Adventure-sporttourer: rechtere zit, langere vering, koffergeschikt. De meest praktische en in NL goed verkoopbare variant.</li>
+        <li><strong>S 1000 R.</strong> Naked roadster — superbike-motor, straatvriendelijke ergonomie.</li>
+      </ul></section>
+    <section id="aandacht" class="content-section"><h2>Aandachtspunten &amp; recalls per generatie</h2>
+      <ul class="bullet-list">
+        <li><strong>Trillingen (RR).</strong> Zonder balansas trilt de RR merkbaar door tank/stuur op lange ritten — bekend, geen defect.</li>
+        <li><strong>Tik bij koude start.</strong> De hydraulische klepstoters kunnen kort tikken bij koude motor.</li>
+        <li><strong>Schakelaarblokken.</strong> Gevoelig voor vochtindringing — controleer de werking.</li>
+        <li><strong>RR-generaties om op te letten:</strong> 2010-2011 (eerste jaar), 2011-2014 (terugroep brandstofpomp; 2012 drijfstang) en 2016-2017 (bout achterveer-deflectiehefboom). Derde generatie + ShiftCam (2019+) gelden als beter.</li>
+        <li><strong>XR (2015-2016):</strong> first-generation trillingen (zwaardere baruiteinden helpen) en distributiekettingspanner-geluid; de 2017-update (Euro4) loste veel op.</li>
+      </ul></section>
+    <section id="checken" class="content-section"><h2>Wat te checken voor bod</h2>
+      <ul class="bullet-list">
+        <li>Terugroepacties van de betreffende generatie aantoonbaar uitgevoerd.</li>
+        <li>Geen circuit-/crashverleden (RR vaak op het circuit) — check stuuruiteinden, kuip, rampons, frame.</li>
+        <li>Servicehistorie, klepspeling-controle, banden en kettingset.</li>
+        <li>Elektronica/rijmodi en schakelaarblokken werkend.</li>
+      </ul></section>
+    <section id="prijzen" class="content-section"><h2>Prijzen — Duitsland vs Nederland</h2>
+      <table class="cost-table"><thead><tr><th>Variant</th><th>NL-occasionprijs (indicatief)</th></tr></thead><tbody>
+        <tr><td>S 1000 RR (ouder → recent)</td><td>€10.000 – €25.000+</td></tr>
+        <tr><td>S 1000 XR</td><td>€9.000 – €20.000</td></tr>
+        <tr><td>S 1000 R</td><td>€8.000 – €16.000</td></tr>
+      </tbody></table>
+      <p>Onze scan gaf een NL-mediaan rond €17.950 voor de S 1000-familie; in Duitsland indicatief circa €2.500 lager met ruimer aanbod. De XR is doorgaans het makkelijkst verkoopbaar in NL.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Wat is het verschil tussen de S 1000 RR, XR en R?</h3><p>Ze delen de viercilinder: de RR is de pure superbike, de XR een adventure-sporttourer (rechtere zit, langere vering) en de R een naked roadster. Alledrie razendsnel; de XR is het meest praktisch voor langere ritten.</p>
+      <h3>Welke bouwjaren S 1000 RR kun je beter mijden?</h3><p>Wees voorzichtig met de eerste generatie 2010-2011, met 2011-2014 (terugroep brandstofpomp, en 2012 drijfstang) en met 2016-2017 (bout van de achterveer-deflectiehefboom). De derde generatie en de ShiftCam (vanaf 2019) gelden als beter.</p>
+      <h3>Is de S 1000 XR betrouwbaar?</h3><p>Over het algemeen ja. De vroege 2015-2016 had wat first-generation kwaaltjes (trillingen, distributiekettingspanner); vanaf de 2017-update (Euro4) is veel verbeterd.</p></section>
+    <div class="page-cta"><h2>Op zoek naar een S 1000?</h2><p>Vertel ons RR, XR of R, bouwjaar en budget — wij beoordelen juist het circuit-/crashverleden en de recalls, en regelen de hele import met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+      <li><a href="/kennisbank/bmw-r1250gs-koopgids">BMW R 1250 GS — koopgids</a></li>
+      <li><a href="/kennisbank/bmw-boxermotoren-gids">BMW boxermotoren — techniekgids</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>

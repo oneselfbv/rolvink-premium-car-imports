@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BMW F 750 / 850 / 900 GS koopgids' }];
+const publishedDate = '2026-06-04'; const updatedDate = '2026-06-04';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BMW F 750 / 850 / 900 GS — koopgids', description: 'Het middensegment van de GS-lijn met de tweecilinder: F750 vs F850 vs F900, de vroege oliepomp-kwestie, aandachtspunten en prijzen Duitsland vs Nederland.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-f850gs-f750gs-koopgids/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Wat is het verschil tussen de F 750 GS en F 850 GS?', acceptedAnswer: { '@type': 'Answer', text: 'Ze delen de 853cc tweecilinder; de F 850 GS is sterker (circa 95 pk), met groter voorwiel en meer off-road-focus, de F 750 GS is wat zachter afgesteld (circa 77 pk) en toegankelijker. De F 900 GS (vanaf 2024) is de lichtere, sportievere opvolger.' } },
+  { '@type': 'Question', name: 'Wat is het bekendste probleem van de F 850 GS?', acceptedAnswer: { '@type': 'Answer', text: 'De vroege modellen (rond 2018-2019) hadden een kwetsbare oliepomp die kon falen, met risico op oliedrukverlies. Latere pompen kregen een ander tandwielontwerp. Controleer of dit speelt of is verholpen.' } },
+  { '@type': 'Question', name: 'Heeft de F 850 GS schacht- of kettingaandrijving?', acceptedAnswer: { '@type': 'Answer', text: 'Kettingaandrijving. Anders dan de grote boxer-GS (schacht) gebruikt de F-serie een ketting; reken op regulier kettingonderhoud.' } } ] };
+---
+<BaseLayout title="BMW F 750 / 850 / 900 GS koopgids — middensegment | Rolvink" description="Welke F-GS kiezen? F750 vs F850 vs F900, de vroege oliepomp-kwestie, aandachtspunten en prijzen Duitsland vs Nederland.">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Motor-modelgids</div>
+      <h1>BMW F 750 / 850 / 900 GS — <span class="accent">koopgids</span>.</h1>
+      <p class="lead">Het toegankelijke middensegment van de GS-lijn: lichter, wendbaarder en betaalbaarder dan de boxer-GS, met een levendige tweecilinder. Populair als eerste "echte" GS — en ruim te vinden in Duitsland.</p>
+      <div class="article-meta"><span>Gepubliceerd: 4 juni 2026</span><span>·</span><span>Leestijd: ongeveer 6 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Modelinformatie is observatie, geen technisch advies.</strong> Samengesteld uit openbare bronnen (F750/850GS-fora, terugroep-databases) en eigen ervaring; per exemplaar verschilt het. Voor diagnose: een BMW-Motorrad-werkplaats. Prijzen indicatief (juni 2026).</div>
+    <nav class="toc"><h2>In deze gids</h2><ol>
+      <li><a href="#overzicht">Het GS-middensegment</a></li>
+      <li><a href="#varianten">F 750 vs F 850 vs F 900</a></li>
+      <li><a href="#aandacht">Aandachtspunten</a></li>
+      <li><a href="#checken">Wat te checken voor bod</a></li>
+      <li><a href="#prijzen">Prijzen — Duitsland vs Nederland</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="overzicht" class="content-section"><h2>Het GS-middensegment</h2>
+      <p>De F 750 GS en F 850 GS (vanaf 2018) zijn de moderne middenklasse-GS: een <strong>853cc tweecilinder</strong> (270°-krukas voor boxer-achtig karakter), kettingaandrijving en een lager gewicht dan de grote boxer. Toegankelijk, veelzijdig en geliefd als instap in de GS-wereld. De <strong>F 900 GS</strong> (vanaf 2024) is de lichtere, sportievere opvolger.</p></section>
+    <section id="varianten" class="content-section"><h2>F 750 vs F 850 vs F 900</h2>
+      <ul class="bullet-list">
+        <li><strong>F 750 GS.</strong> Zachter afgesteld (circa 77 pk), lager zwaartepunt, kleiner voorwiel — toegankelijk en on-road gericht.</li>
+        <li><strong>F 850 GS.</strong> Sterker (circa 95 pk), 21-inch voorwiel, meer off-road-capaciteit. De Adventure heeft een grotere tank.</li>
+        <li><strong>F 900 GS (2024+).</strong> Lichter, sportiever en moderner — de nieuwe richting van het middensegment.</li>
+      </ul></section>
+    <section id="aandacht" class="content-section"><h2>Aandachtspunten</h2>
+      <ul class="bullet-list">
+        <li><strong>Oliepomp (vroege modellen, ~2018-2019).</strong> Het bekendste punt: de oliepomp kon falen met risico op oliedrukverlies/oververhitting. Latere pompen kregen een ander tandwielontwerp. Vraag of dit speelt of is verholpen.</li>
+        <li><strong>Kettingaandrijving &amp; speling.</strong> Anders dan de boxer-GS rijdt de F op ketting; reken op regulier kettingonderhoud en let op driveline-speling/schokkerig gas.</li>
+        <li><strong>Koppeling oververhit in stadsverkeer.</strong> Bij langzaam rijden/file kan de koppeling snel warm worden.</li>
+        <li><strong>Stuurkop-afstelling.</strong> Moet bij de inloopbeurt worden afgesteld; zo niet, dan klonken/ratelen over hobbels.</li>
+        <li><strong>Klein windscherm &amp; Bluetooth.</strong> Standaard ruit geeft buffeting; Bluetooth-koppeling (Sena) kan haperen — comfortpunten, geen defect.</li>
+      </ul></section>
+    <section id="checken" class="content-section"><h2>Wat te checken voor bod</h2>
+      <ul class="bullet-list">
+        <li>Oliepomp: vroege model? Verholpen/vervangen? Geen oliedruk-foutmeldingen.</li>
+        <li>Kettingset-staat, stuurkop zonder speling, koppeling soepel.</li>
+        <li>Servicehistorie en (als GS) sporen van off-road/valpartijen.</li>
+        <li>Optieniveau (rijmodi, kofferset, kuipscherm) voor de NL-verkoopbaarheid.</li>
+      </ul></section>
+    <section id="prijzen" class="content-section"><h2>Prijzen — Duitsland vs Nederland</h2>
+      <table class="cost-table"><thead><tr><th>Markt</th><th>Prijsniveau occasion</th></tr></thead><tbody>
+        <tr><td>Nederland (Marktplaats)</td><td>€4.000 – €15.000 (afhankelijk van model/jaar)</td></tr>
+        <tr><td>Duitsland</td><td>ruim aanbod, scherper geprijsd</td></tr>
+      </tbody></table>
+      <p>Het middensegment kent een brede prijsspreiding per bouwjaar en uitvoering. Hier bepalen wij het Duitse voordeel per concreet exemplaar — match altijd op bouwjaar, km en optieniveau.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Wat is het verschil tussen de F 750 GS en F 850 GS?</h3><p>Ze delen de 853cc tweecilinder; de F 850 GS is sterker (circa 95 pk), met groter voorwiel en meer off-road-focus, de F 750 GS is wat zachter afgesteld (circa 77 pk) en toegankelijker. De F 900 GS (vanaf 2024) is de lichtere, sportievere opvolger.</p>
+      <h3>Wat is het bekendste probleem van de F 850 GS?</h3><p>De vroege modellen (rond 2018-2019) hadden een kwetsbare oliepomp die kon falen, met risico op oliedrukverlies. Latere pompen kregen een ander tandwielontwerp. Controleer of dit speelt of is verholpen.</p>
+      <h3>Heeft de F 850 GS schacht- of kettingaandrijving?</h3><p>Kettingaandrijving. Anders dan de grote boxer-GS (schacht) gebruikt de F-serie een ketting; reken op regulier kettingonderhoud.</p></section>
+    <div class="page-cta"><h2>Op zoek naar een F-GS?</h2><p>Vertel ons F 750, F 850 of F 900, bouwjaar en budget — wij checken de oliepomp-kwestie en het optieniveau, en regelen de hele import met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-r1250gs-koopgids">BMW R 1250 GS — koopgids</a></li>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+      <li><a href="/kennisbank/bmw-boxermotoren-gids">BMW boxermotoren — techniekgids</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
