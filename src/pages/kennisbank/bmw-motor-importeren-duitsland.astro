@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Kennisbank', url: '/kennisbank' },
+  { name: 'BMW-motor importeren uit Duitsland' },
+];
+
+const publishedDate = '2026-06-04';
+const updatedDate = '2026-06-04';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'BMW-motor importeren uit Duitsland — prijzen per model en wat het kost (2026)',
+  description: 'Overzicht van alle populaire BMW-motormodellen met Nederlandse occasionprijzen, waar het Duitse prijsvoordeel zit, de lage motor-BPM en het importproces.',
+  datePublished: publishedDate,
+  dateModified: updatedDate,
+  author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-motor-importeren-duitsland/' },
+  image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Betaal je BPM op een geimporteerde motor?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, maar veel minder dan bij autos. Motor-BPM is 19,4% van de netto-catalogusprijs boven 2.133 euro, min 210 euro, en voor gebruikte motoren geldt daarop nog een afschrijvingskorting. Bij oudere motoren komt dat vaak op een paar honderd euro uit.' } },
+    { '@type': 'Question', name: 'Is een BMW-motor in Duitsland echt goedkoper?', acceptedAnswer: { '@type': 'Answer', text: 'Op recente modellen ja. Een R 1250 GS of R 1300 GS ligt in Duitsland indicatief 4.000 tot 5.500 euro onder de Nederlandse occasionprijs. Bij oudere modellen hangt het verschil sterk af van bouwjaar en kilometerstand.' } },
+    { '@type': 'Question', name: 'Hoe lang duurt het importeren van een motor uit Duitsland?', acceptedAnswer: { '@type': 'Answer', text: 'Doorgaans 1 tot 3 weken: ophalen/transport, RDW-keuring, BPM-aangifte en Nederlands kenteken. Veel sneller dan import uit Japan omdat Duitsland binnen de EU ligt.' } },
+    { '@type': 'Question', name: 'Moet ik invoerrechten betalen op een motor uit Duitsland?', acceptedAnswer: { '@type': 'Answer', text: 'Nee. Duitsland ligt binnen de EU, dus er zijn geen invoerrechten en geen douaneafhandeling zoals bij import van buiten de EU.' } },
+  ],
+};
+---
+
+<BaseLayout
+  title="BMW-motor importeren uit Duitsland — prijzen per model 2026 | Rolvink"
+  description="Alle populaire BMW-motormodellen met NL-occasionprijzen, het Duitse prijsvoordeel, de lage motor-BPM en het importproces. Praktisch overzicht 2026."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+
+  <article class="cornerstone-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="article-header">
+        <div class="section-eyebrow">Motoren importeren</div>
+        <h1>BMW-motor importeren uit <span class="accent">Duitsland</span>.</h1>
+        <p class="lead">Duitsland heeft de grootste tweedehands-motormarkt van Europa en scherpe prijzen — zeker op recente BMW's. Hieronder een overzicht van alle populaire modellen met Nederlandse occasionprijzen, waar het Duitse voordeel zit, en wat importeren werkelijk kost.</p>
+        <div class="article-meta">
+          <span>Gepubliceerd: 4 juni 2026</span>
+          <span>·</span>
+          <span>Leestijd: ongeveer 7 minuten</span>
+        </div>
+      </header>
+
+      <AuthorByline variant="top" />
+
+      <div class="disclaimer">
+        <strong>Prijzen zijn een momentopname, geen garantie.</strong> De bedragen komen uit een live scan (juni 2026) van mobile.de, Kleinanzeigen.de en Marktplaats. Nederlandse bedragen zijn vraagprijzen van occasions; het werkelijke voordeel hangt af van bouwjaar, kilometerstand en uitvoering. Geen fiscaal of juridisch advies — voor exacte BPM en btw raadpleeg de Belastingdienst.
+      </div>
+
+      <nav class="toc">
+        <h2>In dit overzicht</h2>
+        <ol>
+          <li><a href="#waarom">Waarom een BMW-motor uit Duitsland</a></li>
+          <li><a href="#modellen">Prijzen per model — alle BMW-families</a></li>
+          <li><a href="#kosten">Wat kost importeren? (motor-BPM is laag)</a></li>
+          <li><a href="#proces">Het proces</a></li>
+          <li><a href="#faq">Veelgestelde vragen</a></li>
+        </ol>
+      </nav>
+
+      <section id="waarom" class="content-section">
+        <h2>Waarom een BMW-motor uit Duitsland</h2>
+        <p>Drie redenen maken Duitsland dé bron voor BMW-motoren:</p>
+        <ul class="bullet-list">
+          <li><strong>Enorm aanbod.</strong> Op een doorsnee dag staan er meer dan 14.000 BMW-motoren op mobile.de en ruim 23.000 op Kleinanzeigen.de — een veelvoud van het Nederlandse aanbod.</li>
+          <li><strong>Scherpe prijzen op recente modellen.</strong> Een nieuwe R 1250 GS kost in Duitsland circa 18.300 euro tegen 24.700 euro in Nederland. Dat voordeel werkt door op de occasionmarkt.</li>
+          <li><strong>Binnen de EU.</strong> Geen invoerrechten, geen zeevracht, geen douane — een import duurt 1 tot 3 weken in plaats van maanden.</li>
+        </ul>
+      </section>
+
+      <section id="modellen" class="content-section">
+        <h2>Prijzen per model — alle BMW-families</h2>
+        <p>Indicatieve Nederlandse occasionprijzen (vraagprijs) uit onze live scan, met de kolom waar het Duitse prijsvoordeel het duidelijkst is. Het scherpste voordeel zit op de recente GS-modellen.</p>
+        <table class="cost-table">
+          <thead><tr><th>Model (familie)</th><th>NL-occasionprijs</th><th>Duits prijsvoordeel</th></tr></thead>
+          <tbody>
+            <tr><td>R 1300 GS (2023+)</td><td>€25.000–35.000</td><td>circa €5.000–5.500</td></tr>
+            <tr><td>R 1250 GS (2019–2024)</td><td>€16.000–26.000</td><td>circa €5.000</td></tr>
+            <tr><td>R 1200 GS (2013–2018)</td><td>€6.000–17.000</td><td>bouwjaar-afhankelijk</td></tr>
+            <tr><td>R 1100 / 1150 GS (klassiek-instap)</td><td>€3.000–6.000</td><td>klein</td></tr>
+            <tr><td>S 1000 RR / XR / R</td><td>€8.000–33.000</td><td>circa €2.500</td></tr>
+            <tr><td>R nineT (modern classic)</td><td>€10.000–15.000</td><td>circa €2.000</td></tr>
+            <tr><td>R 18 (cruiser)</td><td>€12.000–18.000</td><td>gemiddeld</td></tr>
+            <tr><td>K 1600 GT / GTL (6-cilinder tourer)</td><td>€8.500–19.500</td><td>circa €6.500</td></tr>
+            <tr><td>R 1250 RT / RS (tourer)</td><td>€3.000–20.000</td><td>bouwjaar-afhankelijk</td></tr>
+            <tr><td>F 750 / 850 / 900 GS &amp; F-serie</td><td>€4.000–15.000</td><td>bouwjaar-afhankelijk</td></tr>
+            <tr><td>K 1200 / 1300 (oudere tourer)</td><td>€1.100–4.500</td><td>klein</td></tr>
+            <tr><td>Klassiek airhead (R 80 / R 100)</td><td>€4.250–15.000</td><td>scherpe DE-deals, per stuk beoordelen</td></tr>
+            <tr><td>C 400 / C 650 (scooter)</td><td>€5.250–11.600</td><td>klein</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Lees de tabel goed:</strong> op de recente modellen (R 1250 GS, R 1300 GS, S 1000, K 1600, R nineT) is het Duitse voordeel het grootst én het meest betrouwbaar, omdat het bouwjaar daar vanzelf vergelijkbaar is. Bij oudere families verschilt de prijs sterk per bouwjaar en kilometerstand — daar bepalen wij het voordeel per concreet exemplaar.</p>
+      </section>
+
+      <section id="kosten" class="content-section">
+        <h2>Wat kost importeren? Motor-BPM is laag</h2>
+        <p>Het grote voordeel ten opzichte van auto-import: de <strong>BPM op motoren is veel lager en eenvoudiger</strong>. Geen CO₂-grondslag, maar een percentage van de netto-catalogusprijs:</p>
+        <table class="cost-table">
+          <thead><tr><th>Netto-catalogusprijs</th><th>Percentage</th><th>Aftrek</th></tr></thead>
+          <tbody>
+            <tr><td>t/m €2.133</td><td>9,6%</td><td>€0</td></tr>
+            <tr><td>boven €2.133</td><td>19,4%</td><td>€210</td></tr>
+          </tbody>
+        </table>
+        <p>Voor een gebruikte motor (meer dan 3.000 km) komt daar nog de <strong>afschrijvingskorting</strong> overheen. In de praktijk komt de BPM voor een wat oudere BMW vaak uit op een paar honderd euro — een fractie van wat BPM bij een auto kost.</p>
+        <p>De overige importkosten zijn beperkt: <strong>geen invoerrechten</strong> (Duitsland = EU), transport circa €150–350 (of zelf rijden), en RDW-keuring plus kentekening. Bij inkoop van een particulier of margehandelaar kan de <strong>btw-margeregeling</strong> gelden, waardoor btw alleen over de winstmarge wordt berekend.</p>
+      </section>
+
+      <section id="proces" class="content-section">
+        <h2>Het proces — hoe wij het doen</h2>
+        <p>Wij screenen dagelijks mobile.de en Kleinanzeigen.de op het model, bouwjaar en budget dat bij u past, beoordelen de staat en historie, en verzorgen het hele traject: onderhandeling, transport naar Nederland, RDW-keuring, BPM-aangifte en Nederlands kenteken. Transparant, met een eerlijke rijklaar-prijs vooraf.</p>
+      </section>
+
+      <section id="faq" class="content-section">
+        <h2>Veelgestelde vragen</h2>
+        <h3>Betaal je BPM op een geïmporteerde motor?</h3>
+        <p>Ja, maar veel minder dan bij auto's. Motor-BPM is 19,4% van de netto-catalogusprijs boven €2.133, min €210, en voor gebruikte motoren geldt daarop nog een afschrijvingskorting. Bij oudere motoren komt dat vaak op een paar honderd euro uit.</p>
+        <h3>Is een BMW-motor in Duitsland echt goedkoper?</h3>
+        <p>Op recente modellen ja. Een R 1250 GS of R 1300 GS ligt in Duitsland indicatief €4.000 tot €5.500 onder de Nederlandse occasionprijs. Bij oudere modellen hangt het verschil sterk af van bouwjaar en kilometerstand.</p>
+        <h3>Hoe lang duurt het importeren van een motor uit Duitsland?</h3>
+        <p>Doorgaans 1 tot 3 weken: ophalen/transport, RDW-keuring, BPM-aangifte en Nederlands kenteken. Veel sneller dan import uit Japan omdat Duitsland binnen de EU ligt.</p>
+        <h3>Moet ik invoerrechten betalen op een motor uit Duitsland?</h3>
+        <p>Nee. Duitsland ligt binnen de EU, dus er zijn geen invoerrechten en geen douaneafhandeling zoals bij import van buiten de EU.</p>
+      </section>
+
+      <div class="page-cta">
+        <h2>Een BMW-motor op het oog?</h2>
+        <p>Vertel ons model, bouwjaar en budget — wij screenen de Duitse markt en regelen het hele importtraject tot Nederlands kenteken, met een eerlijke rijklaar-prijs vooraf.</p>
+        <a href="/contact" class="page-cta-btn">
+          Plan intake-gesprek
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p>
+      </div>
+
+      <div class="related">
+        <h3>Verder lezen</h3>
+        <ul>
+          <li><a href="/kennisbank/auto-importeren-duitsland">Auto importeren uit Duitsland — complete gids</a></li>
+          <li><a href="/kennisbank/bpm-importauto-2026">BPM voor importvoertuigen — gids 2026</a></li>
+          <li><a href="/kennisbank/rdw-keuring-import">RDW-keuring voor import — stappenplan</a></li>
+          <li><a href="/kennisbank/lhd-mercedes-japan-prijspeiling-2026">LHD Mercedes uit Japan — prijspeiling</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color 0.2s; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; transition: color 0.2s; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
