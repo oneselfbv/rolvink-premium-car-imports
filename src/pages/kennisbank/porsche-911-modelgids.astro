@@ -20,14 +20,14 @@ const articleSchema = {
   datePublished: publishedDate,
   dateModified: updatedDate,
   author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' },
-  publisher: { '@type': 'Organization', name: 'Rolvink Premium Car Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
+  publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } },
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/porsche-911-modelgids/' },
   image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
 };
 ---
 
 <BaseLayout
-  title="Porsche 911 modelgids — Rolvink Premium Car Imports"
+  title="Porsche 911 modelgids — Rolvink Premium Imports"
   description="Porsche 911-modelgids over vijf generaties: motorvarianten, de IMS-kwestie bij 996/997.1, sweet-spots en waarom Japan dé route is voor LHD."
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
