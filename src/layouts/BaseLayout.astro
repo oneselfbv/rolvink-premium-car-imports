@@ -144,6 +144,9 @@ const serviceSchema = {
     };
     try { if (localStorage.getItem('rv-consent') === 'granted') window.rvLoadGA(); } catch (e) {}
   </script>
+  <script is:inline>
+    try { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reveal-on'); } catch (e) {}
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Spring naar hoofdinhoud</a>
@@ -155,6 +158,20 @@ const serviceSchema = {
   <StickyMobileCTA />
   <ChatbotWidget />
   <ConsentBanner />
+  <script is:inline>
+    (function(){
+      var root = document.documentElement;
+      if (!root.classList.contains('reveal-on')) return;
+      var sel = '.content-section, .moto-card, .step, .usp, .tier, .moto-tariff, .incl-block, .pillar-card, .route-block, .intro';
+      var els = [].slice.call(document.querySelectorAll(sel));
+      if (!('IntersectionObserver' in window) || !els.length) { root.classList.remove('reveal-on'); return; }
+      var io = new IntersectionObserver(function(ents){
+        ents.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('is-visible'); io.unobserve(en.target); } });
+      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
+      els.forEach(function(e){ io.observe(e); });
+      setTimeout(function(){ els.forEach(function(e){ e.classList.add('is-visible'); }); }, 2600);
+    })();
+  </script>
 </body>
 </html>
 
@@ -190,5 +207,30 @@ const serviceSchema = {
     z-index: 1000;
     outline: 2px solid var(--color-copper);
     outline-offset: 2px;
+  }
+
+  /* Scroll-reveal — subtiel infaden van content (alleen wanneer JS .reveal-on zet; reduced-motion = uit) */
+  .reveal-on .content-section,
+  .reveal-on .moto-card,
+  .reveal-on .step,
+  .reveal-on .usp,
+  .reveal-on .tier,
+  .reveal-on .moto-tariff,
+  .reveal-on .incl-block,
+  .reveal-on .pillar-card,
+  .reveal-on .route-block,
+  .reveal-on .intro {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .reveal-on .is-visible { opacity: 1; transform: none; }
+
+  /* Micro-interacties — pijltjes en links schuiven subtiel bij hover */
+  @media (prefers-reduced-motion: no-preference) {
+    .page-cta-btn .arrow, .hero-btn .arrow, .tier-cta .arrow, .tier-cta-feature .arrow { transition: transform 0.2s ease; }
+    .page-cta-btn:hover .arrow, .hero-btn:hover .arrow, .tier-cta:hover .arrow, .tier-cta-feature:hover .arrow { transform: translateX(4px); }
+    .moto-card .card-link { display: inline-block; transition: transform 0.2s ease; }
+    .moto-card:hover .card-link { transform: translateX(3px); }
   }
 </style>
