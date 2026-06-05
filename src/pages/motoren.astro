@@ -104,7 +104,8 @@ const howToSchema = {
       <h2>Kies je model</h2>
       <div class="card-grid">
         {modellen.map((m) => (
-          <a href={m.href} class="moto-card">
+          <a href={m.href} class={m.img ? "moto-card has-photo" : "moto-card"}>
+            {m.img && (<figure class="card-photo"><img class="img-graded" src={m.img} alt={m.alt || ("BMW " + m.title)} loading="lazy" decoding="async" /></figure>)}
             <span class="card-tag">{m.tag}</span>
             <h3>{m.title}</h3>
             <p>{m.desc}</p>
@@ -200,4 +201,8 @@ const howToSchema = {
     .moto-hero { background-position: center 70%; }
     .step { grid-template-columns: 1fr; gap: 8px; }
   }
+
+  .moto-card.has-photo { padding-top: 0; }
+  .card-photo { margin: 0 -24px 16px; overflow: hidden; }
+  .card-photo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
 </style>
