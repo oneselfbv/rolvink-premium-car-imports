@@ -5,14 +5,14 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Motoren' }];
 
 const modellen = [
-  { href: '/kennisbank/bmw-r1300gs-koopgids', title: 'R 1300 GS', tag: 'Adventure · 2023+', desc: 'De nieuwste GS met 1300 ShiftCam-boxer. Grootste euro-voordeel.' },
-  { href: '/kennisbank/bmw-r1250gs-koopgids', title: 'R 1250 GS', tag: 'Adventure · 2019-2024', desc: 'Het volumemodel. ShiftCam-boxer, ~€5.000 voordeel uit Duitsland.' },
-  { href: '/kennisbank/bmw-r1150gs-koopgids', title: 'R 1150 GS', tag: 'Klassiek · 1999-2005', desc: 'De oilhead-klassieker. Let op de Integral ABS servorem.' },
-  { href: '/kennisbank/bmw-rninet-koopgids', title: 'R nineT', tag: 'Modern classic', desc: 'De laatste lucht/oliegekoelde boxer. Customizing-icoon.' },
-  { href: '/kennisbank/bmw-s1000-koopgids', title: 'S 1000 RR / XR / R', tag: 'Sport', desc: 'De viercilinder superbike-familie: RR, adventure-sport XR en roadster R.' },
-  { href: '/kennisbank/bmw-k1600-koopgids', title: 'K 1600 GT / GTL', tag: 'Luxe tourer', desc: 'De fluwelen zescilinder. Niche met trouwe kopers en mooie marge.' },
-  { href: '/kennisbank/bmw-f850gs-f750gs-koopgids', title: 'F 750 / 850 / 900 GS', tag: 'Middensegment', desc: 'De toegankelijke GS met tweecilinder. Lichter en betaalbaarder.' },
-  { href: '/kennisbank/bmw-r80-r100-airhead-koopgids', title: 'R 80 / R 100 airhead', tag: 'Collector', desc: 'De luchtgekoelde klassiekers. R 80 G/S vond het adventure-genre uit.' },
+  { href: '/kennisbank/bmw-r1300gs-koopgids', img: '/images/moto-r1300gs.jpg', title: 'R 1300 GS', tag: 'Adventure · 2023+', desc: 'De nieuwste GS met 1300 ShiftCam-boxer. Grootste euro-voordeel.' },
+  { href: '/kennisbank/bmw-r1250gs-koopgids', img: '/images/moto-r1250gs.jpg', title: 'R 1250 GS', tag: 'Adventure · 2019-2024', desc: 'Het volumemodel. ShiftCam-boxer, ~€5.000 voordeel uit Duitsland.' },
+  { href: '/kennisbank/bmw-r1150gs-koopgids', img: '/images/moto-r1150gs.jpg', title: 'R 1150 GS', tag: 'Klassiek · 1999-2005', desc: 'De oilhead-klassieker. Let op de Integral ABS servorem.' },
+  { href: '/kennisbank/bmw-rninet-koopgids', img: '/images/moto-rninet.jpg', title: 'R nineT', tag: 'Modern classic', desc: 'De laatste lucht/oliegekoelde boxer. Customizing-icoon.' },
+  { href: '/kennisbank/bmw-s1000-koopgids', img: '/images/moto-s1000.jpg', title: 'S 1000 RR / XR / R', tag: 'Sport', desc: 'De viercilinder superbike-familie: RR, adventure-sport XR en roadster R.' },
+  { href: '/kennisbank/bmw-k1600-koopgids', img: '/images/moto-k1600.jpg', title: 'K 1600 GT / GTL', tag: 'Luxe tourer', desc: 'De fluwelen zescilinder. Niche met trouwe kopers en mooie marge.' },
+  { href: '/kennisbank/bmw-f850gs-f750gs-koopgids', img: '/images/moto-f850gs.jpg', title: 'F 750 / 850 / 900 GS', tag: 'Middensegment', desc: 'De toegankelijke GS met tweecilinder. Lichter en betaalbaarder.' },
+  { href: '/kennisbank/bmw-r80-r100-airhead-koopgids', img: '/images/moto-airhead.jpg', title: 'R 80 / R 100 airhead', tag: 'Collector', desc: 'De luchtgekoelde klassiekers. R 80 G/S vond het adventure-genre uit.' },
 ];
 const gidsen = [
   { href: '/kennisbank/bmw-motor-importeren-duitsland', title: 'Importeren uit Duitsland', desc: 'Prijzen per model, het proces en waarom Duitsland de bron is.' },
@@ -136,7 +136,7 @@ const howToSchema = {
 </BaseLayout>
 
 <style>
-  .moto-hero { position: relative; background: #1a1a1a url('/images/moto-sfeer.svg') center 60% / cover no-repeat; padding: 0; }
+  .moto-hero { position: relative; background: #1a1a1a url('/images/moto-hero.jpg') center 55% / cover no-repeat; padding: 0; }
   .moto-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,18,18,0.92) 0%, rgba(18,18,18,0.72) 45%, rgba(18,18,18,0.35) 100%); }
   .moto-hero-inner { position: relative; padding: 56px 0 64px; }
   .moto-hero .section-eyebrow.light { color: var(--color-copper-text); }
