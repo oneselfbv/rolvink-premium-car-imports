@@ -1,6 +1,8 @@
 ---
-// Lead-capture zonder backend: bouwt op submit een WhatsApp-deeplink met het ingevulde profiel.
-// Werkt direct (WhatsApp is live). Vuurt GA-event 'zoekprofiel_submit'.
+// Zoekprofiel — server-side lead-capture (POST /api/zoekprofiel).
+// Vangt e-mail/telefoon op de server (Resend), zodat leads niet meer lekken via
+// een WhatsApp-deeplink. WhatsApp blijft als optionele tweede route beschikbaar.
+// Progressive enhancement: zonder JS post het formulier gewoon naar de API-route.
 const WA = '31638441395';
 ---
 
@@ -18,76 +20,198 @@ const WA = '31638441395';
         </ul>
       </div>
 
-      <form class="zp-form" id="zpForm" novalidate>
-        <div class="zp-row">
-          <label>Merk
-            <select name="merk" required>
-              <option value="">Kies…</option>
-              <option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Porsche</option>
-              <option>Nog niet zeker</option>
-            </select>
+      <div class="zp-formwrap">
+        <form class="zp-form" id="zpForm" action="/api/zoekprofiel/" method="POST" novalidate>
+          <!-- Honeypot: verborgen voor mensen, ingevuld door bots -->
+          <div class="zp-hp" aria-hidden="true">
+            <label>Laat dit veld leeg
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <p class="zp-required-note">Laat minstens uw <strong>e-mail of telefoon</strong> achter — de rest helpt ons scherper zoeken.</p>
+
+          <label class="zp-field" for="zp-naam">Uw naam <span class="zp-opt">(optioneel)</span>
+            <input id="zp-naam" type="text" name="naam" autocomplete="name" placeholder="Voornaam" />
           </label>
-          <label>Model / uitvoering
-            <input type="text" name="model" placeholder="bv. SL 500, M3, Cayman S" />
+
+          <label class="zp-field" for="zp-email">E-mailadres
+            <input id="zp-email" type="email" name="email" inputmode="email" autocomplete="email"
+                   placeholder="naam@voorbeeld.nl" aria-describedby="zp-email-err" />
+            <span class="zp-err" id="zp-email-err" hidden></span>
           </label>
-        </div>
-        <div class="zp-row">
-          <label>Budget (rijklaar)
-            <select name="budget">
-              <option value="">Kies…</option>
-              <option>tot € 15.000</option><option>€ 15.000 – 25.000</option>
-              <option>€ 25.000 – 40.000</option><option>€ 40.000 – 75.000</option><option>€ 75.000+</option>
-            </select>
+
+          <label class="zp-field" for="zp-tel">Telefoon
+            <input id="zp-tel" type="tel" name="telefoon" inputmode="tel" autocomplete="tel"
+                   placeholder="06 12 34 56 78" aria-describedby="zp-contact-err" />
+            <span class="zp-err" id="zp-contact-err" hidden></span>
           </label>
-          <label>Voorkeur bronmarkt
-            <select name="bron">
-              <option value="">Geen voorkeur</option><option>Japan</option><option>Duitsland / Europa</option>
-            </select>
-          </label>
-        </div>
-        <div class="zp-row">
-          <label>Termijn
-            <select name="termijn">
+
+          <div class="zp-field-row">
+            <label class="zp-field" for="zp-merk">Merk <span class="zp-opt">(optioneel)</span>
+              <select id="zp-merk" name="merk">
+                <option value="">Kies…</option>
+                <option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Porsche</option>
+                <option>Nog niet zeker</option>
+              </select>
+            </label>
+            <label class="zp-field" for="zp-model">Model / uitvoering <span class="zp-opt">(optioneel)</span>
+              <input id="zp-model" type="text" name="model" placeholder="bv. SL 500, M3, Cayman S" />
+            </label>
+          </div>
+
+          <div class="zp-field-row">
+            <label class="zp-field" for="zp-budget">Budget (rijklaar) <span class="zp-opt">(optioneel)</span>
+              <select id="zp-budget" name="budget">
+                <option value="">Kies…</option>
+                <option>tot € 15.000</option><option>€ 15.000 – 25.000</option>
+                <option>€ 25.000 – 40.000</option><option>€ 40.000 – 75.000</option><option>€ 75.000+</option>
+              </select>
+            </label>
+            <label class="zp-field" for="zp-bron">Bronmarkt <span class="zp-opt">(optioneel)</span>
+              <select id="zp-bron" name="bron">
+                <option value="">Geen voorkeur</option><option>Japan</option><option>Duitsland / Europa</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="zp-field" for="zp-termijn">Termijn <span class="zp-opt">(optioneel)</span>
+            <select id="zp-termijn" name="termijn">
               <option value="">Kies…</option><option>Zo snel mogelijk</option><option>Binnen 3 maanden</option>
               <option>Dit jaar</option><option>Oriënterend</option>
             </select>
           </label>
-          <label>Uw naam
-            <input type="text" name="naam" placeholder="Voornaam" />
-          </label>
-        </div>
-        <button type="submit" class="zp-submit">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.039z"/></svg>
-          Verstuur via WhatsApp
-        </button>
-        <p class="zp-note">Opent WhatsApp met uw profiel ingevuld — u verstuurt zelf. Liever mailen? <a href="/contact">Via het contactformulier</a>.</p>
-      </form>
+
+          <div class="zp-status" id="zpStatus" role="status" aria-live="polite" hidden></div>
+
+          <button type="submit" class="zp-submit" id="zpSubmit">
+            <span class="zp-submit-label">Stuur mijn zoekprofiel</span>
+            <span class="zp-spinner" aria-hidden="true"></span>
+          </button>
+
+          <div class="zp-or"><span>of</span></div>
+
+          <button type="button" class="zp-wa" id="zpWa">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.039z"/></svg>
+            Liever direct via WhatsApp
+          </button>
+
+          <p class="zp-note">Wij reageren meestal binnen 24 uur. Liever bellen of mailen? <a href="/contact/">Via het contactformulier</a>.</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
 <script is:inline>
-  (function(){
+  (function () {
     var form = document.getElementById('zpForm');
-    if(!form) return;
-    var WA = "31638441395";
-    form.addEventListener('submit', function(e){
+    if (!form) return;
+    var WA = '31638441395';
+    var submitBtn = document.getElementById('zpSubmit');
+    var statusEl = document.getElementById('zpStatus');
+    var emailEl = form.querySelector('[name=email]');
+    var telEl = form.querySelector('[name=telefoon]');
+    var emailErr = document.getElementById('zp-email-err');
+    var contactErr = document.getElementById('zp-contact-err');
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function showErr(el, msgEl, msg) {
+      if (!msgEl) return;
+      msgEl.textContent = msg; msgEl.hidden = false;
+      el.setAttribute('aria-invalid', 'true');
+    }
+    function clearErr(el, msgEl) {
+      if (!msgEl) return;
+      msgEl.textContent = ''; msgEl.hidden = true;
+      el.removeAttribute('aria-invalid');
+    }
+    function emailValid() {
+      var v = (emailEl.value || '').trim();
+      if (v && !EMAIL_RE.test(v)) { showErr(emailEl, emailErr, 'Controleer het e-mailadres — formaat naam@voorbeeld.nl.'); return false; }
+      clearErr(emailEl, emailErr); return true;
+    }
+    function contactValid() {
+      var e = (emailEl.value || '').trim();
+      var t = (telEl.value || '').trim();
+      if (!e && !t) { showErr(telEl, contactErr, 'Laat een e-mailadres of telefoonnummer achter.'); return false; }
+      clearErr(telEl, contactErr); return true;
+    }
+
+    emailEl.addEventListener('blur', emailValid);
+    telEl.addEventListener('blur', function () { if ((telEl.value || '').trim() || (emailEl.value || '').trim()) clearErr(telEl, contactErr); });
+    emailEl.addEventListener('input', function () { if (!emailErr.hidden) emailValid(); if (!contactErr.hidden) contactValid(); });
+    telEl.addEventListener('input', function () { if (!contactErr.hidden) contactValid(); });
+
+    function setStatus(kind, msg) {
+      statusEl.hidden = false;
+      statusEl.className = 'zp-status zp-status--' + kind;
+      statusEl.textContent = msg;
+    }
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var okEmail = emailValid();
+      var okContact = contactValid();
+      if (!okEmail || !okContact) {
+        var firstBad = !okContact ? telEl : emailEl;
+        firstBad.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-loading');
+      statusEl.hidden = true;
+
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+      try { if (typeof window.gtag === 'function') { window.gtag('event', 'zoekprofiel_submit', { merk: data.merk || '', bron: data.bron || 'geen voorkeur' }); } } catch (err) {}
+
+      fetch('/api/zoekprofiel/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(function (r) { return r.json().then(function (b) { return { ok: r.ok && b.ok, body: b }; }); })
+        .then(function (res) {
+          if (res.ok) {
+            form.classList.add('is-sent');
+            setStatus('success', '');
+            statusEl.innerHTML = '<strong>Bedankt — uw zoekprofiel is binnen.</strong><br>We nemen meestal binnen 24 uur contact met u op.';
+            statusEl.focus && statusEl.focus();
+          } else {
+            throw new Error((res.body && res.body.error) || 'Onbekende fout');
+          }
+        })
+        .catch(function (err) {
+          setStatus('error', '');
+          statusEl.innerHTML = (err && err.message ? err.message : 'Versturen lukte niet.') +
+            ' U kunt het opnieuw proberen of <a href="https://wa.me/' + WA + '">een WhatsApp sturen</a>.';
+        })
+        .finally(function () {
+          if (!form.classList.contains('is-sent')) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('is-loading');
+          }
+        });
+    });
+
+    document.getElementById('zpWa').addEventListener('click', function () {
       var f = new FormData(form);
-      var merk = (f.get('merk')||'').toString().trim();
-      if(!merk){ var sel=form.querySelector('[name=merk]'); sel.focus(); sel.style.borderColor='#c0563a'; return; }
       var lines = [
         'Hoi Theo, hier is mijn zoekprofiel:',
-        '• Merk: ' + (merk || '-'),
-        '• Model/uitvoering: ' + ((f.get('model')||'-')),
-        '• Budget: ' + ((f.get('budget')||'-')),
-        '• Bronmarkt: ' + ((f.get('bron')||'geen voorkeur')),
-        '• Termijn: ' + ((f.get('termijn')||'-')),
-        '• Naam: ' + ((f.get('naam')||'-'))
+        '• Merk: ' + (f.get('merk') || '-'),
+        '• Model/uitvoering: ' + (f.get('model') || '-'),
+        '• Budget: ' + (f.get('budget') || '-'),
+        '• Bronmarkt: ' + (f.get('bron') || 'geen voorkeur'),
+        '• Termijn: ' + (f.get('termijn') || '-'),
+        '• Naam: ' + (f.get('naam') || '-'),
+        '• E-mail: ' + (f.get('email') || '-'),
+        '• Telefoon: ' + (f.get('telefoon') || '-')
       ];
-      var msg = lines.join('\n');
-      try { if(typeof window.gtag==='function'){ window.gtag('event','zoekprofiel_submit',{merk:merk, bron:(f.get('bron')||'geen voorkeur')}); } } catch(err){}
-      window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+      try { if (typeof window.gtag === 'function') { window.gtag('event', 'zoekprofiel_whatsapp', { merk: f.get('merk') || '' }); } } catch (err) {}
+      window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
     });
   })();
 </script>
@@ -102,26 +226,68 @@ const WA = '31638441395';
   .zp-usps li { position: relative; padding-left: 26px; font-size: 14.5px; color: rgba(245,241,234,0.85); line-height: 1.5; }
   .zp-usps li::before { content: "✓"; position: absolute; left: 0; color: var(--color-copper); font-weight: 700; }
 
-  .zp-form { background: rgba(245,241,234,0.04); border: 1px solid rgba(184,115,51,0.22); border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
-  .zp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .zp-form label { display: flex; flex-direction: column; gap: 7px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(245,241,234,0.7); }
+  /* Form — één kolom */
+  .zp-form { background: rgba(245,241,234,0.04); border: 1px solid rgba(184,115,51,0.22); border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .zp-hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .zp-required-note { font-size: 13.5px; line-height: 1.5; color: rgba(245,241,234,0.78); margin: 0 0 2px; }
+  .zp-required-note strong { color: var(--color-cream); }
+
+  .zp-field { display: flex; flex-direction: column; gap: 7px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(245,241,234,0.7); }
+  .zp-opt { text-transform: none; letter-spacing: 0; font-weight: 400; color: rgba(245,241,234,0.62); font-size: 11px; }
+  .zp-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .zp-form input, .zp-form select {
     font-family: inherit; font-size: 15px; padding: 11px 13px; border-radius: 2px;
     background: var(--color-cream); border: 1px solid transparent; color: var(--color-charcoal-dark);
-    text-transform: none; letter-spacing: 0; font-weight: 400;
+    text-transform: none; letter-spacing: 0; font-weight: 400; width: 100%;
   }
   .zp-form input::placeholder { color: #9a9387; }
-  .zp-form input:focus, .zp-form select:focus { outline: none; border-color: var(--color-copper); }
+  .zp-form input:focus, .zp-form select:focus { outline: 2px solid var(--color-copper); outline-offset: 1px; border-color: var(--color-copper); }
+  .zp-form input[aria-invalid="true"] { border-color: #e88b6a; outline-color: #e88b6a; }
+  .zp-err { text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 13px; color: #f0a98c; }
+
+  .zp-status { font-size: 14px; line-height: 1.55; border-radius: 3px; padding: 14px 16px; }
+  .zp-status a { color: var(--color-copper); text-decoration: underline; }
+  .zp-status--success { background: rgba(120,170,110,0.16); border: 1px solid rgba(150,200,140,0.4); color: #e7f3e2; }
+  .zp-status--error { background: rgba(200,90,60,0.16); border: 1px solid rgba(230,140,110,0.45); color: #f6ddd2; }
+
+  /* Wanneer verstuurd: velden + knoppen verbergen, alleen succes tonen */
+  .zp-form.is-sent .zp-field,
+  .zp-form.is-sent .zp-field-row,
+  .zp-form.is-sent .zp-required-note,
+  .zp-form.is-sent .zp-submit,
+  .zp-form.is-sent .zp-or,
+  .zp-form.is-sent .zp-wa,
+  .zp-form.is-sent .zp-note { display: none; }
+
   .zp-submit {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-top: 6px;
-    background: var(--color-copper); color: #1A1A1A; border: none; border-radius: 3px; padding: 14px 20px;
+    position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-top: 4px;
+    background: var(--color-copper); color: #1A1A1A; border: none; border-radius: 3px; padding: 15px 20px;
     font-family: var(--font-display); font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.18s;
   }
-  .zp-submit:hover { background: var(--color-copper-text); }
-  .zp-submit svg { width: 19px; height: 19px; }
+  .zp-submit:hover { background: var(--color-cream); }
+  .zp-submit:focus-visible { outline: 2px solid var(--color-cream); outline-offset: 2px; }
+  .zp-submit[disabled] { opacity: 0.8; cursor: progress; }
+  .zp-spinner { display: none; width: 16px; height: 16px; border: 2px solid rgba(26,26,26,0.35); border-top-color: #1A1A1A; border-radius: 50%; animation: zp-spin 0.7s linear infinite; }
+  .zp-submit.is-loading .zp-spinner { display: inline-block; }
+  .zp-submit.is-loading .zp-submit-label { opacity: 0.85; }
+  @keyframes zp-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .zp-spinner { animation: none; } }
+
+  .zp-or { display: flex; align-items: center; text-align: center; color: rgba(245,241,234,0.4); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; gap: 12px; }
+  .zp-or::before, .zp-or::after { content: ""; flex: 1; height: 1px; background: rgba(245,241,234,0.14); }
+
+  .zp-wa {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: transparent; color: var(--color-cream); border: 1px solid rgba(245,241,234,0.3);
+    border-radius: 3px; padding: 13px 20px; font-family: var(--font-display); font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: border-color 0.18s, background 0.18s;
+  }
+  .zp-wa:hover { border-color: var(--color-copper); background: rgba(184,115,51,0.08); }
+  .zp-wa:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 2px; }
+  .zp-wa svg { width: 18px; height: 18px; }
   .zp-note { font-size: 12.5px; color: rgba(245,241,234,0.55); margin: 2px 0 0; line-height: 1.5; }
   .zp-note a { color: var(--color-copper); text-decoration: underline; }
 
   @media (max-width: 900px) { .zp-grid { grid-template-columns: 1fr; gap: 40px; } .zp h2 { font-size: 38px; } }
-  @media (max-width: 520px) { .zp-row { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) { .zp-field-row { grid-template-columns: 1fr; } .zp-form { padding: 22px 18px; } }
 </style>
