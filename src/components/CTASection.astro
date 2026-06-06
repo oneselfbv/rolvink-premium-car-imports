@@ -6,8 +6,9 @@
   <div class="container">
     <div class="label">De volgende stap</div>
     <h2>Klaar voor uw<br/><span class="accent">volgende</span>?</h2>
-    <p>Een vrijblijvend intake-gesprek is het begin. Vertel wat u zoekt, wij doen de rest.</p>
-    <a href="/contact" class="cta">Plan intake-gesprek<span class="arrow">→</span></a>
+    <p>Twee manieren om te beginnen: laat hierboven uw zoekprofiel achter, of plan eerst een vrijblijvend gesprek.</p>
+    <a href="#zoekprofiel" class="cta">Start uw zoekopdracht<span class="arrow">→</span></a>
+    <a href="/contact/" class="cta-section-secondary">Liever eerst overleggen? Plan een gesprek →</a>
   </div>
 </section>
 
@@ -19,6 +20,8 @@
   .cta-section .cta { color: var(--color-cream); }
   .cta-section .cta::after { background: var(--color-copper); }
   .cta-section .cta .arrow { color: var(--color-copper); }
+  .cta-section-secondary { display: inline-block; margin-top: 22px; color: rgba(245,241,234,0.62); font-size: 13px; letter-spacing: 0.04em; text-decoration: none; border-bottom: 1px solid rgba(245,241,234,0.25); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+  .cta-section-secondary:hover { color: var(--color-cream); border-color: var(--color-copper); }
 
   @media (max-width: 768px) {
     .cta-section h2 { font-size: 48px; }
