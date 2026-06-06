@@ -1,0 +1,101 @@
+---
+// Vertrouwens-/track-record-strook voor de homepage.
+// BELANGRIJK: geen verzonnen referenties. De case-kaarten zijn expliciete
+// placeholders met TODO-markers — Theo vult ze met échte, afgeronde trajecten
+// (auto + foto + quote + naam/plaats + doorlooptijd) zodra de klant akkoord geeft.
+// Dit sluit aan op de eerlijke "witte plek" op /referenties.
+
+// Concrete, feitelijke vertrouwenspijlers (geen claims die we niet waar kunnen maken).
+const pijlers = [
+  'Alleen grade 4+, geen schade-historie',
+  'Transparante landed-cost vóór elk bod',
+  'Wij bieden pas met uw expliciete groen licht',
+  'Persoonlijk — een directe lijn met Theo in Welsum',
+];
+
+// TODO (Theo): vervang elke placeholder door een echt afgeleverd traject.
+// Per case nodig: { auto, foto (src+alt), quote, naam/plaats (met toestemming),
+// doorlooptijd, evt. link naar uitgewerkte case }. Verwijder de `placeholder: true`
+// vlag zodra de inhoud echt is.
+const cases = [
+  { placeholder: true, label: 'Eerste klantverhaal' },
+  { placeholder: true, label: 'Tweede klantverhaal' },
+  { placeholder: true, label: 'Derde klantverhaal' },
+];
+---
+
+<section class="vt">
+  <div class="container">
+    <div class="vt-head">
+      <div class="section-eyebrow">Vertrouwen</div>
+      <h2>Eerlijk, verifieerbaar, met open boeken.</h2>
+      <p class="vt-intro">
+        We zijn een jonge service en tonen liever een eerlijke witte plek dan verzonnen referenties. Wat we nú al laten zien: precies hoe we werken en wat een traject kost — tot op de euro.
+      </p>
+    </div>
+
+    <ul class="vt-pijlers">
+      {pijlers.map((p) => <li>{p}</li>)}
+    </ul>
+
+    <div class="vt-cases">
+      {cases.map((c) => (
+        <article class="vt-card vt-card--placeholder" aria-label={`${c.label} — volgt binnenkort`}>
+          <div class="vt-photo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5A1.5 1.5 0 014.5 7h2L8 5h8l1.5 2h2A1.5 1.5 0 0121 8.5v9A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5z"/><circle cx="12" cy="12.5" r="3.2"/></svg>
+            <span>Foto volgt</span>
+          </div>
+          <div class="vt-card-body">
+            <span class="vt-badge">Binnenkort</span>
+            <h3>{c.label}</h3>
+            <p>Een afgerond traject — auto, foto, doorlooptijd en wat we onderweg tegenkwamen. We plaatsen het pas met toestemming van de klant.</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="vt-links">
+      <a href="/voorbeeld-traject/" class="vt-link vt-link--primary">
+        Bekijk een volledig doorgerekend voorbeeld-traject <span class="arrow">→</span>
+      </a>
+      <a href="/referenties/" class="vt-link">
+        Onze referenties <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vt { background: var(--color-cream); padding: var(--space-section-top) 0 var(--space-section-bottom); }
+  .vt-head { max-width: 640px; margin-bottom: 32px; }
+  .vt h2 { font-size: 44px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px; color: var(--color-text-primary); }
+  .vt-intro { font-size: 17px; line-height: 1.6; color: var(--color-text-secondary); margin: 0; }
+
+  .vt-pijlers { list-style: none; padding: 0; margin: 0 0 44px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px 32px; max-width: 860px; }
+  .vt-pijlers li { position: relative; padding-left: 28px; font-size: 15px; line-height: 1.5; color: var(--color-text-primary); }
+  .vt-pijlers li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--color-copper-text); font-weight: 700; }
+
+  .vt-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .vt-card { background: var(--color-white); border: 1px solid var(--color-border-soft); border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; }
+  .vt-card--placeholder { border-style: dashed; border-color: var(--color-border-medium); }
+  .vt-photo {
+    aspect-ratio: 16 / 10; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    background: repeating-linear-gradient(135deg, rgba(0,0,0,0.025) 0 10px, rgba(0,0,0,0.045) 10px 20px);
+    color: var(--color-text-tertiary);
+  }
+  .vt-photo svg { width: 34px; height: 34px; opacity: 0.6; }
+  .vt-photo span { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .vt-card-body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+  .vt-badge { align-self: flex-start; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-copper-text); border: 1px solid var(--color-copper); border-radius: 999px; padding: 3px 10px; }
+  .vt-card-body h3 { font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: var(--color-charcoal-dark); margin: 0; }
+  .vt-card-body p { font-size: 13.5px; line-height: 1.55; color: var(--color-text-secondary); margin: 0; }
+
+  .vt-links { display: flex; flex-wrap: wrap; gap: 14px 36px; margin-top: 36px; align-items: center; }
+  .vt-link { display: inline-flex; align-items: center; gap: 10px; color: var(--color-copper-text); text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; transition: gap 0.2s; }
+  .vt-link:hover { gap: 14px; }
+  .vt-link .arrow { font-size: 16px; }
+  .vt-link--primary { border-bottom: 1px solid var(--color-copper); padding-bottom: 3px; }
+
+  @media (max-width: 900px) { .vt-cases { grid-template-columns: 1fr; } .vt-pijlers { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .vt h2 { font-size: 32px; } }
+</style>
