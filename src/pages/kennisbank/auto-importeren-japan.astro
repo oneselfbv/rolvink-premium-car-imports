@@ -10,12 +10,12 @@ const breadcrumbs = [
 ];
 
 const publishedDate = '2026-05-27';
-const updatedDate = '2026-05-27';
+const updatedDate = '2026-07-14';
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Auto importeren uit Japan in 2026 — Complete gids',
+  headline: 'Auto importeren uit Japan: kosten & stappenplan (2026)',
   description: 'Stap-voor-stap proces, kosten, BPM, RDW, doorlooptijd en valkuilen bij het importeren van een Duitse premium-auto uit Japan naar Nederland.',
   datePublished: publishedDate,
   dateModified: updatedDate,
@@ -38,11 +38,44 @@ const articleSchema = {
   },
   image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg',
 };
+
+const faqItems = [
+  {
+    q: 'Wat kost een auto importeren uit Japan?',
+    a: 'Naast de aankoopprijs op de veiling rekent u op veiling- en brokerfees, zeevracht, invoerrechten (10%), BTW (21%), BPM en RDW-registratie. In ons doorgerekende voorbeeld komt een E-Klasse met een hammerprijs van ±€6.150 op een totale landed cost van ±€14.350. Vóór elk bod geven wij een onderbouwde landed-cost prognose.',
+  },
+  {
+    q: 'Hoe lang duurt het importeren van een auto uit Japan?',
+    a: 'Reken op 10 tot 14 weken van veilingaankoop tot Nederlands kenteken: exportkeuring, verscheping (4-6 weken varen), douane-afhandeling, RDW-keuring en registratie. Wie sneller een auto nodig heeft, kan beter de Duitsland-route overwegen.',
+  },
+  {
+    q: 'Hoeveel BPM betaal ik over een importauto uit Japan?',
+    a: 'BPM hangt af van CO₂-uitstoot en leeftijd. Door de leeftijdsafschrijving valt BPM op oudere auto\u2019s vaak mee — in ons voorbeeld ±€1.400 bij circa 85% afschrijving — maar voor jonge of krachtige uitvoeringen kan het duizenden euro\u2019s hoger uitvallen. Vraag altijd vooraf een onderbouwde berekening.',
+  },
+  {
+    q: 'Zijn auto\u2019s op Japanse veilingen niet allemaal rechtsgestuurd?',
+    a: 'Het merendeel wel, maar er staan wekelijks ook linksgestuurde (LHD) exemplaren op de veilingen — vaak Duitse premium-modellen die nieuw in Japan zijn geleverd. Wij sourcen uitsluitend LHD voor de Nederlandse markt.',
+  },
+  {
+    q: 'Is kopen op een Japanse veiling betrouwbaar?',
+    a: 'Ja, mits de auction sheet en conditie-grades goed gelezen worden. Het Japanse veilingsysteem is opvallend transparant: onafhankelijke inspecteurs beoordelen elke auto vóór de veiling. Wij vertalen en duiden het sheet vóór elk bod.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
-  title="Auto importeren uit Japan in 2026 — Complete gids | Rolvink"
-  description="Hoe werkt auto importeren uit Japan? Stappen, kosten, BPM, RDW, doorlooptijd en de valkuilen die wij zien als sourcing-specialist."
+  title="Auto importeren uit Japan: kosten & stappenplan 2026 | Rolvink"
+  description="Wat kost een auto importeren uit Japan? Doorgerekend kostenvoorbeeld, BPM, 8 stappen van veiling tot RDW-kenteken, doorlooptijd en valkuilen."
 >
   <article class="cornerstone-page">
     <div class="container">
@@ -215,7 +248,13 @@ const articleSchema = {
 
       <section id="vragen" class="content-section">
         <h2>Veelgestelde vragen</h2>
-        <p>Een uitgebreide FAQ met 30 vragen over het Japan-traject (kosten, garantie, RDW, broker-keuze, veilingnetwerken etc.) vindt u op onze <a href="/kennisbank/faq-japan">FAQ — Auto importeren uit Japan</a>. Voor specifieke vragen over BPM, RDW of modeluitvoeringen kunt u terecht in <a href="/kennisbank">de bredere kennisbank</a>.</p>
+        {faqItems.map((item) => (
+          <div class="faq-item">
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </div>
+        ))}
+        <p>Meer weten? Een uitgebreide FAQ met 30 vragen over het Japan-traject (kosten, garantie, RDW, broker-keuze, veilingnetwerken etc.) vindt u op onze <a href="/kennisbank/faq-japan">FAQ — Auto importeren uit Japan</a>. Voor specifieke vragen over BPM, RDW of modeluitvoeringen kunt u terecht in <a href="/kennisbank">de bredere kennisbank</a>.</p>
       </section>
 
       <AuthorByline variant="bottom" />
@@ -234,8 +273,12 @@ const articleSchema = {
 </BaseLayout>
 
 <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <style>
+  .faq-item { margin-bottom: 20px; }
+  .faq-item h3 { font-size: 17px; margin-bottom: 6px; }
+
   /* Kennisbank visual treatment — hero + kerncijfers (consistent met route-advies/realisaties) */
   .cornerstone-hero { margin: 4px 0 30px; max-width: 760px; aspect-ratio: 3 / 1; overflow: hidden; border-top: 3px solid var(--color-copper-text); }
   .cornerstone-hero img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.82) contrast(0.96) brightness(1.02) sepia(0.10); }
