@@ -1,14 +1,16 @@
 ---
 // AVG/cookiewet: analytics-cookies (GA4) laden pas na expliciete toestemming.
+import { uiDict, pick } from '../i18n';
+const t = pick(uiDict, Astro.currentLocale).consent;
 ---
-<div id="rv-consent" class="rv-consent" hidden role="dialog" aria-label="Cookie-toestemming">
+<div id="rv-consent" class="rv-consent" hidden role="dialog" aria-label={t.dialogAria}>
   <div class="rv-consent-inner">
     <p class="rv-consent-text">
-      We gebruiken alleen anonieme analyse-cookies (Google Analytics, met geanonimiseerd IP) om de site te verbeteren — geen advertentie-tracking. Meer in onze <a href="/privacy">privacyverklaring</a>.
+      {t.textBefore}<a href={t.privacyHref}>{t.privacyLabel}</a>{t.textAfter}
     </p>
     <div class="rv-consent-actions">
-      <button type="button" class="rv-c-decline" id="rv-decline">Weigeren</button>
-      <button type="button" class="rv-c-accept" id="rv-accept">Accepteren</button>
+      <button type="button" class="rv-c-decline" id="rv-decline">{t.decline}</button>
+      <button type="button" class="rv-c-accept" id="rv-accept">{t.accept}</button>
     </div>
   </div>
 </div>

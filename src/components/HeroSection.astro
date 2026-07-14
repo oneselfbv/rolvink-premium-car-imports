@@ -1,6 +1,9 @@
 ---
 // Homepage hero — full-bleed donkere auto-visual (BMW M3 sunset) + lichte tekst
 // Gradient-overlay: donker links (leesbare tekst) -> lichter rechts (auto schemert door)
+// Taal: kiest zijn teksten via Astro.currentLocale uit src/i18n (NL = ongewijzigd).
+import { homeDict, pick } from '../i18n';
+const t = pick(homeDict, Astro.currentLocale).hero;
 ---
 
 <section class="hero">
@@ -9,28 +12,28 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-text">
-        <h1>Premium auto's &amp; motoren,<br/>uit Duitsland &amp; <span class="accent">Japan</span>.</h1>
-        <p class="hero-lead">Persoonlijk gesourced voor wie het juiste exemplaar zoekt — niet het eerste.</p>
+        <h1 set:html={t.h1Html} />
+        <p class="hero-lead">{t.lead}</p>
         <div class="hero-cta-row">
-          <a href="#zoekprofiel" class="cta-primary">Start uw zoekopdracht<span class="arrow">→</span></a>
-          <a href="/werkwijze" class="hero-secondary-link">of bekijk eerst de werkwijze <span class="arrow-small">→</span></a>
+          <a href={t.ctaPrimaryHref} class="cta-primary">{t.ctaPrimary}<span class="arrow">→</span></a>
+          <a href={t.ctaSecondaryHref} class="hero-secondary-link">{t.ctaSecondary} <span class="arrow-small">→</span></a>
         </div>
       </div>
       <aside class="hero-side">
         <div class="hero-block">
-          <div class="hero-block-label">Onze focus</div>
+          <div class="hero-block-label">{t.focusLabel}</div>
           <ul class="hero-list">
-            <li><a href="/merk/bmw">BMW</a></li>
-            <li><a href="/merk/mercedes-benz">Mercedes-Benz</a></li>
-            <li><a href="/merk/audi">Audi</a></li>
-            <li><a href="/merk/porsche">Porsche</a></li>
+            {t.brands.map((b) => (
+              <li>{b.href ? <a href={b.href}>{b.label}</a> : b.label}</li>
+            ))}
           </ul>
         </div>
         <div class="hero-block">
-          <div class="hero-block-label">Wij sourcen uit</div>
+          <div class="hero-block-label">{t.sourceLabel}</div>
           <ul class="hero-list">
-            <li><a href="/bron/europa">Europa</a></li>
-            <li><a href="/bron/japan">Japan</a></li>
+            {t.sources.map((s) => (
+              <li>{s.href ? <a href={s.href}>{s.label}</a> : s.label}</li>
+            ))}
           </ul>
         </div>
       </aside>

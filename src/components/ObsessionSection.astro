@@ -1,39 +1,15 @@
 ---
-const items = [
-  {
-    num: '01',
-    title: 'Geen universele handel',
-    body: 'Wij beperken ons bewust tot vier Duitse premium-merken — BMW, Mercedes-Benz, Audi en Porsche. Daar weten wij van. Daarbuiten verwijzen we door.'
-  },
-  {
-    num: '02',
-    title: 'Geen massa-import',
-    body: 'Onze ambitie is acht tot twaalf auto\'s per jaar. Geen voorraad-druk, geen quota — elke opdracht krijgt de aandacht die het verdient.'
-  },
-  {
-    num: '03',
-    title: 'Alleen geselecteerde uitvoeringen',
-    body: 'Conditie 4 of hoger op de officiële inspectieschaal. Geen bekende schade- of herstelhistorie. Lage kilometerstanden. Volledige documentatie. Onder die grens komt geen auto.'
-  },
-  {
-    num: '04',
-    title: 'Obsessie voor specs en historie',
-    body: 'Wij lezen elk auctie-sheet karakter voor karakter. Wij vergelijken met historische prijsdata. Wij weten welke uitvoering bijzonder is en welke niet.'
-  },
-  {
-    num: '05',
-    title: 'Liever wachten op het juiste exemplaar',
-    body: 'Een goede auto vinden vergt tijd. Wij bieden niet als de kandidaat niet klopt — we wachten op de volgende veiling. En de volgende.'
-  },
-];
+import { homeDict, pick } from '../i18n';
+const t = pick(homeDict, Astro.currentLocale).obsession;
+const items = t.items;
 ---
 
 <section class="obsession">
   <div class="container">
     <div class="obsession-header">
-      <div class="section-eyebrow">Onze obsessie</div>
-      <h2>Vijf principes.</h2>
-      <p class="obsession-lead">De juiste auto vindt zich niet vanzelf. Het vraagt geduld, kennis, en de bereidheid om "nee" te zeggen tegen wat bijna goed is.</p>
+      <div class="section-eyebrow">{t.eyebrow}</div>
+      <h2>{t.heading}</h2>
+      <p class="obsession-lead">{t.lead}</p>
     </div>
     <ol class="obsession-list">
       {items.map((item) => (

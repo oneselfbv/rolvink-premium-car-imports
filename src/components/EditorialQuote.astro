@@ -1,17 +1,19 @@
 ---
 // Editorial manifesto — visiestatement van de oprichter (geen klantcitaat-frame)
+import { homeDict, pick } from '../i18n';
+const t = pick(homeDict, Astro.currentLocale).quote;
 ---
 
 <section class="editorial">
   <div class="container">
     <div class="editorial-inner">
-      <div class="editorial-eyebrow">Onze discipline</div>
+      <div class="editorial-eyebrow">{t.eyebrow}</div>
       <p class="manifesto">
-        Een auto is een keuze van lange adem. We nemen de tijd om het juiste exemplaar te vinden — niet het eerste. Geen quota, geen massa-import, geen druk op de klant. Wel: research, geduld, en de bereidheid om nee te zeggen tegen wat bijna goed is.
+        {t.text}
       </p>
       <div class="signature">
-        <span class="signature-name">Theo Rolvink</span>
-        <span class="signature-title">Oprichter — jarenlange ervaring in de in- en verkoop van auto's en motoren</span>
+        <span class="signature-name">{t.name}</span>
+        <span class="signature-title">{t.title}</span>
       </div>
     </div>
   </div>

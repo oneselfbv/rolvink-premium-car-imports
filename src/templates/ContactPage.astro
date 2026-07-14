@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { contactDict, pick, asLocale, routeFor } from '../i18n';
+const locale = asLocale(Astro.currentLocale);
+const t = pick(contactDict, Astro.currentLocale);
+
+// Toon success-message na succesvolle form-submission (Formspree redirect ?sent=true)
+const sent = Astro.url.searchParams.get('sent') === 'true';
+
+// FORMSPREE: vervang YOUR_FORM_ID door je echte ID uit het Formspree-dashboard
+// 1. Maak account op https://formspree.io
+// 2. New Form → kopieer endpoint zoals https://formspree.io/f/xyzabcd
+// 3. Vervang FORMSPREE_FORM_ID hieronder en push opnieuw
+const FORMSPREE_FORM_ID = 'YOUR_FORM_ID';
+const FORMSPREE_ACTION = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
+const NEXT_URL = new URL(routeFor('contact', locale) + '?sent=true', Astro.site).toString();
+---
+
+<BaseLayout title={t.meta.title} description={t.meta.description} i18nKey="contact">
+  <section class="contact-page">
+    <div class="container">
+      <div class="section-eyebrow">{t.eyebrow}</div>
+      <h1>{t.h1}</h1>
+      <p class="lead">{t.lead}</p>
+
+      {sent && (
+        <div class="success-banner" role="status" aria-live="polite">
+          <strong>{t.successTitle}</strong>
+          <p>{t.successBody}</p>
+        </div>
+      )}
+
+      <div class="form-block">
+        <h2>{t.formHeading}</h2>
+        <p class="form-intro" set:html={t.formIntroHtml} />
+
+        <form action={FORMSPREE_ACTION} method="POST" class="intake-form" novalidate>
+          <input type="hidden" name="_subject" value={t.emailSubject} />
+          <input type="hidden" name="taal" value={locale} />
+          <input type="hidden" name="_next" value={NEXT_URL} />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot" />
+
+          <div class="row">
+            <div class="field">
+              <label for="naam">{t.fields.naam} <span class="req" aria-hidden="true">*</span></label>
+              <input id="naam" name="naam" type="text" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">{t.fields.email} <span class="req" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="telefoon">{t.fields.telefoon}</label>
+              <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" />
+            </div>
+            <div class="field">
+              <label for="merk">{t.fields.merk} <span class="req" aria-hidden="true">*</span></label>
+              <select id="merk" name="merk" required>
+                <option value="">{t.fields.merkChoose}</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Audi">Audi</option>
+                <option value="Porsche">Porsche</option>
+                <option value="Nog niet zeker">{t.fields.merkUnsure}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="model">{t.fields.model}</label>
+            <input id="model" name="model" type="text" placeholder={t.fields.modelPlaceholder} />
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="budget">{t.fields.budget} <span class="req" aria-hidden="true">*</span></label>
+              <select id="budget" name="budget" required>
+                <option value="">{t.fields.budgetChoose}</option>
+                {t.fields.budgetOptions.map((o) => <option value={o.value}>{o.label}</option>)}
+              </select>
+            </div>
+            <div class="field">
+              <label for="tijdslijn">{t.fields.tijdslijn} <span class="req" aria-hidden="true">*</span></label>
+              <select id="tijdslijn" name="tijdslijn" required>
+                <option value="">{t.fields.tijdslijnChoose}</option>
+                {t.fields.tijdslijnOptions.map((o) => <option value={o.value}>{o.label}</option>)}
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="route">{t.fields.route}</label>
+            <select id="route" name="route">
+              {t.fields.routeOptions.map((o) => <option value={o.value}>{o.label}</option>)}
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="toelichting">{t.fields.toelichting}</label>
+            <textarea id="toelichting" name="toelichting" rows="5" placeholder={t.fields.toelichtingPlaceholder}></textarea>
+          </div>
+
+          <div class="field privacy">
+            <label class="checkbox-label">
+              <input type="checkbox" name="privacy_consent" value="ja" required />
+              <span set:html={t.privacyHtml} />
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            {t.submitLabel}
+            <span class="arrow" aria-hidden="true">→</span>
+          </button>
+
+          <p class="form-footer-note">{t.formFooterNote}</p>
+        </form>
+      </div>
+
+      <div class="contact-alt">
+        <h2>{t.altHeading}</h2>
+        <div class="contact-grid">
+          <div class="contact-block">
+            <h3>{t.whatsapp.heading}</h3>
+            <p>{t.whatsapp.body}</p>
+            <WhatsAppButton label={t.whatsapp.buttonLabel} />
+          </div>
+
+          <div class="contact-block">
+            <h3>{t.email.heading}</h3>
+            <p>{t.email.body}</p>
+            <a href="mailto:contact@rolvinkpremiumcarimports.nl" class="cta">{t.email.buttonLabel}<span class="arrow">→</span></a>
+          </div>
+
+          <div class="contact-block">
+            <h3>{t.visit.heading}</h3>
+            <p>{t.visit.body}</p>
+            <address style="font-style: normal; font-size: 14px; color: var(--color-text-secondary); line-height: 1.6;">
+              {t.visit.addressLines.map((line, i) => <>{line}{i < t.visit.addressLines.length - 1 && <br/>}</>)}
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-page { padding: 80px 0 80px; }
+  .contact-page h1 { font-size: 64px; font-weight: 600; margin-bottom: 24px; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 640px; margin-bottom: 56px; line-height: 1.6; }
+
+  .success-banner {
+    background: #1F4F30;
+    color: var(--color-cream);
+    padding: 24px 28px;
+    margin-bottom: 56px;
+    border-left: 4px solid var(--color-copper-text);
+  }
+  .success-banner strong { font-size: 18px; display: block; margin-bottom: 6px; }
+  .success-banner p { font-size: 15px; opacity: 0.9; }
+
+  .form-block { max-width: 760px; margin-bottom: 80px; }
+  .form-block h2 { font-size: 32px; font-weight: 600; margin-bottom: 14px; }
+  .form-intro { font-size: 15px; color: var(--color-text-secondary); margin-bottom: 36px; line-height: 1.6; }
+  .form-intro .req, .field .req { color: var(--color-copper-text); font-weight: 600; }
+
+  .intake-form { display: flex; flex-direction: column; gap: 22px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-charcoal-dark);
+  }
+  .field input, .field select, .field textarea {
+    font-family: inherit;
+    font-size: 15px;
+    padding: 12px 14px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border-medium);
+    border-radius: 0;
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--color-copper-text);
+  }
+  .field textarea { resize: vertical; min-height: 120px; font-family: inherit; }
+
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  .privacy { margin-top: 8px; }
+  .checkbox-label {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.5;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+  }
+  .checkbox-label input[type="checkbox"] {
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .checkbox-label a { color: var(--color-copper-text); text-decoration: underline; }
+
+  .submit-btn {
+    align-self: flex-start;
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .submit-btn:hover { background: var(--color-copper-text); color: var(--color-charcoal-dark); transform: translateY(-2px); }
+  .submit-btn .arrow { font-size: 18px; }
+  .form-footer-note {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  .contact-alt { padding-top: 48px; border-top: 1px solid var(--color-border-medium); }
+  .contact-alt h2 { font-size: 28px; font-weight: 600; margin-bottom: 32px; }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .contact-block { background: var(--color-white); padding: 32px 28px; border-left: 3px solid var(--color-copper-text); }
+  .contact-block h3 { font-size: 20px; margin-bottom: 12px; font-weight: 600; }
+  .contact-block p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 20px; }
+
+  @media (max-width: 768px) {
+    .contact-page h1 { font-size: 40px; }
+    .row { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+  /* Conversie-tracking: vuur form_submit alleen bij bevestigde Formspree-inzending (?sent=true) */
+  if (new URLSearchParams(location.search).get('sent') === 'true' && typeof gtag === 'function') {
+    gtag('event', 'form_submit', { form: 'intake' });
+  }
+</script>

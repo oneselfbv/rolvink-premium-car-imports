@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+import { voorbeeldDict, pick, asLocale, routeFor } from '../i18n';
+const locale = asLocale(Astro.currentLocale);
+const t = pick(voorbeeldDict, Astro.currentLocale);
+const breadcrumbs = [
+  { name: t.breadcrumbHome, url: routeFor('home', locale) },
+  { name: t.breadcrumbCurrent },
+];
+---
+
+<BaseLayout title={t.meta.title} description={t.meta.description} i18nKey="voorbeeld">
+  <section class="voorbeeld-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">{t.eyebrow}</div>
+      <h1 set:html={t.h1Html} />
+      <p class="lead">{t.lead}</p>
+
+      <figure class="vb-hero">
+        <picture>
+          <source srcset="/images/brand-mercedes-1200.webp 1200w, /images/brand-mercedes-600.webp 600w" sizes="(max-width: 820px) 100vw, 820px" type="image/webp" />
+          <img src="/images/brand-mercedes-1200.jpg" srcset="/images/brand-mercedes-1200.jpg 1200w, /images/brand-mercedes-600.jpg 600w" sizes="(max-width: 820px) 100vw, 820px" alt={t.heroImgAlt} width="1200" height="450" loading="eager" decoding="async" />
+        </picture>
+        <figcaption>{t.heroCaption}</figcaption>
+      </figure>
+
+      <div class="disclaimer" set:html={t.disclaimerHtml} />
+
+      <section class="case-vehicle">
+        <h2>{t.vehicle.heading}</h2>
+        <dl class="vehicle-spec">
+          {t.vehicle.specs.map((sp) => (
+            <div><dt>{sp.dt}</dt><dd>{sp.dd}</dd></div>
+          ))}
+        </dl>
+      </section>
+
+      <section class="case-table">
+        <h2>{t.table.heading}</h2>
+        <table class="cost-table">
+          <thead>
+            <tr><th>{t.table.colCategory}</th><th>{t.table.colItem}</th><th>{t.table.colAmount}</th></tr>
+          </thead>
+          <tbody>
+            {t.table.sections.map((sec) => (
+              <>
+                <tr class="cat-header"><td colspan="3">{sec.header}</td></tr>
+                {sec.rows.map((r) => (
+                  <tr><td></td><td>{r.item}</td><td>{r.amount}</td></tr>
+                ))}
+                {'subtotal' in sec && sec.subtotal && (
+                  <tr class="cat-subtotal"><td></td><td><strong>{sec.subtotal.item}</strong></td><td><strong>{sec.subtotal.amount}</strong></td></tr>
+                )}
+              </>
+            ))}
+            <tr class="cat-total"><td></td><td><strong>{t.table.total.item}</strong></td><td><strong>{t.table.total.amount}</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="table-note" set:html={t.table.noteHtml} />
+      </section>
+
+      <section class="case-explain">
+        <h2>{t.explain.heading}</h2>
+        {t.explain.blocks.map((b) => (
+          <>
+            <h3>{b.heading}</h3>
+            <p set:html={b.bodyHtml} />
+          </>
+        ))}
+      </section>
+
+      <section class="case-variants">
+        <h2>{t.variants.heading}</h2>
+        <ul class="variant-list">
+          {t.variants.itemsHtml.map((i) => <li set:html={i} />)}
+        </ul>
+      </section>
+
+      <section class="case-promise">
+        <h2>{t.promise.heading}</h2>
+        {t.promise.paragraphsHtml.map((p) => <p set:html={p} />)}
+      </section>
+
+      <div class="page-cta">
+        <h2>{t.pageCta.heading}</h2>
+        <p>{t.pageCta.body}</p>
+        <a href={t.ctaHref} class="page-cta-btn">
+          {t.pageCta.btn}
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">{t.pageCta.note}</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .vb-hero { margin: 6px 0 32px; max-width: 820px; border-top: 3px solid var(--color-copper-text); }
+  .vb-hero picture { display: block; aspect-ratio: 16 / 6; overflow: hidden; }
+  .vb-hero img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.82) contrast(0.96) brightness(1.02) sepia(0.10); }
+  .vb-hero figcaption { font-size: 12px; color: var(--color-text-tertiary); margin-top: 8px; font-style: italic; }
+  .voorbeeld-page { padding: 64px 0 96px; }
+  .voorbeeld-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; max-width: 760px; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); max-width: 720px; margin-bottom: 32px; line-height: 1.65; }
+
+  .disclaimer {
+    max-width: 760px;
+    padding: 18px 22px;
+    margin-bottom: 48px;
+    background: var(--color-cream-warm);
+    border-left: 3px solid var(--color-copper-text);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .disclaimer em { font-style: italic; }
+
+  .case-vehicle, .case-table, .case-explain, .case-variants, .case-promise {
+    max-width: 760px;
+    margin-bottom: 56px;
+  }
+  .voorbeeld-page h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.15;
+  }
+  .voorbeeld-page h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 8px;
+  }
+  .voorbeeld-page p {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .voorbeeld-page a { color: var(--color-copper-text); text-decoration: underline; }
+  .voorbeeld-page strong { color: var(--color-text-primary); font-weight: 600; }
+  .voorbeeld-page em { font-style: italic; }
+
+  .vehicle-spec {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border-medium);
+  }
+  .vehicle-spec > div {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+    align-items: baseline;
+  }
+  .vehicle-spec dt {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-copper-text);
+  }
+  .vehicle-spec dd {
+    font-size: 16px;
+    color: var(--color-text-primary);
+  }
+
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .cost-table th {
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+  .cost-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-border-soft);
+    color: var(--color-text-secondary);
+  }
+  .cost-table tbody tr.cat-header td {
+    background: var(--color-cream-warm);
+    color: var(--color-copper-text);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .cost-table tbody tr.cat-subtotal td {
+    background: rgba(184,115,51,0.08);
+    color: var(--color-text-primary);
+  }
+  .cost-table tbody tr.cat-total td {
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 16px;
+  }
+  .cost-table tbody td:nth-child(3),
+  .cost-table thead th:nth-child(3) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .cost-table tbody td:first-child {
+    width: 24px;
+    padding: 10px 0;
+  }
+  .table-note {
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+    padding: 12px 16px;
+    background: var(--color-cream-warm);
+    border-left: 2px solid var(--color-copper-text);
+  }
+  .table-note a { color: var(--color-copper-text); }
+
+  .variant-list { padding-left: 24px; }
+  .variant-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; }
+  .variant-list strong { color: var(--color-text-primary); }
+
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+
+  @media (max-width: 768px) {
+    .voorbeeld-page h1 { font-size: 36px; }
+    .voorbeeld-page h2 { font-size: 24px; }
+    .vehicle-spec > div { grid-template-columns: 1fr; gap: 4px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 8px; }
+    .page-cta { padding: 36px 24px; }
+  }
+</style>

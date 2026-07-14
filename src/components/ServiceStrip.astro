@@ -2,38 +2,18 @@
 // D4: 3 disciplines (Sourcing / Levering / Nazorg) — 3:2 cards in 3-column grid
 // Sharp 90° corners, no border, geen "ronde-hoeken" treatment.
 // Image bovenaan + nummer/titel/body daaronder.
-const disciplines = [
-  {
-    num: '01',
-    title: 'Sourcing',
-    body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Wekelijkse kandidaten met onze duiding.',
-    img: '/images/traject-auction.jpg',
-    alt: 'BMW M3 (G80) head-on met gele LED-koplampen — sourcing van premium-uitvoeringen'
-  },
-  {
-    num: '02',
-    title: 'Levering',
-    body: 'Volledige import, BPM-aangifte, RDW-keuring en kentekenregistratie. Aflevering aan huis tot 200 km vanaf Welsum.',
-    img: '/images/traject-transport.jpg',
-    alt: 'Porsche 911 op autotransport-trailer — import en aflevering'
-  },
-  {
-    num: '03',
-    title: 'Nazorg',
-    body: 'Optionele detailing door geselecteerde partners. Begeleiding bij eventuele garantie-correspondentie. Een directe lijn — geen call-center.',
-    img: '/images/traject-handover.jpg',
-    alt: 'Hand met Mercedes-Benz autosleutel bij sleuteloverdracht'
-  },
-];
+import { homeDict, pick } from '../i18n';
+const t = pick(homeDict, Astro.currentLocale).services;
+const disciplines = t.cards;
 ---
 
 <section class="strip dark-section">
   <div class="container">
     <div class="strip-intro">
-      <div class="strip-label">Onze service</div>
-      <h2>Een traject van A tot Z.</h2>
-      <p class="strip-intro-text">Drie disciplines, één gestroomlijnd traject. Voor het volledige stappenplan ziet u onze werkwijze.</p>
-      <a href="/werkwijze" class="strip-link">Bekijk de werkwijze in 8 stappen <span class="arrow">→</span></a>
+      <div class="strip-label">{t.label}</div>
+      <h2>{t.heading}</h2>
+      <p class="strip-intro-text">{t.intro}</p>
+      <a href={t.linkHref} class="strip-link">{t.linkLabel} <span class="arrow">→</span></a>
     </div>
 
     <ol class="strip-list">

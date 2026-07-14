@@ -9,6 +9,10 @@ interface Props {
 }
 const { items } = Astro.props;
 const baseUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const ARIA: Record<string, string> = {
+  nl: 'Broodkruimels', en: 'Breadcrumbs', de: 'Brotkrumen-Navigation', es: 'Migas de pan', fr: "Fil d'Ariane",
+};
+const ariaLabel = ARIA[Astro.currentLocale ?? 'nl'] ?? ARIA.nl;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -22,7 +26,7 @@ const schema = {
 };
 ---
 
-<nav class="breadcrumbs" aria-label="Broodkruimels">
+<nav class="breadcrumbs" aria-label={ariaLabel}>
   <ol>
     {items.map((item, idx) => (
       <li>

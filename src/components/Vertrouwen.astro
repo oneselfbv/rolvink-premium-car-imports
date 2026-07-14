@@ -5,62 +5,55 @@
 // (auto + foto + quote + naam/plaats + doorlooptijd) zodra de klant akkoord geeft.
 // Dit sluit aan op de eerlijke "witte plek" op /referenties.
 
-// Concrete, feitelijke vertrouwenspijlers (geen claims die we niet waar kunnen maken).
-const pijlers = [
-  'Alleen grade 4+, geen schade-historie',
-  'Transparante landed-cost vóór elk bod',
-  'Wij bieden pas met uw expliciete groen licht',
-  'Persoonlijk — een directe lijn met Theo in Welsum',
-];
+// Taal: teksten uit src/i18n (NL = ongewijzigd).
+import { homeDict, pick } from '../i18n';
+const t = pick(homeDict, Astro.currentLocale).trust;
 
 // TODO (Theo): vervang elke placeholder door een echt afgeleverd traject.
 // Per case nodig: { auto, foto (src+alt), quote, naam/plaats (met toestemming),
-// doorlooptijd, evt. link naar uitgewerkte case }. Verwijder de `placeholder: true`
-// vlag zodra de inhoud echt is.
-const cases = [
-  { placeholder: true, label: 'Eerste klantverhaal' },
-  { placeholder: true, label: 'Tweede klantverhaal' },
-  { placeholder: true, label: 'Derde klantverhaal' },
-];
+// doorlooptijd, evt. link naar uitgewerkte case }.
+const cases = t.caseLabels.map((label) => ({ placeholder: true, label }));
 ---
 
 <section class="vt">
   <div class="container">
     <div class="vt-head">
-      <div class="section-eyebrow">Vertrouwen</div>
-      <h2>Eerlijk, verifieerbaar, met open boeken.</h2>
+      <div class="section-eyebrow">{t.eyebrow}</div>
+      <h2>{t.heading}</h2>
       <p class="vt-intro">
-        We zijn een jonge service en tonen liever een eerlijke witte plek dan verzonnen referenties. Wat we nú al laten zien: precies hoe we werken en wat een traject kost — tot op de euro.
+        {t.intro}
       </p>
     </div>
 
     <ul class="vt-pijlers">
-      {pijlers.map((p) => <li>{p}</li>)}
+      {t.pijlers.map((p) => <li>{p}</li>)}
     </ul>
 
     <div class="vt-cases">
       {cases.map((c) => (
-        <article class="vt-card vt-card--placeholder" aria-label={`${c.label} — volgt binnenkort`}>
+        <article class="vt-card vt-card--placeholder" aria-label={`${c.label} — ${t.caseAriaSuffix}`}>
           <div class="vt-photo" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8.5A1.5 1.5 0 014.5 7h2L8 5h8l1.5 2h2A1.5 1.5 0 0121 8.5v9A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5z"/><circle cx="12" cy="12.5" r="3.2"/></svg>
-            <span>Foto volgt</span>
+            <span>{t.casePhotoLabel}</span>
           </div>
           <div class="vt-card-body">
-            <span class="vt-badge">Binnenkort</span>
+            <span class="vt-badge">{t.caseBadge}</span>
             <h3>{c.label}</h3>
-            <p>Een afgerond traject — auto, foto, doorlooptijd en wat we onderweg tegenkwamen. We plaatsen het pas met toestemming van de klant.</p>
+            <p>{t.caseBody}</p>
           </div>
         </article>
       ))}
     </div>
 
     <div class="vt-links">
-      <a href="/voorbeeld-traject/" class="vt-link vt-link--primary">
-        Bekijk een volledig doorgerekend voorbeeld-traject <span class="arrow">→</span>
+      <a href={t.linkPrimaryHref} class="vt-link vt-link--primary">
+        {t.linkPrimaryLabel} <span class="arrow">→</span>
       </a>
-      <a href="/referenties/" class="vt-link">
-        Onze referenties <span class="arrow">→</span>
-      </a>
+      {t.linkSecondaryHref && (
+        <a href={t.linkSecondaryHref} class="vt-link">
+          {t.linkSecondaryLabel} <span class="arrow">→</span>
+        </a>
+      )}
     </div>
   </div>
 </section>

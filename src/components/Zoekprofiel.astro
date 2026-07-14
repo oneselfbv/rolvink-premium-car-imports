@@ -3,6 +3,10 @@
 // Vangt e-mail/telefoon op de server (Resend), zodat leads niet meer lekken via
 // een WhatsApp-deeplink. WhatsApp blijft als optionele tweede route beschikbaar.
 // Progressive enhancement: zonder JS post het formulier gewoon naar de API-route.
+// Taal: alle teksten (incl. client-side meldingen) uit src/i18n.
+import { homeDict, pick, asLocale } from '../i18n';
+const locale = asLocale(Astro.currentLocale);
+const t = pick(homeDict, Astro.currentLocale).zoekprofiel;
 const WA = '31638441395';
 ---
 
@@ -10,13 +14,11 @@ const WA = '31638441395';
   <div class="container">
     <div class="zp-grid">
       <div class="zp-intro">
-        <div class="zp-label">Geen haast, wel scherp</div>
-        <h2>Laat uw <span class="accent">zoekprofiel</span> achter.</h2>
-        <p>Nog geen exemplaar op het oog? Vertel ons wat u zoekt. Zodra er een passende kandidaat op een veiling verschijnt, signaleren wij het — met sheet, foto's en onze doorrekening. Vrijblijvend, geen verkoopdruk.</p>
+        <div class="zp-label">{t.label}</div>
+        <h2 set:html={t.headingHtml} />
+        <p>{t.intro}</p>
         <ul class="zp-usps">
-          <li>Wij bieden pas met uw expliciete groen licht</li>
-          <li>Alleen grade 4+ en geen schade-historie</li>
-          <li>Een directe lijn met Theo — geen call-center</li>
+          {t.usps.map((u) => <li>{u}</li>)}
         </ul>
       </div>
 
@@ -24,90 +26,91 @@ const WA = '31638441395';
         <form class="zp-form" id="zpForm" action="/api/zoekprofiel/" method="POST" novalidate>
           <!-- Honeypot: verborgen voor mensen, ingevuld door bots -->
           <div class="zp-hp" aria-hidden="true">
-            <label>Laat dit veld leeg
+            <label>{t.honeypotLabel}
               <input type="text" name="website" tabindex="-1" autocomplete="off" />
             </label>
           </div>
 
-          <p class="zp-required-note">Laat minstens uw <strong>e-mail of telefoon</strong> achter — de rest helpt ons scherper zoeken.</p>
+          <input type="hidden" name="lang" value={locale} />
 
-          <label class="zp-field" for="zp-naam">Uw naam <span class="zp-opt">(optioneel)</span>
-            <input id="zp-naam" type="text" name="naam" autocomplete="name" placeholder="Voornaam" />
+          <p class="zp-required-note" set:html={t.requiredNoteHtml} />
+
+          <label class="zp-field" for="zp-naam">{t.fields.naam.label} <span class="zp-opt">{t.optional}</span>
+            <input id="zp-naam" type="text" name="naam" autocomplete="name" placeholder={t.fields.naam.placeholder} />
           </label>
 
-          <label class="zp-field" for="zp-email">E-mailadres
+          <label class="zp-field" for="zp-email">{t.fields.email.label}
             <input id="zp-email" type="email" name="email" inputmode="email" autocomplete="email"
-                   placeholder="naam@voorbeeld.nl" aria-describedby="zp-email-err" />
+                   placeholder={t.fields.email.placeholder} aria-describedby="zp-email-err" />
             <span class="zp-err" id="zp-email-err" hidden></span>
           </label>
 
-          <label class="zp-field" for="zp-tel">Telefoon
+          <label class="zp-field" for="zp-tel">{t.fields.telefoon.label}
             <input id="zp-tel" type="tel" name="telefoon" inputmode="tel" autocomplete="tel"
-                   placeholder="06 12 34 56 78" aria-describedby="zp-contact-err" />
+                   placeholder={t.fields.telefoon.placeholder} aria-describedby="zp-contact-err" />
             <span class="zp-err" id="zp-contact-err" hidden></span>
           </label>
 
           <div class="zp-field-row">
-            <label class="zp-field" for="zp-merk">Merk <span class="zp-opt">(optioneel)</span>
+            <label class="zp-field" for="zp-merk">{t.fields.merk.label} <span class="zp-opt">{t.optional}</span>
               <select id="zp-merk" name="merk">
-                <option value="">Kies…</option>
+                <option value="">{t.fields.merk.choose}</option>
                 <option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Porsche</option>
-                <option>Nog niet zeker</option>
+                <option>{t.fields.merk.unsure}</option>
               </select>
             </label>
-            <label class="zp-field" for="zp-model">Model / uitvoering <span class="zp-opt">(optioneel)</span>
-              <input id="zp-model" type="text" name="model" placeholder="bv. SL 500, M3, Cayman S" />
+            <label class="zp-field" for="zp-model">{t.fields.model.label} <span class="zp-opt">{t.optional}</span>
+              <input id="zp-model" type="text" name="model" placeholder={t.fields.model.placeholder} />
             </label>
           </div>
 
           <div class="zp-field-row">
-            <label class="zp-field" for="zp-budget">Budget (rijklaar) <span class="zp-opt">(optioneel)</span>
+            <label class="zp-field" for="zp-budget">{t.fields.budget.label} <span class="zp-opt">{t.optional}</span>
               <select id="zp-budget" name="budget">
-                <option value="">Kies…</option>
-                <option>tot € 15.000</option><option>€ 15.000 – 25.000</option>
-                <option>€ 25.000 – 40.000</option><option>€ 40.000 – 75.000</option><option>€ 75.000+</option>
+                <option value="">{t.fields.budget.choose}</option>
+                {t.fields.budget.options.map((o) => <option>{o}</option>)}
               </select>
             </label>
-            <label class="zp-field" for="zp-bron">Bronmarkt <span class="zp-opt">(optioneel)</span>
+            <label class="zp-field" for="zp-bron">{t.fields.bron.label} <span class="zp-opt">{t.optional}</span>
               <select id="zp-bron" name="bron">
-                <option value="">Geen voorkeur</option><option>Japan</option><option>Duitsland / Europa</option>
+                <option value="">{t.fields.bron.none}</option>
+                {t.fields.bron.options.map((o) => <option>{o}</option>)}
               </select>
             </label>
           </div>
 
-          <label class="zp-field" for="zp-termijn">Termijn <span class="zp-opt">(optioneel)</span>
+          <label class="zp-field" for="zp-termijn">{t.fields.termijn.label} <span class="zp-opt">{t.optional}</span>
             <select id="zp-termijn" name="termijn">
-              <option value="">Kies…</option><option>Zo snel mogelijk</option><option>Binnen 3 maanden</option>
-              <option>Dit jaar</option><option>Oriënterend</option>
+              <option value="">{t.fields.termijn.choose}</option>
+              {t.fields.termijn.options.map((o) => <option>{o}</option>)}
             </select>
           </label>
 
           <div class="zp-status" id="zpStatus" role="status" aria-live="polite" hidden></div>
 
           <button type="submit" class="zp-submit" id="zpSubmit">
-            <span class="zp-submit-label">Stuur mijn zoekprofiel</span>
+            <span class="zp-submit-label">{t.submit}</span>
             <span class="zp-spinner" aria-hidden="true"></span>
           </button>
 
-          <div class="zp-or"><span>of</span></div>
+          <div class="zp-or"><span>{t.or}</span></div>
 
           <button type="button" class="zp-wa" id="zpWa">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.039z"/></svg>
-            Liever direct via WhatsApp
+            {t.waButton}
           </button>
 
-          <p class="zp-note">Wij reageren meestal binnen 24 uur. Liever bellen of mailen? <a href="/contact/">Via het contactformulier</a>.</p>
+          <p class="zp-note" set:html={t.noteHtml} />
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<script is:inline>
+<script is:inline define:vars={{ MSG: t.js, WA }}>
   (function () {
     var form = document.getElementById('zpForm');
     if (!form) return;
-    var WA = '31638441395';
     var submitBtn = document.getElementById('zpSubmit');
     var statusEl = document.getElementById('zpStatus');
     var emailEl = form.querySelector('[name=email]');
@@ -128,13 +131,13 @@ const WA = '31638441395';
     }
     function emailValid() {
       var v = (emailEl.value || '').trim();
-      if (v && !EMAIL_RE.test(v)) { showErr(emailEl, emailErr, 'Controleer het e-mailadres — formaat naam@voorbeeld.nl.'); return false; }
+      if (v && !EMAIL_RE.test(v)) { showErr(emailEl, emailErr, MSG.emailInvalid); return false; }
       clearErr(emailEl, emailErr); return true;
     }
     function contactValid() {
       var e = (emailEl.value || '').trim();
       var t = (telEl.value || '').trim();
-      if (!e && !t) { showErr(telEl, contactErr, 'Laat een e-mailadres of telefoonnummer achter.'); return false; }
+      if (!e && !t) { showErr(telEl, contactErr, MSG.contactRequired); return false; }
       clearErr(telEl, contactErr); return true;
     }
 
@@ -178,16 +181,16 @@ const WA = '31638441395';
           if (res.ok) {
             form.classList.add('is-sent');
             setStatus('success', '');
-            statusEl.innerHTML = '<strong>Bedankt — uw zoekprofiel is binnen.</strong><br>We nemen meestal binnen 24 uur contact met u op.';
+            statusEl.innerHTML = MSG.successHtml;
             statusEl.focus && statusEl.focus();
           } else {
-            throw new Error((res.body && res.body.error) || 'Onbekende fout');
+            throw new Error((res.body && res.body.error) || MSG.unknownError);
           }
         })
         .catch(function (err) {
           setStatus('error', '');
-          statusEl.innerHTML = (err && err.message ? err.message : 'Versturen lukte niet.') +
-            ' U kunt het opnieuw proberen of <a href="https://wa.me/' + WA + '">een WhatsApp sturen</a>.';
+          statusEl.innerHTML = (err && err.message ? err.message : MSG.errorFallback) +
+            MSG.errorRetryPrefix + '<a href="https://wa.me/' + WA + '">' + MSG.errorRetryLink + '</a>' + MSG.errorRetrySuffix;
         })
         .finally(function () {
           if (!form.classList.contains('is-sent')) {
@@ -200,15 +203,15 @@ const WA = '31638441395';
     document.getElementById('zpWa').addEventListener('click', function () {
       var f = new FormData(form);
       var lines = [
-        'Hoi Theo, hier is mijn zoekprofiel:',
-        '• Merk: ' + (f.get('merk') || '-'),
-        '• Model/uitvoering: ' + (f.get('model') || '-'),
-        '• Budget: ' + (f.get('budget') || '-'),
-        '• Bronmarkt: ' + (f.get('bron') || 'geen voorkeur'),
-        '• Termijn: ' + (f.get('termijn') || '-'),
-        '• Naam: ' + (f.get('naam') || '-'),
-        '• E-mail: ' + (f.get('email') || '-'),
-        '• Telefoon: ' + (f.get('telefoon') || '-')
+        MSG.waIntro,
+        '• ' + MSG.waLabels.merk + ': ' + (f.get('merk') || '-'),
+        '• ' + MSG.waLabels.model + ': ' + (f.get('model') || '-'),
+        '• ' + MSG.waLabels.budget + ': ' + (f.get('budget') || '-'),
+        '• ' + MSG.waLabels.bron + ': ' + (f.get('bron') || MSG.waNone),
+        '• ' + MSG.waLabels.termijn + ': ' + (f.get('termijn') || '-'),
+        '• ' + MSG.waLabels.naam + ': ' + (f.get('naam') || '-'),
+        '• ' + MSG.waLabels.email + ': ' + (f.get('email') || '-'),
+        '• ' + MSG.waLabels.telefoon + ': ' + (f.get('telefoon') || '-')
       ];
       try { if (typeof window.gtag === 'function') { window.gtag('event', 'zoekprofiel_whatsapp', { merk: f.get('merk') || '' }); } } catch (err) {}
       window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');

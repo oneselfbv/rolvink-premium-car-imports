@@ -1,25 +1,43 @@
 ---
 import LogoHorizontal from './LogoHorizontal.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
+import { uiDict, pick, asLocale, routeFor, LOCALES, LOCALE_LABELS } from '../i18n';
+
+interface Props {
+  /** Route-key uit src/i18n/config.ts — voor de taalwisselaar. */
+  i18nKey?: string;
+}
+const { i18nKey } = Astro.props;
+const locale = asLocale(Astro.currentLocale);
+const t = pick(uiDict, Astro.currentLocale);
 ---
 
 <div class="topbar">
   <div class="container">
-    <span>Persoonlijke sourcing — Japan & Duitsland</span>
-    <a href="/#zoekprofiel">Start uw zoekopdracht →</a>
+    <span class="topbar-tagline">{t.topbar.tagline}</span>
+    <span class="topbar-right">
+      <nav class="lang-switch" aria-label={t.langSwitcher.aria}>
+        {LOCALES.map((l) => (
+          l === locale
+            ? <span class="lang-current" aria-current="true">{LOCALE_LABELS[l]}</span>
+            : <a href={routeFor(i18nKey, l)} hreflang={l} rel="alternate">{LOCALE_LABELS[l]}</a>
+        ))}
+      </nav>
+      <a href={t.topbar.ctaHref} class="topbar-cta">{t.topbar.ctaLabel}</a>
+    </span>
   </div>
 </div>
 
 <header class="site-header">
   <div class="container">
     <div class="inner">
-      <a href="/" class="brand-link" aria-label="Rolvink Premium Imports — Home">
+      <a href={t.header.homeHref} class="brand-link" aria-label={t.header.brandAria}>
         <LogoHorizontal width={240} />
       </a>
 
       <button
         class="menu-toggle"
-        aria-label="Menu openen"
+        aria-label={t.header.menuOpenAria}
         aria-expanded="false"
         aria-controls="primary-nav"
         type="button"
@@ -29,16 +47,18 @@ import WhatsAppButton from './WhatsAppButton.astro';
         <span class="menu-toggle-bar"></span>
       </button>
 
-      <nav id="primary-nav" class="primary-nav" aria-label="Hoofdmenu">
+      <nav id="primary-nav" class="primary-nav" aria-label={t.header.navAria}>
         <ul>
-          <li><a href="/werkwijze">Werkwijze</a></li>
-          <li><a href="/selectie">Selectie</a></li>
-          <li><a href="/motoren">Motoren</a></li>
-          <li><a href="/route-advies">Route-advies</a></li>
-          <li><a href="/bpm-calculator">BPM-tool</a></li>
-          <li><a href="/tarieven">Tarieven</a></li>
-          <li><a href="/kennisbank">Kennisbank</a></li>
-          <li><a href="/over">Over</a></li>
+          {t.header.nav.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+          <li class="nav-lang-row" aria-hidden="false">
+            {LOCALES.map((l) => (
+              l === locale
+                ? <span class="lang-current" aria-current="true">{LOCALE_LABELS[l]}</span>
+                : <a class="nav-lang-link" href={routeFor(i18nKey, l)} hreflang={l} rel="alternate">{LOCALE_LABELS[l]}</a>
+            ))}
+          </li>
         </ul>
       </nav>
 
@@ -72,6 +92,22 @@ import WhatsAppButton from './WhatsAppButton.astro';
 </script>
 
 <style>
+  /* Taalwisselaar in de topbar */
+  .topbar-right { display: inline-flex; align-items: center; gap: 20px; }
+  .lang-switch { display: inline-flex; align-items: center; gap: 10px; }
+  .lang-switch a { color: rgba(245, 241, 234, 0.65); font-weight: 400; }
+  .lang-switch a:hover { color: var(--color-copper); }
+  .lang-switch .lang-current { color: var(--color-cream); font-weight: 600; }
+
+  /* Taalwisselaar in het mobiele menu */
+  .nav-lang-row { display: none; }
+
+  /* Smal scherm: tagline wijkt zodat taalkeuze + CTA passen */
+  @media (max-width: 640px) {
+    .topbar-tagline { display: none; }
+    .topbar-right { width: 100%; justify-content: space-between; }
+  }
+
   .menu-toggle {
     display: none;
     flex-direction: column;
@@ -142,6 +178,20 @@ import WhatsAppButton from './WhatsAppButton.astro';
       letter-spacing: 0.04em;
       color: var(--color-charcoal-dark);
     }
+    .nav-lang-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .primary-nav .nav-lang-row a,
+    .nav-lang-row .lang-current {
+      font-family: var(--font-sans, inherit);
+      font-size: 15px;
+      letter-spacing: 0.08em;
+    }
+    .nav-lang-row .lang-current { font-weight: 700; color: var(--color-copper-text, var(--color-copper)); }
+    .nav-lang-row a { color: var(--color-charcoal-dark); opacity: 0.65; }
     :global(body.menu-open) { overflow: hidden; }
   }
 </style>

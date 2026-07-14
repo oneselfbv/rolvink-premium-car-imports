@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+import { werkwijzeDict, pick, asLocale, routeFor } from '../i18n';
+const locale = asLocale(Astro.currentLocale);
+const t = pick(werkwijzeDict, Astro.currentLocale);
+const steps = t.steps;
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: t.howTo.name,
+  description: t.howTo.description,
+  totalTime: 'P6W',
+  inLanguage: locale,
+  step: steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.title,
+    text: s.body,
+    url: new URL(routeFor('werkwijze', locale), Astro.site).toString(),
+  })),
+};
+
+const breadcrumbs = [
+  { name: t.breadcrumbHome, url: routeFor('home', locale) },
+  { name: t.breadcrumbCurrent },
+];
+---
+
+<BaseLayout title={t.meta.title} description={t.meta.description} i18nKey="werkwijze">
+  <section class="werkwijze-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">{t.eyebrow}</div>
+      <h1 set:html={t.h1Html} />
+      <p class="lead">{t.lead}</p>
+
+      <h2 class="steps-heading">{t.stepsHeading}</h2>
+
+      <ol class="steps">
+        {steps.map((step) => (
+          <li class="step">
+            <div class="step-num" aria-hidden="true">{step.num}</div>
+            <div class="step-content">
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="page-cta">
+        <a href={t.ctaHref} class="page-cta-btn">
+          {t.ctaLabel}
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">{t.ctaNote}</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+
+<style>
+  .werkwijze-page { padding: 64px 0 96px; }
+  .werkwijze-page h1 {
+    font-size: 64px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    line-height: 1.05;
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    max-width: 640px;
+    margin-bottom: 64px;
+    line-height: 1.6;
+  }
+  .steps-heading {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-copper-text);
+    margin-bottom: 24px;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 48px;
+    padding: 36px 0;
+    border-top: 1px solid var(--color-border-medium);
+    align-items: start;
+  }
+  .step:last-child { border-bottom: 1px solid var(--color-border-medium); }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-copper-text);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .step-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .step-content p {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    max-width: 680px;
+    line-height: 1.65;
+  }
+
+  .page-cta {
+    margin-top: 64px;
+    padding: 48px 40px;
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    text-align: center;
+  }
+  .page-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: var(--color-copper-text);
+    color: var(--color-charcoal-dark);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .page-cta-btn:hover {
+    transform: translateY(-2px);
+    background: #d18a3f;
+  }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: rgba(245, 241, 234, 0.7);
+  }
+
+  @media (max-width: 768px) {
+    .werkwijze-page h1 { font-size: 40px; }
+    .step { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+    .step-num { font-size: 24px; }
+    .page-cta { padding: 36px 24px; }
+    .page-cta-btn { padding: 16px 24px; font-size: 13px; }
+  }
+</style>

@@ -1,5 +1,7 @@
 ---
 import LogoHorizontal from './LogoHorizontal.astro';
+import { uiDict, pick } from '../i18n';
+const t = pick(uiDict, Astro.currentLocale).footer;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -11,43 +13,32 @@ const currentYear = new Date().getFullYear();
           <LogoHorizontal width={240} variant="on-dark" />
         </div>
         <p style="font-size: 14px; color: rgba(245, 241, 234, 0.72); max-width: 320px; line-height: 1.6;">
-          Een persoonlijke sourcing-service voor premium auto's en motoren uit Duitsland, Europa en Japan. Welsum, Nederland.
+          {t.blurb}
         </p>
       </div>
+      {t.columns.map((col) => (
+        <div>
+          <h3>{col.title}</h3>
+          <ul>
+            {col.links.map((l) => (
+              <li><a href={l.href}>{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
       <div>
-        <h3>Service</h3>
-        <ul>
-          <li><a href="/werkwijze">Werkwijze</a></li>
-          <li><a href="/selectie">Selectie</a></li>
-          <li><a href="/route-advies">Route-advies</a></li>
-          <li><a href="/bpm-calculator">BPM-tool</a></li>
-          <li><a href="/tarieven">Tarieven</a></li>
-          <li><a href="/voorbeeld-traject">Voorbeeld-traject</a></li>
-          <li><a href="/referenties">Referenties</a></li>
-          <li><a href="/over">Over Theo</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Kennis</h3>
-        <ul>
-          <li><a href="/kennisbank">Kennisbank</a></li>
-          <li><a href="/kennisbank/faq-japan">FAQ Japan</a></li>
-          <li><a href="/kennisbank/faq-duitsland">FAQ Duitsland</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Contact</h3>
+        <h3>{t.contactTitle}</h3>
         <ul>
           <li><a href="mailto:contact@rolvinkpremiumcarimports.nl">contact@rolvinkpremiumcarimports.nl</a></li>
-          <li><a href="https://wa.me/31638441395" target="_blank" rel="noopener noreferrer">+31 6 38 44 13 95 (WhatsApp)</a></li>
-          <li>Veldweg 15, 8196 KS Welsum</li>
-          <li>Op afspraak</li>
+          <li><a href="https://wa.me/31638441395" target="_blank" rel="noopener noreferrer">{t.whatsappLabel}</a></li>
+          {t.addressLines.map((line) => <li>{line}</li>)}
+          <li>{t.hours}</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© {currentYear} Rolvink Premium Imports</span>
-      <span><a href="/privacy">Privacy</a> · <a href="/voorwaarden">Voorwaarden</a></span>
+      <span><a href={t.privacy.href}>{t.privacy.label}</a> · <a href={t.voorwaarden.href}>{t.voorwaarden.label}</a></span>
     </div>
   </div>
 </footer>

@@ -27,6 +27,40 @@ function json(body: unknown, status = 200): Response {
   });
 }
 
+// Server-side foutmeldingen per taal (voor no-JS fallback en API-antwoorden).
+const ERRORS: Record<string, { parse: string; contact: string; email: string; send: string }> = {
+  nl: {
+    parse: 'Kon het formulier niet lezen. Probeer het opnieuw.',
+    contact: 'Laat een e-mailadres of telefoonnummer achter zodat we u kunnen bereiken.',
+    email: 'Dat e-mailadres lijkt niet te kloppen. Controleer het even.',
+    send: 'Versturen lukte niet. Probeer het later opnieuw of stuur ons een WhatsApp.',
+  },
+  en: {
+    parse: 'We could not read the form. Please try again.',
+    contact: 'Please leave an email address or phone number so we can reach you.',
+    email: "That email address doesn't look right. Please check it.",
+    send: 'Sending failed. Please try again later or send us a WhatsApp message.',
+  },
+  de: {
+    parse: 'Das Formular konnte nicht gelesen werden. Bitte versuchen Sie es erneut.',
+    contact: 'Bitte hinterlassen Sie eine E-Mail-Adresse oder Telefonnummer, damit wir Sie erreichen können.',
+    email: 'Diese E-Mail-Adresse scheint nicht zu stimmen. Bitte prüfen Sie sie.',
+    send: 'Senden fehlgeschlagen. Bitte versuchen Sie es später erneut oder schreiben Sie uns per WhatsApp.',
+  },
+  es: {
+    parse: 'No hemos podido leer el formulario. Inténtelo de nuevo.',
+    contact: 'Deje una dirección de correo electrónico o un número de teléfono para que podamos contactarle.',
+    email: 'Esa dirección de correo no parece correcta. Compruébela.',
+    send: 'No se pudo enviar. Inténtelo más tarde o envíenos un WhatsApp.',
+  },
+  fr: {
+    parse: "Impossible de lire le formulaire. Veuillez réessayer.",
+    contact: 'Laissez une adresse e-mail ou un numéro de téléphone afin que nous puissions vous joindre.',
+    email: 'Cette adresse e-mail semble incorrecte. Veuillez la vérifier.',
+    send: "L'envoi a échoué. Réessayez plus tard ou envoyez-nous un message WhatsApp.",
+  },
+};
+
 export const POST: APIRoute = async ({ request }) => {
   // 1. Parse — accepteer zowel JSON (fetch) als form-encoded (no-JS fallback).
   let raw: Record<string, unknown> = {};
@@ -39,7 +73,7 @@ export const POST: APIRoute = async ({ request }) => {
       raw = Object.fromEntries(fd.entries());
     }
   } catch {
-    return json({ ok: false, error: 'Kon het formulier niet lezen. Probeer het opnieuw.' }, 400);
+    return json({ ok: false, error: ERRORS.nl.parse }, 400);
   }
 
   // 2. Honeypot — bots vullen het verborgen veld; stilletjes "ok" teruggeven.
@@ -57,15 +91,14 @@ export const POST: APIRoute = async ({ request }) => {
   const bron = clean(raw.bron, 60);
   const termijn = clean(raw.termijn, 60);
   const bericht = clean(raw.bericht, 1500);
+  const lang = clean(raw.lang, 8);
+  const errs = ERRORS[lang] || ERRORS.nl;
 
   if (!email && !telefoon) {
-    return json(
-      { ok: false, error: 'Laat een e-mailadres of telefoonnummer achter zodat we u kunnen bereiken.' },
-      400,
-    );
+    return json({ ok: false, error: errs.contact }, 400);
   }
   if (email && !EMAIL_RE.test(email)) {
-    return json({ ok: false, error: 'Dat e-mailadres lijkt niet te kloppen. Controleer het even.' }, 400);
+    return json({ ok: false, error: errs.email }, 400);
   }
 
   // 4. Mailinhoud.
@@ -79,6 +112,7 @@ export const POST: APIRoute = async ({ request }) => {
     ['Bronmarkt', bron],
     ['Termijn', termijn],
     ['Toelichting', bericht],
+    ['Taal website', lang && lang !== 'nl' ? lang.toUpperCase() : ''],
   ].filter(([, v]) => v);
 
   const textBody =
@@ -123,14 +157,14 @@ export const POST: APIRoute = async ({ request }) => {
       const detail = await res.text().catch(() => '');
       console.error('[zoekprofiel] Resend-fout', res.status, detail);
       return json(
-        { ok: false, error: 'Versturen lukte niet. Probeer het later opnieuw of stuur ons een WhatsApp.' },
+        { ok: false, error: errs.send },
         502,
       );
     }
   } catch (err) {
     console.error('[zoekprofiel] Resend-uitzondering', err);
     return json(
-      { ok: false, error: 'Versturen lukte niet. Probeer het later opnieuw of stuur ons een WhatsApp.' },
+      { ok: false, error: errs.send },
       502,
     );
   }

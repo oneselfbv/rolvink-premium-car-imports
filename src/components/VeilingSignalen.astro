@@ -2,7 +2,10 @@
 // Marktsignalen — een greep uit recente LHD-kandidaten die we volgden op Japanse veilingen.
 // EERLIJK GEKADERD: dit is GEEN actueel aanbod, maar illustratie van het type kandidaat + onze rekenwijze.
 // Theo werkt deze lijst periodiek bij. Cijfers indicatief, peildatum onderaan.
-const peildatum = 'mei 2026';
+// Taal: labels uit src/i18n; de kandidaat-data zelf is taalonafhankelijk.
+import { homeDict, pick } from '../i18n';
+const t = pick(homeDict, Astro.currentLocale).signals;
+const peildatum = t.peildatum;
 const signalen = [
   { model: 'Mercedes SL 350 (R230)', jaar: '2003', km: '152.000 km', grade: '3.5', hammer: '€ 1.990', landed: '± € 7.200', nl: '€ 14.000 – 16.500' },
   { model: 'Mercedes E 300 4MATIC (W212)', jaar: '2014', km: '48.000 km', grade: '4', hammer: '€ 6.150', landed: '± € 14.300', nl: '€ 17.500 – 21.000' },
@@ -16,10 +19,10 @@ const signalen = [
 <section class="signalen">
   <div class="container">
     <div class="signalen-head">
-      <div class="section-eyebrow">Marktsignalen</div>
-      <h2>Wat we recent op de veiling zagen.</h2>
+      <div class="section-eyebrow">{t.eyebrow}</div>
+      <h2>{t.heading}</h2>
       <p class="signalen-intro">
-        Een greep uit de linksgestuurde kandidaten die we de afgelopen weken volgden op Japanse veilingen — met onze indicatieve doorrekening van hamerprijs naar Nederlandse straatprijs. Zo werken we, elke week opnieuw.
+        {t.intro}
       </p>
     </div>
 
@@ -28,22 +31,20 @@ const signalen = [
         <article class="kaart">
           <div class="kaart-top">
             <h3>{s.model}</h3>
-            <span class="grade" title="Conditie-grade op de Japanse veilingschaal">grade {s.grade}</span>
+            <span class="grade" title={t.gradeTitle}>{t.gradePrefix} {s.grade}</span>
           </div>
           <div class="kaart-meta">{s.jaar} · {s.km}</div>
           <dl class="kaart-cijfers">
-            <div><dt>Hamerprijs ≈</dt><dd>{s.hammer}</dd></div>
-            <div><dt>Landed NL</dt><dd>{s.landed}</dd></div>
-            <div><dt>NL-richtprijs</dt><dd class="nl">{s.nl}</dd></div>
+            <div><dt>{t.dtHammer}</dt><dd>{s.hammer}</dd></div>
+            <div><dt>{t.dtLanded}</dt><dd>{s.landed}</dd></div>
+            <div><dt>{t.dtNl}</dt><dd class="nl">{s.nl}</dd></div>
           </dl>
         </article>
       ))}
     </div>
 
-    <p class="signalen-disclaimer">
-      Cijfers indicatief, peildatum {peildatum}. <strong>Dit is geen actueel aanbod</strong> — het is het type kandidaat dat wij voor opdrachtgevers volgen en doorrekenen. Landed cost omvat fees, transport, invoerrechten, BTW, BPM en kentekening; de definitieve BPM bepalen we per voertuig via de gunstigste van drie methoden.
-    </p>
-    <a href="#zoekprofiel" class="signalen-cta">Zoekt u zoiets? Laat uw zoekprofiel achter <span class="arrow">→</span></a>
+    <p class="signalen-disclaimer" set:html={t.disclaimerBefore + peildatum + t.disclaimerAfterHtml} />
+    <a href={t.ctaHref} class="signalen-cta">{t.cta} <span class="arrow">→</span></a>
   </div>
 </section>
 

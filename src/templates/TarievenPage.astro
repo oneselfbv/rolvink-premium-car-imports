@@ -1,0 +1,512 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+import { tarievenDict, pick, asLocale, routeFor } from '../i18n';
+const locale = asLocale(Astro.currentLocale);
+const t = pick(tarievenDict, Astro.currentLocale);
+const breadcrumbs = [
+  { name: t.breadcrumbHome, url: routeFor('home', locale) },
+  { name: t.breadcrumbCurrent },
+];
+const lossDiensten = t.extra.items;
+---
+
+<BaseLayout title={t.meta.title} description={t.meta.description} i18nKey="tarieven">
+  <section class="tariff-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="section-eyebrow">{t.eyebrow}</div>
+      <h1 set:html={t.h1Html} />
+      <p class="lead">{t.lead}</p>
+
+      <!-- TWO-TIER PRICING -->
+      <div class="tier-grid">
+
+        <!-- TIER 1: DUITSLAND -->
+
+        <div class="tier tier-de">
+          <figure class="tier-photo">
+            <picture>
+              <source type="image/webp" srcset="/images/tier-duitsland-600.webp 600w, /images/tier-duitsland-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw" />
+              <img class="img-graded" src="/images/tier-duitsland-1200.jpg" srcset="/images/tier-duitsland-600.jpg 600w, /images/tier-duitsland-1200.jpg 1200w" sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" loading="lazy" decoding="async" alt={t.de.imgAlt} />
+            </picture>
+          </figure>
+          <div class="tier-tag">{t.de.tag}</div>
+          <h2>{t.de.heading}</h2>
+          <div class="tier-price">{t.de.price} <span class="tier-vat">{t.de.vat}</span></div>
+          <p class="tier-lead">{t.de.leadText}</p>
+
+          <h3>{t.de.phasesHeading}</h3>
+          <div class="phase-block">
+            {t.de.phases.map((ph) => (
+              <div class="phase">
+                <div class="phase-step">{ph.step}</div>
+                <div class="phase-amount">{ph.amount}</div>
+                <div class="phase-when">{ph.when}</div>
+                <p>{ph.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3>{t.de.inclHeading}</h3>
+          <ul class="tier-list">
+            {t.de.incl.map((i) => <li>{i}</li>)}
+          </ul>
+
+          <p class="tier-scope">{t.de.scope}</p>
+          <a href={t.ctaHref} class="tier-cta">{t.de.cta}<span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+
+        <!-- TIER 3: JAPAN -->
+        <div class="tier tier-jp tier-feature">
+          <figure class="tier-photo">
+            <picture>
+              <source type="image/webp" srcset="/images/tier-japan-600.webp 600w, /images/tier-japan-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw" />
+              <img class="img-graded" src="/images/tier-japan-1200.jpg" srcset="/images/tier-japan-600.jpg 600w, /images/tier-japan-1200.jpg 1200w" sizes="(max-width: 900px) 100vw, 50vw" width="1200" height="800" loading="lazy" decoding="async" alt={t.jp.imgAlt} />
+            </picture>
+          </figure>
+          <div class="tier-tag">{t.jp.tag}</div>
+          <h2>{t.jp.heading}</h2>
+          <div class="tier-price">{t.jp.price} <span class="tier-vat">{t.jp.vat}</span></div>
+          <p class="tier-lead">{t.jp.leadText}</p>
+
+          <h3>{t.jp.phasesHeading}</h3>
+          <div class="phase-block">
+            {t.jp.phases.map((ph) => (
+              <div class="phase">
+                <div class="phase-step">{ph.step}</div>
+                <div class="phase-amount">{ph.amount}</div>
+                <div class="phase-when">{ph.when}</div>
+                <p>{ph.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3>{t.jp.inclHeading}</h3>
+          <ul class="tier-list">
+            {t.jp.incl.map((i) => <li>{i}</li>)}
+          </ul>
+
+          <p class="tier-scope">{t.jp.scope}</p>
+          <a href={t.ctaHref} class="tier-cta tier-cta-feature">{t.jp.cta}<span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+
+      </div>
+
+
+      <!-- MOTOR-TRAJECT -->
+      <div class="moto-tariff">
+        <figure class="moto-tariff-img">
+          <img class="img-graded" src="/images/moto-hero.jpg" width="1600" height="700" loading="lazy" decoding="async" alt={t.moto.imgAlt} />
+        </figure>
+        <div class="moto-tariff-body">
+          <div class="tier-tag">{t.moto.tag}</div>
+          <h2>{t.moto.heading}</h2>
+          <div class="tier-price">{t.moto.price} <span class="tier-vat">{t.moto.vat}</span></div>
+          <p class="tier-lead">{t.moto.leadText}</p>
+          <h3>{t.moto.phasesHeading}</h3>
+          <div class="phase-block">
+            {t.moto.phases.map((ph) => (
+              <div class="phase">
+                <div class="phase-step">{ph.step}</div>
+                <div class="phase-amount">{ph.amount}</div>
+                <div class="phase-when">{ph.when}</div>
+                <p>{ph.body}</p>
+              </div>
+            ))}
+          </div>
+          <h3>{t.moto.inclHeading}</h3>
+          <ul class="tier-list">
+            {t.moto.incl.map((i) => <li>{i}</li>)}
+          </ul>
+          <p class="tier-scope" set:html={t.moto.scopeHtml} />
+          <a href={t.ctaHref} class="tier-cta">{t.moto.cta}<span class="arrow" aria-hidden="true">&#8594;</span></a>
+        </div>
+      </div>
+
+      <!-- LOSSE DIENSTEN -->
+      <div class="extra-section">
+        <h2 class="extra-heading">{t.extra.heading}</h2>
+        <p class="extra-lead">{t.extra.lead}</p>
+
+        <div class="extra-grid">
+          {lossDiensten.map((d) => (
+            <div class="extra-item">
+              <div class="extra-row">
+                <h3>{d.title}</h3>
+                <div class="extra-price">{d.price}</div>
+              </div>
+              <p>{d.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- TRANSPARANTIE-DISCLAIMER -->
+      <div class="transparency-block">
+        <h2>{t.transparency.heading}</h2>
+        <ul class="transparency-list">
+          {t.transparency.itemsHtml.map((i) => <li set:html={i} />)}
+        </ul>
+        <p style="margin-top: 24px; font-size: 15px; color: rgba(245, 241, 234, 0.8); line-height: 1.6;" set:html={t.transparency.footerHtml} />
+      </div>
+
+      <div class="page-cta">
+        <h2>{t.pageCta.heading}</h2>
+        <p>{t.pageCta.body}</p>
+        <a href={t.ctaHref} class="page-cta-btn">
+          {t.pageCta.btn}
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="page-cta-note">{t.pageCta.note}</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tariff-page { padding: 64px 0 96px; }
+  .tariff-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 18px; color: var(--color-text-secondary); max-width: 760px; margin-bottom: 64px; line-height: 1.6; }
+
+  /* Three-tier grid */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 96px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tier {
+    background: var(--color-white);
+    padding: 36px 32px;
+    border: 1px solid var(--color-border-medium);
+    display: flex;
+    flex-direction: column;
+  }
+  .tier-photo {
+    margin: -36px -32px 28px;        /* full-bleed boven de kaartpadding */
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--color-cream-warm);
+  }
+  .tier-feature .tier-photo { margin: -36px -32px 28px; }
+  .tier-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .tier-feature {
+    border: 2px solid var(--color-copper-text);
+    background: var(--color-cream-warm);
+  }
+  .tier-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-copper-text);
+    margin-bottom: 16px;
+  }
+  .tier h2 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+  .tier-price {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-charcoal-dark);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+  .tier-vat {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0;
+  }
+  .tier-price-note {
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .tier-lead {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .tier h3 {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-copper-text);
+    margin: 0 0 16px;
+  }
+  .tier-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .tier-list li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    padding: 8px 0 8px 22px;
+    position: relative;
+    border-bottom: 1px solid var(--color-border-soft);
+  }
+  .tier-list li:last-child { border-bottom: none; }
+  .tier-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-copper-text);
+    font-weight: 600;
+  }
+
+  .phase-block {
+    margin-bottom: 28px;
+  }
+  .phase {
+    padding: 16px 0;
+    border-top: 1px solid var(--color-border-medium);
+  }
+  .phase:last-child {
+    border-bottom: 1px solid var(--color-border-medium);
+  }
+  .phase-step {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-copper-text);
+    margin-bottom: 4px;
+  }
+  .phase-amount {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+  }
+  .phase-when {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .phase p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .tier-foot {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-medium);
+    margin-bottom: 16px;
+  }
+  .tier-foot-key {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-copper-text);
+    margin-bottom: 6px;
+  }
+  .tier-foot-text {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .tier-scope {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    margin: 16px 0 0;
+    line-height: 1.5;
+  }
+
+  /* Losse diensten */
+  .extra-section { margin-bottom: 80px; }
+  .extra-heading {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .extra-lead {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+  .extra-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--color-border-medium);
+    border: 1px solid var(--color-border-medium);
+  }
+  .extra-item {
+    background: var(--color-white);
+    padding: 28px 28px;
+  }
+  .extra-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .extra-item h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+  .extra-price {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-copper-text);
+    white-space: nowrap;
+  }
+  .extra-item p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Transparantie-block */
+  .transparency-block {
+    background: var(--color-charcoal-dark);
+    color: var(--color-cream);
+    padding: 56px 48px;
+    margin-bottom: 64px;
+  }
+  .transparency-block a { color: var(--color-copper); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .transparency-block a:hover { color: var(--color-cream); }
+  .transparency-block h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 28px;
+    color: var(--color-cream);
+  }
+  .transparency-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .transparency-list li {
+    padding: 14px 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-cream);
+    border-bottom: 1px solid rgba(245, 241, 234, 0.15);
+  }
+  .transparency-list li:last-child { border-bottom: none; }
+  .transparency-list strong {
+    color: var(--color-copper-text);
+    font-weight: 600;
+  }
+
+  /* CTA */
+  .page-cta {
+    padding: 48px 28px;
+    background: var(--color-cream-warm);
+    text-align: center;
+  }
+  .page-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: var(--color-copper-text);
+    color: var(--color-charcoal-dark);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .page-cta-btn:hover {
+    background: var(--color-copper-dark);
+    color: var(--color-cream);
+  }
+  .page-cta-btn .arrow {
+    font-size: 18px;
+    line-height: 1;
+  }
+  .page-cta h2 { font-family: var(--font-display); font-size: 28px; font-weight: 600; margin-bottom: 12px; }
+  .page-cta p { font-size: 15px; color: var(--color-text-secondary); max-width: 560px; margin: 0 auto 24px; line-height: 1.6; }
+  .page-cta-note { margin-top: 16px; font-size: 13px; color: var(--color-text-tertiary); }
+
+  /* Per-tier conversie-CTA — onderaan elke prijskaart uitgelijnd */
+  .tier-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: 1.5px solid var(--color-copper-text);
+    color: var(--color-copper-text);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .tier-cta:hover { background: var(--color-copper-text); color: var(--color-cream); transform: translateY(-2px); }
+  .tier-cta-feature { background: var(--color-copper-text); color: var(--color-charcoal-dark); border-color: var(--color-copper-text); }
+  .tier-cta-feature:hover { background: var(--color-copper-dark); color: var(--color-cream); }
+  .tier-cta .arrow { font-size: 16px; line-height: 1; }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .tariff-page h1 { font-size: 36px; }
+    .tier-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .extra-grid {
+      grid-template-columns: 1fr;
+    }
+    .transparency-block {
+      padding: 36px 24px;
+    }
+    .transparency-block h2 { font-size: 22px; }
+    .extra-heading { font-size: 24px; }
+  }
+
+  /* Motor-traject (horizontale feature) */
+  .moto-tariff { display: grid; grid-template-columns: 0.92fr 1.08fr; max-width: 1100px; margin: 0 auto 96px; border: 1px solid var(--color-border-medium); background: var(--color-white); overflow: hidden; }
+  .moto-tariff-img { margin: 0; }
+  .moto-tariff-img img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; display: block; }
+  .moto-tariff-body { padding: 36px 32px; }
+  @media (max-width: 900px) {
+    .moto-tariff { grid-template-columns: 1fr; }
+    .moto-tariff-img img { min-height: 220px; }
+  }
+</style>

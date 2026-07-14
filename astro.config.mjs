@@ -10,6 +10,15 @@ export default defineConfig({
   site: 'https://www.rolvinkpremiumcarimports.nl',
   trailingSlash: 'always',
   adapter: vercel(),
+  // Meertaligheid: NL blijft op de root (geen prefix), en/de/es/fr onder /en/ etc.
+  // Componenten localiseren zichzelf via Astro.currentLocale + src/i18n/.
+  i18n: {
+    defaultLocale: 'nl',
+    locales: ['nl', 'en', 'de', 'es', 'fr'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [
     mdx(),
     sitemap({
