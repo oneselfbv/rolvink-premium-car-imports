@@ -98,7 +98,7 @@ const home = {
       'We only bid with your explicit green light',
       'Personal — a direct line to Theo in Welsum',
     ],
-    caseLabels: ['First client story', 'Second client story', 'Third client story'],
+    caseLabels: [] as string[], // klantverhaal-kaarten verborgen tot er echte referenties zijn,
     caseAriaSuffix: 'coming soon',
     casePhotoLabel: 'Photo to follow',
     caseBadge: 'Coming soon',

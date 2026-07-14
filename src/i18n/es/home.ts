@@ -98,7 +98,7 @@ const home = {
       'Solo pujamos con su luz verde explícita',
       'Personal — una línea directa con Theo en Welsum',
     ],
-    caseLabels: ['Primera historia de cliente', 'Segunda historia de cliente', 'Tercera historia de cliente'],
+    caseLabels: [] as string[], // klantverhaal-kaarten verborgen tot er echte referenties zijn,
     caseAriaSuffix: 'disponible próximamente',
     casePhotoLabel: 'Foto próximamente',
     caseBadge: 'Próximamente',

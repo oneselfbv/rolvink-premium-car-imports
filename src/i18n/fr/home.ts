@@ -97,7 +97,7 @@ const home: HomeDict = {
       "Nous n'enchérissons qu'avec votre feu vert explicite",
       "Personnel — une ligne directe avec Theo, à Welsum",
     ],
-    caseLabels: ["Premier témoignage client", "Deuxième témoignage client", "Troisième témoignage client"],
+    caseLabels: [] as string[], // klantverhaal-kaarten verborgen tot er echte referenties zijn,
     caseAriaSuffix: "à venir prochainement",
     casePhotoLabel: "Photo à venir",
     caseBadge: "Bientôt",

@@ -99,7 +99,7 @@ const home = {
       'Wir bieten erst nach Ihrem ausdrücklichen grünen Licht',
       'Persönlich — ein direkter Draht zu Theo in Welsum',
     ],
-    caseLabels: ['Erste Kundengeschichte', 'Zweite Kundengeschichte', 'Dritte Kundengeschichte'],
+    caseLabels: [] as string[], // klantverhaal-kaarten verborgen tot er echte referenties zijn,
     caseAriaSuffix: 'folgt in Kürze',
     casePhotoLabel: 'Foto folgt',
     caseBadge: 'In Kürze',
