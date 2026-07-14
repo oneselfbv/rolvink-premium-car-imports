@@ -13,6 +13,8 @@ const home = {
     ctaPrimaryHref: '#zoekprofiel',
     ctaSecondary: 'of bekijk eerst de werkwijze',
     ctaSecondaryHref: '/werkwijze',
+    ctaMoto: 'motor zoeken? Bekijk de motoren-service',
+    ctaMotoHref: '/motoren',
     focusLabel: 'Onze focus',
     brands: [
       { label: 'BMW', href: '/merk/bmw' },
@@ -109,6 +111,21 @@ const home = {
     linkPrimaryHref: '/voorbeeld-traject/',
     linkSecondaryLabel: 'Onze referenties',
     linkSecondaryHref: '/referenties/' as string | undefined,
+  },
+  moto: {
+    eyebrow: 'Ook op twee wielen',
+    heading: 'Motoren, met dezelfde obsessie.',
+    body:
+      "Wij importeren BMW-motoren uit Duitsland — van een frisse R 1250 GS tot een klassieke airhead. Meer dan 14.000 BMW-motoren staan er dagelijks te koop bij onze oosterburen, met prijsvoordelen die oplopen tot zo'n €5.000. Transport doen we zelf: verzekerd, op onze eigen motortrailer met plek voor twee motoren. Binnen 1 tot 3 weken staat er een Nederlands kenteken op.",
+    points: [
+      'Sourcing-traject vanaf €1.250 — gefaseerd betaald',
+      'Eigen verzekerd transport, twee motoren per rit',
+      'RDW, motor-BPM en kenteken volledig geregeld',
+    ],
+    linkLabel: 'Bekijk de motoren-service',
+    linkHref: '/motoren',
+    img: '/images/moto-hero.jpg',
+    imgAlt: 'Open bergweg bij gouden uur — motoren-service Rolvink',
   },
   tiers: {
     eyebrow: 'Onze bronnen',

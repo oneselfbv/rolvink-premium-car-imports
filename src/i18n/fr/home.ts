@@ -14,6 +14,8 @@ const home: HomeDict = {
     ctaPrimaryHref: "#zoekprofiel",
     ctaSecondary: "ou découvrez d'abord notre méthode",
     ctaSecondaryHref: "/fr/notre-methode/",
+    ctaMoto: "vous cherchez une moto ? Découvrez le service motos",
+    ctaMotoHref: "/fr/motos/",
     focusLabel: "Notre spécialité",
     brands: [
       { label: "BMW" },
@@ -107,6 +109,21 @@ const home: HomeDict = {
     linkPrimaryHref: "/fr/exemple-importation/",
     linkSecondaryLabel: "Nos références",
     linkSecondaryHref: undefined as string | undefined,
+  },
+  moto: {
+    eyebrow: 'Sur deux roues aussi',
+    heading: 'Motos, avec la même obsession.',
+    body:
+      "Nous sourçons des motos BMW sur le marché allemand — d'une R 1250 GS récente aux airheads classiques, avec plus de 14 000 motos BMW en vente chaque jour. Nous vérifions les points faibles propres à chaque modèle, négocions de votre côté et transportons la moto nous-mêmes : assurée, sur notre propre remorque deux places, avec livraison dans toute l'Europe.",
+    points: [
+      'Mission de recherche dès €1.250 — payée par étapes',
+      'Transport assuré sur notre propre remorque deux places',
+      "Accompagnement pour l'immatriculation dans votre pays",
+    ],
+    linkLabel: 'Découvrez le service motos',
+    linkHref: '/fr/motos/',
+    img: '/images/moto-hero.jpg',
+    imgAlt: "Route de montagne à l'heure dorée — service motos Rolvink",
   },
   tiers: {
     eyebrow: "Nos sources",

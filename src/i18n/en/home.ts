@@ -12,6 +12,8 @@ const home = {
     ctaPrimaryHref: '#zoekprofiel',
     ctaSecondary: 'or see how it works first',
     ctaSecondaryHref: '/en/how-it-works/',
+    ctaMoto: 'looking for a motorcycle? See the bike service',
+    ctaMotoHref: '/en/motorcycles/',
     focusLabel: 'Our focus',
     brands: [
       { label: 'BMW' },
@@ -108,6 +110,21 @@ const home = {
     linkPrimaryHref: '/en/example-import/',
     linkSecondaryLabel: 'Our references',
     linkSecondaryHref: undefined as string | undefined,
+  },
+  moto: {
+    eyebrow: 'On two wheels as well',
+    heading: 'Motorcycles, with the same obsession.',
+    body:
+      "We source BMW motorcycles from the German market — from a fresh R 1250 GS to a classic airhead, with more than 14,000 BMW bikes for sale on any given day. We assess the model-specific weak points, negotiate on your side, and transport the bike ourselves: insured, on our own two-bike trailer, with delivery across Europe.",
+    points: [
+      'Sourcing assignment from €1.250 — paid in phases',
+      'Insured transport on our own two-bike trailer',
+      'Registration guidance in your country',
+    ],
+    linkLabel: 'See the motorcycle service',
+    linkHref: '/en/motorcycles/',
+    img: '/images/moto-hero.jpg',
+    imgAlt: 'Open mountain road at golden hour — Rolvink motorcycle service',
   },
   tiers: {
     eyebrow: 'Our sources',

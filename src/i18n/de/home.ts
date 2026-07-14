@@ -13,6 +13,8 @@ const home = {
     ctaPrimaryHref: '#zoekprofiel',
     ctaSecondary: 'oder zuerst den Ablauf ansehen',
     ctaSecondaryHref: '/de/ablauf/',
+    ctaMoto: 'Motorrad gesucht? Zum Motorrad-Service',
+    ctaMotoHref: '/de/motorraeder/',
     focusLabel: 'Unser Fokus',
     brands: [
       { label: 'BMW' },
@@ -109,6 +111,21 @@ const home = {
     linkPrimaryHref: '/de/beispiel-import/',
     linkSecondaryLabel: 'Referenzen folgen in Kürze',
     linkSecondaryHref: undefined as string | undefined,
+  },
+  moto: {
+    eyebrow: 'Auch auf zwei Rädern',
+    heading: 'Motorräder, mit derselben Besessenheit.',
+    body:
+      'Wir suchen BMW-Motorräder auf dem deutschen Markt — von der frischen R 1250 GS bis zum klassischen Airhead. Wir prüfen die modellspezifischen Schwachstellen, verhandeln auf Ihrer Seite und übernehmen auf Wunsch den Transport: versichert, auf unserem eigenen Motorradanhänger mit Platz für zwei Maschinen.',
+    points: [
+      'Suchauftrag ab €1.250 — gestaffelt bezahlt',
+      'Begutachtung bekannter Schwachstellen vor jedem Gebot',
+      'Auf Wunsch versicherter Transport auf eigenem Anhänger',
+    ],
+    linkLabel: 'Zum Motorrad-Service',
+    linkHref: '/de/motorraeder/',
+    img: '/images/moto-hero.jpg',
+    imgAlt: 'Offene Bergstraße zur goldenen Stunde — Rolvink Motorrad-Service',
   },
   tiers: {
     eyebrow: 'Unsere Quellen',

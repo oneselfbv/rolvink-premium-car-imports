@@ -13,6 +13,7 @@ import Zoekprofiel from '../components/Zoekprofiel.astro';
 import EditorialQuote from '../components/EditorialQuote.astro';
 import CTASection from '../components/CTASection.astro';
 import OrientatieSection from '../components/OrientatieSection.astro';
+import MotorenSectie from '../components/MotorenSectie.astro';
 import { homeDict, pick, asLocale } from '../i18n';
 const locale = asLocale(Astro.currentLocale);
 const t = pick(homeDict, Astro.currentLocale);
@@ -24,6 +25,7 @@ const t = pick(homeDict, Astro.currentLocale);
   <ServiceStrip />
   <Vertrouwen />
   <TiersSection />
+  <MotorenSectie />
   <GradesSection />
   {locale === 'nl' && <OrientatieSection />}
   <VeilingSignalen />

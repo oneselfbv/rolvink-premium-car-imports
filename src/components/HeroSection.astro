@@ -17,6 +17,9 @@ const t = pick(homeDict, Astro.currentLocale).hero;
         <div class="hero-cta-row">
           <a href={t.ctaPrimaryHref} class="cta-primary">{t.ctaPrimary}<span class="arrow">→</span></a>
           <a href={t.ctaSecondaryHref} class="hero-secondary-link">{t.ctaSecondary} <span class="arrow-small">→</span></a>
+          {t.ctaMoto && (
+            <a href={t.ctaMotoHref} class="hero-secondary-link">{t.ctaMoto} <span class="arrow-small">→</span></a>
+          )}
         </div>
       </div>
       <aside class="hero-side">
