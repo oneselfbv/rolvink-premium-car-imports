@@ -263,7 +263,7 @@ function renderTbl(){
   $('fTel').textContent=r.length+' motoren';
   $('tbl').querySelector('tbody').innerHTML=r.map(b=>`<tr>
    <td class="num">${b.nr}</td>
-   <td class="imgc">${b.img?`<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="${b.img}" alt="" onerror="this.style.display='none'">`:''}</td>
+   <td class="imgc">${b.img?`<img class="thumb" loading="eager" referrerpolicy="no-referrer" src="${b.img}" alt="" onerror="this.style.display='none'">`:''}</td>
    <td><b>${b.titel}</b>${b.status!=='actief'?` <span class="st">(${b.status})</span>`:''}${b.note?`<span class="nt">${b.note}</span>`:''}</td>
    <td>${b.groep}</td><td>${b.plaats}</td>
    <td class="num">${b.km??'—'}</td>
@@ -300,7 +300,7 @@ if(DATA.koopjes && DATA.koopjes.length){
     $('kTel').textContent=r.length+' koopjes';
     $('ktbl').querySelector('tbody').innerHTML=r.map(k=>`<tr>
      <td>${kb(k.klasse)}</td>
-     <td class="imgc">${k.img?`<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="${k.img}" alt="" onerror="this.style.display='none'">`:''}</td>
+     <td class="imgc">${k.img?`<img class="thumb" loading="eager" referrerpolicy="no-referrer" src="${k.img}" alt="" onerror="this.style.display='none'">`:''}</td>
      <td><b>${k.titel}</b>${k.fav?' <span class="st">★ in je favorieten</span>':''}${(k.tuv||k.beoordeling||k.notitie)?`<span class="nt">${k.tuv?'TÜV: '+k.tuv+'. ':''}${k.beoordeling?k.beoordeling+' ':''}${k.notitie||''}</span>`:''}</td>
      <td>${k.groep}</td><td class="num">${eur(k.prijs)}</td>
      <td class="num">${k.km!=null?k.km.toLocaleString('nl-NL'):'—'}</td><td>${k.bouwjaar||'—'}</td><td>${k.regio}</td>
