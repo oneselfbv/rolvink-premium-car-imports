@@ -205,11 +205,11 @@ $('thBtn').onclick = () => {
 };
 
 // ---- KPI ----
-const top = DATA.inkoop.filter(k=>k.klasse==='TOP').length;
+const topKP = DATA.inkoop.filter(k=>k.klasse==='TOP').length;
 const goed = DATA.inkoop.filter(k=>k.klasse==='GOED').length;
 const impCase = DATA.nl.filter(r=>r.premie!=null&&r.premie>0).length;
 $('tiles').innerHTML = `
- <div class="tile"><div class="lab">Koopjes in database</div><div class="val">${DATA.inkoop.length}</div><div class="det">${top} TOP · ${goed} GOED</div></div>
+ <div class="tile"><div class="lab">Koopjes in database</div><div class="val">${DATA.inkoop.length}</div><div class="det">${topKP} TOP · ${goed} GOED</div></div>
  <div class="tile"><div class="lab">NL-advertenties gevolgd</div><div class="val">${DATA.nl.length}</div><div class="det">${DATA.snapshots.length} snapshot${DATA.snapshots.length===1?'':'s'} (historie groeit wekelijks)</div></div>
  <div class="tile"><div class="lab">NL duurder dan DE</div><div class="val good">${impCase}</div><div class="det">advertenties met import-voordeel</div></div>
  <div class="tile"><div class="lab">Laatste snapshot</div><div class="val good" style="font-size:22px">${DATA.snapshots[DATA.snapshots.length-1]||'—'}</div><div class="det">verdwenen = verkocht → historie</div></div>`;
