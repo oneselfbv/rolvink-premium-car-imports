@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'Mercedes S-Klasse W221 importeren uit Japan' }];
+const publishedDate = '2026-07-15'; const updatedDate = '2026-07-15';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Mercedes S-Klasse W221 importeren uit Japan (2026)', description: 'Motorvarianten, sweet-spots, valkuilen (airmatic, M272-balansas), waarom Japan lage-km LHD-exemplaren biedt, BPM en Nederlandse prijzen voor de W221 (2005-2013).', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/mercedes-s-klasse-w221-japan/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Waarom een W221 S-Klasse uit Japan importeren?', acceptedAnswer: { '@type': 'Answer', text: 'Japanse S-Klassen worden doorgaans zorgvuldig onderhouden, hebben lage kilometerstanden en kennen door het klimaat en het ontbreken van wegenzout vrijwel geen corrosie aan de onderkant. Voor een flagship-limousine, waar juist onderhoud en staat de waarde bepalen, is dat een sterk argument. Wel is het linksgestuurde (LHD) aanbod in Japan een minderheid, dus geduld en gerichte screening zijn nodig.' } },
+  { '@type': 'Question', name: 'Betaal ik BPM bij import van een W221?', acceptedAnswer: { '@type': 'Answer', text: 'Ja. De W221 (2005-2013) is nog geen 25 jaar oud, dus de BPM geldt. De hoogte hangt af van CO2-uitstoot en leeftijd: door de leeftijdsafschrijving valt het op oudere exemplaren mee, maar voor de V8 (S500) en zeker de V12 (S600) kan de BPM flink oplopen. Wij rekenen de BPM per exemplaar vooraf onderbouwd door.' } },
+  { '@type': 'Question', name: 'Wat is het grootste aandachtspunt bij een W221?', acceptedAnswer: { '@type': 'Answer', text: 'Het Airmatic-luchtveersysteem: veerpoten kunnen gaan lekken en de compressor slijt. Controleer of de wagen op alle hoeken netjes op hoogte komt en blijft. Bij de vroege M272 V6 (S350) geldt daarnaast de bekende balansas-kwestie binnen een specifiek motornummerbereik; onze M272-motorgids legt dat uit.' } },
+  { '@type': 'Question', name: 'Welke W221-uitvoering is de slimste koop?', acceptedAnswer: { '@type': 'Answer', text: 'Voor de meeste kopers is de S350 (V6) of de S500 (V8) na de facelift van 2009 de sweet spot: verfijnder, beter uitgerust en met de meest uitgekristalliseerde techniek. De S600 en S65 AMG V12 zijn indrukwekkend maar duur in BPM en onderhoud — echte liefhebbersauto’s, geen value-buy.' } } ] };
+---
+<BaseLayout title="Mercedes S-Klasse W221 importeren uit Japan 2026 | Rolvink" description="Welke W221 kiezen? Motorvarianten, sweet-spots, valkuilen (airmatic, M272-balansas), waarom Japan lage-km LHD-exemplaren biedt, BPM en Nederlandse prijzen (2005-2013).">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Modelgids</div>
+      <h1>Mercedes S-Klasse — <span class="accent">W221 uit Japan</span>.</h1>
+      <p class="lead">De vorige generatie S-Klasse (2005-2013) is een flagship-limousine waarbij staat en onderhoud alles bepalen — en juist daar speelt de Japanse markt in het voordeel: lage kilometerstanden, zorgvuldig onderhoud en vrijwel geen corrosie. Welke uitvoering past, wat zijn de valkuilen, en waar zit het Japan-voordeel?</p>
+      <div class="article-meta"><span>Gepubliceerd: 15 juli 2026</span><span>·</span><span>Leestijd: ongeveer 8 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Modelinformatie is observatie, geen technisch advies.</strong> Samengesteld uit openbare bronnen en eigen ervaring. De staat verschilt sterk per exemplaar; laat een twijfelgeval beoordelen. Prijzen indicatief (juli 2026).</div>
+    <nav class="toc"><h2>In deze gids</h2><ol>
+      <li><a href="#overzicht">W221 in vogelvlucht</a></li>
+      <li><a href="#motoren">Motorvarianten &amp; sweet-spots</a></li>
+      <li><a href="#valkuilen">Bekende valkuilen</a></li>
+      <li><a href="#japan">Waarom Japan voor de S-Klasse</a></li>
+      <li><a href="#checken">Wat te checken vóór bod</a></li>
+      <li><a href="#bpm-prijzen">BPM &amp; Nederlandse prijzen</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="overzicht" class="content-section"><h2>W221 in vogelvlucht</h2>
+      <p>De W221 (2005-2013) volgde de elektronisch beladen W220 op en bracht de S-Klasse terug naar wat hij hoort te zijn: een rustige, imposante en technisch hoogstaande topklasse-limousine. In september 2009 kreeg de reeks een facelift met een strakkere voorkant, LED-dagrijverlichting, een bijgewerkt COMAND-systeem en op onderdelen herziene motoren. De facelift-exemplaren gelden als de meest uitgekristalliseerde W221 en zijn voor import doorgaans de verstandigste keuze.</p></section>
+    <section id="motoren" class="content-section"><h2>Motorvarianten &amp; sweet-spots</h2>
+      <ul class="bullet-list">
+        <li><strong>S350 (V6 benzine).</strong> De instap met de bekende 3,5-liter V6 (M272, vanaf de facelift de M276). Verfijnd en relatief zuinig voor het segment. <strong>Onze positie:</strong> voor de meeste kopers de slimste koop — goede balans tussen aanschaf, BPM en onderhoud.</li>
+        <li><strong>S500 (V8 benzine).</strong> De 5,5-liter V8 (M273): moeiteloos, soepel en het klassieke S-Klasse-gevoel. <strong>Onze positie:</strong> de sweet spot voor wie de V8-souplesse wil; let wel op hogere BPM en verbruik.</li>
+        <li><strong>S320/S350 CDI (V6 diesel, OM642).</strong> Zuinige langeafstand-diesel. In Japan schaarser dan benzine; per exemplaar beoordelen.</li>
+        <li><strong>S600 (V12 biturbo, M275).</strong> Absolute top qua comfort en prestaties. <strong>Onze positie:</strong> alleen op aanvraag — BPM en onderhoud (o.a. ABC-vering) zijn fors; een liefhebbersauto, geen value-buy.</li>
+        <li><strong>S63 / S65 AMG.</strong> Performance-flagship (M156 6.2 NA, later M157 5.5 biturbo; S65 met M275 V12). <strong>Onze positie:</strong> uitsluitend gericht op aanvraag voor liefhebbers met budget; BPM en onderhoud op AMG-niveau.</li>
+      </ul></section>
+    <section id="valkuilen" class="content-section"><h2>Bekende valkuilen</h2>
+      <ul class="bullet-list">
+        <li><strong>Airmatic-luchtvering.</strong> Het bekendste aandachtspunt: veerpoten kunnen gaan lekken en de compressor slijt. Controleer of de auto op alle hoeken netjes op hoogte komt en blijft staan.</li>
+        <li><strong>M272-balansas (vroege S350).</strong> Binnen een specifiek motornummerbereik is de balansas-tandwielslijtage bekend. Wat te checken en welke nummers het betreft staat in onze <a href="/kennisbank/mercedes-m272-v6-motor">M272-motorgids</a>.</li>
+        <li><strong>ABC (V12-modellen).</strong> Active Body Control op S600/S65 is prachtig maar duur in onderhoud — pompen, leidingen en accumulatoren zijn kostenposten.</li>
+        <li><strong>Elektronica &amp; COMAND.</strong> Een topklasse uit deze periode zit vol elektronica; controleer alle comfortfuncties (stoelen, sluitbekrachtiging, achterklep, distronic) grondig.</li>
+        <li><strong>Corrosie — juist géén issue bij Japan.</strong> Waar Europese exemplaren onderin corrosie kunnen tonen, is dat bij Japanse imports door het ontbreken van wegenzout vrijwel nooit een probleem.</li>
+      </ul></section>
+    <section id="japan" class="content-section"><h2>Waarom Japan voor de S-Klasse</h2>
+      <p>Bij een flagship-limousine bepaalt niet de zeldzaamheid maar de <strong>staat</strong> de waarde: onderhoudshistorie, kilometerstand en de conditie van de dure componenten. Precies daar levert de Japanse markt: S-Klassen worden er doorgaans zorgvuldig onderhouden, rijden weinig kilometers en staan niet in de wegenzout. Op de veilingen komen grade 4+ exemplaren met opvallend lage standen voorbij.</p>
+      <p>De belangrijkste kanttekening is de besturing: Japan rijdt rechts gestuurd, en hoewel Mercedes daar ook linksgestuurde (LHD) S-Klassen leverde, is LHD er de minderheid. Het aanbod is dus dunner dan bij een gangbaardere E-Klasse — gerichte, wekelijkse screening en wat geduld horen erbij. Hoe je LHD betrouwbaar herkent op het veilingsheet staat in onze gids <a href="/kennisbank/lhd-rhd-groene-markering">LHD versus RHD bij Japanse veilingen</a>; actuele veilingprijzen van LHD-Mercedessen in onze <a href="/kennisbank/lhd-mercedes-japan-prijspeiling-2026">LHD Mercedes prijspeiling</a>.</p></section>
+    <section id="checken" class="content-section"><h2>Wat te checken vóór bod</h2>
+      <ul class="bullet-list">
+        <li>Airmatic: staat de auto egaal op hoogte, geen zakkende hoek na stilstand.</li>
+        <li>Op het veilingsheet: grade, kilometerstand, en de LHD-bevestiging (stuur links).</li>
+        <li>Onderhoudshistorie en originaliteit; bij S350 het motornummer i.v.m. de balansas.</li>
+        <li>Alle comfort-elektronica functioneel; interieurstaat (licht leder toont sneller slijtage).</li>
+        <li>Navi-firmware: bij Japanse LHD is die vaak Japans — ombouw naar Europese kaarten/taal is een bekende, in te calculeren post.</li>
+      </ul></section>
+    <section id="bpm-prijzen" class="content-section"><h2>BPM &amp; Nederlandse prijzen</h2>
+      <p>De W221 is nog geen 25 jaar oud, dus <strong>BPM geldt</strong>. De hoogte hangt af van CO2-uitstoot en leeftijd: door de leeftijdsafschrijving valt het op oudere exemplaren mee, maar voor de V8 en zeker de V12 loopt het op. Wij maken vóór elk bod een onderbouwde BPM- en landed-cost-prognose; de drie taxatiemethoden staan in onze <a href="/kennisbank/bpm-importauto-2026">BPM-gids voor importauto's</a>, en het volledige importproces in <a href="/kennisbank/auto-importeren-japan">auto importeren uit Japan</a>.</p>
+      <table class="cost-table"><thead><tr><th>Uitvoering</th><th>Nederlands prijsniveau (indicatief)</th></tr></thead><tbody>
+        <tr><td>S350 (V6, net exemplaar)</td><td>€8.000 – €16.000</td></tr>
+        <tr><td>S500 (V8)</td><td>€10.000 – €22.000</td></tr>
+        <tr><td>S600 V12</td><td>duidelijk hoger, sterk staat-afhankelijk</td></tr>
+        <tr><td>S63 / S65 AMG</td><td>liefhebbersniveau, ruime spreiding</td></tr>
+      </tbody></table>
+      <p>Prijzen lopen sterk uiteen met uitvoering, staat en historie; bovenstaande banden zijn een indicatie van het Nederlandse marktniveau (juli 2026). Voor een gerichte afweging per uitvoering en route: onze <a href="/route-advies">route-advies-tool</a>, of lees de zustergids <a href="/kennisbank/mercedes-e-klasse-w212">Mercedes E-Klasse W212</a>. Onze brede Mercedes-focus staat op <a href="/merk/mercedes-benz">/merk/mercedes-benz</a>.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Waarom een W221 S-Klasse uit Japan importeren?</h3><p>Japanse S-Klassen worden doorgaans zorgvuldig onderhouden, hebben lage kilometerstanden en kennen vrijwel geen corrosie. Voor een flagship waar staat de waarde bepaalt is dat een sterk argument. Wel is LHD er de minderheid, dus gerichte screening en geduld zijn nodig.</p>
+      <h3>Betaal ik BPM bij import van een W221?</h3><p>Ja — de W221 is nog geen 25 jaar oud. De hoogte hangt af van CO2 en leeftijd; door leeftijdsafschrijving valt het op oudere exemplaren mee, maar voor V8 en V12 loopt het op. Wij rekenen het per exemplaar vooraf door.</p>
+      <h3>Wat is het grootste aandachtspunt bij een W221?</h3><p>Het Airmatic-luchtveersysteem (lekkende veerpoten, slijtende compressor). Controleer of de auto op alle hoeken op hoogte komt en blijft. Bij de vroege S350 geldt daarnaast de M272-balansas-kwestie.</p>
+      <h3>Welke W221-uitvoering is de slimste koop?</h3><p>Voor de meeste kopers de S350 (V6) of S500 (V8) ná de facelift van 2009: verfijnder, beter uitgerust, meest uitgekristalliseerde techniek. De V12's zijn indrukwekkend maar duur in BPM en onderhoud.</p></section>
+    <div class="page-cta"><h2>Op zoek naar een specifieke W221?</h2><p>Vertel ons uitvoering, jaar, kleur en optiepakket — wij screenen de Japanse veilingen wekelijks op linksgestuurde grade 4+ exemplaren en regelen het hele importtraject met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/mercedes-e-klasse-w212">Mercedes E-Klasse W212 — koopgids</a></li>
+      <li><a href="/kennisbank/mercedes-m272-v6-motor">Mercedes M272 V6 — motorgids</a></li>
+      <li><a href="/kennisbank/lhd-mercedes-japan-prijspeiling-2026">LHD Mercedes uit Japan — prijspeiling 2026</a></li>
+      <li><a href="/kennisbank/auto-importeren-japan">Auto importeren uit Japan — complete gids</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .content-section em { font-style: italic; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
