@@ -22,6 +22,8 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
+      // Sluit noindex/interne pagina's uit de sitemap (voorkomt "Submitted URL marked noindex" in GSC).
+      filter: (page) => !page.includes('/referenties') && !page.includes('/intern'),
       serialize(item) {
         // Ensure trailing slash to match Vercel directory-style serving + BaseLayout canonical.
         if (!item.url.endsWith('/')) {
