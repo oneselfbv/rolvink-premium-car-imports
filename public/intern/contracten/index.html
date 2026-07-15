@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Contracten — Rolvink Premium Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--page:#F5F1EA;--surface:#FFFFFF;--ink:#1A1A1A;--ink2:#4A4A4A;--muted:#6B6B6B;--axis:rgba(0,0,0,.16);--ring:rgba(0,0,0,.08);--copper:#B87333;--coppertxt:#9A5A24;--good:#0ca30c;--goodtxt:#006300}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#1F1F1F;--surface:#2A2A2A;--ink:#F5F1EA;--ink2:#CFC9BD;--muted:#8F8A80;--axis:rgba(255,255,255,.18);--ring:rgba(255,255,255,.10);--coppertxt:#C98545;--goodtxt:#4cbb4c}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#1F1F1F;--surface:#2A2A2A;--ink:#F5F1EA;--ink2:#CFC9BD;--muted:#8F8A80;--axis:rgba(255,255,255,.18);--ring:rgba(255,255,255,.10);--coppertxt:#C98545;--goodtxt:#4cbb4c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.5 'Inter',system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.topbar{background:#1F1F1F;color:#F5F1EA;font-size:11px;letter-spacing:.08em;padding:9px 32px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar b{color:var(--copper);font-weight:500}
+.topbar a{color:#F5F1EA;text-decoration:none;border-bottom:1px solid var(--copper)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 64px}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:22px 0 16px;border-bottom:1px solid var(--ring)}
+h1{font-family:'Cinzel','Times New Roman',serif;font-size:20px;margin:0;font-weight:500;letter-spacing:.26em;text-transform:uppercase}
+.sub{display:block;color:var(--coppertxt);font-size:10px;letter-spacing:.3em;text-transform:uppercase;margin-top:3px}
+.toggle{margin-left:auto;background:transparent;border:1px solid var(--copper);color:var(--coppertxt);padding:5px 12px;cursor:pointer;font-size:11px}
+.modes{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 6px}
+.mode{background:var(--surface);border:1px solid var(--axis);color:var(--ink);padding:9px 16px;cursor:pointer;font-size:13px;font-weight:600}
+.mode.on{background:var(--copper);color:#fff;border-color:var(--copper)}
+.lang{display:inline-flex;gap:6px;margin:6px 0 0;align-items:center}
+.lang button{background:var(--surface);border:1px solid var(--axis);color:var(--ink);padding:5px 12px;cursor:pointer;font-size:12px}
+.lang button.on{background:var(--ink);color:var(--page)}
+.note{font-size:12px;color:var(--muted);margin:8px 0 18px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:900px){.cols{grid-template-columns:1fr}}
+h2{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--coppertxt);margin:20px 0 12px}
+h2::after{content:"";display:block;width:48px;height:1px;background:var(--copper);margin-top:7px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld{display:flex;flex-direction:column;gap:4px}
+.fld.full{grid-column:1/-1}
+label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+input,select,textarea{background:var(--surface);color:var(--ink);border:1px solid var(--axis);padding:8px 10px;font:inherit;font-size:13px;border-radius:0}
+textarea{min-height:52px;resize:vertical}
+.sigwrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:560px){.sigwrap{grid-template-columns:1fr}}
+.sigbox{background:var(--surface);border:1px solid var(--axis)}
+.sigbox .sh{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;border-bottom:1px solid var(--ring);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.sigbox .sh button{background:transparent;border:0;color:var(--coppertxt);cursor:pointer;font-size:11px;text-decoration:underline}
+canvas.sig{width:100%;height:130px;display:block;touch-action:none;cursor:crosshair;background:#fff}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{background:var(--copper);color:#fff;border:0;border-radius:2px;padding:11px 22px;font-size:13px;font-weight:600;letter-spacing:.04em;cursor:pointer}
+.btn:hover{background:var(--coppertxt)}
+.btn.sec{background:transparent;border:1px solid var(--copper);color:var(--coppertxt)}
+/* preview = looks like the PDF */
+.preview{background:#fff;color:#1a1a1a;border:1px solid var(--ring);padding:34px 36px;font-size:12.5px;line-height:1.5;box-shadow:0 1px 0 rgba(0,0,0,.04);min-height:400px}
+.preview .plogo{font-family:'Cinzel',serif;font-size:22px;letter-spacing:.22em;font-weight:600;color:#1f1f1f}
+.preview .psub{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#9A5A24;margin-bottom:14px}
+.preview .rule{height:1px;background:#d8cfc0;margin:10px 0 16px}
+.preview h3{font-size:17px;margin:0 0 4px;color:#1a1a1a}
+.preview .lead{color:#555;margin:0 0 14px}
+.preview .sec{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9A5A24;margin:16px 0 6px}
+.preview .kv{display:flex;gap:8px;margin:2px 0}
+.preview .kv b{min-width:150px;display:inline-block}
+.preview ol{margin:6px 0 0;padding-left:18px}
+.preview ol li{margin:5px 0}
+.preview .dim{color:#bbb}
+.preview .sigs{display:flex;gap:30px;margin-top:26px}
+.preview .sigs .s{flex:1}
+.preview .sigs .sl{border-top:1px solid #999;margin-top:34px;padding-top:4px;font-size:10px;color:#666}
+.preview .disc{margin-top:22px;border-top:1px solid #d8cfc0;padding-top:8px;font-size:9.5px;color:#888;font-style:italic}
+#gate{position:fixed;inset:0;background:var(--page);z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+#gate input{background:var(--surface);color:var(--ink);border:1px solid var(--axis);padding:10px 14px;text-align:center;letter-spacing:.2em}
+#gate .glab{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--coppertxt)}
+</style>
+</head>
+<body>
+<div class="topbar"><span>MOTOREN · <b>CONTRACTEN</b></span><span><a href="/intern/motoren/">← dashboard</a> &nbsp; <a href="/intern/database/">database →</a></span></div>
+<div class="wrap">
+<header>
+  <div><h1>Rolvink</h1><span class="sub">Premium Imports · Contracten</span></div>
+  <button class="toggle" id="thBtn" title="licht/donker">◐</button>
+</header>
+
+<div class="modes">
+  <button class="mode on" data-m="inkoop" id="mInkoop">Inkoop van particulier · zonder logo</button>
+  <button class="mode" data-m="verkoop" id="mVerkoop">Verkoop aan klant · met logo</button>
+</div>
+<div class="lang" id="langRow"><span style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em">Taal:</span>
+  <button data-l="nl" class="on" id="lNl">Nederlands</button><button data-l="de" id="lDe">Deutsch</button></div>
+<div class="note" id="modeNote"></div>
+
+<div class="cols">
+  <div>
+    <h2 id="hForm">Gegevens</h2>
+    <div class="grid" id="formGrid"></div>
+
+    <h2>Handtekeningen</h2>
+    <div class="note" id="sigNote"></div>
+    <div class="sigwrap">
+      <div class="sigbox"><div class="sh"><span id="sigLblA">Verkoper</span><button data-c="a">wissen</button></div><canvas class="sig" id="sigA" width="520" height="150"></canvas></div>
+      <div class="sigbox"><div class="sh"><span id="sigLblB">Koper</span><button data-c="b">wissen</button></div><canvas class="sig" id="sigB" width="520" height="150"></canvas></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="pdfBtn">PDF genereren &amp; downloaden</button>
+      <button class="btn sec" id="resetBtn">Formulier leegmaken</button>
+    </div>
+  </div>
+  <div>
+    <h2>Voorbeeld</h2>
+    <div class="preview" id="preview"></div>
+  </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+// ---- toegangscode ----
+const TOEGANGSCODE='welsum';
+if(location.protocol.startsWith('http') && !['localhost','127.0.0.1'].includes(location.hostname)){
+  let ok=false; try{ok=sessionStorage.getItem('rvk_ok')==='1';}catch(e){}
+  if(!ok){
+    const g=document.createElement('div'); g.id='gate';
+    g.innerHTML='<div class="glab">Rolvink · Intern</div><input type="password" id="gcode" placeholder="toegangscode" autofocus><div class="glab" id="gmsg"></div>';
+    document.body.appendChild(g);
+    g.querySelector('#gcode').addEventListener('keydown',e=>{ if(e.key==='Enter'){ if(e.target.value.trim().toLowerCase()===TOEGANGSCODE){ try{sessionStorage.setItem('rvk_ok','1');}catch(err){} g.remove(); } else { document.getElementById('gmsg').textContent='onjuiste code'; } } });
+  }
+}
+const $=id=>document.getElementById(id);
+$('thBtn').onclick=()=>{const r=document.documentElement,cur=r.getAttribute('data-theme');const dark=cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.setAttribute('data-theme',dark?'light':'dark');};
+
+// ---- state ----
+const state={mode:'inkoop', lang:'nl'};
+const F={}; // veldwaarden
+
+const T={
+  nl:{verkoper:'Verkoper',koper:'Koper',contact:'Telefoon / e-mail',adres:'Adres, postcode, plaats',
+    merk:'Merk & model',vin:'Framenummer (VIN)',kenteken:'Kenteken',bouwjaar:'Bouwjaar',km:'Kilometerstand',kleur:'Kleur',sleutels:'Aantal sleutels',
+    prijs:'Koopprijs (€)',betaal:'Betaalwijze',plaats:'Plaats',datum:'Datum',gebreken:'Bekende gebreken',garantie:'Aanvullende garantie'},
+  de:{verkoper:'Verkäufer',koper:'Käufer',contact:'Telefon / E-Mail',adres:'Adresse, PLZ, Ort',
+    merk:'Marke & Typ',vin:'Fahrgestellnr. (FIN)',kenteken:'Kennzeichen',bouwjaar:'Baujahr',km:'Kilometerstand',kleur:'Farbe',sleutels:'Anzahl Schlüssel',
+    prijs:'Kaufpreis (€)',betaal:'Zahlungsart',plaats:'Ort',datum:'Datum',gebreken:'Bekannte Mängel',garantie:'Zusätzliche Garantie'}
+};
+function L(){ return state.mode==='verkoop'?T.nl:T[state.lang]; }
+
+const FIELDS=[
+  ['verkoperNaam','verkoper',true],['verkoperContact','contact'],['verkoperAdres','adres',true,true],
+  ['koperNaam','koper',true],['koperContact','contact'],['koperAdres','adres',true,true],
+  ['merk','merk',true,true],['vin','vin'],['kenteken','kenteken'],['bouwjaar','bouwjaar'],['km','km'],['kleur','kleur'],['sleutels','sleutels'],
+  ['prijs','prijs'],['betaal','betaal'],['plaats','plaats'],['datum','datum'],
+  ['gebreken','gebreken',true,true],['garantie','garantie',true,true]
+];
+
+function today(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+
+function prefill(){
+  if(state.mode==='verkoop'){
+    F.verkoperNaam='Rolvink Premium Imports'; F.verkoperAdres='Welsum (gem. Olst-Wijhe)'; F.verkoperContact='theowelsum@gmail.com';
+    if(F.koperNaam==='Rolvink Premium Imports'){F.koperNaam='';F.koperAdres='';F.koperContact='';}
+  } else {
+    F.koperNaam='Theo Rolvink'; F.koperAdres='Welsum (NL)'; F.koperContact='';
+    if(F.verkoperNaam==='Rolvink Premium Imports'){F.verkoperNaam='';F.verkoperAdres='';F.verkoperContact='';}
+  }
+  if(!F.datum) F.datum=today();
+}
+
+function renderForm(){
+  const l=L(); const g=$('formGrid'); g.innerHTML='';
+  FIELDS.forEach(([key,lblKey,full,ta])=>{
+    if(key==='garantie' && state.mode!=='verkoop') return;
+    const wrap=document.createElement('div'); wrap.className='fld'+(full?' full':'');
+    const lab=document.createElement('label'); lab.textContent=(key==='verkoperNaam'||key==='koperNaam')?l[lblKey]+' — naam':(l[lblKey]||lblKey);
+    if(key==='verkoperContact'||key==='koperContact') lab.textContent=l.contact;
+    if(key==='verkoperAdres'||key==='koperAdres') lab.textContent=l.adres;
+    const el=document.createElement(ta?'textarea':'input');
+    if(key==='datum') el.type='date';
+    el.value=F[key]||'';
+    el.oninput=()=>{F[key]=el.value; renderPreview();};
+    wrap.appendChild(lab); wrap.appendChild(el); g.appendChild(wrap);
+  });
+}
+
+// ---- contracttekst ----
+function clauses(){
+  const geb=F.gebreken||'—';
+  if(state.mode==='verkoop'){
+    const gar=F.garantie||'geen';
+    return ['Het voertuig is door Rolvink Premium Imports geïmporteerd en technisch nagekeken. Bekende bijzonderheden/gebreken: '+geb+'.',
+      'Bij verkoop aan een particulier gelden de wettelijke conformiteitseisen (art. 7:17 e.v. BW), rekening houdend met leeftijd, prijs en kilometerstand. Aanvullende garantie: '+gar+'.',
+      'Bij verkoop aan een bedrijf wordt het voertuig voetstoots geleverd; aansprakelijkheid voor niet-zichtbare gebreken is uitgesloten, behoudens opzet.',
+      'Levering onder de margeregeling voor gebruikte goederen; de BTW is in de prijs begrepen en wordt niet afzonderlijk vermeld.',
+      'Eigendom en risico gaan over na volledige betaling. De verkoper vrijwaart het kenteken bij de RDW; de koper zorgt voor de tenaamstelling.',
+      'Op deze overeenkomst is Nederlands recht van toepassing. Opgemaakt in tweevoud; elke partij ontvangt een ondertekend exemplaar.'];
+  }
+  if(state.lang==='de'){
+    return ['Beide Parteien handeln als Privatpersonen; es liegt kein Händler- oder gewerblicher Verkauf vor. Das Fahrzeug wird unter Ausschluss jeglicher Sachmängelhaftung im besichtigten Zustand verkauft. Der Ausschluss gilt nicht für Vorsatz, grobe Fahrlässigkeit oder arglistig verschwiegene Mängel.',
+      'Der Verkäufer versichert, Eigentümer zu sein und dass das Fahrzeug frei von Rechten Dritter, Pfändung und Finanzierung ist.',
+      'Der Kilometerstand ist nach bestem Wissen angegeben und wird nicht garantiert.',
+      'Eigentum und Gefahr gehen mit vollständiger Zahlung und Übergabe von Schlüsseln und Fahrzeugpapieren auf den Käufer über.',
+      'Bekannte Mängel: '+geb+'.',
+      'Dieser Vertrag wurde in zweifacher Ausfertigung erstellt; jede Partei erhält ein unterschriebenes Exemplar.'];
+  }
+  return ['Beide partijen handelen als particulier; er is geen sprake van een handelaar of zakelijke verkoop en er wordt geen garantie gegeven. Het voertuig wordt verkocht in de staat waarin het zich bevindt (voetstoots), zoals door de koper geïnspecteerd.',
+    'De verkoper verklaart eigenaar te zijn en dat het voertuig vrij is van rechten van derden, beslag en financiering.',
+    'De kilometerstand is naar beste weten vermeld en niet gegarandeerd.',
+    'Eigendom en risico gaan over op de koper na volledige betaling en overdracht van de sleutels en het kentekenbewijs.',
+    'Bekende gebreken: '+geb+'.',
+    'Deze overeenkomst is in tweevoud opgemaakt; elke partij ontvangt een ondertekend exemplaar.'];
+}
+function texts(){
+  const de=state.mode==='inkoop'&&state.lang==='de';
+  return {
+    title: state.mode==='verkoop'?'Koopovereenkomst motorfiets':(de?'Kaufvertrag Motorrad (Privatverkauf)':'Koopovereenkomst motorfiets (particuliere verkoop)'),
+    lead: state.mode==='verkoop'?'Ondergetekenden komen de verkoop van de onderstaande motorfiets overeen onder de volgende voorwaarden.':(de?'Die Unterzeichnenden, beide als Privatpersonen handelnd, vereinbaren den Verkauf des unten genannten Motorrads.':'Ondergetekenden, beiden handelend als particulier, komen de verkoop van de onderstaande motorfiets overeen.'),
+    parties: de?'Vertragsparteien':(state.mode==='verkoop'?'Partijen':'Partijen'),
+    vehicle: de?'Fahrzeug':'Voertuig',
+    priceSec: de?'Kaufpreis & Zahlung':'Koopprijs & betaling',
+    terms: de?'Bestimmungen':(state.mode==='verkoop'?'Bepalingen':'Voorwaarden'),
+    disc: state.mode==='verkoop'?'Praktijkmodel, geen juridisch advies. Consumentenrecht is dwingend; een handelaar kan de wettelijke conformiteit tegenover een particulier niet uitsluiten.':(de?'Praxismuster, keine Rechtsberatung. Privatverkauf zwischen zwei Privatpersonen.':'Praktijkmodel, geen juridisch advies. Particuliere verkoop tussen twee particulieren.')
+  };
+}
+
+function renderPreview(){
+  const l=L(), tx=texts(); const geb=F.gebreken;
+  let h='';
+  if(state.mode==='verkoop'){ h+='<div class="plogo">ROLVINK</div><div class="psub">Premium Imports</div>'; }
+  h+='<div class="rule"></div>';
+  h+='<h3>'+tx.title+'</h3><p class="lead">'+tx.lead+'</p>';
+  h+='<div class="sec">'+tx.parties+'</div>';
+  h+='<div class="kv"><b>'+l.verkoper+':</b> '+val(F.verkoperNaam)+(F.verkoperContact?' · '+F.verkoperContact:'')+(F.verkoperAdres?' · '+F.verkoperAdres:'')+'</div>';
+  h+='<div class="kv"><b>'+l.koper+':</b> '+val(F.koperNaam)+(F.koperContact?' · '+F.koperContact:'')+(F.koperAdres?' · '+F.koperAdres:'')+'</div>';
+  h+='<div class="sec">'+tx.vehicle+'</div>';
+  [['merk',l.merk],['vin',l.vin],['kenteken',l.kenteken],['bouwjaar',l.bouwjaar],['km',l.km],['kleur',l.kleur],['sleutels',l.sleutels]].forEach(([k,lab])=>{ h+='<div class="kv"><b>'+lab+':</b> '+val(F[k])+'</div>'; });
+  h+='<div class="sec">'+tx.priceSec+'</div>';
+  h+='<div class="kv"><b>'+l.prijs+':</b> '+(F.prijs?('€ '+F.prijs):dim())+'</div>';
+  h+='<div class="kv"><b>'+l.betaal+':</b> '+val(F.betaal)+'</div>';
+  h+='<div class="kv"><b>'+l.plaats+' & '+l.datum+':</b> '+val(F.plaats)+(F.datum?' · '+F.datum:'')+'</div>';
+  h+='<div class="sec">'+tx.terms+'</div><ol>'+clauses().map(c=>'<li>'+esc(c)+'</li>').join('')+'</ol>';
+  h+='<div class="sigs"><div class="s"><div class="sl">'+l.verkoper+' — '+esc(val(F.verkoperNaam))+'</div></div><div class="s"><div class="sl">'+l.koper+' — '+esc(val(F.koperNaam))+'</div></div></div>';
+  h+='<div class="disc">'+tx.disc+'</div>';
+  $('preview').innerHTML=h;
+  $('sigLblA').textContent=l.verkoper; $('sigLblB').textContent=l.koper;
+  $('modeNote').textContent = state.mode==='inkoop'
+    ? 'Zonder logo. Beide partijen worden als particulier vermeld — de verkoper ziet dat je niet als handelaar koopt.'
+    : 'Met Rolvink-logo. Verkoper = Rolvink; conformiteit (particulier) of voetstoots (bedrijf) en margeregeling zijn opgenomen.';
+  $('sigNote').textContent = state.lang==='de'&&state.mode==='inkoop'
+    ? 'Beide Parteien unterschreiben hier auf dem Bildschirm (Maus/Finger).'
+    : 'Beide partijen tekenen hier op het scherm (muis of vinger).';
+}
+function val(v){ return v?esc(v):dim(); }
+function dim(){ return '<span class="dim">…………</span>'; }
+function esc(s){ return String(s==null?'':s).replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])); }
+
+// ---- handtekening-pads ----
+function makePad(canvas){
+  const ctx=canvas.getContext('2d'); ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.strokeStyle='#1a1a1a';
+  let drawing=false,last=null,dirty=false;
+  const pos=e=>{const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*(canvas.width/r.width),y:(e.clientY-r.top)*(canvas.height/r.height)};};
+  canvas.addEventListener('pointerdown',e=>{drawing=true;last=pos(e);canvas.setPointerCapture(e.pointerId);e.preventDefault();});
+  canvas.addEventListener('pointermove',e=>{if(!drawing)return;const p=pos(e);ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;dirty=true;e.preventDefault();});
+  canvas.addEventListener('pointerup',()=>{drawing=false;});
+  canvas.addEventListener('pointerleave',()=>{drawing=false;});
+  return {clear:()=>{ctx.clearRect(0,0,canvas.width,canvas.height);dirty=false;},empty:()=>!dirty,data:()=>dirty?canvas.toDataURL('image/png'):null};
+}
+const padA=makePad($('sigA')), padB=makePad($('sigB'));
+document.querySelectorAll('.sh button').forEach(b=>b.onclick=()=>{(b.dataset.c==='a'?padA:padB).clear();});
+
+// ---- PDF ----
+function genPDF(){
+  if(!window.jspdf){ alert('PDF-bibliotheek nog aan het laden — probeer het over een paar seconden opnieuw.'); return; }
+  const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'pt',format:'a4'});
+  const l=L(), tx=texts(); const M=52, PW=595, RW=PW-2*M; let y=58;
+  const nl=(g)=>{ y+=(g||0); if(y>790){doc.addPage(); y=58;} };
+  function txt(s,{b=false,size=10,color=[26,26,26],gap=13,x=M,w=RW}={}){
+    doc.setFont('helvetica',b?'bold':'normal'); doc.setFontSize(size); doc.setTextColor(color[0],color[1],color[2]);
+    const lines=doc.splitTextToSize(String(s),w);
+    lines.forEach(ln=>{ if(y>800){doc.addPage();y=58;} doc.text(ln,x,y); y+=gap; });
+  }
+  function sec(s){ nl(8); doc.setDrawColor(184,115,51); doc.setLineWidth(1); doc.line(M,y-3,M+40,y-3); txt(s,{b:true,size:8.5,color:[154,90,36],gap:14}); }
+  function kv(k,v){ doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.setTextColor(26,26,26); if(y>800){doc.addPage();y=58;} doc.text(k+':',M,y); doc.setFont('helvetica','normal'); const lines=doc.splitTextToSize(v||'—',RW-120); doc.text(lines,M+120,y); y+=Math.max(13,lines.length*12); }
+
+  if(state.mode==='verkoop'){ doc.setFont('times','bold'); doc.setFontSize(20); doc.setTextColor(31,31,31); doc.text('ROLVINK',M,y); doc.setFont('helvetica','normal'); doc.setFontSize(7.5); doc.setTextColor(154,90,36); doc.text('PREMIUM IMPORTS',M,y+11); y+=26; }
+  doc.setDrawColor(216,207,192); doc.setLineWidth(.8); doc.line(M,y,PW-M,y); y+=20;
+  txt(tx.title,{b:true,size:16,gap:20});
+  txt(tx.lead,{size:9.5,color:[90,90,90],gap:14}); nl(4);
+
+  sec(tx.parties);
+  kv(l.verkoper,[F.verkoperNaam,F.verkoperContact,F.verkoperAdres].filter(Boolean).join(' · '));
+  kv(l.koper,[F.koperNaam,F.koperContact,F.koperAdres].filter(Boolean).join(' · '));
+  sec(tx.vehicle);
+  [['merk',l.merk],['vin',l.vin],['kenteken',l.kenteken],['bouwjaar',l.bouwjaar],['km',l.km],['kleur',l.kleur],['sleutels',l.sleutels]].forEach(([k,lab])=>kv(lab,F[k]||'—'));
+  sec(tx.priceSec);
+  kv(l.prijs,F.prijs?('€ '+F.prijs):'—'); kv(l.betaal,F.betaal||'—'); kv(l.plaats+' & '+l.datum,[F.plaats,F.datum].filter(Boolean).join(' · ')||'—');
+  sec(tx.terms);
+  clauses().forEach((c,i)=>{ doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.setTextColor(154,90,36); if(y>800){doc.addPage();y=58;} doc.text((i+1)+'.',M,y); txt(c,{size:9.5,gap:12.5,x:M+16,w:RW-16}); nl(2); });
+
+  nl(20); if(y>640){doc.addPage();y=90;}
+  const colW=(RW-30)/2, yImg=y, imgH=54;
+  [[padA,l.verkoper,F.verkoperNaam,M],[padB,l.koper,F.koperNaam,M+colW+30]].forEach(([pad,lab,naam,x])=>{
+    const d=pad.data(); if(d){ try{ doc.addImage(d,'PNG',x,yImg,colW,imgH); }catch(e){} }
+    const ly=yImg+imgH+4; doc.setDrawColor(120,120,120); doc.setLineWidth(.6); doc.line(x,ly,x+colW,ly);
+    doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(90,90,90);
+    doc.text(lab+' — '+(naam||''),x,ly+12);
+    doc.text((state.lang==='de'&&state.mode==='inkoop'?'Ort & Datum: ':'Plaats & datum: ')+[F.plaats,F.datum].filter(Boolean).join(' '),x,ly+24);
+  });
+  y=yImg+imgH+40;
+  doc.setDrawColor(216,207,192); doc.line(M,y,PW-M,y); y+=12;
+  doc.setFont('helvetica','italic'); doc.setFontSize(7.5); doc.setTextColor(140,140,140);
+  doc.text(doc.splitTextToSize(tx.disc,RW),M,y);
+
+  const naamdeel=(F.merk||'motor').replace(/[^\w]+/g,'_');
+  const fn=(state.mode==='verkoop'?'Verkoop':(state.lang==='de'?'Kaufvertrag':'Inkoop'))+'_'+naamdeel+'_'+(F.datum||today())+'.pdf';
+  doc.save(fn);
+}
+
+// ---- events ----
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{ state.mode=b.dataset.m; document.querySelectorAll('.mode').forEach(x=>x.classList.toggle('on',x===b)); $('langRow').style.display=state.mode==='inkoop'?'inline-flex':'none'; prefill(); renderForm(); renderPreview(); });
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{ state.lang=b.dataset.l; document.querySelectorAll('.lang button').forEach(x=>x.classList.toggle('on',x===b)); renderForm(); renderPreview(); });
+$('pdfBtn').onclick=genPDF;
+$('resetBtn').onclick=()=>{ Object.keys(F).forEach(k=>delete F[k]); padA.clear(); padB.clear(); prefill(); renderForm(); renderPreview(); };
+
+prefill(); renderForm(); renderPreview();
+</script>
+</body>
+</html>
