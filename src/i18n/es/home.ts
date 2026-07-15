@@ -69,7 +69,7 @@ const home = {
       {
         num: '01',
         title: 'Sourcing',
-        body: 'Búsqueda dirigida en subastas japonesas y concesionarios premium alemanes, guiada por su perfil exacto. Candidatos semanales con nuestro análisis.',
+        body: 'Búsqueda dirigida en subastas japonesas y concesionarios premium alemanes, guiada por su perfil exacto. Candidatos con nuestro análisis.',
         img: '/images/traject-auction.jpg',
         alt: 'BMW M3 (G80) de frente con faros LED amarillos — sourcing de versiones premium',
       },
@@ -176,7 +176,7 @@ const home = {
     eyebrow: 'Señales de mercado',
     heading: 'Lo que vimos recientemente en subasta.',
     intro:
-      'Una muestra de los candidatos con volante a la izquierda que seguimos en las últimas semanas en las subastas japonesas de coches — con nuestro cálculo indicativo del precio de martillo al coste final matriculado. Así trabajamos, semana tras semana.',
+      'Una muestra de los candidatos con volante a la izquierda que seguimos en las últimas semanas en las subastas japonesas de coches — con nuestro cálculo indicativo del precio de martillo al coste final matriculado. Así trabajamos.',
     gradeTitle: 'Grado de estado en la escala de subastas japonesa',
     gradePrefix: 'grade',
     dtHammer: 'Precio de martillo ≈',
@@ -185,7 +185,7 @@ const home = {
     peildatum: 'mayo de 2026',
     disclaimerBefore: 'Cifras indicativas, fecha de referencia ',
     disclaimerAfterHtml:
-      '. <strong>Esto no es oferta actual</strong> — es el tipo de candidato que seguimos y calculamos para nuestros clientes. El coste final mostrado corresponde a una matriculación en los Países Bajos e incluye fees, transporte, aranceles, IVA e impuestos neerlandeses; para una entrega en España calculamos el equivalente (aranceles UE, IVA español, impuesto de matriculación) antes de cualquier puja.',
+      '. <strong>Esto no es oferta actual</strong> — es el tipo de candidato que seguimos y calculamos. El coste final mostrado corresponde a una matriculación en los Países Bajos e incluye fees, transporte, aranceles, IVA e impuestos neerlandeses; para una entrega en España calculamos el equivalente (aranceles UE, IVA español, impuesto de matriculación) antes de cualquier puja.',
     cta: '¿Busca algo así? Déjenos su perfil de búsqueda',
     ctaHref: '#zoekprofiel',
   },

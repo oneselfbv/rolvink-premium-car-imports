@@ -70,7 +70,7 @@ const home = {
       {
         num: '01',
         title: 'Sourcing',
-        body: 'Gezielte Suche auf japanischen Auktionen und bei deutschen Premium-Händlern, gesteuert durch Ihr exaktes Profil. Wöchentliche Kandidaten mit unserer Einordnung.',
+        body: 'Gezielte Suche auf japanischen Auktionen und bei deutschen Premium-Händlern, gesteuert durch Ihr exaktes Profil. Kandidaten mit unserer Einordnung.',
         img: '/images/traject-auction.jpg',
         alt: 'BMW M3 (G80) frontal mit gelben LED-Scheinwerfern — Sourcing von Premium-Ausführungen',
       },
@@ -177,7 +177,7 @@ const home = {
     eyebrow: 'Marktsignale',
     heading: 'Was wir zuletzt auf den Auktionen sahen.',
     intro:
-      'Eine Auswahl der linksgelenkten Kandidaten, die wir in den vergangenen Wochen auf japanischen Auktionen verfolgt haben — mit unserer indikativen Durchrechnung vom Zuschlagspreis bis zum gelieferten Fahrzeug. So arbeiten wir, Woche für Woche.',
+      'Eine Auswahl der linksgelenkten Kandidaten, die wir in den vergangenen Wochen auf japanischen Auktionen verfolgt haben — mit unserer indikativen Durchrechnung vom Zuschlagspreis bis zum gelieferten Fahrzeug. So arbeiten wir.',
     gradeTitle: 'Zustandsnote auf der japanischen Auktionsskala',
     gradePrefix: 'grade',
     dtHammer: 'Zuschlag ≈',

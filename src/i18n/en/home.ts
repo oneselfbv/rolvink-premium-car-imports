@@ -69,7 +69,7 @@ const home = {
       {
         num: '01',
         title: 'Sourcing',
-        body: 'A targeted search across Japanese auctions and German premium dealers, driven by your exact profile. Weekly candidates with our expert commentary.',
+        body: 'A targeted search across Japanese auctions and German premium dealers, driven by your exact profile. Candidates with our expert commentary.',
         img: '/images/traject-auction.jpg',
         alt: 'BMW M3 (G80) head-on with yellow LED headlights — sourcing of premium specifications',
       },
@@ -176,7 +176,7 @@ const home = {
     eyebrow: 'Market signals',
     heading: 'What we saw at auction recently.',
     intro:
-      'A selection of the left-hand-drive candidates we tracked on Japanese auctions in recent weeks — with our indicative calculation from hammer price to Dutch on-the-road price. This is how we work, week after week; for other EU destinations we run the same maths for your country.',
+      'A selection of the left-hand-drive candidates we tracked on Japanese auctions in recent weeks — with our indicative calculation from hammer price to Dutch on-the-road price. This is how we work; for other EU destinations we run the same maths for your country.',
     gradeTitle: 'Condition grade on the Japanese auction scale',
     gradePrefix: 'grade',
     dtHammer: 'Hammer price ≈',

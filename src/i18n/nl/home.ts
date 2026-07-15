@@ -70,7 +70,7 @@ const home = {
       {
         num: '01',
         title: 'Sourcing',
-        body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Wekelijkse kandidaten met onze duiding.',
+        body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Kandidaten met onze duiding.',
         img: '/images/traject-auction.jpg',
         alt: 'BMW M3 (G80) head-on met gele LED-koplampen — sourcing van premium-uitvoeringen',
       },
@@ -177,7 +177,7 @@ const home = {
     eyebrow: 'Marktsignalen',
     heading: 'Wat we recent op de veiling zagen.',
     intro:
-      'Een greep uit de linksgestuurde kandidaten die we de afgelopen weken volgden op Japanse veilingen — met onze indicatieve doorrekening van hamerprijs naar Nederlandse straatprijs. Zo werken we, elke week opnieuw.',
+      'Een greep uit de linksgestuurde kandidaten die we de afgelopen weken volgden op Japanse veilingen — met onze indicatieve doorrekening van hamerprijs naar Nederlandse straatprijs. Zo werken we.',
     gradeTitle: 'Conditie-grade op de Japanse veilingschaal',
     gradePrefix: 'grade',
     dtHammer: 'Hamerprijs ≈',

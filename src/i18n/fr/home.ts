@@ -68,7 +68,7 @@ const home: HomeDict = {
       {
         num: "01",
         title: "Sourcing",
-        body: "Recherche ciblée sur les enchères japonaises et auprès des concessionnaires premium allemands, guidée par votre profil exact. Des candidates chaque semaine, avec notre analyse.",
+        body: "Recherche ciblée sur les enchères japonaises et auprès des concessionnaires premium allemands, guidée par votre profil exact. Des candidates ciblées, avec notre analyse.",
         img: "/images/traject-auction.jpg",
         alt: "BMW M3 (G80) de face avec phares LED jaunes — sourcing de versions premium",
       },
@@ -175,7 +175,7 @@ const home: HomeDict = {
     eyebrow: "Signaux du marché",
     heading: "Ce que nous avons vu récemment aux enchères.",
     intro:
-      "Un aperçu des candidates à conduite à gauche que nous avons suivies ces dernières semaines sur les enchères japonaises — avec notre calcul indicatif, du prix marteau au prix de rue aux Pays-Bas. C'est ainsi que nous travaillons, chaque semaine.",
+      "Un aperçu des candidates à conduite à gauche que nous avons suivies ces dernières semaines sur les enchères japonaises — avec notre calcul indicatif, du prix marteau au prix de rue aux Pays-Bas. C'est ainsi que nous travaillons.",
     gradeTitle: "Grade d'état sur l'échelle des enchères japonaises",
     gradePrefix: "grade",
     dtHammer: "Prix marteau ≈",
@@ -184,7 +184,7 @@ const home: HomeDict = {
     peildatum: "mai 2026",
     disclaimerBefore: "Chiffres indicatifs, date de référence ",
     disclaimerAfterHtml:
-      ". <strong>Ceci n'est pas une offre en cours</strong> — c'est le type de candidates que nous suivons et chiffrons pour nos clients. Le coût rendu indiqué comprend frais, transport, droits de douane, TVA et taxes d'immatriculation pour une immatriculation aux Pays-Bas ; pour la France ou la Belgique, nous calculons l'équivalent (droits UE, TVA locale, frais d'immatriculation) avant toute enchère.",
+      ". <strong>Ceci n'est pas une offre en cours</strong> — c'est le type de candidates que nous suivons et chiffrons. Le coût rendu indiqué comprend frais, transport, droits de douane, TVA et taxes d'immatriculation pour une immatriculation aux Pays-Bas ; pour la France ou la Belgique, nous calculons l'équivalent (droits UE, TVA locale, frais d'immatriculation) avant toute enchère.",
     cta: "Vous cherchez ce genre d'exemplaire ? Déposez votre profil de recherche",
     ctaHref: "#zoekprofiel",
   },
