@@ -104,7 +104,7 @@ const voorbeeld = {
       {
         heading: '5. Unsere Service-Fee — €1.710',
         bodyHtml:
-          'Die <strong>Sourcing-Fee</strong> deckt das komplette Vorprojekt: Erstgespräch, Profilausarbeitung, wöchentliches Auktions-Screening, Übersetzung der Auction Sheets, Beratung zur Gebotsstrategie und Gebots-Koordination mit unserem japanischen Agenten. Die <strong>operative Fee</strong> (3% auf CIF + Transport + Abwicklung) deckt Transport, Verzollung, Behörden-Koordination und Übergabe. Keine versteckten Prozente auf den Zuschlagspreis, keine Marge auf Nebenkosten.',
+          'Die <strong>Sourcing-Fee</strong> deckt das komplette Vorprojekt: Erstgespräch, Profilausarbeitung, gezieltes Auktions-Screening, Übersetzung der Auction Sheets, Beratung zur Gebotsstrategie und Gebots-Koordination mit unserem japanischen Agenten. Die <strong>operative Fee</strong> (3% auf CIF + Transport + Abwicklung) deckt Transport, Verzollung, Behörden-Koordination und Übergabe. Keine versteckten Prozente auf den Zuschlagspreis, keine Marge auf Nebenkosten.',
       },
     ],
   },

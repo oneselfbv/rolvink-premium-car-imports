@@ -62,7 +62,7 @@ const tarieven: TarievenDict = {
         step: "Phase 1",
         amount: "€ 1.250",
         when: "Au démarrage — acompte",
-        body: "Avant que nous démarrions le passage au crible hebdomadaire des enchères USS, JU et JAA. Déductible des honoraires finaux en cas de succès.",
+        body: "Avant que nous démarrions le passage au crible ciblé des enchères USS, JU et JAA. Déductible des honoraires finaux en cas de succès.",
       },
       {
         step: "Phase 2",
@@ -80,7 +80,7 @@ const tarieven: TarievenDict = {
     inclHeading: "Ce que comprend notre prestation Japon",
     incl: [
       "Entretien initial approfondi (90 min) — profil, seuil d'état, préférence de couleur, indispensables",
-      "Passage au crible hebdomadaire JCD/USS/JU/JAA avec traduction commentée du procès-verbal pour chaque candidate",
+      "Passage au crible ciblé JCD/USS/JU/JAA avec traduction commentée du procès-verbal pour chaque candidate",
       "Stratégie d'enchère et enchères via notre partenaire d'exportation japonais établi",
       "Coordination du transport intérieur au Japon, des formalités d'exportation et du fret maritime RoRo",
       "Dédouanement à Rotterdam et formalités d'importation — clé en main aux Pays-Bas, avec accompagnement à l'immatriculation pour la France / Belgique",

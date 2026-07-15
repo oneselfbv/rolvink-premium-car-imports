@@ -25,7 +25,7 @@ const werkwijze = {
     {
       num: '03',
       title: 'Kandidaten voorstellen',
-      body: "Wekelijks (of per veiling-cyclus voor Japan) sturen we u kandidaten met volledige documentatie: foto's, originele veilingsheet of dealer-rapport, onze NL-talige duiding, geschatte landed cost en bekende risico's per uitvoering. U beslist of we bieden — geen actie zonder uw groen licht.",
+      body: "Per veiling-cyclus (voor Japan) of zodra er een match is, sturen we u kandidaten met volledige documentatie: foto's, originele veilingsheet of dealer-rapport, onze NL-talige duiding, geschatte landed cost en bekende risico's per uitvoering. U beslist of we bieden — geen actie zonder uw groen licht.",
     },
     {
       num: '04',

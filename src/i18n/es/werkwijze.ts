@@ -25,7 +25,7 @@ const werkwijze = {
     {
       num: '03',
       title: 'Presentación de candidatos',
-      body: 'Cada semana (o por ciclo de subasta en el caso de Japón) le enviamos candidatos con documentación completa: fotos, la hoja de subasta original o el informe del concesionario, nuestra interpretación de cada documento, el coste final estimado y los riesgos conocidos de cada versión. Usted decide si pujamos — ninguna acción sin su luz verde.',
+      body: 'Por ciclo de subasta (para Japón) o en cuanto hay una coincidencia, le enviamos candidatos con documentación completa: fotos, la hoja de subasta original o el informe del concesionario, nuestra interpretación de cada documento, el coste final estimado y los riesgos conocidos de cada versión. Usted decide si pujamos — ninguna acción sin su luz verde.',
     },
     {
       num: '04',

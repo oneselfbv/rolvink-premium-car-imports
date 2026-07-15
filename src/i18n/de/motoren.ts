@@ -42,7 +42,7 @@ const motoren = {
   ],
   inclHeading: 'Was wir für Sie übernehmen',
   inclusief: [
-    'Wöchentliche, gezielte Suche auf mobile.de und Kleinanzeigen.de',
+    'Gezielte Suche auf mobile.de und Kleinanzeigen.de auf Ihre Anfrage',
     'Begutachtung von Zustand, Historie und modellspezifischen Schwachstellen vor jedem Gebot',
     'Verhandlung in Ihrem Interesse — bevorzugt mit Besichtigung',
     'Auf Wunsch versicherter Transport auf unserem eigenen Motorradanhänger (zwei Maschinen pro Fahrt)',

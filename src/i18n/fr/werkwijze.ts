@@ -27,7 +27,7 @@ const werkwijze: WerkwijzeDict = {
     {
       num: "03",
       title: "Présentation des candidates",
-      body: "Chaque semaine (ou par cycle d'enchères pour le Japon), nous vous envoyons des candidates avec une documentation complète : photos, procès-verbal d'enchère original ou rapport du concessionnaire, notre lecture commentée, le coût rendu estimé et les risques connus de la version. Vous décidez si nous enchérissons — aucune action sans votre feu vert.",
+      body: "Par cycle d'enchères (pour le Japon) ou dès qu'une candidate correspond, nous vous envoyons des candidates avec une documentation complète : photos, procès-verbal d'enchère original ou rapport du concessionnaire, notre lecture commentée, le coût rendu estimé et les risques connus de la version. Vous décidez si nous enchérissons — aucune action sans votre feu vert.",
     },
     {
       num: "04",

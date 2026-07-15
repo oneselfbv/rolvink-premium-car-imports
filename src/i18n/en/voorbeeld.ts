@@ -102,7 +102,7 @@ const voorbeeld = {
       {
         heading: '5. Our service fee — €1.710',
         bodyHtml:
-          'The <strong>sourcing fee</strong> covers the complete search phase: intake conversation, profile development, weekly auction screening, auction-sheet translation, bid strategy advice, and bid coordination with our Japanese agent. The <strong>operational fee</strong> (3% on CIF + transport + local handling) covers transport handling, customs clearance, inspection coordination and delivery. No hidden percentages on top of the hammer price, no margin on incidentals.',
+          'The <strong>sourcing fee</strong> covers the complete search phase: intake conversation, profile development, targeted auction screening, auction-sheet translation, bid strategy advice, and bid coordination with our Japanese agent. The <strong>operational fee</strong> (3% on CIF + transport + local handling) covers transport handling, customs clearance, inspection coordination and delivery. No hidden percentages on top of the hammer price, no margin on incidentals.',
       },
     ],
   },

@@ -26,7 +26,7 @@ const werkwijze = {
     {
       num: '03',
       title: 'Kandidaten vorstellen',
-      body: 'Wöchentlich (bzw. je Auktionszyklus für Japan) erhalten Sie Kandidaten mit vollständiger Dokumentation: Fotos, Original-Auktionssheet oder Händlerbericht, unsere deutschsprachige Einordnung, geschätzte Landed Cost und bekannte Risiken der jeweiligen Ausführung. Sie entscheiden, ob wir bieten — keine Aktion ohne Ihr grünes Licht.',
+      body: 'Je Auktionszyklus (für Japan) bzw. sobald ein Treffer vorliegt, erhalten Sie Kandidaten mit vollständiger Dokumentation: Fotos, Original-Auktionssheet oder Händlerbericht, unsere deutschsprachige Einordnung, geschätzte Landed Cost und bekannte Risiken der jeweiligen Ausführung. Sie entscheiden, ob wir bieten — keine Aktion ohne Ihr grünes Licht.',
     },
     {
       num: '04',

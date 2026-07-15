@@ -61,7 +61,7 @@ const tarieven = {
         step: 'Phase 1',
         amount: '€ 1.250',
         when: 'Zum Start — Retainer',
-        body: 'Bevor wir mit dem wöchentlichen Auktions-Screening auf USS, JU und JAA beginnen. Wird bei Erfolg mit der Schlussrate verrechnet.',
+        body: 'Bevor wir mit dem gezielten Auktions-Screening auf USS, JU und JAA beginnen. Wird bei Erfolg mit der Schlussrate verrechnet.',
       },
       {
         step: 'Phase 2',
@@ -79,7 +79,7 @@ const tarieven = {
     inclHeading: 'Was der Japan-Auftrag umfasst',
     incl: [
       'Ausführliches Erstgespräch (90 Min.) — Profil, Zustandsgrenze, Farbpräferenz, Must-haves',
-      'Wöchentliches JCD/USS/JU/JAA-Screening mit deutschsprachiger Sheet-Übersetzung je Kandidat',
+      'Gezieltes JCD/USS/JU/JAA-Screening mit deutschsprachiger Sheet-Übersetzung je Kandidat',
       'Gebotsstrategie und Bieten über unseren etablierten japanischen Export-Partner',
       'Koordination Inlandstransport Japan, Exportformalitäten, RoRo-Seefracht',
       'Zollabwicklung im Ankunftshafen, Einfuhrabgaben und Zulassung — vorab für Ihr Land durchgerechnet',

@@ -40,7 +40,7 @@ const motoren = {
   ],
   inclHeading: 'Wat wij voor je regelen',
   inclusief: [
-    'Wekelijkse, gerichte screening op mobile.de en Kleinanzeigen.de',
+    'Gerichte screening op mobile.de en Kleinanzeigen.de, op uw opdracht',
     'Beoordeling van staat, historie en modelspecifieke zwakke punten vóór bod',
     'Onderhandeling op jouw belang — bij voorkeur met bezichtiging',
     'Eigen verzekerd transport op onze motortrailer — twee motoren per rit mogelijk',

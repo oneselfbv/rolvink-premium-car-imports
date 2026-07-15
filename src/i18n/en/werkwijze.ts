@@ -25,7 +25,7 @@ const werkwijze = {
     {
       num: '03',
       title: 'Presenting candidates',
-      body: 'Weekly (or per auction cycle for Japan) we send you candidates with full documentation: photos, the original auction sheet or dealer report, our plain-English commentary, estimated landed cost and known risks per specification. You decide whether we bid — no action without your green light.',
+      body: 'Per auction cycle (for Japan), or as soon as there is a match, we send you candidates with full documentation: photos, the original auction sheet or dealer report, our plain-English commentary, estimated landed cost and known risks per specification. You decide whether we bid — no action without your green light.',
     },
     {
       num: '04',

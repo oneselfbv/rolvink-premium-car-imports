@@ -42,7 +42,7 @@ const motoren: MotorenDict = {
   ],
   inclHeading: "Ce que nous prenons en charge",
   inclusief: [
-    "Un passage au crible hebdomadaire et ciblé de mobile.de et Kleinanzeigen.de",
+    "Un passage au crible ciblé de mobile.de et Kleinanzeigen.de sur demande",
     "Évaluation de l'état, de l'historique et des points faibles propres au modèle avant toute offre",
     "Négociation dans votre intérêt — de préférence avec inspection",
     "Transport assuré sur notre propre remorque deux places",

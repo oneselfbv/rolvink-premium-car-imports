@@ -60,7 +60,7 @@ const tarieven = {
         step: 'Fase 1',
         amount: '€ 1.250',
         when: 'Al inicio — retainer',
-        body: 'Antes de comenzar el filtrado semanal de subastas en USS, JU y JAA. Deducible de la fee final si la compra se concreta.',
+        body: 'Antes de comenzar el filtrado dirigido de subastas en USS, JU y JAA. Deducible de la fee final si la compra se concreta.',
       },
       {
         step: 'Fase 2',
@@ -78,7 +78,7 @@ const tarieven = {
     inclHeading: 'Qué incluye nuestro proceso Japón',
     incl: [
       'Conversación inicial ampliada (90 min) — perfil, umbral de estado, preferencia de color, imprescindibles',
-      'Filtrado semanal en JCD/USS/JU/JAA con traducción e interpretación de la hoja de subasta de cada candidato',
+      'Filtrado dirigido en JCD/USS/JU/JAA con traducción e interpretación de la hoja de subasta de cada candidato',
       'Estrategia de puja y pujas a través de nuestro socio exportador japonés establecido',
       'Coordinación del transporte interior en Japón, formalidades de exportación y flete marítimo RoRo',
       'Despacho de aduanas en Róterdam y trámites de importación y matriculación (llave en mano en los Países Bajos; para España, orientación en la matriculación e ITV)',

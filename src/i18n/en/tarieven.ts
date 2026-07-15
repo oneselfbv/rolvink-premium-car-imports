@@ -60,7 +60,7 @@ const tarieven = {
         step: 'Phase 1',
         amount: '€ 1.250',
         when: 'At the start — retainer',
-        body: 'Before we begin the weekly auction screening on USS, JU and JAA. Credited against the final fee on success.',
+        body: 'Before we begin the targeted auction screening on USS, JU and JAA. Credited against the final fee on success.',
       },
       {
         step: 'Phase 2',
@@ -78,7 +78,7 @@ const tarieven = {
     inclHeading: 'What our Japan service includes',
     incl: [
       'In-depth intake conversation (90 min) — profile, condition threshold, colour preference, must-haves',
-      'Weekly JCD/USS/JU/JAA screening with a plain-English auction-sheet translation per candidate',
+      'Targeted JCD/USS/JU/JAA screening with a plain-English auction-sheet translation per candidate',
       'Bid strategy and bidding via our established Japanese export partner',
       'Coordination of domestic transport in Japan, export formalities, RoRo sea freight',
       'Customs clearance in Rotterdam and the import formalities — turnkey for the Netherlands (RDW inspection, BPM filing, registration); full paperwork and registration guidance for other EU countries',

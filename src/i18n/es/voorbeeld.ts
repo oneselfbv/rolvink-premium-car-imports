@@ -102,7 +102,7 @@ const voorbeeld = {
       {
         heading: '5. Nuestra fee de servicio — €1.710',
         bodyHtml:
-          'La <strong>fee de sourcing</strong> cubre toda la fase previa: conversación inicial, elaboración del perfil, filtrado semanal de subastas, traducción de las hojas de subasta, asesoramiento sobre la estrategia de puja y coordinación de la puja con nuestro agente japonés. La <strong>fee operativa</strong> (3% sobre CIF + transporte + trámites de destino) cubre la gestión del transporte, el despacho de aduanas, la coordinación de las inspecciones y la entrega. Sin porcentajes ocultos sobre el precio de martillo, sin margen sobre costes de terceros.',
+          'La <strong>fee de sourcing</strong> cubre toda la fase previa: conversación inicial, elaboración del perfil, filtrado dirigido de subastas, traducción de las hojas de subasta, asesoramiento sobre la estrategia de puja y coordinación de la puja con nuestro agente japonés. La <strong>fee operativa</strong> (3% sobre CIF + transporte + trámites de destino) cubre la gestión del transporte, el despacho de aduanas, la coordinación de las inspecciones y la entrega. Sin porcentajes ocultos sobre el precio de martillo, sin margen sobre costes de terceros.',
       },
     ],
   },

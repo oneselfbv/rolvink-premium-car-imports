@@ -60,7 +60,7 @@ const tarieven = {
         step: 'Fase 1',
         amount: '€ 1.250',
         when: 'Bij start — retainer',
-        body: 'Vóór wij beginnen met de wekelijkse veiling-screening op USS, JU en JAA. Verrekenbaar met eindfee bij succes.',
+        body: 'Vóór wij beginnen met de gerichte veiling-screening op USS, JU en JAA. Verrekenbaar met eindfee bij succes.',
       },
       {
         step: 'Fase 2',
@@ -78,7 +78,7 @@ const tarieven = {
     inclHeading: 'Wat ons Japan-traject inhoudt',
     incl: [
       'Uitgebreid intake-gesprek (90 min) — profiel, conditie-grens, kleurvoorkeur, must-haves',
-      'Wekelijkse JCD/USS/JU/JAA-screening met Nederlandstalige sheet-vertaling per kandidaat',
+      'Gerichte JCD/USS/JU/JAA-screening met Nederlandstalige sheet-vertaling per kandidaat',
       'Bod-strategie en bieden via onze gevestigde Japanse export-partner',
       'Coördinatie binnenlands transport Japan, exportformaliteiten, RoRo-zeevracht',
       'Douane-afhandeling Rotterdam, RDW-keuring, BPM-aangifte, kentekening',

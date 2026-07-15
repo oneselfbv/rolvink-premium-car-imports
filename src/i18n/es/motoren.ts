@@ -40,7 +40,7 @@ const motoren = {
   ],
   inclHeading: 'Qué gestionamos por usted',
   inclusief: [
-    'Filtrado semanal y dirigido en mobile.de y Kleinanzeigen.de',
+    'Filtrado dirigido en mobile.de y Kleinanzeigen.de a petición',
     'Evaluación del estado, el historial y los puntos débiles específicos del modelo antes de pujar',
     'Negociación en su interés — preferiblemente con inspección presencial',
     'Transporte asegurado en nuestro propio remolque para dos motos',

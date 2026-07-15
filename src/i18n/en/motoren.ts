@@ -40,7 +40,7 @@ const motoren = {
   ],
   inclHeading: 'What we arrange for you',
   inclusief: [
-    'Weekly, targeted screening of mobile.de and Kleinanzeigen.de',
+    'Targeted screening of mobile.de and Kleinanzeigen.de on your request',
     'Assessment of condition, history and model-specific weak points before any bid',
     'Negotiation in your interest — preferably with an in-person inspection',
     'Insured transport on our own two-bike trailer',

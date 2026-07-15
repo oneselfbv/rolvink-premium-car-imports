@@ -105,7 +105,7 @@ const voorbeeld: VoorbeeldDict = {
       {
         heading: "5. Nos honoraires — €1.710",
         bodyHtml:
-          "Les <strong>honoraires de sourcing</strong> couvrent tout l'amont : entretien initial, élaboration du profil, passage au crible hebdomadaire des enchères, traduction des procès-verbaux, conseil sur la stratégie d'enchère, et coordination de l'offre avec notre agent japonais. Les <strong>honoraires opérationnels</strong> (3 % sur CIF + transport + volet local) couvrent la gestion du transport, du dédouanement, des formalités et de la livraison. Aucun pourcentage caché sur le prix marteau, aucune marge sur les frais annexes.",
+          "Les <strong>honoraires de sourcing</strong> couvrent tout l'amont : entretien initial, élaboration du profil, passage au crible ciblé des enchères, traduction des procès-verbaux, conseil sur la stratégie d'enchère, et coordination de l'offre avec notre agent japonais. Les <strong>honoraires opérationnels</strong> (3 % sur CIF + transport + volet local) couvrent la gestion du transport, du dédouanement, des formalités et de la livraison. Aucun pourcentage caché sur le prix marteau, aucune marge sur les frais annexes.",
       },
     ],
   },

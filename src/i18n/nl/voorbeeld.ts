@@ -102,7 +102,7 @@ const voorbeeld = {
       {
         heading: '5. Onze service-fee — €1.710',
         bodyHtml:
-          'De <strong>sourcing-fee</strong> dekt het complete voortraject: intake-gesprek, profiel-uitwerking, wekelijkse veiling-screening, vertaling van auction sheets, advies over biedstrategie, en bod-coördinatie met onze Japanse agent. De <strong>operationele fee</strong> (3% over CIF + transport + NL-werkzaamheden) dekt de afhandeling van transport, inklaring, RDW-coördinatie en aflevering. Geen verborgen percentages bovenop hammerprijs, geen marge op brandstofkosten.',
+          'De <strong>sourcing-fee</strong> dekt het complete voortraject: intake-gesprek, profiel-uitwerking, gerichte veiling-screening, vertaling van auction sheets, advies over biedstrategie, en bod-coördinatie met onze Japanse agent. De <strong>operationele fee</strong> (3% over CIF + transport + NL-werkzaamheden) dekt de afhandeling van transport, inklaring, RDW-coördinatie en aflevering. Geen verborgen percentages bovenop hammerprijs, geen marge op brandstofkosten.',
       },
     ],
   },
