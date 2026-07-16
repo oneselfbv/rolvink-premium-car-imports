@@ -17,6 +17,10 @@ body{background:var(--page);color:var(--ink);font-family:Inter,-apple-system,Seg
 .leg{display:flex;gap:10px;align-items:center;font-size:11.5px;color:var(--muted)}
 .dot{display:inline-block;border-radius:50%;margin-right:3px;vertical-align:middle}
 a.back{color:var(--coppertxt);text-decoration:none;font-size:12px}
+.knav{display:inline-flex;gap:4px;margin-left:4px;vertical-align:middle}
+.knav a{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:4px 9px;border:1px solid var(--ring);border-radius:3px}
+.knav a.act{color:var(--coppertxt);border-color:var(--copper);font-weight:600}
+.knav a:hover{color:var(--coppertxt);border-color:var(--copper)}
 #map{flex:1;min-height:0}
 .leaflet-popup-content{font-family:inherit;font-size:13px;margin:10px 12px}
 .leaflet-popup-content b{font-size:13.5px}
@@ -28,7 +32,7 @@ a.back{color:var(--coppertxt);text-decoration:none;font-size:12px}
 </style></head><body>
 <div id="gate"><span class="glab">Rolvink · Intern</span><input id="gcode" type="password" placeholder="toegangscode" autocomplete="off"></div>
 <div class="bar">
- <div><h1>Ophaalkaart</h1> <span class="sub">Rolvink · waar staan de koopjes</span> · <a class="back" href="/intern/database/">← database</a></div>
+ <div><h1>Ophaalkaart</h1> <span class="sub">Rolvink · waar staan de koopjes</span> <nav class="knav"><a href="/intern/koopjes/">Koopjes</a><a class="act" href="/intern/kaart/">Kaart</a><a href="/intern/zaken/">Mijn zaken</a></nav></div>
  <div class="ctrls">
   <label><input type="checkbox" id="fTop"> alleen TOP+GOED</label>
   <label><input type="checkbox" id="fRit" checked> rit-paren tonen</label>
