@@ -90,10 +90,12 @@ td.imgc{padding:4px 6px}
 .lane>.lh{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink2);padding:9px 11px;border-bottom:1px solid var(--axis);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--surface)}
 .lane>.lh .cnt{color:var(--coppertxt);font-variant-numeric:tabular-nums}
 .lane .lb{padding:8px;display:flex;flex-direction:column;gap:7px;min-height:34px;max-height:340px;overflow:auto}
-.pcard{border:1px solid var(--ring);border-left:3px solid var(--copper);padding:7px 9px;cursor:pointer;background:var(--page);font-size:12px;line-height:1.35}
+.pcard{position:relative;border:1px solid var(--ring);border-left:3px solid var(--copper);padding:7px 9px;cursor:pointer;background:var(--page);font-size:12px;line-height:1.35}
 .pcard:hover{background:color-mix(in srgb,var(--copper) 8%,transparent)}
-.pcard b{font-weight:600;display:block}
-.pcard .pm{color:var(--muted);font-size:11px;margin-top:2px}
+.pcard b{font-weight:600;display:block;padding-right:24px}
+.pback{position:absolute;top:5px;right:6px;width:22px;height:22px;line-height:20px;text-align:center;border:1px solid var(--ring);border-radius:5px;color:var(--muted);font-size:14px;background:var(--page);cursor:pointer;user-select:none}
+.pback:hover{color:var(--coppertxt);border-color:var(--copper);background:color-mix(in srgb,var(--copper) 12%,transparent)}
+.pcard .pm{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .pcard .pn{color:var(--coppertxt);font-weight:700;font-variant-numeric:tabular-nums}
 .lane-nieuw{border-left:0}
 .hint{font-size:11px;color:var(--muted);margin:2px 0 10px}
@@ -238,7 +240,7 @@ h2{scroll-margin-top:56px}
 <div class="actie" id="actie" style="display:none"></div>
 
 <h2 id="s-pipe">Bod-pipeline — status per koopje<button class="actbtn" id="copyPipe">kopieer wijzigingen</button></h2>
-<div class="hint">Klik op een kaartje om de status één stap verder te zetten (nieuw → verstuurd → reactie → onderhandeling → gekocht → afgehaakt → nieuw). Wijzigingen zijn ter plekke; klik <b>kopieer wijzigingen</b> en stuur me de tekst, dan zet ik ze vast in de database.</div>
+<div class="hint">Klik op een kaartje om de status één stap verder te zetten (nieuw → verstuurd → reactie → onderhandeling → gekocht → afgehaakt → nieuw). Klik op de <b>‹</b> rechtsboven op het kaartje om een stap terug te gaan. Wijzigingen zijn ter plekke; klik <b>kopieer wijzigingen</b> en stuur me de tekst, dan zet ik ze vast in de database.</div>
 <div class="board" id="board"></div>
 
 <h2 id="s-inkoop">Inkoop-database — koopjes heel Duitsland (met biedbericht)</h2>
@@ -487,9 +489,12 @@ function renderBoard(){
       const c=document.createElement('div'); c.className='pcard';
       const dg=dagenSinds(o.k.pdatum);
       const dueTxt=(OPVOLG.includes(o.k.pstatus)&&dg!=null)?(dg>=OPVOLG_DAGEN?`<span class="pdue">⏰ ${dg} dg — opvolgen</span>`:`<span class="pm">${dg} dg geleden</span>`):'';
-      c.innerHTML=`<b>${o.k.titel}</b><span class="pm">${o.k.groep} · ${o.k.plz} · <span class="pn">${eur(o.k.netto)}</span></span>${dueTxt}`;
-      c.title='klik = status één stap verder';
-      c.onclick=()=>cyclePipe(o.i);
+      const backBtn=(o.k.pstatus!=='nieuw')?`<span class="pback" title="één stap terug">‹</span>`:'';
+      c.innerHTML=`<b>${o.k.titel}</b>${backBtn}<span class="pm">${o.k.groep} · ${o.k.plz} · <span class="pn">${eur(o.k.netto)}</span></span>${dueTxt}`;
+      c.title='klik = status één stap verder · ‹ = terug';
+      c.onclick=()=>cyclePipe(o.i,1);
+      const bb=c.querySelector('.pback');
+      if(bb) bb.onclick=(e)=>{e.stopPropagation();cyclePipe(o.i,-1);};
       lb.appendChild(c);
     });
     lane.appendChild(lb); board.appendChild(lane);
@@ -498,9 +503,13 @@ function renderBoard(){
 const OPVOLG=['verstuurd','reactie','onderhandeling'], OPVOLG_DAGEN=3;
 function vandaagISO(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function dagenSinds(iso){ if(!iso) return null; const d=new Date(iso+'T00:00:00'); if(isNaN(d)) return null; return Math.floor((Date.now()-d.getTime())/86400000); }
-function cyclePipe(i){
+function cyclePipe(i,dir){
+  dir = dir||1;
   const idx=PIPE.indexOf(DATA.inkoop[i].pstatus);
-  const ns=PIPE[(idx+1)%PIPE.length];
+  let ni;
+  if(dir>0){ ni=(idx+1)%PIPE.length; }         // vooruit: wrap (afgehaakt → nieuw = reset)
+  else { ni=idx-1; if(ni<0) return; }          // terug: stopt bij 'nieuw', geen wrap
+  const ns=PIPE[ni];
   DATA.inkoop[i].pstatus=ns;
   DATA.inkoop[i].pdatum=(ns==='nieuw')?null:vandaagISO(); // stempel datum bij statuswijziging
   renderBoard(); renderInk(); renderActie();
