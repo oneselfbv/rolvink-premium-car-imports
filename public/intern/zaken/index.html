@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Mijn zaken — Rolvink Premium Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --page:#F5F1EA; --surface:#FFFFFF; --ink:#1A1A1A; --ink2:#4A4A4A; --muted:#6B6B6B;
+  --grid:rgba(0,0,0,.08); --axis:rgba(0,0,0,.16); --ring:rgba(0,0,0,.08);
+  --copper:#B87333; --coppertxt:#9A5A24;
+  --good:#0ca30c; --crit:#d03b3b; --goodtxt:#006300; --top:#1f7a3f; --s2:#9A5A24; --s3:#c9a227;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#1F1F1F; --surface:#2A2A2A; --ink:#F5F1EA; --ink2:#CFC9BD; --muted:#8F8A80;
+    --grid:rgba(255,255,255,.09); --axis:rgba(255,255,255,.18); --ring:rgba(255,255,255,.10);
+    --copper:#B87333; --coppertxt:#C98545; --goodtxt:#4cbb4c; --crit:#e66767;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#1F1F1F; --surface:#2A2A2A; --ink:#F5F1EA; --ink2:#CFC9BD; --muted:#8F8A80;
+  --grid:rgba(255,255,255,.09); --axis:rgba(255,255,255,.18); --ring:rgba(255,255,255,.10);
+  --copper:#B87333; --coppertxt:#C98545; --goodtxt:#4cbb4c; --crit:#e66767;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.5 'Inter',system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px 64px}
+.topbar{background:#1F1F1F;color:#F5F1EA;font-size:11px;letter-spacing:.08em;padding:9px 32px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar b{color:var(--copper);font-weight:500}
+.topbar a{color:#F5F1EA;text-decoration:none;border-bottom:1px solid var(--copper)}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:22px 0 18px;border-bottom:1px solid var(--ring);margin-bottom:6px}
+.brand{display:flex;align-items:center;gap:14px}
+h1{font-family:'Cinzel','Times New Roman',serif;font-size:21px;margin:0;font-weight:500;letter-spacing:.28em;text-transform:uppercase}
+.sub{display:block;color:var(--coppertxt);font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;margin-top:3px}
+.pill{margin-left:auto;font-size:11px;letter-spacing:.06em;color:var(--ink2);border:1px solid var(--ring);padding:6px 14px;background:var(--surface)}
+.nav{display:flex;gap:4px;overflow-x:auto;padding:9px 0;border-bottom:1px solid var(--ring);position:sticky;top:0;background:color-mix(in srgb,var(--page) 92%,transparent);backdrop-filter:blur(6px);z-index:30}
+.nav a{white-space:nowrap;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);text-decoration:none;padding:7px 13px;border:1px solid var(--ring);border-radius:3px}
+.nav a.act{color:var(--coppertxt);border-color:var(--copper);font-weight:600}
+.nav a:hover{color:var(--coppertxt);border-color:var(--copper)}
+h2{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;color:var(--coppertxt);margin:40px 0 12px;scroll-margin-top:56px}
+h2::after{content:"";display:block;width:56px;height:1px;background:var(--copper);margin-top:8px}
+.card{background:var(--surface);border:1px solid var(--ring);padding:0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--surface);text-align:left;color:var(--muted);font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--axis);padding:10px 8px;white-space:nowrap}
+td{border-bottom:1px solid var(--grid);padding:8px;vertical-align:top}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:hover td{background:color-mix(in srgb,var(--copper) 7%,transparent)}
+.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.05em;border-radius:2px;padding:2px 8px;white-space:nowrap;text-transform:uppercase}
+.st{font-size:11px;color:var(--ink2)}
+td .nt{display:block;font-size:11px;color:var(--muted);max-width:340px}
+.pos{color:var(--coppertxt);font-weight:700}
+.negv{color:var(--crit);font-weight:700}
+.hint{font-size:11px;color:var(--muted);margin:2px 0 10px;line-height:1.6}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:22px}
+.tile{background:var(--surface);border:1px solid var(--ring);padding:18px 20px}
+.tile .lab{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+.tile .val{font-family:'Inter Tight','Inter',sans-serif;font-size:30px;font-weight:600;margin-top:6px;line-height:1.05}
+.tile .det{font-size:12px;color:var(--muted);margin-top:4px}
+.tile .val.good{color:var(--coppertxt)}
+.foot{margin-top:30px;font-size:11px;color:var(--muted);line-height:1.7;border-top:1px solid var(--ring);padding-top:16px}
+#gate{position:fixed;inset:0;background:var(--page);z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+#gate input{background:var(--surface);color:var(--ink);border:1px solid var(--axis);padding:10px 14px;font:inherit;text-align:center;letter-spacing:.2em}
+#gate .glab{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--coppertxt)}
+.actbtn{background:transparent;border:1px solid var(--copper);color:var(--coppertxt);padding:6px 13px;cursor:pointer;font-size:11px;letter-spacing:.08em;margin-left:8px}
+.actbtn:hover{background:color-mix(in srgb,var(--copper) 10%,transparent)}
+.toggle{background:transparent;border:1px solid var(--copper);color:var(--coppertxt);padding:5px 12px;cursor:pointer;font-size:11px;letter-spacing:.1em}
+/* pipeline / bod-tracker */
+.board{display:flex;gap:10px;overflow-x:auto;padding:4px 0 10px}
+.lane{flex:1 0 180px;min-width:180px;background:var(--surface);border:1px solid var(--ring)}
+.lane>.lh{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink2);padding:9px 11px;border-bottom:1px solid var(--axis);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--surface)}
+.lane>.lh .cnt{color:var(--coppertxt);font-variant-numeric:tabular-nums}
+.lane .lb{padding:8px;display:flex;flex-direction:column;gap:7px;min-height:34px;max-height:360px;overflow:auto}
+.pcard{position:relative;border:1px solid var(--ring);border-left:3px solid var(--copper);padding:7px 9px;cursor:pointer;background:var(--page);font-size:12px;line-height:1.35}
+.pcard:hover{background:color-mix(in srgb,var(--copper) 8%,transparent)}
+.pcard b{font-weight:600;display:block;padding-right:24px}
+.pback{position:absolute;top:5px;right:6px;width:22px;height:22px;line-height:20px;text-align:center;border:1px solid var(--ring);border-radius:5px;color:var(--muted);font-size:14px;background:var(--page);cursor:pointer;user-select:none}
+.pback:hover{color:var(--coppertxt);border-color:var(--copper);background:color-mix(in srgb,var(--copper) 12%,transparent)}
+.pcard .pm{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.pcard .pn{color:var(--coppertxt);font-weight:700;font-variant-numeric:tabular-nums}
+.pcard .pdue{color:var(--crit);font-size:11px;font-weight:600;margin-top:2px;display:block}
+.b-ps-bewaard{background:color-mix(in srgb,var(--top) 15%,transparent);color:var(--top)}
+.b-ps-verstuurd{background:color-mix(in srgb,var(--s2) 16%,transparent);color:var(--ink)}
+.b-ps-reactie{background:color-mix(in srgb,var(--s3) 20%,transparent);color:var(--ink)}
+.b-ps-onderhandeling{background:color-mix(in srgb,var(--copper) 22%,transparent);color:var(--ink)}
+.b-ps-gekocht{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--goodtxt)}
+.b-ps-afgehaakt{background:color-mix(in srgb,var(--crit) 14%,transparent);color:var(--crit)}
+.empty{background:var(--surface);border:1px dashed var(--axis);padding:22px;text-align:center;color:var(--muted);font-size:13px;line-height:1.6}
+.b-st-opknappen{background:color-mix(in srgb,var(--s3) 20%,transparent);color:var(--ink)}
+.b-st-te_koop{background:color-mix(in srgb,var(--copper) 20%,transparent);color:var(--ink)}
+.b-st-verkocht{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--goodtxt)}
+/* actie vandaag */
+.actie{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--copper);padding:14px 16px;margin-top:16px}
+.actie .ah{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--coppertxt);font-weight:600;margin-bottom:8px}
+.actie .arow{display:flex;flex-wrap:wrap;gap:8px}
+.actie .achip{display:inline-flex;align-items:center;gap:6px;background:var(--page);border:1px solid var(--ring);padding:6px 10px;font-size:12px;cursor:pointer;text-decoration:none;color:var(--ink)}
+.actie .achip:hover{border-color:var(--copper)}
+.actie .achip b{color:var(--coppertxt)}
+.actie .asub{font-size:11px;color:var(--muted);margin:8px 0 2px}
+/* import-administratie */
+.improw{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--copper);padding:12px 14px;margin-bottom:10px}
+.imphd{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.imphd b{font-size:14px}
+.impprog{font-size:11px;color:var(--coppertxt);font-weight:700;font-variant-numeric:tabular-nums}
+.impbar{height:5px;background:var(--grid);border-radius:3px;margin:8px 0 10px;overflow:hidden}
+.impbar>i{display:block;height:100%;background:var(--copper);border-radius:3px;transition:width .2s}
+.impsteps{display:flex;flex-wrap:wrap;gap:6px}
+.impstep{display:inline-flex;align-items:center;gap:6px;background:var(--page);border:1px solid var(--ring);padding:5px 10px;font-size:12px;cursor:pointer;user-select:none;border-radius:2px}
+.impstep:hover{border-color:var(--copper)}
+.impstep.done{background:color-mix(in srgb,var(--good) 15%,transparent);border-color:color-mix(in srgb,var(--good) 40%,transparent);color:var(--goodtxt)}
+.impstep .ck{width:14px;height:14px;border:1.5px solid var(--axis);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;line-height:1}
+.impstep.done .ck{background:var(--good);border-color:var(--good);color:#fff}
+/* verkoopadvertentie-generator */
+.genform{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;background:var(--surface);border:1px solid var(--ring);padding:16px;margin-bottom:12px}
+.genform .fld{display:flex;flex-direction:column;gap:4px}
+.genform label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.genform input,.genform select,.genform textarea{background:var(--page);color:var(--ink);border:1px solid var(--axis);padding:8px 10px;font:inherit;font-size:13px;border-radius:0}
+.genform textarea{min-height:52px;resize:vertical}
+.genform .full{grid-column:1/-1}
+.genbtn{background:var(--copper);color:#fff;border:0;border-radius:2px;padding:9px 18px;font-size:12px;font-weight:600;letter-spacing:.06em;cursor:pointer}
+.genbtn:hover{background:var(--coppertxt)}
+.pricehint{font-size:12px;color:var(--coppertxt);margin-top:4px}
+.genout{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--copper);padding:16px;white-space:pre-wrap;font-size:13px;line-height:1.55;color:var(--ink2);margin-top:4px}
+.copyad{background:transparent;border:1px solid var(--copper);color:var(--coppertxt);padding:6px 14px;cursor:pointer;font-size:11px;letter-spacing:.08em;margin-top:10px}
+.copyad:hover{background:color-mix(in srgb,var(--copper) 10%,transparent)}
+details.extra{margin-top:14px;border:1px solid var(--ring);background:var(--surface)}
+details.extra>summary{cursor:pointer;padding:12px 14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--coppertxt);font-weight:600;list-style:none}
+details.extra>summary::-webkit-details-marker{display:none}
+details.extra>summary::before{content:"▸ ";color:var(--copper)}
+details.extra[open]>summary::before{content:"▾ "}
+details.extra .inner{padding:0 14px 14px}
+@media(max-width:720px){
+  .wrap{padding:0 12px 40px}
+  .lane{flex:0 0 158px;min-width:158px}
+  .topbar{padding:8px 12px;font-size:9px}
+  h1{font-size:16px;letter-spacing:.2em}
+  .pill{display:none}
+  table{font-size:12px}
+  .tiles{grid-template-columns:1fr 1fr;gap:8px}
+  .tile{padding:12px}
+  .tile .val{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><span>ROLVINK · <b>MIJN ZAKEN</b></span><span>Welsum · rolvinkpremiumcarimports.nl</span></div>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 100 110" width="44" height="48" aria-hidden="true">
+      <path d="M 15 8 L 15 60 Q 15 88 50 102 Q 85 88 85 60 L 85 8 Z" fill="#2A2A2A" stroke="#B87333" stroke-width="1"/>
+      <path d="M 20 13 L 20 58 Q 20 84 50 96 Q 80 84 80 58 L 80 13 Z" fill="none" stroke="#B87333" stroke-width="0.5"/>
+      <text x="50" y="66" fill="#B87333" font-family="Cinzel, 'Times New Roman', serif" font-size="42" font-weight="500" text-anchor="middle">R</text>
+    </svg>
+    <div>
+      <h1>Mijn zaken</h1>
+      <span class="sub">Rolvink Premium Imports · pipeline · voorraad · winst</span>
+    </div>
+  </div>
+  <span class="pill" id="peil"></span>
+  <button class="toggle" id="thBtn" title="licht/donker">◐</button>
+</header>
+<nav class="nav"><a href="/intern/koopjes/">Koopjes</a><a href="/intern/kaart/">Kaart</a><a class="act" href="/intern/zaken/">Mijn zaken</a></nav>
+
+<div class="tiles" id="tiles"></div>
+<div class="actie" id="actie" style="display:none"></div>
+
+<h2 id="s-pipe">Bod-pipeline — koopjes die je bewaard hebt<button class="actbtn" id="copyPipe">kopieer pipeline</button></h2>
+<div class="hint">Elk koopje dat je op de <a href="/intern/koopjes/" style="color:var(--coppertxt)">Koopjes-pagina</a> met <b>❤ Bewaar</b> markeert, komt hier in de eerste baan terecht. <b>Klik een kaart</b> om 'm een stap verder te zetten (Bewaard → Bod verstuurd → Reactie → Onderhandeling → Gekocht), of tik op <b>‹</b> voor een stap terug. Alles wordt op dit apparaat onthouden.</div>
+<div class="board" id="board"></div>
+
+<h2 id="s-voorraad">Voorraad &amp; werkkapitaal</h2>
+<div class="hint">Je gekochte motoren, van opknappen → te koop → verkocht. Hieruit rekent de pagina hoeveel werkkapitaal er vastzit en (na verkoop) je winst. Voer je voorraad in <b>Voorraad.csv</b> in of geef 'm aan mij door; verkochte motoren verschijnen automatisch in het winst-logboek onderaan.</div>
+<div class="tiles" id="cashTiles"></div>
+<div id="voorraadWrap"></div>
+
+<h2 id="s-import">Import-administratie — stappen per gekochte motor<button class="actbtn" id="copyImp">kopieer wijzigingen</button></h2>
+<div class="hint">Per motor in je voorraad een checklist: opgehaald → keuring Zwolle gepland → gekeurd (RDW) → kenteken binnen → prep klaar → te koop. Klik een stap om 'm af te vinken; klik <b>kopieer wijzigingen</b> en stuur me de tekst, dan zet ik het vast.</div>
+<div id="importWrap"></div>
+
+<h2 id="s-winst">Winst-logboek — verkochte motoren vs modelschatting</h2>
+<div class="hint">Elke verkochte motor uit je voorraad komt hier terecht, met je werkelijke netto naast wat het model vooraf schatte. Zo ijk je het marge-model op de realiteit. De cijfers komen uit Voorraad.csv (status = verkocht).</div>
+<div id="winstWrap"></div>
+
+<h2 id="s-extra">Extra's — verkoop-hulpmiddelen</h2>
+<details class="extra" id="exGen"><summary>Verkoopadvertentie-generator</summary><div class="inner"><div class="genform" id="genForm"></div><div id="genOut"></div></div></details>
+<details class="extra" id="exSnel"><summary>Verkoopsnelheid NL — verdwenen advertenties (≈ verkocht)</summary><div class="inner"><div class="hint">Zodra er twee of meer wekelijkse NL-snapshots zijn, verschijnt hier per modelgroep wat er in Nederland verkocht is en hoe snel.</div><div id="snelWrap"></div></div></details>
+
+<div class="foot" id="foot"></div>
+</div>
+
+<script>
+// Toegangscode — zelfde slot als de andere interne pagina's.
+const TOEGANGSCODE = 'welsum';
+if (location.protocol.startsWith('http') && !['localhost','127.0.0.1'].includes(location.hostname)) {
+  let ok = false;
+  try { ok = sessionStorage.getItem('rvk_ok') === '1'; } catch(e) {}
+  if (!ok) {
+    const g = document.createElement('div'); g.id = 'gate';
+    g.innerHTML = '<div class="glab">Rolvink · Intern</div><input type="password" id="gcode" placeholder="toegangscode" autofocus><div class="glab" id="gmsg"></div>';
+    document.body.appendChild(g);
+    g.querySelector('#gcode').addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        if (e.target.value.trim().toLowerCase() === TOEGANGSCODE) {
+          try { sessionStorage.setItem('rvk_ok','1'); } catch(err) {}
+          g.remove();
+        } else { document.getElementById('gmsg').textContent = 'onjuiste code'; }
+      }
+    });
+  }
+}
+const KOOPJES = [{"id": "3459589609", "titel": "BMW R 100 GS Paris Dakar", "groep": "R100GS-PD", "netto": 1675, "regio": "Beieren/Franken", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/-/3459589609-305-6018"}, {"id": "3430316844", "titel": "BMW R100 GS PD Supermoto Look NEU TÜV", "groep": "R100GS-PD", "netto": 425, "regio": "Baden-Wurttemberg-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/-/3430316844-305-6018"}, {"id": "3363381296", "titel": "BMW R100 RS Sondermodell Limitiert", "groep": "R100RS", "netto": 175, "regio": "NRW/Gutersloh (grens)", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/-/3363381296-305-6018"}, {"id": "3459691208", "titel": "BMW R80GS aus Nachlass", "groep": "R80GS", "netto": 0, "regio": "NRW-west (grens)", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/-/3459691208-305-6018"}, {"id": "3456682257", "titel": "BMW R100 RS (1979) Originalzustand", "groep": "R100RS", "netto": -74, "regio": "Berlin", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/-/3456682257-305-6018"}, {"id": "3322737566", "titel": "BMW R100RS Klassiker", "groep": "R100RS", "netto": -375, "regio": "Baden-Wurttemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/-/3322737566-305-6018"}, {"id": "3459032479", "titel": "BMW R80 GS Bobber", "groep": "R80GS", "netto": -605, "regio": "Baden-Wurttemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/-/3459032479-305-6018"}, {"id": "3447806260", "titel": "BMW R80 G/S 1982 (moet deze week weg)", "groep": "R80GS", "netto": -2400, "regio": "NRW/grens Bad Bentheim", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/-/3447806260-305-6018"}, {"id": "3457036519", "titel": "BMW R 100 GS", "groep": "R100GS", "netto": 2435, "regio": "Beieren-noord/Franken", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3457036519-305-6018"}, {"id": "3414782321", "titel": "BMW R 100 GS", "groep": "R100GS", "netto": 2357, "regio": "Hessen/Saarland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3414782321-305-345"}, {"id": "3442223432", "titel": "BMW R 100 GS", "groep": "R100GS", "netto": 2287, "regio": "NRW-west", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3442223432-305-1918"}, {"id": "3438124169", "titel": "BMW R100 GS", "groep": "R100GS", "netto": 2110, "regio": "Nedersaksen/NRW-oost", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100-gs/3438124169-305-3622"}, {"id": "3453830791", "titel": "BMW R 100 GS P/D", "groep": "R100GS-PD", "netto": 2063, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs-p-d/3453830791-305-23696"}, {"id": "3394970087", "titel": "BMW R75/6 met R80/7-motor 1000cc", "groep": "R75/6", "netto": 2058, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r75-6-mit-r80-7-motor-1000ccm-zylinder-eingetragen-1976/3394970087-305-1357"}, {"id": "3449409279", "titel": "BMW K1, keine K100", "groep": "K1", "netto": 2017, "regio": "Nedersaksen/NRW-oost", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-k1-keine-k100/3449409279-305-1762"}, {"id": "3429971225", "titel": "BMW R100GS", "groep": "R100GS", "netto": 1873, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs/3429971225-305-1809"}, {"id": "3418339964", "titel": "BMW R100 GS PD", "groep": "R100GS-PD", "netto": 1862, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100-gs-pd/3418339964-305-9039"}, {"id": "3456229316", "titel": "BMM R 100 GS Paris Dakar", "groep": "R100GS-PD", "netto": 1857, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmm-r-100-gs-paris-dakar/3456229316-305-19654"}, {"id": "3430142950", "titel": "BMW R 100 GS", "groep": "R100GS", "netto": 1820, "regio": "Beieren-noord/Franken", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3430142950-305-5624"}, {"id": "3450532454", "titel": "BMW R100RS 1982", "groep": "R100RS", "netto": 1811, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs-1982/3450532454-305-7075"}, {"id": "3448553005", "titel": "BMW R 100 RS", "groep": "R100RS", "netto": 1811, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-rs/3448553005-305-9043"}, {"id": "3434335339", "titel": "BMW R 100 GS", "groep": "R100GS", "netto": 1790, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3434335339-305-8603"}, {"id": "3420989070", "titel": "BMW R 100GS PD Paris Dakar", "groep": "R100GS-PD", "netto": 1733, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100gs-pd-paris-dakar/3420989070-305-7632"}, {"id": "3398962318", "titel": "BMW R 100 GS", "groep": "R100GS", "netto": 1696, "regio": "NRW-west", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3398962318-305-2137"}, {"id": "3450240594", "titel": "BMW R100GS", "groep": "R100GS", "netto": 1691, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs/3450240594-305-8070"}, {"id": "3456043388", "titel": "BMW R80GS BJ 92", "groep": "R80GS", "netto": 1670, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r80gs-bj-92-/3456043388-305-3005"}, {"id": "3454510730", "titel": "BMW R100GS Paris Dakar", "groep": "R100GS-PD", "netto": 1650, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs-paris-dakar/3454510730-305-1893"}, {"id": "3345671960", "titel": "BMW R 80 Gs", "groep": "R80GS", "netto": 1574, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-gs/3345671960-305-25749"}, {"id": "3411851410", "titel": "BMW K1 in weiß", "groep": "K1", "netto": 1564, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-k-1-in-weiss/3411851410-305-6056"}, {"id": "3449916894", "titel": "BMW R100RS", "groep": "R100RS", "netto": 1559, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs/3449916894-305-3105"}, {"id": "3380566677", "titel": "1991 BMW R100GS", "groep": "R100GS", "netto": 1542, "regio": "Beieren-noord/Franken", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/1991-bmw-r100gs/3380566677-305-5651"}, {"id": "3456079844", "titel": "BMW R 100 GS", "groep": "R100GS", "netto": 2440, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3456079844-305-7262"}, {"id": "3418146194", "titel": "BMW R100 GS PD", "groep": "R100GS-PD", "netto": 1774, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100-gs-pd/3418146194-305-1030"}, {"id": "3449226370", "titel": "BMW R100GS PD", "groep": "R100GS-PD", "netto": 1444, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs-pd/3449226370-305-8119"}, {"id": "3443206929", "titel": "BMW R75/5 Gläser Vollverkleidung", "groep": "R75/5", "netto": 1396, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r75-5-mit-glaeser-vollverkleidung/3443206929-305-19337"}, {"id": "3443933724", "titel": "BMW R 100 GS", "groep": "R100GS", "netto": 1361, "regio": "NRW-west", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3443933724-305-17482"}, {"id": "3307449748", "titel": "Oldtimer BMW R75/5", "groep": "R75/5", "netto": 1313, "regio": "Hessen/Saarland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/oldtimer-bmw-r75-5/3307449748-305-4901"}, {"id": "3403006966", "titel": "BMW R90S Original", "groep": "R90S", "netto": 1294, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r90s-original/3403006966-305-5323"}, {"id": "3457807793", "titel": "BMW R45 Bj 1982", "groep": "R45", "netto": 1274, "regio": "Beieren-noord/Franken", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r45-bj-1982/3457807793-305-6648"}, {"id": "3436469077", "titel": "BMW R80 G/S", "groep": "R80GS", "netto": 1257, "regio": "Nedersaksen/NRW-oost", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r80-g-s/3436469077-305-4416"}, {"id": "3456342811", "titel": "BMW R 100 GS Motorrad Klassiker", "groep": "R100GS", "netto": 1243, "regio": "NRW-west", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs-motorrad-klassiker-fuer-abenteuer/3456342811-305-1756"}, {"id": "3454664962", "titel": "BMW R75/5 schweizer Papiere", "groep": "R75/5", "netto": 1232, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r75-5-schweizer-papiere/3454664962-305-9389"}, {"id": "3455215546", "titel": "BMW R100RS Originalzustand 1.Hand", "groep": "R100RS", "netto": 1137, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs-orginalzustand-1hand-unverbastellt/3455215546-305-6336"}, {"id": "3458751816", "titel": "BMW R75/6 Retro", "groep": "R75/6", "netto": 1065, "regio": "Hessen/Saarland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r75-6-motorrad-retro/3458751816-305-8269"}, {"id": "3411098077", "titel": "BMW R 80 GS Boxer 1000ccm 2V", "groep": "R80GS", "netto": 1037, "regio": "Hessen/Saarland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-gs-boxer-1000-ccm-2-ventiler-91-scrambler-top-gepflegt/3411098077-305-4346"}, {"id": "3366927364", "titel": "BMW R100RS", "groep": "R100RS", "netto": 1022, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs/3366927364-305-20963"}, {"id": "3436695664", "titel": "BMW R 80 GS", "groep": "R80GS", "netto": 996, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-gs/3436695664-305-2020"}, {"id": "3339415094", "titel": "BMW R100GS", "groep": "R100GS", "netto": 954, "regio": "Berlijn/Brandenburg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs/3339415094-305-18650"}, {"id": "3425065896", "titel": "BMW R100 RT", "groep": "R100RT", "netto": 947, "regio": "Hessen/Saarland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100-rt/3425065896-305-7174"}, {"id": "3455173183", "titel": "BMW R100 RS", "groep": "R100RS", "netto": 940, "regio": "Hessen/Saarland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100-rs/3455173183-305-4966"}, {"id": "3432959741", "titel": "BMW R 90 S", "groep": "R90S", "netto": 936, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-90-s/3432959741-305-3285"}, {"id": "3456005648", "titel": "Motorrad BMW K1", "groep": "K1", "netto": 862, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/motorrad-bmw-k1/3456005648-305-17472"}, {"id": "3433448247", "titel": "BMW R 65 Oldtimer", "groep": "R65", "netto": 841, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-65-oldtimer/3433448247-305-7707"}, {"id": "3458208733", "titel": "Motorrad BMW R75/6", "groep": "R75/6", "netto": 817, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/motorrad-bmw-r75-6/3458208733-305-9014"}, {"id": "3457182436", "titel": "BMW R 45 mit Tüv", "groep": "R45", "netto": 808, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-45-mit-tuev/3457182436-305-20"}, {"id": "3456412587", "titel": "Motorrad BMW R 45", "groep": "R45", "netto": 808, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/motorrad-bmw-r-45/3456412587-305-818"}, {"id": "3458549033", "titel": "BMW R90S/100S + div. Teile", "groep": "R90S", "netto": 1887, "regio": "Nedersaksen/NRW-oost", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r90s-100s-div-teile/3458549033-305-3157"}, {"id": "3453969454", "titel": "Motorrad BMW R 45 (248)", "groep": "R45", "netto": 757, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/motorrad-bmw-r-45-248-/3453969454-305-1829"}, {"id": "3386371960", "titel": "BMW K1 Sport Tourer", "groep": "K1", "netto": 736, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-k1-sport-tourer/3386371960-305-19368"}, {"id": "3442938718", "titel": "BMW R100RS", "groep": "R100RS", "netto": 724, "regio": "Hessen/Saarland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs/3442938718-305-944"}, {"id": "3427352337", "titel": "BMW R100 GS Paris Dakar", "groep": "R100GS-PD", "netto": 706, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100-gs-paris-dakar/3427352337-305-5561"}, {"id": "3411971434", "titel": "BMW R100GS (247E) BJ1990", "groep": "R100GS", "netto": 706, "regio": "Nedersaksen/NRW-oost", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs-247e-bj1990-ez-1991/3411971434-305-1646"}, {"id": "3441560944", "titel": "BMW 248 (R65) Oldtimer Koffer TÜV 09/26", "groep": "R65", "netto": 678, "regio": "Beieren-noord/Franken", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-248-r65-oldtimer-koffer-tuev-09-26/3441560944-305-6891"}, {"id": "3176065567", "titel": "BMW R 65 247 TÜV neu", "groep": "R65", "netto": 677, "regio": "Berlijn/Brandenburg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-65-247-tuev-neu/3176065567-305-7779"}, {"id": "3453517322", "titel": "BMW R65 1982 52039km Kofferset", "groep": "R65", "netto": 676, "regio": "Berlijn/Brandenburg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r65-baujahr-1982-52039km-aktuell-abgemeldet-kofferset/3453517322-305-3423"}, {"id": "3440138414", "titel": "BMW R100RT komplett läuft 70pk", "groep": "R100RT", "netto": 649, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100rt-komplett-laeuft-papiere-70ps-7/3440138414-305-8252"}, {"id": "3434166893", "titel": "BMW R 100 RT", "groep": "R100RT", "netto": 618, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-rt/3434166893-305-16433"}, {"id": "3452616626", "titel": "BMW C 650 GT", "groep": "C650GT", "netto": 602, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-c-650-gt/3452616626-305-16235"}, {"id": "3436061139", "titel": "BMW R 80 RT", "groep": "R80RT", "netto": 578, "regio": "Nedersaksen/NRW-oost", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-rt/3436061139-305-2782"}, {"id": "3440920501", "titel": "BMW R 100 RS neu restauriert", "groep": "R100RS", "netto": 551, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-rs-neu-restauriert-und-in-topsustand-/3440920501-305-9274"}, {"id": "3446795774", "titel": "1993er BMW R 80 RT 37KW", "groep": "R80RT", "netto": 536, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/sammlungsaufloesung-schoene-1993-er-bmw-r-80-rt-37kw/3446795774-305-1446"}, {"id": "3458809644", "titel": "BMW R 1200 GS LC", "groep": "R1200GS-LC", "netto": 513, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-1200-gs-lc/3458809644-305-450"}, {"id": "3439656399", "titel": "BMW R45 met TÜV H-fähig", "groep": "R45", "netto": 509, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r45-mit-tuev-h-faehig/3439656399-305-1904"}, {"id": "3455593437", "titel": "BMW C 650 GT Roller Maxi", "groep": "C650GT", "netto": 501, "regio": "Nedersaksen/NRW-oost", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-c-650-gt-roller-maxi-scooter/3455593437-305-7354"}, {"id": "3458418849", "titel": "BMW R65 EZ 1980 TÜV 03.2028", "groep": "R65", "netto": 469, "regio": "Beieren-zuid", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r65-ez-1980-schwarz-tuev-03-2028/3458418849-305-8723"}, {"id": "3445615337", "titel": "BMW R65 + orig. reparatiehandleiding", "groep": "R65", "netto": 469, "regio": "NRW-west", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r65-motorrad-mit-original-reparaturanleitung/3445615337-305-1036"}, {"id": "3452288679", "titel": "BMW R45 Baujahr 79", "groep": "R45", "netto": 436, "regio": "Rijnland", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r45-baujahr-79/3452288679-305-1406"}, {"id": "3457930205", "titel": "BMW R 80 GS (1991) Paralever", "groep": "R80GS", "netto": 1897, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-gs-1991-paralever-perfekte-scrambler-basis-projekt/3457930205-305-20156"}, {"id": "3355933975", "titel": "BMW R80 GS 247E R100 HPN-Spender", "groep": "R80GS", "netto": 1817, "regio": "Beieren-noord/Franken", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r80-gs-247-e-r100-hpn-spender/3355933975-305-7659"}, {"id": "3356073631", "titel": "BMW R100RS läuft, alle papiere", "groep": "R100RS", "netto": 1708, "regio": "NRW-west", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs-laeuft-super-alle-papiere-da-/3356073631-305-1750"}, {"id": "3457177555", "titel": "BMW R 45 247 Scheunenfund", "groep": "R45", "netto": 1293, "regio": "Nedersaksen/NRW-oost", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-45-bmw-247-scheunenfund/3457177555-305-4829"}, {"id": "3432156099", "titel": "BMW R45 stond 20 jaar", "groep": "R45", "netto": 1171, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r45-stand-ueber-20-jahre/3432156099-305-3295"}, {"id": "3373707599", "titel": "BMW R80 RT BJ 1983", "groep": "R80RT", "netto": 584, "regio": "NRW-west", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r80-rt-bj-1983-reparaturbeduerftig/3373707599-305-1171"}, {"id": "3429466369", "titel": "BMW R60/7", "groep": "R60/5-/7", "netto": 373, "regio": "Berlijn/Brandenburg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r60-7/3429466369-305-3492"}, {"id": "3457155861", "titel": "BMW R100 RT Klappscheinwerfer", "groep": "R100RT", "netto": 352, "regio": "Beieren-noord/Franken", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r100-rt-klappscheinwerfer/3457155861-305-7206"}, {"id": "3426394242", "titel": "BMW R 80 RT", "groep": "R80RT", "netto": 272, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-rt/3426394242-305-919"}, {"id": "3452987997", "titel": "BMW R80 RT Bj.1987 Koffer extras", "groep": "R80RT", "netto": 89, "regio": "NRW-west", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r80-rt-bj-1987-oltimer-koffer-viele-extras/3452987997-305-1831"}, {"id": "3382416287", "titel": "BMW R 80 RT", "groep": "R80RT", "netto": 89, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-rt/3382416287-305-588"}, {"id": "3459063061", "titel": "BMW R 1200 GS (LC)", "groep": "R1200GS-LC", "netto": -31, "regio": "Baden-Württemberg", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/verkaufe-bmw-r-1200-gs-lc-/3459063061-305-7663"}, {"id": "3452122689", "titel": "BMW R 100 RS", "groep": "R100RS", "netto": 1964, "regio": "Noord-DE", "plz": "", "link": "https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-rs-motorrag/3452122689-305-3299"}];
+const DATA = {"voorraad": [{"id": "V001", "groep": "R100GS", "titel": "BMW R100GS 1991", "status": "te_koop", "inkoop_datum": "2026-06-20", "verkoop_datum": "", "te_koop_sinds": "2026-07-05", "inkoop": 3400, "kosten": 680, "investering": 4080, "vraagprijs": 6250, "verkoop": null, "schat": 2200, "netto": null, "verschil": null, "door": null, "dagen_voorraad": 26, "dagen_te_koop": 11, "link": "", "notitie": "VOORBEELD — verwijderen zodra je echte voorraad invoert", "stappen": ["opgehaald", "keuring_gepland", "gekeurd", "kenteken", "prep", "te_koop"]}, {"id": "V002", "groep": "R80GS", "titel": "BMW R80GS 1990", "status": "verkocht", "inkoop_datum": "2026-05-15", "verkoop_datum": "2026-06-25", "te_koop_sinds": "2026-05-28", "inkoop": 3600, "kosten": 780, "investering": 4380, "vraagprijs": 6500, "verkoop": 6300, "schat": 1900, "netto": 1920, "verschil": 20, "door": 41, "dagen_voorraad": null, "dagen_te_koop": null, "link": "", "notitie": "VOORBEELD — verwijderen zodra je echte voorraad invoert", "stappen": ["opgehaald", "keuring_gepland", "gekeurd", "kenteken", "prep", "te_koop", "verkocht"]}], "winst": [{"id": "V002", "groep": "R80GS", "titel": "BMW R80GS 1990", "inkoop_datum": "2026-05-15", "verkoop_datum": "2026-06-25", "inkoop": 3600, "verkoop": 6300, "kosten": 780, "netto": 1920, "schat": 1900, "verschil": 20, "door": 41, "notitie": "VOORBEELD — verwijderen zodra je echte voorraad invoert"}], "cashflow": {"aantal_open": 1, "kapitaal_vast": 4080, "gem_investering": 4080, "gem_dagen_voorraad": 26, "verwachte_opbrengst": 6250}, "snelheid": [], "nl": [{"groep": "R100GS-PD", "prijs": 6950}, {"groep": "R100GS-PD", "prijs": 7500}, {"groep": "R80GS", "prijs": 11500}, {"groep": "R80GS", "prijs": 4950}, {"groep": "R100RS", "prijs": 6000}, {"groep": "R100RS", "prijs": 4850}, {"groep": "R100RS", "prijs": 3975}, {"groep": "R100RT", "prijs": 4750}, {"groep": "R100RT", "prijs": 3950}, {"groep": "R100RT", "prijs": 3850}, {"groep": "R80RT", "prijs": 4500}, {"groep": "R80RT", "prijs": 2950}, {"groep": "R80RT", "prijs": 3200}, {"groep": "R80RT", "prijs": 7000}, {"groep": "R80RT", "prijs": 4500}, {"groep": "R75/6", "prijs": 4950}, {"groep": "R75/5", "prijs": 5999}, {"groep": "R75/6", "prijs": 3450}, {"groep": "R75/6", "prijs": 8900}, {"groep": "R75/5", "prijs": 4750}, {"groep": "R75/6", "prijs": 8750}, {"groep": "R75/5", "prijs": 6000}, {"groep": "R65", "prijs": 3500}, {"groep": "R65", "prijs": 1850}, {"groep": "R65", "prijs": 3150}, {"groep": "R65", "prijs": 2950}, {"groep": "R65", "prijs": 3350}, {"groep": "R65", "prijs": 3250}, {"groep": "R65", "prijs": 9999}, {"groep": "R65", "prijs": 3800}, {"groep": "R65", "prijs": 2500}, {"groep": "R45", "prijs": 2950}, {"groep": "R45", "prijs": 4999}, {"groep": "R60/5-/7", "prijs": 3250}, {"groep": "R60/5-/7", "prijs": 4250}, {"groep": "R60/5-/7", "prijs": 2995}, {"groep": "R50/5", "prijs": 6950}, {"groep": "R90S", "prijs": 2875}, {"groep": "K1", "prijs": 6499}, {"groep": "K1", "prijs": 7500}, {"groep": "C650GT", "prijs": 9250}, {"groep": "C650GT", "prijs": 6499}, {"groep": "C650GT", "prijs": 6950}, {"groep": "C650GT", "prijs": 7199}, {"groep": "C650GT", "prijs": 6950}, {"groep": "C650GT", "prijs": 5250}, {"groep": "C650GT", "prijs": 3200}, {"groep": "C650GT", "prijs": 4699}, {"groep": "K1100", "prijs": 14950}, {"groep": "K1100", "prijs": 1399}, {"groep": "K1100", "prijs": 1250}, {"groep": "K1100", "prijs": 3250}, {"groep": "K1100", "prijs": 2000}, {"groep": "K1100", "prijs": 950}, {"groep": "K1100", "prijs": 3950}, {"groep": "K1100", "prijs": 3850}, {"groep": "K1200S", "prijs": 3800}, {"groep": "K1200S", "prijs": 3950}, {"groep": "K1200S", "prijs": 5950}, {"groep": "K1200S", "prijs": 3450}, {"groep": "K1200S", "prijs": 3250}, {"groep": "K1200S", "prijs": 4750}, {"groep": "K1200S", "prijs": 3990}, {"groep": "K1200S", "prijs": 4495}, {"groep": "K1300S", "prijs": 7290}, {"groep": "K1300S", "prijs": 5500}, {"groep": "K1300S", "prijs": 6900}, {"groep": "K1300S", "prijs": 7990}, {"groep": "K1300S", "prijs": 6450}, {"groep": "K1300S", "prijs": 6900}, {"groep": "K1300S", "prijs": 8995}, {"groep": "R1100R", "prijs": 3000}, {"groep": "R1100R", "prijs": 1995}, {"groep": "R1100R", "prijs": 1200}, {"groep": "R1100R", "prijs": 1100}, {"groep": "R1100R", "prijs": 2250}, {"groep": "R1100R", "prijs": 3000}, {"groep": "R1100R", "prijs": 1750}, {"groep": "R1100R", "prijs": 1100}, {"groep": "R1150RT", "prijs": 2675}, {"groep": "R1150RT", "prijs": 1450}, {"groep": "R1150RT", "prijs": 2495}, {"groep": "R1150RT", "prijs": 2995}, {"groep": "R1150RT", "prijs": 2095}, {"groep": "R1150RT", "prijs": 1950}, {"groep": "R1150RT", "prijs": 2800}, {"groep": "R1150RT", "prijs": 2450}, {"groep": "F800ST", "prijs": 3950}, {"groep": "F800ST", "prijs": 3200}, {"groep": "F800ST", "prijs": 4725}, {"groep": "F800ST", "prijs": 5432}, {"groep": "F800ST", "prijs": 4399}, {"groep": "F800ST", "prijs": 3599}, {"groep": "F800ST", "prijs": 1800}, {"groep": "F800ST", "prijs": 3999}, {"groep": "R1200GS", "prijs": 10500}, {"groep": "R1200GS", "prijs": 3750}, {"groep": "R1200GS-ADV", "prijs": 4750}, {"groep": "R1200GS-ADV", "prijs": 6000}, {"groep": "R1200GS", "prijs": 7500}, {"groep": "R1200GS-LC", "prijs": 13750}, {"groep": "R1200GS-LC", "prijs": 13988}, {"groep": "R1200RT", "prijs": 3750}, {"groep": "R1200RT", "prijs": 9750}, {"groep": "R1200RT", "prijs": 5300}, {"groep": "R1200RT", "prijs": 3850}, {"groep": "R1200RT", "prijs": 6500}, {"groep": "R1200RT", "prijs": 5200}, {"groep": "R1200RT", "prijs": 3150}, {"groep": "R1200RT", "prijs": 3000}, {"groep": "R1200C", "prijs": 4950}, {"groep": "R1200C", "prijs": 4250}, {"groep": "R1200C", "prijs": 3750}, {"groep": "R1200C", "prijs": 5750}, {"groep": "R1200C", "prijs": 5250}, {"groep": "R1200C", "prijs": 6490}, {"groep": "R1200C", "prijs": 3950}, {"groep": "R1200C", "prijs": 4450}], "gen": "2026-07-16"};
+const eur = v => v==null?'—':'€ '+Math.round(v).toLocaleString('nl-NL');
+const nf = v => v==null?'—':v.toLocaleString('nl-NL');
+const $ = id => document.getElementById(id);
+const esc = s => String(s==null?'':s).replace(/[<&>]/g,c=>({'<':'&lt;','&':'&amp;','>':'&gt;'}[c]));
+$('peil').textContent = 'Stand: '+DATA.gen;
+$('thBtn').onclick = () => {
+  const r=document.documentElement, cur=r.getAttribute('data-theme');
+  const dark = cur? cur==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  r.setAttribute('data-theme', dark?'light':'dark');
+};
+function vandaagISO(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function dagenSinds(iso){ if(!iso) return null; const d=new Date(iso+'T00:00:00'); if(isNaN(d)) return null; return Math.floor((Date.now()-d.getTime())/86400000); }
+
+// ---- pipeline: gevoed door 'bewaard' koopjes uit de Koopjes-pagina ----
+const KKEY='rolvink_koopjes_status';   // {id:'bewaard'|'genegeerd'}
+const PKEY='rolvink_pipeline';         // {id:{status,datum}}
+const PIPE=['bewaard','verstuurd','reactie','onderhandeling','gekocht','afgehaakt'];
+const PIPE_LABEL={bewaard:'Bewaard',verstuurd:'Bod verstuurd',reactie:'Reactie',onderhandeling:'Onderhandeling',gekocht:'Gekocht',afgehaakt:'Afgehaakt'};
+const OPVOLG=['verstuurd','reactie','onderhandeling'], OPVOLG_DAGEN=3;
+const KBYID={}; KOOPJES.forEach(k=>KBYID[k.id]=k);
+function loadJSON(k){try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}}
+function saveJSON(k,o){try{localStorage.setItem(k,JSON.stringify(o))}catch(e){}}
+const psBadge = s => `<span class="badge b-ps-${PIPE.includes(s)?s:'bewaard'}">${PIPE_LABEL[s]||s||'bewaard'}</span>`;
+function pipelineItems(){
+  const ks=loadJSON(KKEY), ps=loadJSON(PKEY), ids=new Set();
+  Object.keys(ks).forEach(id=>{ if(ks[id]==='bewaard') ids.add(id); });
+  Object.keys(ps).forEach(id=>ids.add(id));
+  const items=[];
+  ids.forEach(id=>{
+    const k=KBYID[id]; if(!k) return;
+    const p=ps[id]||{};
+    items.push({k,id,status:p.status||'bewaard',datum:p.datum||null});
+  });
+  return items;
+}
+function setStatus(id,status){
+  const ps=loadJSON(PKEY);
+  ps[id]={status,datum:(status==='bewaard')?null:vandaagISO()};
+  saveJSON(PKEY,ps);
+}
+function cyclePipe(id,dir){
+  dir=dir||1;
+  const it=pipelineItems().find(x=>x.id===id); if(!it) return;
+  let idx=PIPE.indexOf(it.status); if(idx<0) idx=0;
+  let ni;
+  if(dir>0){ ni=(idx+1)%PIPE.length; }
+  else { ni=idx-1; if(ni<0) return; }
+  setStatus(id,PIPE[ni]);
+  renderBoard(); renderActie(); renderTiles();
+}
+function renderBoard(){
+  const board=$('board'); board.innerHTML='';
+  const items=pipelineItems();
+  if(!items.length){
+    board.innerHTML=`<div class="empty" style="flex:1">Nog geen koopjes bewaard. Ga naar <a href="/intern/koopjes/" style="color:var(--coppertxt)">Koopjes</a> en klik <b>❤ Bewaar</b> bij een koopje dat je wilt benaderen — dan verschijnt het hier in je pipeline en kun je 'm door de biedfases klikken.</div>`;
+    return;
+  }
+  PIPE.forEach(st=>{
+    const its=items.filter(o=>o.status===st);
+    const lane=document.createElement('div'); lane.className='lane';
+    lane.innerHTML=`<div class="lh"><span>${PIPE_LABEL[st]}</span><span class="cnt">${its.length}</span></div>`;
+    const lb=document.createElement('div'); lb.className='lb';
+    if(!its.length) lb.innerHTML='<div style="color:var(--muted);font-size:11px;padding:4px 2px">—</div>';
+    its.forEach(o=>{
+      const c=document.createElement('div'); c.className='pcard';
+      const dg=dagenSinds(o.datum);
+      const dueTxt=(OPVOLG.includes(o.status)&&dg!=null)?(dg>=OPVOLG_DAGEN?`<span class="pdue">⏰ ${dg} dg — opvolgen</span>`:`<span class="pm">${dg} dg geleden</span>`):'';
+      const backBtn=(o.status!=='bewaard')?`<span class="pback" title="één stap terug">‹</span>`:'';
+      c.innerHTML=`<b>${esc(o.k.titel)}</b>${backBtn}<span class="pm">${esc(o.k.groep)} · ${esc(o.k.regio||o.k.plz||'')} · <span class="pn">${eur(o.k.netto)}</span></span>${dueTxt}`;
+      c.title='klik = status één stap verder · ‹ = terug';
+      c.onclick=()=>cyclePipe(o.id,1);
+      const bb=c.querySelector('.pback');
+      if(bb) bb.onclick=(e)=>{e.stopPropagation();cyclePipe(o.id,-1);};
+      lb.appendChild(c);
+    });
+    lane.appendChild(lb); board.appendChild(lane);
+  });
+}
+$('copyPipe').onclick=()=>{
+  const btn=$('copyPipe');
+  const act=pipelineItems().filter(o=>o.status!=='bewaard');
+  if(!act.length){ btn.textContent='geen lopende biedingen'; setTimeout(()=>btn.textContent='kopieer pipeline',1600); return; }
+  const order={verstuurd:1,reactie:2,onderhandeling:3,gekocht:4,afgehaakt:5};
+  act.sort((a,b)=>(order[a.status]||9)-(order[b.status]||9));
+  const txt='Pipeline-stand '+vandaagISO()+':\n'+act.map(o=>`- ${o.k.titel} (${o.k.groep}, ${o.k.regio||o.k.plz||''}): ${PIPE_LABEL[o.status]}${o.datum?' ['+o.datum+']':''} · netto ${eur(o.k.netto)}\n  ${o.k.link}`).join('\n');
+  navigator.clipboard.writeText(txt).then(()=>{ btn.textContent='gekopieerd ✓'; setTimeout(()=>btn.textContent='kopieer pipeline',1600); });
+};
+
+// ---- KPI-tegels ----
+function renderTiles(){
+  const items=pipelineItems();
+  const lopend=items.filter(o=>OPVOLG.includes(o.status)).length;
+  const bewaard=items.filter(o=>o.status==='bewaard').length;
+  const gekocht=items.filter(o=>o.status==='gekocht').length;
+  const c=DATA.cashflow||{};
+  const winstTot=(DATA.winst||[]).map(d=>d.netto).filter(v=>v!=null).reduce((a,b)=>a+b,0);
+  $('tiles').innerHTML=`
+   <div class="tile"><div class="lab">In pipeline</div><div class="val">${lopend}</div><div class="det">${bewaard} bewaard · ${gekocht} gekocht</div></div>
+   <div class="tile"><div class="lab">Geld vast in voorraad</div><div class="val">${eur(c.kapitaal_vast)}</div><div class="det">${c.aantal_open||0} motor${c.aantal_open===1?'':'en'} in bezit</div></div>
+   <div class="tile"><div class="lab">Verwachte opbrengst</div><div class="val good">${eur(c.verwachte_opbrengst)}</div><div class="det">som van de vraagprijzen</div></div>
+   <div class="tile"><div class="lab">Winst tot nu toe</div><div class="val good">${eur(winstTot)}</div><div class="det">${(DATA.winst||[]).length} afgeronde deal${(DATA.winst||[]).length===1?'':'s'}</div></div>`;
+}
+
+// ---- actie vandaag ----
+function renderActie(){
+  const el=$('actie');
+  const items=pipelineItems();
+  const bewaard=items.filter(o=>o.status==='bewaard').sort((a,b)=>(b.k.netto||0)-(a.k.netto||0)).slice(0,6);
+  const lopend=items.filter(o=>OPVOLG.includes(o.status)).map(o=>({o,dg:dagenSinds(o.datum)}))
+    .sort((a,b)=>(b.dg==null?-1:b.dg)-(a.dg==null?-1:a.dg));
+  const overdue=lopend.filter(x=>x.dg!=null&&x.dg>=OPVOLG_DAGEN);
+  if(!bewaard.length&&!lopend.length){ el.style.display='none'; return; }
+  let h='<div class="ah">Actie vandaag</div>';
+  if(overdue.length){
+    h+=`<div class="asub">⏰ ${overdue.length} bod${overdue.length===1?'':'en'} ${OPVOLG_DAGEN}+ dagen zonder actie — opvolgen:</div><div class="arow">`;
+    h+=overdue.map(x=>`<a class="achip" href="${x.o.k.link}" target="_blank" rel="noopener" title="open advertentie">${esc(x.o.k.titel)} · <b style="color:var(--crit)">${x.dg} dg</b> · ${psBadge(x.o.status)}</a>`).join('');
+    h+='</div>';
+  }
+  if(bewaard.length){
+    h+=`<div class="asub">${bewaard.length} bewaard koopje${bewaard.length===1?'':'s'} om te benaderen — hoogste netto eerst:</div><div class="arow">`;
+    h+=bewaard.map(o=>`<a class="achip" href="${o.k.link}" target="_blank" rel="noopener" title="open advertentie op Kleinanzeigen">${esc(o.k.titel)}${o.k.regio?` · <span style="color:var(--muted)">${esc(o.k.regio)}</span>`:''} · <b>${eur(o.k.netto)}</b></a>`).join('');
+    h+='</div>';
+  }
+  const rest=lopend.filter(x=>!(x.dg!=null&&x.dg>=OPVOLG_DAGEN));
+  if(rest.length){
+    h+=`<div class="asub">${rest.length} lopend${rest.length===1?'':'e'} bod${rest.length===1?'':'en'}:</div><div class="arow">`;
+    h+=rest.map(x=>`<a class="achip" href="${x.o.k.link}" target="_blank" rel="noopener">${esc(x.o.k.titel)} · ${psBadge(x.o.status)}${x.dg!=null?` · ${x.dg} dg`:''}</a>`).join('');
+    h+='</div>';
+  }
+  el.innerHTML=h; el.style.display='';
+}
+
+// ---- voorraad & cashflow ----
+const statusBadge2 = s => `<span class="badge b-st-${s||'opknappen'}">${(s||'opknappen').replace('_',' ')}</span>`;
+function renderCashVoorraad(){
+  const c=DATA.cashflow||{};
+  $('cashTiles').innerHTML=`
+    <div class="tile"><div class="lab">Geld vast in voorraad</div><div class="val">${eur(c.kapitaal_vast)}</div><div class="det">${c.aantal_open||0} motor${c.aantal_open===1?'':'en'} in bezit</div></div>
+    <div class="tile"><div class="lab">Verwachte opbrengst</div><div class="val good">${eur(c.verwachte_opbrengst)}</div><div class="det">som van de vraagprijzen</div></div>
+    <div class="tile"><div class="lab">Verwachte brutomarge</div><div class="val">${(c.verwachte_opbrengst!=null&&c.kapitaal_vast!=null)?eur(c.verwachte_opbrengst-c.kapitaal_vast):'—'}</div><div class="det">opbrengst − investering</div></div>
+    <div class="tile"><div class="lab">Gem. dagen in voorraad</div><div class="val">${c.gem_dagen_voorraad==null?'—':c.gem_dagen_voorraad+' d'}</div><div class="det">open motoren</div></div>`;
+  const w=$('voorraadWrap');
+  if(!DATA.voorraad.length){ w.innerHTML=`<div class="empty">Nog geen voorraad ingevoerd. Zodra je een motor koopt, voeg je die toe in Voorraad.csv (of geef door) — dan zie je hier je werkkapitaal en, na verkoop, je winst.</div>`; return; }
+  w.innerHTML=`<div class="card" style="overflow:auto"><table><thead><tr>
+    <th>Motor</th><th>Groep</th><th>Status</th><th class="num">Investering</th><th class="num">Vraag / verkoop</th><th class="num">Marge</th><th class="num">Dagen</th></tr></thead>
+    <tbody>${DATA.voorraad.map(v=>{
+      const marge=(v.status!=='verkocht'&&v.vraagprijs!=null&&v.investering!=null)?(v.vraagprijs-v.investering):v.netto;
+      return `<tr>
+      <td><b>${esc(v.titel||'—')}</b>${v.notitie?`<span class="nt">${esc(v.notitie)}</span>`:''}</td>
+      <td>${esc(v.groep||'—')}</td>
+      <td>${statusBadge2(v.status)}</td>
+      <td class="num">${eur(v.investering)}</td>
+      <td class="num">${v.status==='verkocht'?eur(v.verkoop):eur(v.vraagprijs)}</td>
+      <td class="num ${marge>=0?'pos':'negv'}">${eur(marge)}</td>
+      <td class="num">${v.status==='verkocht'?(v.door==null?'—':v.door+' ✓'):(v.dagen_voorraad==null?'—':v.dagen_voorraad)}</td></tr>`;}).join('')}</tbody></table></div>`;
+}
+
+// ---- import-administratie ----
+const IMP_STEPS=[['opgehaald','Opgehaald'],['keuring_gepland','Keuring Zwolle gepland'],['gekeurd','Gekeurd (RDW)'],['kenteken','Kenteken binnen'],['prep','Prep klaar'],['te_koop','Te koop']];
+const impOrig={};
+function renderImport(){
+  const w=$('importWrap');
+  if(!DATA.voorraad.length){ w.innerHTML='<div class="empty">Nog geen voorraad — zodra je een motor koopt, verschijnt hier de importchecklist (opgehaald → keuring Zwolle → gekeurd → kenteken → prep → te koop).</div>'; return; }
+  if(!Object.keys(impOrig).length) DATA.voorraad.forEach(v=>{impOrig[v.id]=(v.stappen||[]).slice();});
+  w.innerHTML=DATA.voorraad.map(v=>{
+    const done=new Set(v.stappen||[]);
+    const n=IMP_STEPS.filter(s=>done.has(s[0])).length, pct=Math.round(n/IMP_STEPS.length*100);
+    return `<div class="improw">
+      <div class="imphd"><b>${esc(v.titel||v.id)}</b> <span class="impprog">${n}/${IMP_STEPS.length} stappen${v.status==='verkocht'?' · verkocht ✓':''}</span></div>
+      <div class="impbar"><i style="width:${pct}%"></i></div>
+      <div class="impsteps">${IMP_STEPS.map(s=>`<span class="impstep${done.has(s[0])?' done':''}" data-id="${v.id}" data-step="${s[0]}"><span class="ck">${done.has(s[0])?'✓':''}</span>${s[1]}</span>`).join('')}</div>
+    </div>`;
+  }).join('');
+  w.querySelectorAll('.impstep').forEach(el=>el.onclick=()=>{
+    const v=DATA.voorraad.find(x=>x.id===el.dataset.id); if(!v)return;
+    v.stappen=v.stappen||[]; const s=el.dataset.step, idx=v.stappen.indexOf(s);
+    if(idx>=0)v.stappen.splice(idx,1);else v.stappen.push(s);
+    renderImport();
+  });
+}
+$('copyImp').onclick=()=>{
+  const btn=$('copyImp'), lbl=Object.fromEntries(IMP_STEPS);
+  const ch=DATA.voorraad.filter(v=>JSON.stringify((v.stappen||[]).slice().sort())!==JSON.stringify((impOrig[v.id]||[]).slice().sort()));
+  if(!ch.length){ btn.textContent='geen wijzigingen'; setTimeout(()=>btn.textContent='kopieer wijzigingen',1500); return; }
+  const txt='Import-stappen wijzigingen '+DATA.gen+':\n'+ch.map(v=>`- ${v.titel||v.id} (${v.id}): ${(v.stappen||[]).map(s=>lbl[s]||s).join(', ')||'(geen)'}`).join('\n');
+  navigator.clipboard.writeText(txt).then(()=>{ btn.textContent='gekopieerd ✓'; setTimeout(()=>btn.textContent='kopieer wijzigingen',1600); });
+};
+
+// ---- winst-logboek ----
+function renderWinst(){
+  const w=$('winstWrap');
+  if(!DATA.winst.length){
+    w.innerHTML='<div class="empty">Nog geen verkochte motoren in je voorraad. Zodra je er een verkoopt (status = verkocht in Voorraad.csv), verschijnt hier je werkelijke marge naast wat het model vooraf schatte.</div>';
+    return;
+  }
+  const nettos=DATA.winst.map(d=>d.netto).filter(v=>v!=null);
+  const totw=nettos.reduce((a,b)=>a+b,0);
+  const gemw=nettos.length?Math.round(totw/nettos.length):null;
+  const doors=DATA.winst.map(d=>d.door).filter(v=>v!=null);
+  const gemd=doors.length?Math.round(doors.reduce((a,b)=>a+b,0)/doors.length):null;
+  const vers=DATA.winst.map(d=>d.verschil).filter(v=>v!=null);
+  const gemv=vers.length?Math.round(vers.reduce((a,b)=>a+b,0)/vers.length):null;
+  w.innerHTML=`<div class="tiles" style="margin-top:6px">
+    <div class="tile"><div class="lab">Afgeronde deals</div><div class="val">${DATA.winst.length}</div></div>
+    <div class="tile"><div class="lab">Totale winst</div><div class="val good">${eur(totw)}</div><div class="det">gem. ${eur(gemw)} per deal</div></div>
+    <div class="tile"><div class="lab">Gem. doorlooptijd</div><div class="val">${gemd==null?'—':gemd+' d'}</div><div class="det">inkoop → verkoop</div></div>
+    <div class="tile"><div class="lab">Model vs werkelijk</div><div class="val" style="font-size:24px">${gemv==null?'—':(gemv>0?'+':'')+eur(gemv)}</div><div class="det">gem. werkelijk − schatting</div></div>
+  </div>
+  <div class="card" style="margin-top:14px;overflow:auto"><table><thead><tr>
+    <th>Motor</th><th>Groep</th><th class="num">Inkoop</th><th class="num">Kosten</th><th class="num">Verkoop</th><th class="num">Netto werkelijk</th><th class="num">Model schatte</th><th class="num">Verschil</th><th class="num">Doorlooptijd</th></tr></thead>
+    <tbody>${DATA.winst.map(d=>`<tr>
+      <td><b>${esc(d.titel||'—')}</b>${d.notitie?`<span class="nt">${esc(d.notitie)}</span>`:''}${(d.inkoop_datum||d.verkoop_datum)?`<span class="nt">${d.inkoop_datum||'?'} → ${d.verkoop_datum||'?'}</span>`:''}</td>
+      <td>${esc(d.groep||'—')}</td>
+      <td class="num">${eur(d.inkoop)}</td>
+      <td class="num">${eur(d.kosten)}</td>
+      <td class="num">${eur(d.verkoop)}</td>
+      <td class="num ${d.netto>=0?'pos':'negv'}">${eur(d.netto)}</td>
+      <td class="num">${eur(d.schat)}</td>
+      <td class="num ${d.verschil>=0?'pos':'negv'}">${d.verschil==null?'—':(d.verschil>0?'+':'')+eur(d.verschil)}</td>
+      <td class="num">${d.door==null?'—':d.door+' d'}</td></tr>`).join('')}</tbody></table></div>`;
+}
+
+// ---- verkoopsnelheid ----
+function renderSnel(){
+  const w=$('snelWrap');
+  if(!DATA.snelheid.length){
+    w.innerHTML='<div class="empty">Nog geen verdwenen advertenties — dit heeft minstens twee wekelijkse snapshots nodig. Na de tweede sweep verschijnt hier per modelgroep wat er in NL verkocht is en hoe snel.</div>';
+    return;
+  }
+  w.innerHTML=`<div class="card"><table><thead><tr>
+    <th>Modelgroep</th><th class="num">Verkocht (verdwenen)</th><th class="num">Gem. vraagprijs</th><th class="num">Gem. dagen online</th></tr></thead>
+    <tbody>${DATA.snelheid.map(s=>`<tr><td><b>${esc(s.groep)}</b></td><td class="num">${s.aantal}</td><td class="num">${eur(s.gem_prijs)}</td><td class="num">${s.gem_dagen==null?'—':s.gem_dagen}</td></tr>`).join('')}</tbody></table></div>`;
+}
+
+// ---- verkoopadvertentie-generator ----
+function nlMediaan(groep){
+  const pr=(DATA.nl||[]).filter(r=>r.groep===groep&&r.prijs!=null).map(r=>r.prijs).sort((a,b)=>a-b);
+  if(!pr.length) return null;
+  const m=Math.floor(pr.length/2);
+  return pr.length%2?pr[m]:Math.round((pr[m-1]+pr[m])/2);
+}
+const GROEPEN=[...new Set(KOOPJES.map(k=>k.groep).concat((DATA.nl||[]).map(k=>k.groep)).concat((DATA.voorraad||[]).map(v=>v.groep)).filter(Boolean))].sort();
+function renderGen(){
+  $('genForm').innerHTML=`
+   <div class="fld"><label>Modelgroep</label><select id="gGroep">${GROEPEN.map(g=>`<option>${esc(g)}</option>`).join('')}</select><div class="pricehint" id="gHint"></div></div>
+   <div class="fld"><label>Bouwjaar</label><input id="gJaar" placeholder="bijv. 1991"></div>
+   <div class="fld"><label>Kilometerstand</label><input id="gKm" placeholder="bijv. 68.000"></div>
+   <div class="fld"><label>Kleur</label><input id="gKleur" placeholder="bijv. zwart"></div>
+   <div class="fld"><label>Staat</label><select id="gStaat"><option>uitstekend</option><option selected>goed</option><option>net</option><option>projectstaat</option></select></div>
+   <div class="fld"><label>Vraagprijs (€)</label><input id="gPrijs" placeholder="bijv. 6250"></div>
+   <div class="fld full"><label>Pluspunten (één per regel)</label><textarea id="gUsp" placeholder="onverbasterd origineel&#10;nieuwe banden + accu&#10;recent onderhoud&#10;Duitse historie aanwezig"></textarea></div>
+   <div class="fld full"><button class="genbtn" id="gBtn">genereer advertentie</button></div>`;
+  const hint=()=>{const m=nlMediaan($('gGroep').value); $('gHint').textContent=m?('NL-mediaan: '+eur(m)):'geen NL-data voor deze groep';};
+  $('gGroep').onchange=hint; hint();
+  $('gBtn').onclick=genAd;
+}
+function genAd(){
+  const g=$('gGroep').value, j=$('gJaar').value.trim(), km=$('gKm').value.trim(), kl=$('gKleur').value.trim(),
+    st=$('gStaat').value, pr=$('gPrijs').value.trim();
+  const usp=$('gUsp').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  const titel=`BMW ${g}${j?' '+j:''} — ${st==='projectstaat'?'project':st+'e staat'}, geïmporteerd & nagekeken`;
+  const specs=[j&&`Bouwjaar: ${j}`, km&&`Kilometerstand: ${km} km`, kl&&`Kleur: ${kl}`, `Staat: ${st}`].filter(Boolean);
+  const body=[
+    titel,'',
+    `Te koop bij Rolvink Premium Imports: een mooie BMW ${g}${j?' uit '+j:''}, zorgvuldig geselecteerd en geïmporteerd uit Duitsland.`,
+    '', specs.join('\n'),
+    usp.length?('\nPluspunten:\n'+usp.map(u=>'• '+u).join('\n')):'',
+    `\nDeze motor is technisch nagekeken en wordt geleverd klaar voor Nederlands kenteken (RDW-inschrijving en BPM verzorgd). ${st==='projectstaat'?'Eerlijk omschreven projectstaat.':'In nette, rijklare staat.'}`,
+    pr?`\nVraagprijs: € ${pr}.`:'',
+    `\nInteresse, meer foto's of een bezichtiging? Neem gerust contact op.`,
+    `\n— Rolvink Premium Imports · Welsum · rolvinkpremiumcarimports.nl`
+  ].filter(x=>x!=='').join('\n');
+  $('genOut').innerHTML=`<div class="genout" id="adTxt"></div><button class="copyad" id="adCopy">kopieer advertentie</button>`;
+  $('adTxt').textContent=body;
+  $('adCopy').onclick=function(){navigator.clipboard.writeText($('adTxt').textContent).then(()=>{this.textContent='gekopieerd ✓';setTimeout(()=>this.textContent='kopieer advertentie',1600)})};
+}
+
+$('foot').innerHTML=`<b>Mijn zaken</b> bundelt alles ná de koop-beslissing: de <b>bod-pipeline</b> (gevoed door wat je op Koopjes bewaart), je <b>voorraad &amp; werkkapitaal</b>, de <b>import-administratie</b> en het <b>winst-logboek</b>.<br>
+Pipeline- en importstatus worden op dít apparaat onthouden (localStorage). Voorraad en winst komen uit Voorraad.csv; verkochte motoren (status = verkocht) schuiven automatisch door naar het winst-logboek.<br>
+Bronnen: Kleinanzeigen.de &amp; Marktplaats.nl · vraagprijzen, geen gerealiseerde prijzen · zie ook <a href="/intern/koopjes/">Koopjes</a> en <a href="/intern/kaart/">Kaart</a>.`;
+
+renderTiles(); renderBoard(); renderActie(); renderCashVoorraad(); renderImport(); renderWinst(); renderSnel(); renderGen();
+// pipeline weerspiegelt keuzes op de Koopjes-pagina — herlaad bij terugkeer naar dit tabblad
+window.addEventListener('storage',e=>{ if(e.key===KKEY||e.key===PKEY){ renderTiles(); renderBoard(); renderActie(); } });
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden){ renderTiles(); renderBoard(); renderActie(); } });
+</script>
+</body>
+</html>
