@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorByline from '../../components/AuthorByline.astro';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Kennisbank', url: '/kennisbank' }, { name: 'BMW R 80 GS kopen & importeren' }];
+const publishedDate = '2026-07-16'; const updatedDate = '2026-07-16';
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'BMW R 80 GS kopen & importeren uit Duitsland (2026)', description: 'De lichtere zuster van de R 100 GS: varianten (G/S, GS, GS Basic), zwakke punten, checklist voor bod, Nederlandse prijzen en waarom Duitsland het ruimste aanbod heeft. BPM nihil.', datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Person', name: 'Theo Rolvink', url: 'https://www.rolvinkpremiumcarimports.nl/over/' }, publisher: { '@type': 'Organization', name: 'Rolvink Premium Imports', logo: { '@type': 'ImageObject', url: 'https://www.rolvinkpremiumcarimports.nl/favicon.svg' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.rolvinkpremiumcarimports.nl/kennisbank/bmw-r80gs-importeren/' }, image: 'https://www.rolvinkpremiumcarimports.nl/og-image.jpg' };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'Wat kost een goede BMW R 80 GS in Nederland?', acceptedAnswer: { '@type': 'Answer', text: 'Een net, rijklaar exemplaar met historie ligt in Nederland indicatief rond de €3.500 tot €5.000. Boven de €5.000 blijven R 80 GS-en doorgaans lang staan — dat is in de praktijk het plafond. De originele R 80 G/S (1980-1987) is een ander verhaal: die heeft verzamelaarsstatus en zit duidelijk hoger. Prijzen indicatief, juli 2026.' } },
+  { '@type': 'Question', name: 'Wat is het verschil tussen de R 80 G/S en de R 80 GS?', acceptedAnswer: { '@type': 'Answer', text: 'De R 80 G/S (1980-1987, met schuine streep) is de originele oer-GS met Monolever-achterbrug — het model dat het adventure-segment uitvond en inmiddels verzamelaarswaarde heeft. De R 80 GS (1987-1996, zonder streep) is de modernere opvolger met Paralever-achterbrug en cross-spaak velgen, technisch vrijwel gelijk aan de R 100 GS. Voor rijden is de latere GS de praktischere keuze; voor verzamelen de G/S.' } },
+  { '@type': 'Question', name: 'Betaal ik BPM als ik een R 80 GS importeer?', acceptedAnswer: { '@type': 'Answer', text: 'Nee. Elke R 80 GS is ruim ouder dan 25 jaar; op die leeftijd is de motor-BPM nihil. Bij invoer uit Duitsland (EU) betaal je geen invoerrechten of BTW voor een gebruikte motor — alleen de RDW-keuring en kentekenregistratie blijven over.' } },
+  { '@type': 'Question', name: 'Is de R 80 GS een goed alternatief voor de R 100 GS?', acceptedAnswer: { '@type': 'Answer', text: 'Ja, voor veel rijders zelfs de fijnere keuze: hetzelfde Paralever-onderstel en dezelfde onverwoestbare airhead-basis, maar met het lichter aanvoelende 800cc-blok en een lagere instapprijs. De R 100 GS heeft meer koppel en de Paris-Dakar-mystiek; de R 80 GS biedt dezelfde ervaring voor minder geld.' } } ] };
+---
+<BaseLayout title="BMW R 80 GS kopen & importeren uit Duitsland 2026 | Rolvink" description="De lichtere zuster van de R 100 GS: varianten (G/S, GS, GS Basic), zwakke punten, checklist voor bod, Nederlandse prijzen en waarom Duitsland het ruimste aanbod heeft. BPM nihil op deze leeftijd.">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <article class="cornerstone-page"><div class="container">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="article-header">
+      <div class="section-eyebrow">Motor-modelgids</div>
+      <h1>BMW R 80 GS — <span class="accent">kopen &amp; importeren</span>.</h1>
+      <p class="lead">Dezelfde onverwoestbare airhead-basis en hetzelfde Paralever-onderstel als de R 100 GS, maar lichter aanvoelend en met een vriendelijkere instapprijs. In Nederland is het aanbod dun; in Duitsland ligt de vijver. Dit is waar je op let, wat het kost en hoe de import werkt.</p>
+      <div class="article-meta"><span>Gepubliceerd: 16 juli 2026</span><span>·</span><span>Leestijd: ongeveer 7 minuten</span></div>
+    </header>
+    <AuthorByline variant="top" />
+    <div class="disclaimer"><strong>Modelinformatie is observatie, geen technisch advies.</strong> Samengesteld uit openbare bronnen (airhead-specialisten, eigenaarsverenigingen) en eigen ervaring. Bij een klassieker van 30+ jaar verschilt de staat enorm per exemplaar; laat een twijfelgeval altijd door een airhead-specialist beoordelen. Prijzen indicatief (juli 2026).</div>
+    <nav class="toc"><h2>In deze gids</h2><ol>
+      <li><a href="#overzicht">De R 80 GS in het kort</a></li>
+      <li><a href="#varianten">Varianten: G/S, GS en GS Basic</a></li>
+      <li><a href="#techniek">Techniek &amp; rijkarakter</a></li>
+      <li><a href="#aandacht">Zwakke punten &amp; aandachtspunten</a></li>
+      <li><a href="#checken">Checklist voor het bod</a></li>
+      <li><a href="#prijzen">Prijzen Nederland &amp; waarom Duitsland</a></li>
+      <li><a href="#import">Import, BPM &amp; kenteken</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ol></nav>
+    <section id="overzicht" class="content-section"><h2>De R 80 GS in het kort</h2>
+      <p>De R 80 GS (1987-1996) is de 800cc-zuster van de <a href="/kennisbank/bmw-r100gs-importeren">R 100 GS</a> en deelt daarmee vrijwel alles: het luchtgekoelde boxerblok van het type 247 (de "airhead"), de Paralever-achterbrug en de karakteristieke cross-spaak tubeless velgen. Met circa 50 pk uit 797 cc is hij op papier de bescheidener van de twee, maar in de praktijk ervaren veel rijders het 800-blok als het soepeler draaiende, lichter aanvoelende hart — en dat maakt de R 80 GS voor puur rijplezier misschien wel de slimste airhead-GS-koop van dit moment.</p></section>
+    <section id="varianten" class="content-section"><h2>Varianten: G/S, GS en GS Basic</h2>
+      <ul class="bullet-list">
+        <li><strong>R 80 G/S (1980-1987).</strong> De oer-GS met Monolever — de motor die het adventure-segment uitvond. Let op de schuine streep: dit is een ander (ouder) model met inmiddels échte verzamelaarsstatus en bijbehorende prijzen. Zie onze <a href="/kennisbank/bmw-r80-r100-airhead-koopgids">brede airhead-koopgids</a>.</li>
+        <li><strong>R 80 GS (1987-1996).</strong> Het onderwerp van deze gids: Paralever, cross-spaak velgen, technisch vrijwel identiek aan de R 100 GS. De praktische klassieke reisenduro.</li>
+        <li><strong>R 80 GS Basic (1996).</strong> De gelimiteerde afzwaaier waarmee BMW het airhead-GS-tijdperk afsloot — herkenbaar aan de losse witte tank-uitvoering. Gezocht bij liefhebbers; originaliteit bepaalt hier de meerprijs.</li>
+        <li><strong>R 80 / R 80 RT (roadster/tourer).</strong> Zelfde blok zonder GS-aankleding — vaak goedkoper, een prima alternatief voor wie vooral het airhead-gevoel zoekt.</li>
+      </ul></section>
+    <section id="techniek" class="content-section"><h2>Techniek &amp; rijkarakter</h2>
+      <p>Onder de tank zit klassieke airhead-techniek: twee kleppen per cilinder, eenvoudige Bing-carburateurs, schachtaandrijving en een blok dat met normaal gereedschap volledig te onderhouden is. De Paralever-achterbrug — een dubbelzijdige constructie met extra momentsteun — neemt de cardanreactie grotendeels weg, waardoor de GS merkbaar rustiger op het gas reageert dan oudere boxers.</p>
+      <p>Het verschil met de R 100 GS zit vooral in karakter: minder koppel onderin, maar een blok dat vrijer oppakt en een motor die in totaal iets lichter en handzamer aanvoelt. Wie vooral solo en zonder volle bepakking rijdt, mist de extra kubieke centimeters zelden.</p></section>
+    <section id="aandacht" class="content-section"><h2>Zwakke punten &amp; aandachtspunten</h2>
+      <ul class="bullet-list">
+        <li><strong>Cross-spaak velgen.</strong> Op leeftijd kunnen haarscheurtjes rond de spaaknippels ontstaan — controleer beide velgen zorgvuldig, vervanging is prijzig.</li>
+        <li><strong>Paralever-cardan &amp; kruiskoppeling.</strong> Check op speling en de staat van de rubber balg; een verwaarloosde eindaandrijving is een serieuze kostenpost.</li>
+        <li><strong>Oliefilterhuis-gebied.</strong> Het bekendste airhead-probleemgebied — controleer op lekkage en eerdere reparaties.</li>
+        <li><strong>Laadsysteem.</strong> Diodeplaat en laadcircuit zijn op leeftijd een aandachtspunt; meet de laadspanning.</li>
+        <li><strong>ZDDP-olie.</strong> Airheads hebben olie met voldoende ZDDP nodig tegen nokkenas- en klepstoterslijtage; vraag welke olie gereden is.</li>
+        <li><strong>Basic-originaliteit.</strong> Bij een GS Basic bepalen de originele onderdelen de meerprijs — vraag documentatie.</li>
+      </ul></section>
+    <section id="checken" class="content-section"><h2>Checklist voor het bod</h2>
+      <ul class="bullet-list">
+        <li>Beide cross-spaak velgen vrij van scheurtjes rond de nippels.</li>
+        <li>Paralever-cardan zonder speling, balg heel, eindaandrijving droog.</li>
+        <li>Oliefilterhuis-gebied droog; laadspanning, compressie en koude start in orde.</li>
+        <li>Bij een Basic: originaliteit en documentatie — geen samengestelde motor tegen Basic-prijs.</li>
+        <li>Historie, matching numbers en de kwaliteit van eerdere restauraties.</li>
+      </ul></section>
+    <section id="prijzen" class="content-section"><h2>Prijzen Nederland &amp; waarom Duitsland</h2>
+      <table class="cost-table"><thead><tr><th>Uitvoering</th><th>Nederlands prijsniveau (indicatief)</th></tr></thead><tbody>
+        <tr><td>R 80 GS (net, rijklaar, met historie)</td><td>€3.500 – €5.000</td></tr>
+        <tr><td>R 80 GS Basic (origineel)</td><td>duidelijk hoger, originaliteits-afhankelijk</td></tr>
+        <tr><td>R 80 G/S (1980-1987)</td><td>verzamelaarsniveau — zie airhead-gids</td></tr>
+        <tr><td>Duitsland</td><td>ruimer aanbod, vaak gunstiger geprijsd</td></tr>
+      </tbody></table>
+      <p>Opvallend aan de Nederlandse markt: boven de circa €5.000 blijven R 80 GS-en lang staan — er zit een duidelijk plafond in wat kopers hier voor de 800 betalen, terwijl scherp geprijsde exemplaren juist snel weg zijn. Precies daarom loont Duitsland: het aanbod is er ruimer, de keuze in staat en uitvoering groter, en de instapprijs vaak vriendelijker. Zo koop je hetzelfde Paralever-gevoel als de R 100 GS, maar met meer ruimte in het budget voor achterstallig onderhoud of een nette beurt.</p></section>
+    <section id="import" class="content-section"><h2>Import, BPM &amp; kenteken</h2>
+      <p>Een motor uit Duitsland halen is intra-EU en daarmee eenvoudig: <strong>geen invoerrechten en geen BTW</strong> op een gebruikte motor, en omdat elke R 80 GS ruim ouder is dan 25 jaar is de <strong>motor-BPM nihil</strong>. Wat overblijft is de RDW-keuring, identificatie en kentekenregistratie. Wij verzorgen desgewenst het hele traject: beoordeling ter plaatse in Duitsland op precies de punten uit deze gids, verzekerd transport op onze eigen motortrailer en een eerlijke rijklaar-prijs vooraf. Hoe motor-BPM werkt lees je in onze <a href="/kennisbank/motor-bpm-importeren">gids over BPM bij motorimport</a>; het bredere proces staat in <a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a>.</p></section>
+    <section id="faq" class="content-section"><h2>Veelgestelde vragen</h2>
+      <h3>Wat kost een goede BMW R 80 GS in Nederland?</h3><p>Een net, rijklaar exemplaar met historie ligt indicatief rond de €3.500 tot €5.000; daarboven blijven ze doorgaans lang staan. De originele R 80 G/S heeft verzamelaarsstatus en zit duidelijk hoger. Indicatief, juli 2026.</p>
+      <h3>Wat is het verschil tussen de R 80 G/S en de R 80 GS?</h3><p>De G/S (1980-1987, mét streep) is de Monolever-oer-GS met verzamelaarswaarde; de GS (1987-1996) is de modernere Paralever-opvolger, technisch vrijwel gelijk aan de R 100 GS. Rijden: de GS. Verzamelen: de G/S.</p>
+      <h3>Betaal ik BPM als ik een R 80 GS importeer?</h3><p>Nee — elke R 80 GS is ruim ouder dan 25 jaar, dus de motor-BPM is nihil. Uit Duitsland betaal je ook geen invoerrechten of BTW; alleen RDW-keuring en kenteken.</p>
+      <h3>Is de R 80 GS een goed alternatief voor de R 100 GS?</h3><p>Voor veel rijders zelfs de fijnere keuze: zelfde onderstel en dezelfde degelijkheid, lichter aanvoelend blok, lagere instapprijs. De R 100 GS wint op koppel en Paris-Dakar-mystiek.</p></section>
+    <div class="page-cta"><h2>Op zoek naar een R 80 GS?</h2><p>Een goede R 80 GS kopen draait om velgen, cardan en historie — en om het juiste exemplaar vinden in het ruime Duitse aanbod. Wij beoordelen precies die punten ter plaatse en regelen het hele importtraject met een eerlijke rijklaar-prijs vooraf.</p><a href="/contact" class="page-cta-btn">Plan intake-gesprek<span class="arrow" aria-hidden="true">&rarr;</span></a><p class="page-cta-note">Binnen 24 uur reactie · Geen verkoopdruk</p></div>
+    <div class="related"><h3>Verder lezen</h3><ul>
+      <li><a href="/kennisbank/bmw-r100gs-importeren">BMW R 100 GS — kopen &amp; importeren</a></li>
+      <li><a href="/kennisbank/bmw-r80-r100-airhead-koopgids">BMW R 80 / R 100 airhead — brede koopgids</a></li>
+      <li><a href="/kennisbank/bmw-motor-importeren-duitsland">BMW-motor importeren uit Duitsland</a></li>
+      <li><a href="/kennisbank/motor-bpm-importeren">BPM bij motorimport — zo werkt het</a></li>
+    </ul></div>
+  </div></article>
+</BaseLayout>
+<style>
+  .cornerstone-page { padding: 64px 0 96px; }
+  .article-header { max-width: 760px; margin-bottom: 32px; }
+  .cornerstone-page h1 { font-size: 56px; font-weight: 600; margin-bottom: 24px; line-height: 1.05; }
+  .lead { font-size: 19px; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.65; }
+  .article-meta { font-size: 13px; color: var(--color-text-tertiary); display: flex; gap: 8px; }
+  .disclaimer { max-width: 760px; padding: 18px 22px; margin-bottom: 48px; background: var(--color-cream-warm); border-left: 3px solid var(--color-copper-text); font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
+  .disclaimer strong { color: var(--color-text-primary); }
+  .toc { background: var(--color-cream-warm); padding: 28px 32px; border-left: 3px solid var(--color-copper-text); margin-bottom: 56px; max-width: 760px; }
+  .toc h2 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .toc ol { padding-left: 24px; }
+  .toc li { padding: 5px 0; font-size: 15px; }
+  .toc a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .toc a:hover { color: var(--color-charcoal-dark); }
+  .content-section { max-width: 760px; margin-bottom: 56px; }
+  .content-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 20px; line-height: 1.15; scroll-margin-top: 80px; }
+  .content-section h3 { font-size: 20px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .content-section p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .content-section a { color: var(--color-copper-text); text-decoration: underline; }
+  .content-section strong { color: var(--color-text-primary); font-weight: 600; }
+  .bullet-list { padding-left: 0; }
+  .bullet-list li { padding: 8px 0; font-size: 16px; color: var(--color-text-secondary); line-height: 1.65; display: flex; gap: 12px; align-items: baseline; }
+  .bullet-list li::before { content: "\2192"; color: var(--color-copper-text); font-weight: 600; flex-shrink: 0; }
+  .bullet-list strong { color: var(--color-text-primary); }
+  .cost-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .cost-table th { background: var(--color-charcoal-dark); color: var(--color-cream); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; }
+  .cost-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border-soft); color: var(--color-text-secondary); }
+  .cost-table tbody tr:hover { background: var(--color-cream-warm); }
+  .page-cta { margin-top: 80px; padding: 56px 40px; background: var(--color-charcoal-dark); color: var(--color-cream); text-align: center; }
+  .page-cta h2 { color: var(--color-cream); font-size: 32px; margin-bottom: 12px; }
+  .page-cta p { color: rgba(245, 241, 234, 0.85); margin-bottom: 24px; font-size: 16px; }
+  .page-cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--color-copper-text); color: var(--color-charcoal-dark); font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .page-cta-btn:hover { transform: translateY(-2px); background: #d18a3f; }
+  .page-cta-btn .arrow { font-size: 18px; }
+  .page-cta-note { margin-top: 16px; font-size: 12px; color: rgba(245, 241, 234, 0.6); }
+  .related { max-width: 760px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--color-border-medium); }
+  .related h3 { font-size: 14px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-copper-text); margin-bottom: 16px; }
+  .related ul { list-style: none; padding: 0; }
+  .related li { padding: 8px 0; }
+  .related a { color: var(--color-copper-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-size: 16px; }
+  .related a:hover { color: var(--color-charcoal-dark); }
+  @media (max-width: 768px) {
+    .cornerstone-page h1 { font-size: 36px; }
+    .content-section h2 { font-size: 24px; }
+    .toc { padding: 20px 22px; }
+    .page-cta { padding: 36px 24px; }
+    .cost-table { font-size: 12px; }
+    .cost-table th, .cost-table td { padding: 8px 10px; }
+  }
+</style>
