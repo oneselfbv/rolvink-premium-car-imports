@@ -200,7 +200,7 @@ details.extra .inner{padding:0 14px 14px}
 const TOEGANGSCODE = 'welsum';
 if (location.protocol.startsWith('http') && !['localhost','127.0.0.1'].includes(location.hostname)) {
   let ok = false;
-  try { ok = sessionStorage.getItem('rvk_ok') === '1'; } catch(e) {}
+  try { ok = localStorage.getItem('rvk_ok') === '1'; } catch(e) {}
   if (!ok) {
     const g = document.createElement('div'); g.id = 'gate';
     g.innerHTML = '<div class="glab">Rolvink · Intern</div><input type="password" id="gcode" placeholder="toegangscode" autofocus><div class="glab" id="gmsg"></div>';
@@ -208,7 +208,7 @@ if (location.protocol.startsWith('http') && !['localhost','127.0.0.1'].includes(
     g.querySelector('#gcode').addEventListener('keydown', e => {
       if (e.key === 'Enter') {
         if (e.target.value.trim().toLowerCase() === TOEGANGSCODE) {
-          try { sessionStorage.setItem('rvk_ok','1'); } catch(err) {}
+          try { localStorage.setItem('rvk_ok','1'); } catch(err) {}
           g.remove();
         } else { document.getElementById('gmsg').textContent = 'onjuiste code'; }
       }
