@@ -86,5 +86,7 @@ function buildRitten(){
   ritLayer.addLayer(pl);
  });
 }
-document.getElementById('gcode').addEventListener('keydown',e=>{if(e.key==='Enter'){if(e.target.value.trim().toLowerCase()==='welsum'){document.getElementById('gate').style.display='none';setTimeout(()=>{init();map.invalidateSize();},60);}else e.target.value='';}});
+function _unlockGate(){document.getElementById('gate').style.display='none';setTimeout(()=>{init();map.invalidateSize();},60);}
+document.getElementById('gcode').addEventListener('keydown',e=>{if(e.key==='Enter'){if(e.target.value.trim().toLowerCase()==='welsum'){try{localStorage.setItem('rvk_ok','1');}catch(_){}_unlockGate();}else e.target.value='';}});
+try{if(localStorage.getItem('rvk_ok')==='1')_unlockGate();}catch(_){}
 </script></body></html>
