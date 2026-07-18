@@ -66,7 +66,7 @@ table.an th{color:var(--muted);font-weight:600;font-size:10.5px;letter-spacing:.
 <div class="filters">
  <select id="fKlasse"><option value="top2">TOP + GOED</option><option value="">Alle klassen</option><option>TOP</option><option>GOED</option><option>RAND</option><option>PROJECT</option><option>MAGER</option></select>
  <select id="fGroep"><option value="">Alle modelgroepen</option></select>
- <select id="fStatus"><option value="">Alle</option><option value="fav">★ Alleen mijn favorieten</option><option value="nieuw-only">Alleen nieuw binnen</option><option value="bewaard">Bewaard</option><option value="open">Niet genegeerd</option></select>
+ <select id="fStatus"><option value="">Alle</option><option value="fav">★ Alleen mijn favorieten</option><option value="nieuw-only">Alleen nieuw binnen</option><option value="bewaard">Bewaard</option><option value="genegeerd">Genegeerd (terugzetten)</option></select>
  <input id="fZoek" placeholder="Zoek titel/regio…">
  <span class="st" id="tel"></span>
  <button class="actbtn" id="copy">kopieer keuzes</button>
@@ -100,7 +100,7 @@ function render(){
   if(fs==='fav'&&d.fav!=='ja')return false;
   if(fs==='nieuw-only'&&d.bron!=='nieuw')return false;
   if(fs==='bewaard'&&d.status!=='bewaard')return false;
-  if(fs==='open'&&d.status==='genegeerd')return false;
+  if(fs==='genegeerd'){if(d.status!=='genegeerd')return false;}else if(d.status==='genegeerd')return false;
   if(fz&&!((d.titel+' '+d.regio+' '+d.groep).toLowerCase().includes(fz)))return false;
   return true;
  });
