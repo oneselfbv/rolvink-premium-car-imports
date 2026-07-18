@@ -57,6 +57,7 @@ table.an th{color:var(--muted);font-weight:600;font-size:10.5px;letter-spacing:.
 #gate{position:fixed;inset:0;background:var(--page);z-index:100;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
 #gate input{background:var(--surface);color:var(--ink);border:1px solid var(--axis);padding:11px 14px;font:inherit;text-align:center;letter-spacing:.2em}
 #gate .glab{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--coppertxt)}
+.dbtn.sold:hover{border-color:var(--coppertxt);color:var(--coppertxt)}.dbtn.active-sold{background:color-mix(in srgb,var(--copper) 15%,transparent);border-color:var(--copper);color:var(--coppertxt);font-weight:600}.card.d-verkocht{opacity:.55}
 </style></head><body>
 <div id="gate"><span class="glab">Rolvink · Intern</span><input id="gcode" type="password" placeholder="toegangscode" autocomplete="off"></div>
 <div class="wrap">
@@ -66,7 +67,7 @@ table.an th{color:var(--muted);font-weight:600;font-size:10.5px;letter-spacing:.
 <div class="filters">
  <select id="fKlasse"><option value="top2">TOP + GOED</option><option value="">Alle klassen</option><option>TOP</option><option>GOED</option><option>RAND</option><option>PROJECT</option><option>MAGER</option></select>
  <select id="fGroep"><option value="">Alle modelgroepen</option></select>
- <select id="fStatus"><option value="">Alle</option><option value="fav">★ Alleen mijn favorieten</option><option value="nieuw-only">Alleen nieuw binnen</option><option value="bewaard">Bewaard</option><option value="genegeerd">Genegeerd (terugzetten)</option></select>
+ <select id="fStatus"><option value="">Alle</option><option value="fav">★ Alleen mijn favorieten</option><option value="nieuw-only">Alleen nieuw binnen</option><option value="bewaard">Bewaard</option><option value="genegeerd">Genegeerd (terugzetten)</option><option value="verkocht">Verkocht (gemeld)</option></select>
  <input id="fZoek" placeholder="Zoek titel/regio…">
  <span class="st" id="tel"></span>
  <button class="actbtn" id="copy">kopieer keuzes</button>
@@ -100,7 +101,7 @@ function render(){
   if(fs==='fav'&&d.fav!=='ja')return false;
   if(fs==='nieuw-only'&&d.bron!=='nieuw')return false;
   if(fs==='bewaard'&&d.status!=='bewaard')return false;
-  if(fs==='genegeerd'){if(d.status!=='genegeerd')return false;}else if(d.status==='genegeerd')return false;
+  if(fs==='genegeerd'){if(d.status!=='genegeerd')return false;}else if(fs==='verkocht'){if(d.status!=='verkocht')return false;}else if(d.status==='genegeerd'||d.status==='verkocht')return false;
   if(fz&&!((d.titel+' '+d.regio+' '+d.groep).toLowerCase().includes(fz)))return false;
   return true;
  });
@@ -114,6 +115,7 @@ function render(){
    '<div class="row"><span>'+(d.regio||'')+'</span>'+(d.km?'<span>'+d.km.toLocaleString('de-DE')+' km</span>':'')+(d.urgentie?'<span class="st">'+d.urgentie+'</span>':'')+'</div>'+
    '<div class="btns"><button class="dbtn save'+(d.status==='bewaard'?' active-save':'')+'" data-a="bewaard">❤ Bewaar</button>'+
    '<button class="dbtn dismiss'+(d.status==='genegeerd'?' active-dismiss':'')+'" data-a="genegeerd">✕ Negeer</button>'+
+   '<button class="dbtn sold'+(d.status==='verkocht'?' active-sold':'')+'" data-a="verkocht">✔ Verkocht</button>'+
    (d.bericht?'<button class="dbtn bod" data-a="bod">✉ bod</button>':'')+'</div>'+
    (d.link?'<a class="klink" href="'+d.link+'" target="_blank" rel="noreferrer">bekijk op Kleinanzeigen ↗</a>':'')+'</div>';
  }).join('')||'<div class="st" style="padding:20px">Geen koopjes in deze weergave.</div>';
@@ -124,7 +126,7 @@ function render(){
  });
 }
 $('copy').onclick=()=>{
- const ch=K.filter(d=>d.status==='bewaard'||d.status==='genegeerd');
+ const ch=K.filter(d=>d.status==='bewaard'||d.status==='genegeerd'||d.status==='verkocht');
  const btn=$('copy');
  if(!ch.length){btn.textContent='geen keuzes';setTimeout(()=>btn.textContent='kopieer keuzes',1400);return;}
  const txt='Koopje-keuzes '+new Date().toISOString().slice(0,10)+':\n'+ch.map(d=>'- ['+d.status.toUpperCase()+'] '+d.groep+' €'+d.prijs+' netto '+(d.netto??'n.t.b.')+' — '+d.titel+'\n  '+d.link).join('\n');
