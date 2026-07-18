@@ -87,6 +87,11 @@ const $=id=>document.getElementById(id);
 function loadSaved(){try{return JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){return{};}}
 function persist(){const o={};K.forEach(d=>{if(d.status&&d.status!=='nieuw-st')o[d.id]=d.status;});try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
 const saved=loadSaved(); K.forEach(d=>{d.status=saved[d.id]||'';});
+const PENDING={};let syncT=null;
+function queueSync(d){PENDING[d.id]={id:d.id,status:d.status||'',titel:d.titel,groep:d.groep,prijs:d.prijs};clearTimeout(syncT);syncT=setTimeout(flushSync,2000);}
+function flushSync(){const ch=Object.values(PENDING);if(!ch.length)return;Object.keys(PENDING).forEach(kk=>delete PENDING[kk]);fetch('/api/status',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({changes:ch})}).catch(()=>{});}
+window.addEventListener('pagehide',flushSync);
+fetch('/api/status').then(r=>r.ok?r.json():{}).then(srv=>{let ch=false;K.forEach(d=>{const s=srv[d.id];if(s&&s.status!==d.status&&!(d.id in PENDING)){d.status=s.status;ch=true;}});if(ch){persist();if($('gate').style.display==='none')render();}}).catch(()=>{});
 function kb(k){const m={'TOP':'b-TOP','GOED':'b-GOED','RAND':'b-RAND','PROJECT':'b-PROJECT','MAGER':'b-MAGER','VERVALT':'b-VERVALT'}[k]||'b-RAND';return '<span class="badge '+m+'">'+k+'</span>';}
 function initKpi(){
  $('kpis').innerHTML=[['v',D.kpi.totaal,'koopjes totaal'],['v',D.kpi.nieuw,'nieuw binnen'],['v',D.kpi.topN,'TOP-koopjes'],['v',eur(D.kpi.hoogste),'hoogste netto']].map(x=>'<div class="kpi"><div class="v">'+x[1]+'</div><div class="l">'+x[2]+'</div></div>').join('');
@@ -122,7 +127,7 @@ function render(){
  $('grid').querySelectorAll('.dbtn').forEach(b=>b.onclick=e=>{
   const id=e.target.closest('.card').dataset.id,a=e.target.dataset.a,d=K.find(x=>x.id===id);
   if(a==='bod'){navigator.clipboard.writeText(d.bericht).then(()=>{const t=e.target;t.textContent='✓';setTimeout(()=>t.textContent='✉ bod',1400);});return;}
-  d.status=(d.status===a)?'':a; persist(); render();
+  d.status=(d.status===a)?'':a; persist(); queueSync(d); render();
  });
 }
 $('copy').onclick=()=>{
