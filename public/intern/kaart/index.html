@@ -66,7 +66,7 @@ function init(){
  document.getElementById('fRit').onchange=()=>{document.getElementById('fRit').checked?map.addLayer(ritLayer):map.removeLayer(ritLayer);};
 }
 function bikeId(l){var m=(l||'').match(/(\d{9,})/);return m?m[1]:null}
-function imgTag(x){return x.img?'<img class="pp-img" loading="eager" src="https://img.kleinanzeigen.de/api/v1/prod-ads/images/'+x.img+'?rule=$_2.JPG" onerror="this.remove()">':''}
+function imgTag(x){return x.img?'<img class="pp-img" loading="eager" src="https://img.kleinanzeigen.de/api/v1/prod-ads/images/'+x.img+'?rule=$_59.JPG" onerror="this.remove()">':''}
 var MARKERS={};
 function loadSt(){try{return JSON.parse(localStorage.getItem('rolvink_koopjes_status')||'{}')}catch(e){return{}}}
 function actBtns(x){var id=bikeId(x.link);if(!id)return '';var st=(loadSt()[id]||'');function b(a,lab){return '<button class="pp-b'+(st===a?' pp-on':'')+'" data-id="'+id+'" data-act="'+a+'">'+lab+'</button>'}return '<div class="pp-acts">'+b('bewaard','❤ Bewaar')+b('genegeerd','✕ Negeer')+b('verkocht','✔ Verkocht')+'</div>'}
