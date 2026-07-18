@@ -1,1 +1,9 @@
-{}
+{
+ "999999999": {
+  "status": "verkocht",
+  "titel": "TEST-sync (auto verwijderd)",
+  "groep": "TEST",
+  "prijs": 1,
+  "ts": "2026-07-18T09:44:06.471Z"
+ }
+}
