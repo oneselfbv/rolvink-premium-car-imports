@@ -1,6 +1,8 @@
 // Rolvink intern — gedeelde koopjes-statussen (bewaard/genegeerd/verkocht)
-// Slaat statussen op als public/intern/data/statuses.json in de repo (commit via GitHub API).
-// Vereist env var GITHUB_TOKEN (fine-grained PAT, Contents: Read+Write op deze repo).
+// PRIMAIR: Supabase-tabel public.koopjes_statuses (env: SUPABASE_URL + SUPABASE_SERVICE_KEY).
+// FALLBACK: oude GitHub-commit-methode naar statuses.json (env: GITHUB_TOKEN) zolang
+// de Supabase-env-vars nog niet in Vercel staan — deploy-volgorde is daardoor veilig.
+// API-contract ongewijzigd: GET → {id:{status,titel,groep,prijs,ts}}, POST {changes:[...]}.
 const REPO = 'oneselfbv/rolvink-premium-car-imports';
 const PATH = 'public/intern/data/statuses.json';
 const ALLOWED = ['bewaard', 'genegeerd', 'verkocht', ''];
@@ -14,8 +16,90 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'content-type');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
+  const changes = req.method === 'POST' ? parseChanges(req) : null;
+  if (req.method === 'POST' && (!changes || !changes.length)) {
+    return res.status(400).json({ error: 'changes[] vereist' });
+  }
+  if (req.method !== 'GET' && req.method !== 'POST') return res.status(405).end();
+
+  const sbUrl = (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
+  const sbKey = process.env.SUPABASE_SERVICE_KEY;
+  if (sbUrl && sbKey) return viaSupabase(req, res, changes, sbUrl, sbKey);
+  return viaGithub(req, res, changes);
+}
+
+function parseChanges(req) {
+  let body = req.body;
+  if (typeof body === 'string') { try { body = JSON.parse(body); } catch (_) { body = null; } }
+  const raw = body && Array.isArray(body.changes) ? body.changes : [];
+  const out = [];
+  for (const c of raw.slice(0, 200)) {
+    const id = String(c.id || '').replace(/[^0-9]/g, '');
+    if (!id || !ALLOWED.includes(c.status)) continue;
+    out.push({
+      id,
+      status: c.status,
+      titel: String(c.titel || '').slice(0, 140),
+      groep: String(c.groep || '').slice(0, 40),
+      prijs: Number.isFinite(Number(c.prijs)) ? Number(c.prijs) : null,
+    });
+  }
+  return out;
+}
+
+// ---------- Supabase (PostgREST, plain fetch — geen dependency) ----------
+async function viaSupabase(req, res, changes, sbUrl, sbKey) {
+  const sb = (path, init) => fetch(sbUrl + '/rest/v1/' + path, {
+    ...init,
+    headers: {
+      apikey: sbKey,
+      authorization: 'Bearer ' + sbKey,
+      'content-type': 'application/json',
+      ...(init && init.headers) || {},
+    },
+  });
+
+  const load = async () => {
+    const r = await sb('koopjes_statuses?select=id,status,titel,groep,prijs,ts&limit=10000');
+    if (!r.ok) throw new Error('supabase read ' + r.status);
+    const map = {};
+    for (const row of await r.json()) {
+      map[row.id] = { status: row.status, titel: row.titel, groep: row.groep, prijs: row.prijs, ts: row.ts };
+    }
+    return map;
+  };
+
+  try {
+    if (req.method === 'GET') return res.status(200).json(await load());
+
+    const now = new Date().toISOString();
+    const upserts = changes.filter(c => c.status !== '')
+      .map(c => ({ id: c.id, status: c.status, titel: c.titel, groep: c.groep, prijs: c.prijs, ts: now }));
+    const deletes = changes.filter(c => c.status === '').map(c => c.id);
+
+    if (upserts.length) {
+      const w = await sb('koopjes_statuses?on_conflict=id', {
+        method: 'POST',
+        headers: { prefer: 'resolution=merge-duplicates,return=minimal' },
+        body: JSON.stringify(upserts),
+      });
+      if (!w.ok) return res.status(502).json({ error: 'supabase write mislukt', code: w.status, detail: (await w.text()).slice(0, 300) });
+    }
+    if (deletes.length) {
+      const d = await sb('koopjes_statuses?id=in.(' + deletes.join(',') + ')', { method: 'DELETE' });
+      if (!d.ok) return res.status(502).json({ error: 'supabase delete mislukt', code: d.status });
+    }
+    const cur = await load();
+    return res.status(200).json({ ok: true, applied: upserts.length + deletes.length, totaal: Object.keys(cur).length, via: 'supabase' });
+  } catch (e) {
+    return res.status(502).json({ error: 'supabase onbereikbaar', detail: String(e).slice(0, 300) });
+  }
+}
+
+// ---------- GitHub-fallback (oude methode, ongewijzigd gedrag) ----------
+async function viaGithub(req, res, changes) {
   const token = process.env.GITHUB_TOKEN;
-  if (!token) return res.status(500).json({ error: 'GITHUB_TOKEN ontbreekt in Vercel environment variables' });
+  if (!token) return res.status(500).json({ error: 'geen SUPABASE_URL/SUPABASE_SERVICE_KEY en geen GITHUB_TOKEN in Vercel env' });
 
   const gh = (u, init) => fetch('https://api.github.com' + u, {
     ...init,
@@ -36,25 +120,11 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') return res.status(200).json(cur);
-  if (req.method !== 'POST') return res.status(405).end();
-
-  let body = req.body;
-  if (typeof body === 'string') { try { body = JSON.parse(body); } catch (_) { body = null; } }
-  const changes = body && Array.isArray(body.changes) ? body.changes : null;
-  if (!changes || !changes.length) return res.status(400).json({ error: 'changes[] vereist' });
 
   let applied = 0;
-  for (const c of changes.slice(0, 200)) {
-    const id = String(c.id || '').replace(/[^0-9]/g, '');
-    if (!id || !ALLOWED.includes(c.status)) continue;
-    if (c.status === '') { delete cur[id]; } else {
-      cur[id] = {
-        status: c.status,
-        titel: String(c.titel || '').slice(0, 140),
-        groep: String(c.groep || '').slice(0, 40),
-        prijs: Number.isFinite(Number(c.prijs)) ? Number(c.prijs) : null,
-        ts: new Date().toISOString(),
-      };
+  for (const c of changes) {
+    if (c.status === '') { delete cur[c.id]; } else {
+      cur[c.id] = { status: c.status, titel: c.titel, groep: c.groep, prijs: c.prijs, ts: new Date().toISOString() };
     }
     applied++;
   }
@@ -66,5 +136,5 @@ export default async function handler(req, res) {
     body: JSON.stringify({ message: `intern: status-sync (${applied} wijziging${applied === 1 ? '' : 'en'})`, content, sha, branch: 'main' }),
   });
   if (!w.ok) return res.status(502).json({ error: 'github write mislukt', code: w.status });
-  return res.status(200).json({ ok: true, applied, totaal: Object.keys(cur).length });
+  return res.status(200).json({ ok: true, applied, totaal: Object.keys(cur).length, via: 'github' });
 }
