@@ -1,4 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "crons": [
+    {
+      "path": "/api/status",
+      "schedule": "0 5 * * *"
+    }
+  ]
 }
