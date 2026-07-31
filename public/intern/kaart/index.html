@@ -21,7 +21,7 @@ a.back{color:var(--coppertxt);text-decoration:none;font-size:12px}
 .knav a{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:4px 9px;border:1px solid var(--ring);border-radius:3px}
 .knav a.act{color:var(--coppertxt);border-color:var(--copper);font-weight:600}
 .knav a:hover{color:var(--coppertxt);border-color:var(--copper)}
-#map{flex:1;min-height:0}
+#map{flex:1;min-height:0;position:relative}
 .leaflet-popup-content{font-family:inherit;font-size:13px;margin:10px 12px}
 .leaflet-popup-content b{font-size:13.5px}
 .pp-net{font-weight:700}
@@ -29,73 +29,241 @@ a.back{color:var(--coppertxt);text-decoration:none;font-size:12px}
 #gate{position:fixed;inset:0;background:var(--page);z-index:1000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
 #gate input{background:var(--surface);color:var(--ink);border:1px solid var(--ring);padding:11px 14px;font:inherit;text-align:center;letter-spacing:.2em}
 #gate .glab{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--coppertxt)}
-.pp-img{width:100%;height:110px;object-fit:cover;border-radius:4px;margin-bottom:6px;display:block;background:#e7e0d5}.pp-acts{display:flex;gap:4px;margin-top:8px}.pp-b{flex:1;font:inherit;font-size:11px;padding:5px 4px;border:1px solid #cbbfae;background:#fff;border-radius:3px;cursor:pointer;white-space:nowrap;color:#4a4442}.pp-b:hover{border-color:#B87333;color:#9A5A24}.pp-b.pp-on{background:color-mix(in srgb,#B87333 15%,transparent);border-color:#B87333;color:#9A5A24;font-weight:600}</style></head><body>
+.pp-img{width:100%;height:110px;object-fit:cover;border-radius:4px;margin-bottom:6px;display:block;background:#e7e0d5}.pp-acts{display:flex;gap:4px;margin-top:8px}.pp-b{flex:1;font:inherit;font-size:11px;padding:5px 4px;border:1px solid #cbbfae;background:#fff;border-radius:3px;cursor:pointer;white-space:nowrap;color:#4a4442}.pp-b:hover{border-color:#B87333;color:#9A5A24}.pp-b.pp-on{background:color-mix(in srgb,#B87333 15%,transparent);border-color:#B87333;color:#9A5A24;font-weight:600}
+#pan{position:absolute;top:auto;right:12px;bottom:12px;width:338px;max-height:min(72vh,620px);z-index:800;background:var(--surface);border:1px solid var(--ring);border-radius:6px;box-shadow:0 6px 24px rgba(0,0,0,.18);display:flex;flex-direction:column;overflow:hidden;font-size:12.5px}
+#pan.hid #panL,#pan.hid .pan-f{display:none}
+.pan-h{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--ring);background:color-mix(in srgb,var(--copper) 8%,transparent)}
+.pan-h b{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--coppertxt)}
+.pan-h .n{color:var(--muted);font-size:11px;margin-left:auto}
+.pan-h button{background:none;border:1px solid var(--ring);color:var(--muted);border-radius:3px;cursor:pointer;font:inherit;line-height:1;padding:2px 7px}
+#panL{overflow:auto}
+.rt{padding:8px 10px;border-bottom:1px solid var(--ring);cursor:pointer}
+.rt:hover{background:color-mix(in srgb,var(--copper) 7%,transparent)}
+.rt.on{background:color-mix(in srgb,var(--copper) 15%,transparent);border-left:3px solid var(--copper);padding-left:7px}
+.rt .r1{display:flex;align-items:baseline;gap:6px}
+.rt .rk{color:var(--muted);font-size:11px;min-width:15px}
+.rt .tt{flex:1;font-weight:600;line-height:1.25}
+.rt .nt{font-weight:700;color:var(--top);white-space:nowrap}
+.rt .r2{color:var(--muted);font-size:11px;margin-top:3px;padding-left:21px;line-height:1.35}
+.rt .om{color:var(--coppertxt)}
+.rt .rd{display:none;margin:6px 0 2px;padding-left:21px}
+.rt.on .rd{display:block}
+.rdl{font-size:11.5px;line-height:1.4;padding:4px 0;border-top:1px dotted var(--ring)}
+.rdl span{color:var(--muted)}
+.pan-f{padding:7px 10px;border-top:1px solid var(--ring);color:var(--muted);font-size:11px}
+.pan-e{padding:14px 10px;color:var(--muted)}
+.ctrls select{background:var(--surface);color:var(--ink);border:1px solid var(--ring);border-radius:3px;font:inherit;font-size:12px;padding:2px 4px}
+.ctrls input[type=range]{width:82px;accent-color:var(--copper);vertical-align:middle}
+@media(max-width:760px){#pan{right:6px;left:6px;width:auto;bottom:6px;max-height:46vh}}
+</style></head><body>
 <div id="gate"><span class="glab">Rolvink · Intern</span><input id="gcode" type="password" placeholder="toegangscode" autocomplete="off"></div>
 <div class="bar">
  <div><h1>Ophaalkaart</h1> <span class="sub">Rolvink · waar staan de koopjes</span> <nav class="knav"><a href="/intern/koopjes/">Koopjes</a><a class="act" href="/intern/kaart/">Kaart</a><a href="/intern/zaken/">Mijn zaken</a><a href="/intern/favorieten/">Favorieten</a></nav></div>
  <div class="ctrls">
-  <label><input type="checkbox" id="fTop"> alleen TOP+GOED</label>
-  <label><input type="checkbox" id="fRit" checked> rit-paren tonen</label>
+  <label>klasse <select id="fKlasse"><option value="TOPGOED">TOP + GOED</option><option value="TOP">alleen TOP</option><option value="ALL">alles</option></select></label>
+  <label>ritten <select id="fMode"><option value="paar">beste paren (2)</option><option value="trio">beste trio's (3)</option><option value="vast">vaste paren</option><option value="uit">geen</option></select></label>
+  <label>max <input type="range" id="fKm" min="400" max="2200" step="50" value="1300"><span id="fKmL" style="color:var(--muted);min-width:52px">1300 km</span></label>
+  <label title="elke motor komt in hoogstens 1 rit voor"><input type="checkbox" id="fUniq" checked> geen dubbele</label>
+  <label>sorteer <select id="fSort"><option value="tot">samen netto</option><option value="om">minste omweg</option><option value="perkm">netto per km</option></select></label>
   <span class="leg"><span class="dot" style="width:14px;height:14px;background:#1f7a3f"></span>TOP <span class="dot" style="width:11px;height:11px;background:#B87333"></span>GOED <span class="dot" style="width:8px;height:8px;background:#9a9088"></span>overig <span class="dot" style="width:12px;height:12px;background:#2A2A2A;border:2px solid #B87333"></span>Welsum</span>
  </div>
 </div>
-<div id="map"></div>
+<div id="map"><div id="pan"><div class="pan-h"><b>Beste ritten</b><span class="n" id="panN"></span><button id="panT" title="in-/uitklappen">–</button></div><div id="panL"></div><div class="pan-f" id="panF"></div></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <script>
 const DATA={"welsum":[52.355,6.105],"bikes":[{"titel":"BMW R 100 GS","groep":"R100GS","prijs":3300,"netto":2435,"klasse":"TOP","regio":"Beieren-noord/Franken","plz":"94491","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3457036519-305-6018","fav":"ja","lat":48.77,"lon":13.05,"kleur":"","img":"65/6576fbdd-6f90-49b8-8634-6121f7d46d62"},{"titel":"BMW R 100 GS","groep":"R100GS","prijs":3600,"netto":2357,"klasse":"TOP","regio":"Hessen/Saarland","plz":"66292","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3414782321-305-345","fav":"","lat":49.237,"lon":6.937,"kleur":"","img":"19/19f0285a-4f34-4283-b2a9-e81eb1628be2"},{"titel":"BMW R 100 GS","groep":"R100GS","prijs":2999,"netto":2287,"klasse":"TOP","regio":"NRW-west","plz":"47877","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3442223432-305-1918","fav":"ja","lat":51.26,"lon":6.55,"kleur":"","img":"10/10c51598-4bab-42b2-83d3-8f9df737abf4"},{"titel":"BMW R100 GS","groep":"R100GS","prijs":3900,"netto":2110,"klasse":"TOP","regio":"Nedersaksen/NRW-oost","plz":"37308","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100-gs/3438124169-305-3622","fav":"","lat":51.55,"lon":10.167,"kleur":"","img":"4e/4eeb70cc-da98-4050-9702-3b8b14c6869f"},{"titel":"BMW R 100 GS P/D","groep":"R100GS-PD","prijs":3750,"netto":2063,"klasse":"TOP","regio":"Rijnland","plz":"53129","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs-p-d/3453830791-305-23696","fav":"ja","lat":50.7,"lon":7.09,"kleur":"","img":"e9/e99946f9-3f19-43fa-ae01-5540cf6c8cc3"},{"titel":"BMW R75/6 met R80/7-motor 1000cc","groep":"R75/6","prijs":1999,"netto":2058,"klasse":"TOP","regio":"Rijnland","plz":"59939","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r75-6-mit-r80-7-motor-1000ccm-zylinder-eingetragen-1976/3394970087-305-1357","fav":"","lat":51.602,"lon":7.963,"kleur":"","img":"d7/d7728c11-4828-46af-9bc3-bf39bf43ccf1"},{"titel":"BMW K1, keine K100","groep":"K1","prijs":2950,"netto":2017,"klasse":"TOP","regio":"Nedersaksen/NRW-oost","plz":"32427","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-k1-keine-k100/3449409279-305-1762","fav":"","lat":52.07,"lon":8.84,"kleur":"","img":"61/610b3f28-b0ce-4c11-ae99-15c0ce1c8c9f"},{"titel":"BMW R100GS","groep":"R100GS","prijs":3500,"netto":1873,"klasse":"TOP","regio":"Rijnland","plz":"58509","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs/3429971225-305-1809","fav":"","lat":51.44,"lon":7.56,"kleur":"","img":"4d/4d7c9cee-3f31-4abe-92ce-702f1504eed7"},{"titel":"BMM R 100 GS Paris Dakar","groep":"R100GS-PD","prijs":4000,"netto":1857,"klasse":"TOP","regio":"Rijnland","plz":"50969","link":"https://www.kleinanzeigen.de/s-anzeige/bmm-r-100-gs-paris-dakar/3456229316-305-19654","fav":"ja","lat":50.9,"lon":6.95,"kleur":"","img":"b9/b9097c0a-91fe-4ae7-b3b5-b7ced06ed012"},{"titel":"BMW R 100 GS","groep":"R100GS","prijs":4250,"netto":1820,"klasse":"TOP","regio":"Beieren-noord/Franken","plz":"91161","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3430142950-305-5624","fav":"","lat":49.25,"lon":11.09,"kleur":"","img":"cb/cb50adbd-c8e4-4fb6-87d4-0b1ab7ea884d"},{"titel":"BMW R 100 GS","groep":"R100GS","prijs":3600,"netto":1790,"klasse":"TOP","regio":"Baden-Württemberg","plz":"74831","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3434335339-305-8603","fav":"","lat":49.19,"lon":9.22,"kleur":"","img":"a2/a2ad96c6-63d2-4a85-8d97-fff8c9c351aa"},{"titel":"BMW R 100GS PD Paris Dakar","groep":"R100GS-PD","prijs":4150,"netto":1733,"klasse":"TOP","regio":"Beieren-zuid","plz":"87496","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100gs-pd-paris-dakar/3420989070-305-7632","fav":"","lat":47.935,"lon":10.445,"kleur":"","img":"7e/7ec028aa-5fb6-46af-8748-25bbf2180b74"},{"titel":"BMW R 100 GS","groep":"R100GS","prijs":4400,"netto":1696,"klasse":"TOP","regio":"NRW-west","plz":"47239","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3398962318-305-2137","fav":"","lat":51.4,"lon":6.71,"kleur":"","img":"9e/9e22f5bc-5049-4d0e-985d-c305c30468cb"},{"titel":"BMW R80GS BJ 92","groep":"R80GS","prijs":3300,"netto":1670,"klasse":"TOP","regio":"Noord-DE","plz":"26345","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r80gs-bj-92-/3456043388-305-3005","fav":"ja","lat":53.4,"lon":8.02,"kleur":"","img":"1a/1aa15dd2-c9d8-41e8-aa18-e5eee80f0791"},{"titel":"BMW R100GS Paris Dakar","groep":"R100GS-PD","prijs":4250,"netto":1650,"klasse":"TOP","regio":"Rijnland","plz":"53879","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs-paris-dakar/3454510730-305-1893","fav":"ja","lat":50.66,"lon":6.79,"kleur":"","img":"81/81791107-086b-44fc-9113-6aa620cc8887"},{"titel":"BMW R 80 Gs","groep":"R80GS","prijs":3000,"netto":1574,"klasse":"TOP","regio":"Noord-DE","plz":"22946","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-gs/3345671960-305-25749","fav":"","lat":53.57,"lon":10.02,"kleur":"","img":"af/afe81f95-6f08-44c1-ae19-188edb87ade3"},{"titel":"BMW K1 in weiß","groep":"K1","prijs":3950,"netto":1564,"klasse":"TOP","regio":"Beieren-zuid","plz":"84163","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-k-1-in-weiss/3411851410-305-6056","fav":"","lat":48.68,"lon":12.5,"kleur":"","img":"b0/b003290b-caf0-438c-955c-25c923b355be"},{"titel":"BMW R100RS","groep":"R100RS","prijs":2650,"netto":1559,"klasse":"TOP","regio":"Noord-DE","plz":"26725","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs/3449916894-305-3105","fav":"ja","lat":53.37,"lon":7.21,"kleur":"","img":"24/24e04658-02f2-4cfe-9800-01f6942b8acb"},{"titel":"1991 BMW R100GS","groep":"R100GS","prijs":3900,"netto":1542,"klasse":"TOP","regio":"Beieren-noord/Franken","plz":"91235","link":"https://www.kleinanzeigen.de/s-anzeige/1991-bmw-r100gs/3380566677-305-5651","fav":"","lat":49.25,"lon":11.09,"kleur":"","img":"66/66d18bf7-ebfd-4b26-b6e1-c9250181f2a0"},{"titel":"BMW R 100 GS","groep":"R100GS","prijs":3500,"netto":2440,"klasse":"GOED","regio":"Beieren-zuid","plz":"87600","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3456079844-305-7262","fav":"ja","lat":47.88,"lon":10.62,"kleur":"","img":"5d/5d4b02de-16c3-4e01-b1c2-9ac8821e3845"},{"titel":"BMW R100 GS PD","groep":"R100GS-PD","prijs":4100,"netto":1774,"klasse":"GOED","regio":"Rijnland","plz":"57078","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100-gs-pd/3418146194-305-1030","fav":"ja","lat":50.87,"lon":8.02,"kleur":"","img":"66/6693b24d-8990-4b83-b523-1a844d7f03f3"},{"titel":"BMW R100GS PD","groep":"R100GS-PD","prijs":4500,"netto":1444,"klasse":"GOED","regio":"Baden-Württemberg","plz":"76307","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs-pd/3449226370-305-8119","fav":"","lat":49.2,"lon":8.11,"kleur":"","img":"33/33ca7bb6-88c4-4b0f-b8c8-2d5b0f14c190"},{"titel":"BMW R 100 GS","groep":"R100GS","prijs":4600,"netto":1361,"klasse":"GOED","regio":"NRW-west","plz":"48346","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs/3443933724-305-17482","fav":"ja","lat":52.04,"lon":7.85,"kleur":"","img":"aa/aaf64660-e6bb-49c7-8b44-aef0cb690ef6"},{"titel":"BMW R45 Bj 1982","groep":"R45","prijs":875,"netto":1274,"klasse":"GOED","regio":"Beieren-noord/Franken","plz":"96472","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r45-bj-1982/3457807793-305-6648","fav":"ja","lat":50.29,"lon":11.04,"kleur":"","img":"a0/a0e4886d-af33-491a-a954-24b5a72113bd"},{"titel":"BMW R 100 GS Motorrad Klassiker","groep":"R100GS","prijs":3850,"netto":1243,"klasse":"GOED","regio":"NRW-west","plz":"46514","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-gs-motorrad-klassiker-fuer-abenteuer/3456342811-305-1756","fav":"","lat":51.84,"lon":6.62,"kleur":"","img":"e2/e28799f0-301f-413b-801a-ca0188b70e4e"},{"titel":"BMW R75/5 schweizer Papiere","groep":"R75/5","prijs":2999,"netto":1232,"klasse":"GOED","regio":"Baden-Württemberg","plz":"78467","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r75-5-schweizer-papiere/3454664962-305-9389","fav":"ja","lat":47.66,"lon":9.17,"kleur":"","img":"b8/b84e6afe-4f24-4acc-bce2-f5f87e20619c"},{"titel":"BMW R100RS Originalzustand 1.Hand","groep":"R100RS","prijs":2800,"netto":1137,"klasse":"GOED","regio":"Beieren-zuid","plz":"82061","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs-orginalzustand-1hand-unverbastellt/3455215546-305-6336","fav":"","lat":47.85,"lon":11.125,"kleur":"","img":"a0/a0b18ea3-1e20-4c39-b5a0-8a3239600e50"},{"titel":"BMW R 80 GS Boxer 1000ccm 2V","groep":"R80GS","prijs":3650,"netto":1037,"klasse":"GOED","regio":"Hessen/Saarland","plz":"61239","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-gs-boxer-1000-ccm-2-ventiler-91-scrambler-top-gepflegt/3411098077-305-4346","fav":"","lat":50.24,"lon":8.9,"kleur":"","img":"1e/1e7902f1-fb22-4e7f-bae2-0ff5af547df2"},{"titel":"BMW R100RS","groep":"R100RS","prijs":3300,"netto":1022,"klasse":"GOED","regio":"Baden-Württemberg","plz":"74394","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs/3366927364-305-20963","fav":"","lat":49.19,"lon":9.22,"kleur":"","img":"85/85f6b56b-e06b-4f7a-95b8-3f419a8d4fec"},{"titel":"BMW R 80 GS","groep":"R80GS","prijs":3700,"netto":996,"klasse":"GOED","regio":"Rijnland","plz":"59073","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-gs/3436695664-305-2020","fav":"","lat":51.602,"lon":7.963,"kleur":"","img":"0f/0fc187a5-4d80-45f5-847d-bd8ebbfc9703"},{"titel":"BMW R100 RT","groep":"R100RT","prijs":1990,"netto":947,"klasse":"GOED","regio":"Hessen/Saarland","plz":"63860","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100-rt/3425065896-305-7174","fav":"","lat":50.025,"lon":9.075,"kleur":"","img":"9a/9a93ba65-81df-4f41-b0c2-9f57762daecc"},{"titel":"BMW R100 RS","groep":"R100RS","prijs":3399,"netto":940,"klasse":"GOED","regio":"Hessen/Saarland","plz":"67454","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100-rs/3455173183-305-4966","fav":"","lat":49.79,"lon":8.28,"kleur":"","img":"8c/8c76f01c-4420-4dc8-a538-853c690a9fdd"},{"titel":"BMW R 90 S","groep":"R90S","prijs":4900,"netto":936,"klasse":"GOED","regio":"Noord-DE","plz":"29490","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-90-s/3432959741-305-3285","fav":"","lat":52.62,"lon":10.08,"kleur":"","img":"32/32372c71-823e-47fa-9b3c-6f673c60e494"},{"titel":"Motorrad BMW K1","groep":"K1","prijs":4800,"netto":862,"klasse":"GOED","regio":"Noord-DE","plz":"24229","link":"https://www.kleinanzeigen.de/s-anzeige/motorrad-bmw-k1/3456005648-305-17472","fav":"ja","lat":54.42,"lon":10.12,"kleur":"","img":"8b/8bfca757-1e94-4ea9-a467-b261c10ed8b7"},{"titel":"BMW R 65 Oldtimer","groep":"R65","prijs":1500,"netto":841,"klasse":"GOED","regio":"Beieren-zuid","plz":"88131","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-65-oldtimer/3433448247-305-7707","fav":"","lat":48.063,"lon":9.567,"kleur":"","img":"51/51cd4082-87a2-4666-81cc-235f3bfe44dd"},{"titel":"Motorrad BMW R75/6","groep":"R75/6","prijs":3500,"netto":817,"klasse":"GOED","regio":"Baden-Württemberg","plz":"73540","link":"https://www.kleinanzeigen.de/s-anzeige/motorrad-bmw-r75-6/3458208733-305-9014","fav":"ja","lat":48.79,"lon":9.93,"kleur":"","img":"b7/b73863c0-cae9-46ce-9f6a-f208a9c0c97c"},{"titel":"BMW R 45 mit Tüv","groep":"R45","prijs":1350,"netto":808,"klasse":"GOED","regio":"Noord-DE","plz":"28211","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-45-mit-tuev/3457182436-305-20","fav":"ja","lat":53.09,"lon":8.85,"kleur":"","img":"76/767b0e2c-aadc-4b20-9af7-d30f75b8910b"},{"titel":"Motorrad BMW R 45","groep":"R45","prijs":1350,"netto":808,"klasse":"GOED","regio":"Noord-DE","plz":"24628","link":"https://www.kleinanzeigen.de/s-anzeige/motorrad-bmw-r-45/3456412587-305-818","fav":"","lat":54.42,"lon":10.12,"kleur":"","img":"f1/f1b46be9-1bd0-4b8a-b85d-c1dc9b6f7917"},{"titel":"BMW R 100 RS","groep":"R100RS","prijs":1800,"netto":1964,"klasse":"VERVALT","regio":"Noord-DE","plz":"27476","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-rs-motorrag/3452122689-305-3299","fav":"","lat":52.97,"lon":9.19,"kleur":"","img":"8a/8af03827-57e8-4af4-a9de-0cbe3218145c"},{"titel":"BMW R90S/100S + div. Teile","groep":"R90S","prijs":3750,"netto":1887,"klasse":"RAND","regio":"Nedersaksen/NRW-oost","plz":"30629","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r90s-100s-div-teile/3458549033-305-3157","fav":"ja","lat":52.42,"lon":9.86,"kleur":"","img":"79/7906f519-5968-4488-b897-bce91997dee2"},{"titel":"BMW R80 GS 247E R100 HPN-Spender","groep":"R80GS","prijs":3300,"netto":1817,"klasse":"PROJECT","regio":"Beieren-noord/Franken","plz":"93047","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r80-gs-247-e-r100-hpn-spender/3355933975-305-7659","fav":"","lat":48.81,"lon":11.85,"kleur":"","img":"5f/5f8e0caf-be12-4200-b6e6-07dc1a9f8448"},{"titel":"BMW R100RS läuft, alle papiere","groep":"R100RS","prijs":1800,"netto":1708,"klasse":"PROJECT","regio":"NRW-west","plz":"42549","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs-laeuft-super-alle-papiere-da-/3356073631-305-1750","fav":"","lat":51.11,"lon":7.02,"kleur":"","img":"7f/7fd669b8-5be2-4444-add9-ba2c0198fcf5"},{"titel":"BMW R45 stond 20 jaar","groep":"R45","prijs":999,"netto":1171,"klasse":"PROJECT","regio":"Noord-DE","plz":"29303","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r45-stand-ueber-20-jahre/3432156099-305-3295","fav":"","lat":52.62,"lon":10.08,"kleur":"","img":"1b/1ba22c6d-8d85-460a-87dc-843effe0ce7d"},{"titel":"Motorrad BMW R 45 (248)","groep":"R45","prijs":1500,"netto":757,"klasse":"RAND","regio":"Rijnland","plz":"52388","link":"https://www.kleinanzeigen.de/s-anzeige/motorrad-bmw-r-45-248-/3453969454-305-1829","fav":"","lat":51.06,"lon":6.1,"kleur":"","img":"b4/b41f9552-a4b0-442c-a945-d929e24b92a6"},{"titel":"BMW R100RS","groep":"R100RS","prijs":3300,"netto":724,"klasse":"RAND","regio":"Hessen/Saarland","plz":"64839","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100rs/3442938718-305-944","fav":"","lat":49.87,"lon":8.79,"kleur":"","img":"30/301346e6-2e95-40c1-a33e-cb105806cc29"},{"titel":"BMW R100GS (247E) BJ1990","groep":"R100GS","prijs":4500,"netto":706,"klasse":"RAND","regio":"Nedersaksen/NRW-oost","plz":"33758","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100gs-247e-bj1990-ez-1991/3411971434-305-1646","fav":"","lat":51.89,"lon":8.61,"kleur":"","img":"5d/5dd3f61d-263b-460d-ab4f-136700b98f3a"},{"titel":"BMW 248 (R65) Oldtimer Koffer TÜV 09/26","groep":"R65","prijs":1290,"netto":678,"klasse":"RAND","regio":"Beieren-noord/Franken","plz":"96050","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-248-r65-oldtimer-koffer-tuev-09-26/3441560944-305-6891","fav":"","lat":50.29,"lon":11.04,"kleur":"","img":"f1/f154b908-f757-48be-8167-2aa222e08a9d"},{"titel":"BMW R65 1982 52039km Kofferset","groep":"R65","prijs":1700,"netto":676,"klasse":"RAND","regio":"Berlijn/Brandenburg","plz":"12249","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r65-baujahr-1982-52039km-aktuell-abgemeldet-kofferset/3453517322-305-3423","fav":"ja","lat":52.46,"lon":13.32,"kleur":"","img":"68/68ee8eee-d9a8-4380-bfa5-257c43166b6e"},{"titel":"BMW R100RT komplett läuft 70pk","groep":"R100RT","prijs":2350,"netto":649,"klasse":"RAND","regio":"Baden-Württemberg","plz":"76684","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100rt-komplett-laeuft-papiere-70ps-7/3440138414-305-8252","fav":"","lat":49.2,"lon":8.11,"kleur":"","img":"fc/fcb71445-762b-4e70-84ac-0e2335b9e1db"},{"titel":"BMW C 650 GT","groep":"C650GT","prijs":2700,"netto":602,"klasse":"RAND","regio":"Rijnland","plz":"52525","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-c-650-gt/3452616626-305-16235","fav":"ja","lat":51.06,"lon":6.1,"kleur":"","img":"0b/0bf7584f-f726-44f0-8d11-e1e74cecb917"},{"titel":"BMW R80 RT BJ 1983","groep":"R80RT","prijs":1900,"netto":584,"klasse":"PROJECT","regio":"NRW-west","plz":"48369","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r80-rt-bj-1983-reparaturbeduerftig/3373707599-305-1171","fav":"","lat":52.207,"lon":7.483,"kleur":"","img":"ae/ae18583d-9d70-4a20-b247-6854af5124ec"},{"titel":"BMW R 80 RT","groep":"R80RT","prijs":2500,"netto":578,"klasse":"RAND","regio":"Nedersaksen/NRW-oost","plz":"37170","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-rt/3436061139-305-2782","fav":"","lat":51.55,"lon":10.167,"kleur":"","img":"d3/d377d8d4-3e4c-404b-b81d-c1ebafb44fb3"},{"titel":"BMW R 100 RS neu restauriert","groep":"R100RS","prijs":3200,"netto":551,"klasse":"RAND","regio":"Baden-Württemberg","plz":"75217","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-100-rs-neu-restauriert-und-in-topsustand-/3440920501-305-9274","fav":"ja","lat":48.87,"lon":8.63,"kleur":"","img":"3e/3ea60dae-007a-4e69-9243-f42e1b625935"},{"titel":"1993er BMW R 80 RT 37KW","groep":"R80RT","prijs":2550,"netto":536,"klasse":"RAND","regio":"Rijnland","plz":"59368","link":"https://www.kleinanzeigen.de/s-anzeige/sammlungsaufloesung-schoene-1993-er-bmw-r-80-rt-37kw/3446795774-305-1446","fav":"ja","lat":51.66,"lon":7.63,"kleur":"","img":"f4/f4ce21c5-7e84-4ec5-b30f-bced2f974f8b"},{"titel":"BMW R 1200 GS LC","groep":"R1200GS-LC","prijs":7990,"netto":513,"klasse":"RAND","regio":"Noord-DE","plz":"23758","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-1200-gs-lc/3458809644-305-450","fav":"","lat":53.975,"lon":10.44,"kleur":"","img":"42/42fc3f5a-6fd1-46cc-af1e-1105ba750d04"},{"titel":"BMW R45 met TÜV H-fähig","groep":"R45","prijs":1800,"netto":509,"klasse":"RAND","regio":"Rijnland","plz":"59229","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r45-mit-tuev-h-faehig/3439656399-305-1904","fav":"","lat":51.602,"lon":7.963,"kleur":"","img":"72/72b52be8-b710-4ea1-94f0-82e9ae37fa1c"},{"titel":"BMW R65 EZ 1980 TÜV 03.2028","groep":"R65","prijs":1950,"netto":469,"klasse":"RAND","regio":"Beieren-zuid","plz":"88521","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r65-ez-1980-schwarz-tuev-03-2028/3458418849-305-8723","fav":"ja","lat":48.1,"lon":9.47,"kleur":"","img":"5a/5af15a75-b0ad-4219-89be-000c4089bf0d"},{"titel":"BMW R65 + orig. reparatiehandleiding","groep":"R65","prijs":1950,"netto":469,"klasse":"RAND","regio":"NRW-west","plz":"42897","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r65-motorrad-mit-original-reparaturanleitung/3445615337-305-1036","fav":"","lat":51.11,"lon":7.02,"kleur":"","img":"98/98f3fca8-1b8d-4465-a17f-159cecacf768"},{"titel":"BMW R45 Baujahr 79","groep":"R45","prijs":1800,"netto":436,"klasse":"RAND","regio":"Rijnland","plz":"58579","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r45-baujahr-79/3452288679-305-1406","fav":"","lat":51.44,"lon":7.56,"kleur":"","img":"d9/d9499d62-6049-44a9-b92d-9b6354fc4dfb"},{"titel":"BMW R100 RT Klappscheinwerfer","groep":"R100RT","prijs":2222,"netto":352,"klasse":"MAGER","regio":"Beieren-noord/Franken","plz":"92690","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r100-rt-klappscheinwerfer/3457155861-305-7206","fav":"ja","lat":49.77,"lon":11.94,"kleur":"","img":"d9/d9a89b66-6e66-48b2-b1a9-3c59b1a43b0d"},{"titel":"BMW R 80 RT","groep":"R80RT","prijs":2500,"netto":272,"klasse":"MAGER","regio":"Noord-DE","plz":"23845","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-rt/3426394242-305-919","fav":"","lat":53.975,"lon":10.44,"kleur":"","img":"9f/9fbd400a-02d2-4269-895b-754ed7aee205"},{"titel":"BMW R80 RT Bj.1987 Koffer extras","groep":"R80RT","prijs":2499,"netto":89,"klasse":"MAGER","regio":"NRW-west","plz":"45701","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r80-rt-bj-1987-oltimer-koffer-viele-extras/3452987997-305-1831","fav":"ja","lat":51.6,"lon":7.14,"kleur":"","img":"90/90890967-7e43-402a-9047-779a0bd95dce"},{"titel":"BMW R 80 RT","groep":"R80RT","prijs":2499,"netto":89,"klasse":"MAGER","regio":"Noord-DE","plz":"25876","link":"https://www.kleinanzeigen.de/s-anzeige/bmw-r-80-rt/3382416287-305-588","fav":"","lat":53.925,"lon":9.46,"kleur":"","img":"6e/6ee66489-e2ce-4cfa-8567-f08c13160b1a"},{"titel":"BMW R 1200 GS (LC)","groep":"R1200GS-LC","prijs":7900,"netto":-31,"klasse":"MAGER","regio":"Baden-Württemberg","plz":"73000","link":"https://www.kleinanzeigen.de/s-anzeige/verkaufe-bmw-r-1200-gs-lc-/3459063061-305-7663","fav":"","lat":48.79,"lon":9.93,"kleur":"","img":"c0/c074c5e7-cee0-4fd6-a9d2-11b90e4c40ee"}],"ritten":[{"a":[51.26,6.55],"b":[51.4,6.71],"titelA":"BMW R 100 GS","titelB":"BMW R 100 GS","km":331,"tot":3580,"kosten":83},{"a":[50.7,7.09],"b":[50.9,6.95],"titelA":"BMW R 100 GS P/D","titelB":"BMM R 100 GS Paris Dakar","km":502,"tot":3476,"kosten":126},{"a":[49.237,6.937],"b":[50.66,6.79],"titelA":"BMW R 100 GS","titelB":"BMW R100GS Paris Dakar","km":902,"tot":3460,"kosten":226},{"a":[49.25,11.09],"b":[49.25,11.09],"titelA":"BMW R 100 GS","titelB":"1991 BMW R100GS","km":1239,"tot":2760,"kosten":310},{"a":[51.44,7.56],"b":[51.84,6.62],"titelA":"BMW R100GS","titelB":"BMW R 100 GS Motorrad Klassiker","km":382,"tot":2738,"kosten":96},{"a":[52.42,9.86],"b":[52.62,10.08],"titelA":"BMW R90S/100S + div. Teile","titelB":"BMW R 90 S","km":707,"tot":2376,"kosten":177},{"a":[52.07,8.84],"b":[51.89,8.61],"titelA":"BMW K1, keine K100","titelB":"BMW R100GS (247E) BJ1990","km":487,"tot":2336,"kosten":122},{"a":[49.19,9.22],"b":[49.19,9.22],"titelA":"BMW R 100 GS","titelB":"BMW R100RS","km":1073,"tot":2275,"kosten":268},{"a":[51.55,10.167],"b":[51.55,10.167],"titelA":"BMW R100 GS","titelB":"BMW R 80 RT","km":711,"tot":2246,"kosten":178},{"a":[51.602,7.963],"b":[51.602,7.963],"titelA":"BMW R75/6 met R80/7-motor 1000cc","titelB":"BMW R45 met TÜV H-fähig","km":357,"tot":2220,"kosten":89},{"a":[53.4,8.02],"b":[53.09,8.85],"titelA":"BMW R80GS BJ 92","titelB":"BMW R 45 mit Tüv","km":564,"tot":2083,"kosten":141},{"a":[53.57,10.02],"b":[53.57,10.02],"titelA":"BMW R 80 Gs","titelB":"BMW R80 GS mit nur 14000 KM","km":759,"tot":2050,"kosten":190},{"a":[53.37,7.21],"b":[53.37,7.21],"titelA":"BMW R100RS","titelB":"BMW R1200C (259 C)","km":346,"tot":1990,"kosten":86},{"a":[50.87,8.02],"b":[50.87,8.02],"titelA":"BMW R100 GS PD","titelB":"BMW R 1200 GS 3 Pakete Top","km":542,"tot":1905,"kosten":135},{"a":[49.79,9.95],"b":[50.2,9.96],"titelA":"BMW R 75/6","titelB":"BMW R 80 GS top Zustand viel Zubehör","km":1020,"tot":1716,"kosten":255},{"a":[49.2,8.11],"b":[49.2,8.11],"titelA":"BMW R100GS PD","titelB":"BMW R100RT komplett läuft 70pk","km":1038,"tot":1595,"kosten":260},{"a":[52.04,7.85],"b":[52.3,7.16],"titelA":"BMW R 100 GS","titelB":"BMW R65 EZ 02.1981","km":321,"tot":1570,"kosten":80},{"a":[52.47,13.33],"b":[52.46,13.32],"titelA":"BMW F800ST","titelB":"BMW R65 1982 52039km Kofferset","km":1255,"tot":1470,"kosten":314},{"a":[50.29,11.04],"b":[50.29,11.04],"titelA":"BMW R45 Bj 1982","titelB":"BMW 248 (R65) Oldtimer Koffer TÜV 09/26","km":1138,"tot":1437,"kosten":284},{"a":[51.602,7.963],"b":[51.67,8.34],"titelA":"BMW R 80 GS","titelB":"BMW R80 GS 24800km Bj 5/92","km":443,"tot":1285,"kosten":111},{"a":[50.025,9.075],"b":[49.87,8.79],"titelA":"BMW R100 RT","titelB":"BMW R100RS","km":903,"tot":1225,"kosten":226},{"a":[54.42,10.12],"b":[54.42,10.12],"titelA":"Motorrad BMW K1","titelB":"Motorrad BMW R 45","km":907,"tot":1224,"kosten":227},{"a":[51.06,6.1],"b":[51.06,6.1],"titelA":"Motorrad BMW R 45 (248)","titelB":"BMW C 650 GT","km":448,"tot":1031,"kosten":112},{"a":[51.49,7.5],"b":[51.66,7.63],"titelA":"BMW R 100 RS sehr schöner Zustand","titelB":"1993er BMW R 80 RT 37KW","km":367,"tot":972,"kosten":92},{"a":[48.79,9.93],"b":[49.76,9.51],"titelA":"Motorrad BMW R75/6","titelB":"BMW R1200GS","km":1236,"tot":948,"kosten":309}]};
-const eur=n=>n==null?'—':'€ '+n.toLocaleString('de-DE');
-let map,cluster,ritLayer,welsum;
-try{const st=JSON.parse(localStorage.getItem('rolvink_koopjes_status')||'{}');DATA.bikes=DATA.bikes.filter(x=>{const q=(x.link||'').match(/(\d{9,})/);return !(q&&(st[q[1]]==='genegeerd'||st[q[1]]==='verkocht'));});}catch(_){}
+const eur=n=>n==null?'—':'€ '+n.toLocaleString('de-DE');
+let map,cluster,ritLayer,selLayer,welsum;
+const ALLB=DATA.bikes.slice();
+function loadSt(){try{return JSON.parse(localStorage.getItem('rolvink_koopjes_status')||'{}')}catch(e){return{}}}
+function bikeId(l){var m=(l||'').match(/(\d{9,})/);return m?m[1]:null}
+function activeBikes(){var st=loadSt();return ALLB.filter(function(x){var q=bikeId(x.link);return !(q&&(st[q]==='genegeerd'||st[q]==='verkocht'));});}
+DATA.bikes=activeBikes();
+
+/* ---------- rit-rekenmodel (zelfde als routes_pool.py: hemelsbreed x1,28 en EUR 0,25/km) ---------- */
+const WPT=DATA.welsum, RKM=0.25, WFAC=1.28, MAXROWS=25;
+function hav(a,b){var p=Math.PI/180,x=0.5-Math.cos((b[0]-a[0])*p)/2+Math.cos(a[0]*p)*Math.cos(b[0]*p)*(1-Math.cos((b[1]-a[1])*p))/2;return 2*6371*Math.asin(Math.sqrt(x));}
+function wkm(a,b){return hav(a,b)*WFAC;}
+function gv(id){var e=document.getElementById(id);return e?(e.type==='checkbox'?e.checked:e.value):null;}
+function klasseOk(k){var m=gv('fKlasse');if(m==='TOP')return k==='TOP';if(m==='TOPGOED')return k==='TOP'||k==='GOED';return true;}
+function shortT(t){var s=String(t||'').replace(/^BMW\s*/i,'');return s.length>26?s.slice(0,25)+'…':s;}
+var ROUTES=[],SELI=-1;
+
+function candidates(){
+ var out=[];
+ DATA.bikes.forEach(function(x,i){
+  if(!klasseOk(x.klasse))return;
+  if(x.lat==null||x.lon==null)return;
+  if(x.netto==null||x.netto<=0)return;
+  out.push({b:x,i:i,c:[x.lat,x.lon],net:x.netto,key:bikeId(x.link)||('i'+i)});
+ });
+ return out;
+}
+function mkRoute(stops,km){
+ var som=0,far=0;
+ stops.forEach(function(s){som+=s.net;var d=wkm(WPT,s.c);if(d>far)far=d;});
+ var kost=km*RKM;
+ return {stops:stops,km:Math.round(km),kosten:Math.round(kost),tot:Math.round(som-kost),
+         omweg:Math.round(km-2*far),perkm:(som-kost)/Math.max(km,1)};
+}
+function computeRoutes(){
+ var P=candidates(),n=P.length,maxKm=+gv('fKm'),trio=gv('fMode')==='trio',res=[],i,j,k;
+ var dW=[],d=[];
+ for(i=0;i<n;i++){dW[i]=wkm(WPT,P[i].c);d[i]=[];}
+ for(i=0;i<n;i++)for(j=i+1;j<n;j++){var v=wkm(P[i].c,P[j].c);d[i][j]=v;d[j][i]=v;}
+ for(i=0;i<n;i++)for(j=i+1;j<n;j++){
+  if(!trio){
+   var km2=dW[i]+d[i][j]+dW[j];
+   if(km2>maxKm)continue;
+   var r2=mkRoute([P[i],P[j]],km2);
+   if(r2.tot>0)res.push(r2);
+   continue;
+  }
+  for(k=j+1;k<n;k++){
+   var o1=dW[i]+d[i][j]+d[j][k]+dW[k],
+       o2=dW[i]+d[i][k]+d[k][j]+dW[j],
+       o3=dW[j]+d[j][i]+d[i][k]+dW[k];
+   var best=o1,ord=[P[i],P[j],P[k]];
+   if(o2<best){best=o2;ord=[P[i],P[k],P[j]];}
+   if(o3<best){best=o3;ord=[P[j],P[i],P[k]];}
+   if(best>maxKm)continue;
+   var r3=mkRoute(ord,best);
+   if(r3.tot>0)res.push(r3);
+  }
+ }
+ var srt=gv('fSort');
+ res.sort(srt==='om'?function(a,b){return a.omweg-b.omweg||b.tot-a.tot;}
+        :srt==='perkm'?function(a,b){return b.perkm-a.perkm;}
+        :function(a,b){return b.tot-a.tot;});
+ if(gv('fUniq')){
+  var used={},uq=[];
+  res.forEach(function(r){
+   for(var q=0;q<r.stops.length;q++)if(used[r.stops[q].key])return;
+   r.stops.forEach(function(s){used[s.key]=1;});
+   uq.push(r);
+  });
+  res=uq;
+ }
+ return res.slice(0,MAXROWS);
+}
+
+/* ---------- kaartlagen ---------- */
 function styleFor(k){
  if(k==='TOP')return{r:9,color:'#155e30',fill:'#1f7a3f',op:1};
  if(k==='GOED')return{r:7,color:'#7c4a1e',fill:'#B87333',op:.95};
  return{r:5,color:'#6b625c',fill:'#9a9088',op:.6};
 }
-function init(){
- map=L.map('map',{center:[51.3,9.2],zoom:6,scrollWheelZoom:true});
- L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(map);
- // Welsum basis
- welsum=L.marker(DATA.welsum,{title:'Welsum (basis)',icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#2A2A2A;border:2px solid #B87333;border-radius:50%;box-shadow:0 0 0 2px #fff"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map).bindPopup('<b>Welsum</b><br>basis / vertrekpunt');
- cluster=L.markerClusterGroup({maxClusterRadius:45,spiderfyOnMaxZoom:true});
- buildMarkers();
- map.addLayer(cluster);
- ritLayer=L.layerGroup(); buildRitten(); map.addLayer(ritLayer);
- const b=L.latLngBounds(DATA.bikes.map(x=>[x.lat,x.lon])); b.extend(DATA.welsum); map.fitBounds(b.pad(0.12));
- document.getElementById('fTop').onchange=buildMarkers;
- document.getElementById('fRit').onchange=()=>{document.getElementById('fRit').checked?map.addLayer(ritLayer):map.removeLayer(ritLayer);};
-}
-function bikeId(l){var m=(l||'').match(/(\d{9,})/);return m?m[1]:null}
 function imgTag(x){return x.img?'<img class="pp-img" loading="eager" src="https://img.kleinanzeigen.de/api/v1/prod-ads/images/'+x.img+'?rule=$_59.JPG" onerror="this.remove()">':''}
 var MARKERS={};
-function loadSt(){try{return JSON.parse(localStorage.getItem('rolvink_koopjes_status')||'{}')}catch(e){return{}}}
-function actBtns(x){var id=bikeId(x.link);if(!id)return '';var st=(loadSt()[id]||'');function b(a,lab){return '<button class="pp-b'+(st===a?' pp-on':'')+'" data-id="'+id+'" data-act="'+a+'">'+lab+'</button>'}return '<div class="pp-acts">'+b('bewaard','❤ Bewaar')+b('genegeerd','✕ Negeer')+b('verkocht','✔ Verkocht')+'</div>'}
-function setStatus(id,st,btn){var o=loadSt();if(o[id]===st){delete o[id];st=''}else{o[id]=st}try{localStorage.setItem('rolvink_koopjes_status',JSON.stringify(o))}catch(e){}fetch('/api/status',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({changes:[{id:id,status:st}]})}).catch(function(){});if(st==='genegeerd'||st==='verkocht'){var mk=MARKERS[id];if(mk){cluster.removeLayer(mk);if(map&&map.closePopup)map.closePopup();}}else if(btn&&btn.parentNode){var bs=btn.parentNode.querySelectorAll('.pp-b');for(var i=0;i<bs.length;i++)bs[i].classList.remove('pp-on');if(st)btn.classList.add('pp-on');}}
+function actBtns(x){var id=bikeId(x.link);if(!id)return '';var st=(loadSt()[id]||'');function b(a,lab){return '<button class="pp-b'+(st===a?' pp-on':'')+'" data-id="'+id+'" data-act="'+a+'">'+lab+'</button>'}return '<div class="pp-acts">'+b('bewaard','❤ Bewaar')+b('genegeerd','✕ Negeer')+b('verkocht','✓ Verkocht')+'</div>'}
+function setStatus(id,st,btn){
+ var o=loadSt();if(o[id]===st){delete o[id];st=''}else{o[id]=st}
+ try{localStorage.setItem('rolvink_koopjes_status',JSON.stringify(o));}catch(e){}
+ try{fetch('/api/status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)}).catch(function(){});}catch(e){}
+ if(btn){var bs=btn.parentNode.querySelectorAll('.pp-b');for(var i=0;i<bs.length;i++)bs[i].classList.remove('pp-on');if(st)btn.classList.add('pp-on');}
+ if(st==='genegeerd'||st==='verkocht'){DATA.bikes=activeBikes();map.closePopup();refresh();}
+}
 if(!window.__ppDeleg){window.__ppDeleg=1;document.addEventListener('click',function(e){var t=e.target;var b=(t&&t.closest)?t.closest('.pp-b'):null;if(b){setStatus(b.getAttribute('data-id'),b.getAttribute('data-act'),b)}});}
+
 function buildMarkers(){
- cluster.clearLayers();
- const topOnly=document.getElementById('fTop') && document.getElementById('fTop').checked;
- DATA.bikes.forEach(x=>{
-  if(topOnly && !(x.klasse==='TOP'||x.klasse==='GOED'))return;
-  const s=styleFor(x.klasse);
-  const m=L.circleMarker([x.lat,x.lon],{radius:s.r,color:s.color,weight:1.5,fillColor:s.fill,fillOpacity:s.op});
-  const net=x.netto==null?'<span style="color:#8a807b">n.t.b.</span>':'<span class="pp-net" style="color:'+(x.netto>=1500?'#1f7a3f':x.netto>=0?'#9A5A24':'#a3341f')+'">'+eur(x.netto)+'</span>';
+ cluster.clearLayers();MARKERS={};
+ DATA.bikes.forEach(function(x){
+  if(!klasseOk(x.klasse))return;
+  var s=styleFor(x.klasse);
+  var m=L.circleMarker([x.lat,x.lon],{radius:s.r,color:s.color,weight:1.5,fillColor:s.fill,fillOpacity:s.op});
+  var net=x.netto==null?'<span style="color:#8a807b">n.t.b.</span>':'<span class="pp-net" style="color:'+(x.netto>=1500?'#1f7a3f':x.netto>=0?'#9A5A24':'#a3341f')+'">'+eur(x.netto)+'</span>';
   var _bid=bikeId(x.link);if(_bid)MARKERS[_bid]=m;
-  m.bindPopup(imgTag(x)+'<b>'+x.titel+'</b><br><span style="color:#8a807b">'+x.groep+' · '+x.klasse+(x.fav?' · fav '+x.fav:'')+'</span><br>Vraagprijs <b>'+eur(x.prijs)+'</b> · Netto '+net+'<br>'+(x.regio||x.plz)+(x.kleur?' · '+x.kleur:'')+'<br><a class="pp-lnk" href="'+x.link+'" target="_blank" rel="noreferrer">bekijk op Kleinanzeigen ↗</a>'+actBtns(x));
+  m.bindPopup(imgTag(x)+'<b>'+x.titel+'</b><br><span style="color:#8a807b">'+x.groep+' · '+x.klasse+(x.fav?' · fav '+x.fav:'')+'</span><br>Vraagprijs <b>'+eur(x.prijs)+'</b> · Netto '+net+'<br><span style="color:#8a807b">'+(x.regio||'')+'</span><br><a class="pp-lnk" href="'+x.link+'" target="_blank" rel="noreferrer">bekijk op Kleinanzeigen ↗</a>'+actBtns(x));
   cluster.addLayer(m);
  });
 }
-function buildRitten(){
- ritLayer.clearLayers();
- DATA.ritten.forEach(r=>{
-  const w=r.tot>=3000?4:r.tot>=2000?3:2;
-  const col=r.tot>=3000?'#1f7a3f':r.tot>=1500?'#B87333':'#9a9088';
-  const pl=L.polyline([r.a,r.b],{color:col,weight:w,opacity:.55,dashArray:'4 5'});
-  pl.bindPopup('<b>Rit-paar</b><br>'+r.titelA+'<br>+ '+r.titelB+'<br>±'+r.km+' km · samen netto <b>'+eur(r.tot)+'</b>');
-  ritLayer.addLayer(pl);
+function ritKleur(t){return t>=3000?'#1f7a3f':t>=1500?'#B87333':'#9a9088';}
+function ritPath(r){var p=[WPT];r.stops.forEach(function(s){p.push(s.c);});p.push(WPT);return p;}
+function drawRitten(){
+ ritLayer.clearLayers();selLayer.clearLayers();
+ var mode=gv('fMode');
+ if(mode==='uit')return;
+ if(mode==='vast'){
+  (DATA.ritten||[]).forEach(function(r){
+   var pl=L.polyline([r.a,r.b],{color:ritKleur(r.tot),weight:r.tot>=3000?4:r.tot>=2000?3:2,opacity:.55,dashArray:'4 5'});
+   pl.bindPopup('<b>Rit-paar</b><br>'+r.titelA+'<br>+ '+r.titelB+'<br>±'+r.km+' km · samen netto <b>'+eur(r.tot)+'</b>');
+   ritLayer.addLayer(pl);
+  });
+  return;
+ }
+ ROUTES.forEach(function(r,i){
+  var sel=i===SELI, dim=SELI>=0&&!sel;
+  var pl=L.polyline(ritPath(r),{color:sel?'#B87333':ritKleur(r.tot),weight:sel?5:1.5,opacity:sel?.95:(dim?.12:.3),dashArray:sel?null:'4 5'});
+  pl.on('click',function(){selectRoute(i,false);});
+  (sel?selLayer:ritLayer).addLayer(pl);
  });
+ if(SELI>=0&&ROUTES[SELI]){
+  ROUTES[SELI].stops.forEach(function(s,k){
+   var nm=L.marker(s.c,{zIndexOffset:900,title:s.b.titel,icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#B87333;border:2px solid #fff;color:#fff;font:600 11px/17px Inter,sans-serif;text-align:center;box-shadow:0 1px 5px rgba(0,0,0,.4);cursor:pointer">'+(k+1)+'</div>',iconSize:[20,20],iconAnchor:[10,10]})});
+   nm.on('click',function(){var m=MARKERS[s.key];if(m&&cluster.hasLayer(m)){cluster.zoomToShowLayer(m,function(){m.openPopup();});}});
+   selLayer.addLayer(nm);
+  });
+ }
 }
-function _unlockGate(){document.getElementById('gate').style.display='none';setTimeout(()=>{init();map.invalidateSize();},60);}
-document.getElementById('gcode').addEventListener('keydown',e=>{if(e.key==='Enter'){if(e.target.value.trim().toLowerCase()==='welsum'){try{localStorage.setItem('rvk_ok','1');}catch(_){}_unlockGate();}else e.target.value='';}});
+function selectRoute(i,zoom){
+ SELI=(SELI===i?-1:i);
+ drawRitten();paintRows();
+ if(SELI>=0&&zoom){var b=L.latLngBounds(ritPath(ROUTES[SELI]));map.fitBounds(b.pad(0.25));}
+}
+function paintRows(){
+ var rows=document.querySelectorAll('#panL .rt');
+ for(var i=0;i<rows.length;i++)rows[i].classList.toggle('on',+rows[i].getAttribute('data-i')===SELI);
+}
+function renderPanel(){
+ var L2=document.getElementById('panL'),N=document.getElementById('panN'),F=document.getElementById('panF'),mode=gv('fMode');
+ if(mode==='uit'||mode==='vast'){
+  N.textContent='';
+  L2.innerHTML='<div class="pan-e">'+(mode==='uit'?'Ritten staan uit.':'Vaste paren uit de weekanalyse — kies “beste paren/trio’s” voor live berekening.')+'</div>';
+  F.textContent='';return;
+ }
+ N.textContent=ROUTES.length+' ritten';
+ if(!ROUTES.length){L2.innerHTML='<div class="pan-e">Geen combinatie binnen '+gv('fKm')+' km met positief netto. Zet max-km hoger of klasse ruimer.</div>';F.textContent='';return;}
+ var h='';
+ ROUTES.forEach(function(r,i){
+  var tit=r.stops.map(function(s){return shortT(s.b.titel);}).join(' + ');
+  var reg=r.stops.map(function(s){return (s.b.regio||'').split('/')[0];}).join(' → ');
+  var kl=r.stops.map(function(s){var st=styleFor(s.b.klasse);return '<span class="dot" style="width:9px;height:9px;background:'+st.fill+'"></span>';}).join('');
+  var det='<div class="rd">'+r.stops.map(function(s,q){
+    return '<div class="rdl"><b>'+(q+1)+'.</b> '+s.b.titel+'<br><span>'+s.b.klasse+' · '+(s.b.regio||'')+' · vraag '+eur(s.b.prijs)+' · netto <b>'+eur(s.net)+'</b></span>'
+      +(s.b.link?' <a class="pp-lnk" href="'+s.b.link+'" target="_blank" rel="noreferrer">↗</a>':'')+'</div>';}).join('')+'</div>';
+  h+='<div class="rt" data-i="'+i+'"><div class="r1"><span class="rk">'+(i+1)+'</span><span class="tt">'+kl+' '+tit+'</span><span class="nt">'+eur(r.tot)+'</span></div>'
+   +'<div class="r2">'+reg+' · '+r.km+' km · rit '+eur(r.kosten)+' · <span class="om">+'+r.omweg+' km omweg</span></div>'+det+'</div>';
+ });
+ L2.innerHTML=h;
+ F.textContent='netto = som netto − ritkosten (€0,25/km, heen+terug via alle stops)';
+ paintRows();
+}
+function refresh(){
+ SELI=-1;
+ buildMarkers();
+ ROUTES=(gv('fMode')==='paar'||gv('fMode')==='trio')?computeRoutes():[];
+ drawRitten();renderPanel();
+}
+function init(){
+ map=L.map('map',{center:[51.3,9.2],zoom:6,scrollWheelZoom:true});
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(map);
+ welsum=L.marker(DATA.welsum,{title:'Welsum (basis)',icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#2A2A2A;border:2px solid #B87333;border-radius:50%;box-shadow:0 0 0 3px rgba(184,115,51,.25)"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map).bindPopup('<b>Welsum</b><br>basis / vertrekpunt');
+ cluster=L.markerClusterGroup({maxClusterRadius:45,spiderfyOnMaxZoom:true});
+ map.addLayer(cluster);
+ ritLayer=L.layerGroup().addTo(map);selLayer=L.layerGroup().addTo(map);
+ var pan=document.getElementById('pan');
+ L.DomEvent.disableClickPropagation(pan);L.DomEvent.disableScrollPropagation(pan);
+ pan.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))return;var t=e.target.closest?e.target.closest('.rt'):null;if(t)selectRoute(+t.getAttribute('data-i'),true);});
+ document.getElementById('panT').addEventListener('click',function(){pan.classList.toggle('hid');this.textContent=pan.classList.contains('hid')?'+':'–';});
+ ['fKlasse','fMode','fUniq','fSort'].forEach(function(id){document.getElementById(id).addEventListener('change',refresh);});
+ var km=document.getElementById('fKm');
+ km.addEventListener('input',function(){document.getElementById('fKmL').textContent=km.value+' km';});
+ km.addEventListener('change',refresh);
+ refresh();
+ var b=L.latLngBounds(DATA.bikes.map(function(x){return [x.lat,x.lon];}));b.extend(DATA.welsum);map.fitBounds(b.pad(0.12));
+}
+function _unlockGate(){document.getElementById('gate').style.display='none';setTimeout(function(){init();map.invalidateSize();},60);}
+document.getElementById('gcode').addEventListener('keydown',function(e){if(e.key==='Enter'){if(e.target.value.trim().toLowerCase()==='welsum'){try{localStorage.setItem('rvk_ok','1');}catch(_){}_unlockGate();}else e.target.value='';}});
 try{if(localStorage.getItem('rvk_ok')==='1')_unlockGate();}catch(_){}
 </script></body></html>
