@@ -3,7 +3,7 @@
   "trailingSlash": true,
   "crons": [
     {
-      "path": "/api/status",
+      "path": "/api/status/",
       "schedule": "0 5 * * *"
     }
   ]
