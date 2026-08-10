@@ -8,7 +8,8 @@
 // en storingen tellen als onbekend en schrijven niets weg. De hele run wordt overgeslagen als
 // te veel checks onbekend zijn, zodat een IP-blokkade nooit je halve database wegzet.
 //
-// GET /api/wegcheck/          → dagelijks roterend blok van 15 advertenties
+// GET /api/wegcheck/          → roterend blok van 10 advertenties (past binnen de 10s-limiet)
+// GET /api/wegcheck/?offset=10  → volgend blok, zodat je met meerdere aanroepen sneller rondkomt
 // GET /api/wegcheck/?n=50     → grotere batch (max 80)
 // GET /api/wegcheck/?dry=1    → alleen rapporteren, niets wegschrijven
 
@@ -21,7 +22,7 @@ export const config = { maxDuration: 60 };
 
 export default async function handler(req, res) {
   const url = new URL(req.url, 'https://x.invalid');
-  const n = Math.min(80, Math.max(1, Number(url.searchParams.get('n')) || 15));
+  const n = Math.min(80, Math.max(1, Number(url.searchParams.get('n')) || 10));
   const dry = url.searchParams.get('dry') === '1';
   const base = 'https://' + (req.headers['x-forwarded-host'] || req.headers.host);
 
@@ -35,7 +36,8 @@ export default async function handler(req, res) {
 
     // Dagelijks roterend venster: zo ga je op termijn alles langs zonder een checklog op te slaan.
     const dag = Math.floor(Date.now() / 86400000);
-    const start = (dag * n) % open.length;
+    const offset = Math.max(0, Number(url.searchParams.get('offset')) || 0);
+    const start = (dag * n + offset) % open.length;
     const batch = [];
     for (let i = 0; i < Math.min(n, open.length); i++) batch.push(open[(start + i) % open.length]);
 
