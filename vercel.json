@@ -5,6 +5,10 @@
     {
       "path": "/api/status/",
       "schedule": "0 5 * * *"
+    },
+    {
+      "path": "/api/wegcheck/",
+      "schedule": "20 5 * * *"
     }
   ]
 }
