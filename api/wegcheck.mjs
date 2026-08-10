@@ -8,7 +8,7 @@
 // en storingen tellen als onbekend en schrijven niets weg. De hele run wordt overgeslagen als
 // te veel checks onbekend zijn, zodat een IP-blokkade nooit je halve database wegzet.
 //
-// GET /api/wegcheck/          → dagelijks roterend blok van 30 advertenties
+// GET /api/wegcheck/          → dagelijks roterend blok van 15 advertenties
 // GET /api/wegcheck/?n=50     → grotere batch (max 80)
 // GET /api/wegcheck/?dry=1    → alleen rapporteren, niets wegschrijven
 
@@ -16,9 +16,12 @@ const KOOPJES_RAW = 'https://raw.githubusercontent.com/oneselfbv/rolvink-premium
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
 const RESOLVED = ['weg', 'verkocht', 'genegeerd'];
 
+// Vercel: langere looptijd toestaan waar het plan dat ondersteunt.
+export const config = { maxDuration: 60 };
+
 export default async function handler(req, res) {
   const url = new URL(req.url, 'https://x.invalid');
-  const n = Math.min(80, Math.max(1, Number(url.searchParams.get('n')) || 30));
+  const n = Math.min(80, Math.max(1, Number(url.searchParams.get('n')) || 15));
   const dry = url.searchParams.get('dry') === '1';
   const base = 'https://' + (req.headers['x-forwarded-host'] || req.headers.host);
 
@@ -40,7 +43,7 @@ export default async function handler(req, res) {
     for (const ad of batch) {
       const uitkomst = await checkAd(ad.link);
       results.push(Object.assign({}, ad, uitkomst));
-      await sleep(350); // rustig aan tegen botdetectie
+      await sleep(120); // rustig aan tegen botdetectie
     }
 
     const weg = results.filter(r => r.staat === 'weg');
@@ -73,24 +76,23 @@ export default async function handler(req, res) {
   }
 }
 
+// HEAD in plaats van GET: we hebben alleen de statuscode nodig, geen hele advertentiepagina.
+// Dat scheelt een factor 5 in tijd en houdt de functie binnen de Vercel-tijdslimiet.
+// Valt terug op GET als de server HEAD weigert (405/501).
 async function checkAd(link) {
+  const opts = {
+    redirect: 'follow',
+    headers: { 'user-agent': UA, 'accept-language': 'de-DE,de;q=0.9' },
+    signal: AbortSignal.timeout(3500),
+  };
   try {
-    const r = await fetch(link, {
-      redirect: 'follow',
-      headers: { 'user-agent': UA, 'accept-language': 'de-DE,de;q=0.9' },
-    });
+    let r = await fetch(link, { ...opts, method: 'HEAD' });
+    if (r.status === 405 || r.status === 501) r = await fetch(link, opts);
     if (r.status === 404 || r.status === 410) return { staat: 'weg', code: r.status };
-    if (r.status === 200) {
-      const html = (await r.text()).slice(0, 40000);
-      // KA serveert soms 200 met een "niet gevonden"-pagina
-      if (/Anzeige nicht gefunden|wurde gel(ö|oe)scht|nicht mehr verf(ü|ue)gbar/i.test(html)) {
-        return { staat: 'weg', code: 200 };
-      }
-      return { staat: 'online', code: 200 };
-    }
+    if (r.status === 200) return { staat: 'online', code: 200 };
     return { staat: 'onbekend', code: r.status };
   } catch (e) {
-    return { staat: 'onbekend', code: 'fetch-fout' };
+    return { staat: 'onbekend', code: e && e.name === 'TimeoutError' ? 'timeout' : 'fetch-fout' };
   }
 }
 
