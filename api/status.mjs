@@ -5,7 +5,7 @@
 // API-contract ongewijzigd: GET → {id:{status,titel,groep,prijs,ts}}, POST {changes:[...]}.
 const REPO = 'oneselfbv/rolvink-premium-car-imports';
 const PATH = 'public/intern/data/statuses.json';
-const ALLOWED = ['bewaard', 'genegeerd', 'verkocht', ''];
+const ALLOWED = ['bewaard', 'genegeerd', 'verkocht', 'weg', ''];
 
 export default async function handler(req, res) {
   const origin = req.headers.origin || '';
