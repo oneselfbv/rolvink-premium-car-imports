@@ -1,21 +1,22 @@
 // ES — secciones de la página de inicio.
 const home = {
   meta: {
-    title: 'Importar coche de Japón y Alemania | Rolvink',
+    title: 'Importar una moto de Alemania | Rolvink',
     description:
-      'Sourcing personal de BMW, Mercedes-Benz, Audi y Porsche desde subastas japonesas y concesionarios alemanes. Para quien busca el ejemplar adecuado.',
+      'Buscamos su moto en Alemania y la revisamos in situ. Importación completa para matriculación en los Países Bajos; para otros países, inspección y asesoramiento.',
   },
   hero: {
-    h1Html: 'Coches y motos premium,<br/>de Alemania y <span class="accent">Japón</span>.',
-    lead: 'Buscados personalmente para quien quiere el ejemplar adecuado — no el primero que aparece.',
+    h1Html: 'Motos importadas<br/>de <span class="accent">Alemania</span>.',
+    lead: 'Buscada en persona y revisada in situ en Alemania. Para clientes fuera de los Países Bajos: inspección y asesoramiento sobre la importación.',
     ctaPrimary: 'Inicie su búsqueda',
     ctaPrimaryHref: '#zoekprofiel',
-    ctaSecondary: 'o vea primero cómo trabajamos',
-    ctaSecondaryHref: '/es/como-trabajamos/',
-    ctaMoto: '¿busca una moto? Vea el servicio de motos',
-    ctaMotoHref: '/es/motos/',
+    ctaSecondary: 'vea el servicio de motos',
+    ctaSecondaryHref: '/es/motos/',
+    ctaMoto: '¿busca un coche? Vea cómo trabajamos',
+    ctaMotoHref: '/es/como-trabajamos/',
     focusLabel: 'Nuestro enfoque',
     brands: [
+      { label: 'BMW Motorrad', href: '/es/motos/' },
       { label: 'BMW' },
       { label: 'Mercedes-Benz' },
       { label: 'Audi' },

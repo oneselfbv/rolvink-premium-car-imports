@@ -1,7 +1,7 @@
 // ES — textos compartidos del chrome (header, footer, CTA fija, consentimiento).
 const ui = {
   topbar: {
-    tagline: 'Sourcing personal — Japón y Alemania',
+    tagline: 'Motos de Alemania — buscadas y revisadas en persona',
     ctaLabel: 'Inicie su búsqueda →',
     ctaHref: '/es/#zoekprofiel',
   },
@@ -11,8 +11,8 @@ const ui = {
     navAria: 'Menú principal',
     homeHref: '/es/',
     nav: [
-      { href: '/es/como-trabajamos/', label: 'Cómo trabajamos' },
       { href: '/es/motos/', label: 'Motos' },
+      { href: '/es/como-trabajamos/', label: 'Cómo trabajamos' },
       { href: '/es/tarifas/', label: 'Tarifas' },
       { href: '/es/ejemplo-importacion/', label: 'Ejemplo de importación' },
       { href: '/es/sobre-nosotros/', label: 'Sobre nosotros' },
