@@ -1,7 +1,7 @@
 // EN — shared chrome strings (header, footer, sticky CTA, consent).
 const ui = {
   topbar: {
-    tagline: 'Personal sourcing — Japan & Germany',
+    tagline: 'Motorcycles from Germany — found and collected in person',
     ctaLabel: 'Start your search →',
     ctaHref: '/en/#zoekprofiel',
   },
@@ -11,8 +11,8 @@ const ui = {
     navAria: 'Main menu',
     homeHref: '/en/',
     nav: [
-      { href: '/en/how-it-works/', label: 'How it works' },
       { href: '/en/motorcycles/', label: 'Motorcycles' },
+      { href: '/en/how-it-works/', label: 'How it works' },
       { href: '/en/pricing/', label: 'Pricing' },
       { href: '/en/example-import/', label: 'Example import' },
       { href: '/en/about/', label: 'About' },

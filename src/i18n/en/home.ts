@@ -1,21 +1,22 @@
 // EN — homepage sections.
 const home = {
   meta: {
-    title: 'Import a Car from Japan & Germany | Rolvink',
+    title: 'Import a Motorcycle from Germany | Rolvink',
     description:
-      'Personal sourcing of German premium cars and motorcycles. BMW, Mercedes-Benz, Audi, Porsche — from Europe and Japanese auctions, delivered across Europe.',
+      'We find your motorcycle in Germany, inspect it on site and collect it with our own trailer. Full import handling for Dutch registration; inspection and advice elsewhere.',
   },
   hero: {
-    h1Html: 'Premium cars &amp; motorcycles,<br/>from Germany &amp; <span class="accent">Japan</span>.',
-    lead: 'Personally sourced for those looking for the right example — not the first one.',
+    h1Html: 'Motorcycles imported<br/>from <span class="accent">Germany</span>.',
+    lead: 'Found in person, inspected on site and collected with our own trailer — two bikes per run. Premium cars from Germany and Japan as well.',
     ctaPrimary: 'Start your search',
     ctaPrimaryHref: '#zoekprofiel',
-    ctaSecondary: 'or see how it works first',
-    ctaSecondaryHref: '/en/how-it-works/',
-    ctaMoto: 'looking for a motorcycle? See the bike service',
-    ctaMotoHref: '/en/motorcycles/',
+    ctaSecondary: 'see the motorcycle service',
+    ctaSecondaryHref: '/en/motorcycles/',
+    ctaMoto: 'looking for a car? See how it works',
+    ctaMotoHref: '/en/how-it-works/',
     focusLabel: 'Our focus',
     brands: [
+      { label: 'BMW Motorrad', href: '/en/motorcycles/' },
       { label: 'BMW' },
       { label: 'Mercedes-Benz' },
       { label: 'Audi' },
