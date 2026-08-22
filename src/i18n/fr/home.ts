@@ -3,21 +3,22 @@ import type { HomeDict } from "../nl/home";
 
 const home: HomeDict = {
   meta: {
-    title: "Importer une voiture du Japon & d'Allemagne | Rolvink",
+    title: "Importer une moto d'Allemagne | Rolvink",
     description:
-      "Sourcing personnalisé de voitures premium : BMW, Mercedes-Benz, Audi, Porsche — enchères japonaises (LHD, faibles km) et concessionnaires allemands.",
+      "Nous cherchons votre moto en Allemagne et l'inspectons sur place. Importation complète pour une immatriculation aux Pays-Bas ; ailleurs : inspection et conseil.",
   },
   hero: {
-    h1Html: `Voitures &amp; motos premium,<br/>d'Allemagne &amp; du <span class="accent">Japon</span>.`,
-    lead: "Sourcées personnellement pour qui cherche le bon exemplaire — pas le premier venu.",
+    h1Html: `Motos importées<br/>d'<span class="accent">Allemagne</span>.`,
+    lead: "Cherchée en personne et inspectée sur place en Allemagne. Hors Pays-Bas : inspection et conseil sur la procédure d'importation.",
     ctaPrimary: "Lancez votre recherche",
     ctaPrimaryHref: "#zoekprofiel",
-    ctaSecondary: "ou découvrez d'abord notre méthode",
-    ctaSecondaryHref: "/fr/notre-methode/",
-    ctaMoto: "vous cherchez une moto ? Découvrez le service motos",
-    ctaMotoHref: "/fr/motos/",
+    ctaSecondary: "découvrez le service motos",
+    ctaSecondaryHref: "/fr/motos/",
+    ctaMoto: "vous cherchez une voiture ? Notre méthode",
+    ctaMotoHref: "/fr/notre-methode/",
     focusLabel: "Notre spécialité",
     brands: [
+      { label: "BMW Motorrad", href: "/fr/motos/" },
       { label: "BMW" },
       { label: "Mercedes-Benz" },
       { label: "Audi" },

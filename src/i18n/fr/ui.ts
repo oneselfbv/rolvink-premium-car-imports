@@ -3,7 +3,7 @@ import type { UiDict } from "../nl/ui";
 
 const ui: UiDict = {
   topbar: {
-    tagline: "Sourcing personnalisé — Japon & Allemagne",
+    tagline: "Motos d'Allemagne — cherchées et inspectées en personne",
     ctaLabel: "Lancez votre recherche →",
     ctaHref: "/fr/#zoekprofiel",
   },
@@ -13,8 +13,8 @@ const ui: UiDict = {
     navAria: "Menu principal",
     homeHref: "/fr/",
     nav: [
-      { href: "/fr/notre-methode/", label: "Notre méthode" },
       { href: "/fr/motos/", label: "Motos" },
+      { href: "/fr/notre-methode/", label: "Notre méthode" },
       { href: "/fr/tarifs/", label: "Tarifs" },
       { href: "/fr/exemple-importation/", label: "Exemple d'importation" },
       { href: "/fr/a-propos/", label: "À propos" },
