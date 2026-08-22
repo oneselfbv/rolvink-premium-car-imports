@@ -2,21 +2,22 @@
 // niet herformuleren, de NL-site moet identiek blijven renderen.
 const home = {
   meta: {
-    title: 'Auto importeren uit Japan & Duitsland | Rolvink',
+    title: 'Motorimport uit Duitsland — persoonlijk gezocht en opgehaald | Rolvink',
     description:
-      "Persoonlijke sourcing-service voor Duitse premium-auto's en -motoren. BMW, Mercedes-Benz, Audi, Porsche — uit Europa en Japan. Voor wie het juiste exemplaar zoekt.",
+      "Wij zoeken uw motor in Duitsland, bekijken hem ter plekke en halen hem op met eigen trailer. Daarnaast premium auto's uit Duitsland en Japan.",
   },
   hero: {
-    h1Html: 'Premium auto\'s &amp; motoren,<br/>uit Duitsland &amp; <span class="accent">Japan</span>.',
-    lead: 'Persoonlijk gesourced voor wie het juiste exemplaar zoekt — niet het eerste.',
+    h1Html: 'Motoren importeren<br/>uit <span class="accent">Duitsland</span>.',
+    lead: 'Zelf gezocht, ter plekke bekeken en met eigen trailer opgehaald — twee motoren per rit. Daarnaast premium auto\'s uit Duitsland en Japan.',
     ctaPrimary: 'Start uw zoekopdracht',
     ctaPrimaryHref: '#zoekprofiel',
-    ctaSecondary: 'of bekijk eerst de werkwijze',
-    ctaSecondaryHref: '/werkwijze',
-    ctaMoto: 'motor zoeken? Bekijk de motoren-service',
-    ctaMotoHref: '/motoren',
+    ctaSecondary: 'bekijk de motoren-service',
+    ctaSecondaryHref: '/motoren',
+    ctaMoto: 'auto zoeken? Bekijk de werkwijze',
+    ctaMotoHref: '/werkwijze',
     focusLabel: 'Onze focus',
     brands: [
+      { label: 'BMW Motorrad', href: '/motoren' },
       { label: 'BMW', href: '/merk/bmw' },
       { label: 'Mercedes-Benz', href: '/merk/mercedes-benz' },
       { label: 'Audi', href: '/merk/audi' },

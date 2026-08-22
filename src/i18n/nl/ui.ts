@@ -3,7 +3,7 @@
 // componenten stonden. Niet herformuleren — de NL-site moet identiek blijven renderen.
 const ui = {
   topbar: {
-    tagline: 'Persoonlijke sourcing — Japan & Duitsland',
+    tagline: 'Motoren uit Duitsland — zelf gezocht en opgehaald',
     ctaLabel: 'Start uw zoekopdracht →',
     ctaHref: '/#zoekprofiel',
   },
@@ -13,9 +13,9 @@ const ui = {
     navAria: 'Hoofdmenu',
     homeHref: '/',
     nav: [
+      { href: '/motoren', label: 'Motoren' },
       { href: '/werkwijze', label: 'Werkwijze' },
       { href: '/selectie', label: 'Selectie' },
-      { href: '/motoren', label: 'Motoren' },
       { href: '/route-advies', label: 'Route-advies' },
       { href: '/bpm-calculator', label: 'BPM-tool' },
       { href: '/tarieven', label: 'Tarieven' },
