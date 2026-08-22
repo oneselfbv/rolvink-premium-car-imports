@@ -1,0 +1,42 @@
+---
+// Compact 'ook auto's'-blok op de homepage. Sinds het focusbesluit van 22 aug 2026
+// is de homepage een motorpagina; de auto-lijn staat hier als secundaire lijn met
+// links naar de bestaande autopagina's, zodat die hun interne linkwaarde houden.
+import { homeDict, pick } from '../i18n';
+const t = pick(homeDict, Astro.currentLocale).autoblok;
+---
+
+<section class="autoblok">
+  <div class="container">
+    <div class="ab-inner">
+      <div class="ab-text">
+        <div class="ab-eyebrow">{t.eyebrow}</div>
+        <h2>{t.heading}</h2>
+        <p>{t.body}</p>
+      </div>
+      <ul class="ab-links">
+        {t.links.map((l) => (
+          <li><a href={l.href}>{l.label}<span class="ab-arrow" aria-hidden="true"> &rarr;</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .autoblok { padding: 72px 0; background: var(--color-cream-warm); }
+  .ab-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+  .ab-eyebrow { color: var(--color-copper-text); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; font-weight: 500; }
+  .autoblok h2 { font-size: 34px; line-height: 1.12; font-weight: 600; margin-bottom: 16px; }
+  .ab-text p { font-size: 17px; line-height: 1.65; color: var(--color-text-secondary); max-width: 620px; }
+  .ab-links { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--color-copper-text); }
+  .ab-links li { padding: 0; }
+  .ab-links a { display: block; padding: 14px 20px; text-decoration: none; color: var(--color-text-primary); font-size: 16px; border-bottom: 1px solid var(--color-border-soft); transition: background 0.2s; }
+  .ab-links li:last-child a { border-bottom: 0; }
+  .ab-links a:hover { background: var(--color-white); }
+  .ab-arrow { color: var(--color-copper-text); }
+  @media (max-width: 900px) {
+    .ab-inner { grid-template-columns: 1fr; gap: 28px; }
+    .autoblok h2 { font-size: 27px; }
+  }
+</style>
