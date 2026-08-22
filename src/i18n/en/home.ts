@@ -62,31 +62,31 @@ const home = {
   },
   services: {
     label: 'Our service',
-    heading: 'A journey from A to Z.',
-    intro: 'Three disciplines, one streamlined process. For the full step-by-step plan, see how we work.',
-    linkLabel: 'See the process in 8 steps',
-    linkHref: '/en/how-it-works/',
+    heading: 'From A to Z.',
+    intro: 'Three steps, one continuous process. The full step-by-step is on the motorcycle page.',
+    linkLabel: 'See the motorcycle process',
+    linkHref: '/en/motorcycles/',
     cards: [
       {
         num: '01',
-        title: 'Sourcing',
-        body: 'A targeted search across Japanese auctions and German premium dealers, driven by your exact profile. Candidates with our expert commentary.',
-        img: '/images/traject-auction.jpg',
-        alt: 'BMW M3 (G80) head-on with yellow LED headlights — sourcing of premium specifications',
+        title: 'Finding',
+        body: 'A targeted search on mobile.de and Kleinanzeigen.de, guided by your profile. You get candidates with our reading of them: what holds up, what does not, and what the bike is realistically worth.',
+        img: '/images/moto-airhead.jpg',
+        alt: 'Classic BMW boxer \u2014 targeted search of the German market',
       },
       {
         num: '02',
-        title: 'Delivery',
-        body: 'Full import handling. In the Netherlands: turnkey, including BPM filing, RDW inspection and registration. Elsewhere in Europe: delivery to your door with the complete import paperwork and guidance for local registration.',
-        img: '/images/traject-transport.jpg',
-        alt: 'Porsche 911 on a car transport trailer — import and delivery',
+        title: 'Inspecting and collecting',
+        body: 'Seen in person and checked against the weak points of that model. Then transport on our own insured trailer \u2014 two bikes per run, so the trip can be combined.',
+        img: '/images/moto-r1250gs.jpg',
+        alt: 'BMW R 1250 GS \u2014 on-site inspection and transport',
       },
       {
         num: '03',
-        title: 'Aftercare',
-        body: 'Optional detailing by selected partners. Support with any warranty correspondence. A direct line — no call centre.',
-        img: '/images/traject-handover.jpg',
-        alt: 'Hand holding a Mercedes-Benz car key at handover',
+        title: 'Registration and aftercare',
+        body: 'Technical inspection, motorcycle tax filing and registration for Dutch plates. After that, a direct line to Theo \u2014 no call centre.',
+        img: '/images/moto-rninet.jpg',
+        alt: 'BMW R nineT \u2014 completed import',
       },
     ],
   },
@@ -96,10 +96,10 @@ const home = {
     intro:
       'We are a young service and would rather show an honest blank space than invented testimonials. What we can already show you: exactly how we work and what a project costs — down to the euro.',
     pijlers: [
-      'Only grade 4+, no damage history',
-      'Transparent landed cost before every bid',
-      'We only bid with your explicit green light',
-      'Personal — a direct line to Theo in Welsum',
+      'A fixed fee up front \u2014 no margin on the purchase price',
+      'We only bid once you give the explicit green light',
+      'The model-specific weak points named before you buy',
+      'Personal \u2014 a direct line to Theo in Welsum',
     ],
     caseLabels: [] as string[], // klantverhaal-kaarten verborgen tot er echte referenties zijn,
     caseAriaSuffix: 'coming soon',
@@ -113,19 +113,19 @@ const home = {
     linkSecondaryHref: undefined as string | undefined,
   },
   moto: {
-    eyebrow: 'On two wheels as well',
-    heading: 'Motorcycles, with the same obsession.',
+    eyebrow: 'What we do',
+    heading: 'BMW motorcycles from Germany, found and collected in person.',
     body:
-      "We source BMW motorcycles from the German market — from a fresh R 1250 GS to a classic airhead, with more than 14,000 BMW bikes for sale on any given day. We assess the model-specific weak points, negotiate on your side, and transport the bike ourselves: insured, on our own two-bike trailer, with delivery across Europe.",
+      "More than 14,000 BMW motorcycles are for sale in Germany on any given day \u2014 from a fresh R 1250 GS to a classic airhead \u2014 with price gaps running up to around \u20ac 5,000. We find it, inspect it on site against the known weak points of that particular model, and collect it on our own trailer. Full import handling applies to Dutch registration; elsewhere we inspect and advise.",
     points: [
-      'Sourcing assignment from €1.250 — paid in phases',
-      'Insured transport on our own two-bike trailer',
-      'Registration guidance in your country',
+      'Full service from \u20ac 1,250 \u2014 paid in stages',
+      'Our own insured transport, two bikes per run',
+      'Inspection, paperwork and Dutch registration handled',
     ],
     linkLabel: 'See the motorcycle service',
     linkHref: '/en/motorcycles/',
     img: '/images/moto-hero.jpg',
-    imgAlt: 'Open mountain road at golden hour — Rolvink motorcycle service',
+    imgAlt: 'Open mountain road at golden hour \u2014 Rolvink motorcycle service',
   },
   tiers: {
     eyebrow: 'Our sources',
@@ -203,9 +203,9 @@ const home = {
     intro:
       'No specific example in mind yet? Tell us what you are looking for. As soon as a matching candidate appears at auction, we flag it — with the sheet, photos and our full cost calculation. No obligation, no sales pressure.',
     usps: [
-      'We only bid with your explicit green light',
-      'Only grade 4+ and no damage history',
-      'A direct line to Theo — no call centre',
+      'We only bid once you give the explicit green light',
+      'Checked against the weak points of that model',
+      'A direct line to Theo \u2014 no call centre',
     ],
     honeypotLabel: 'Leave this field empty',
     requiredNoteHtml:
@@ -258,6 +258,18 @@ const home = {
       waNone: 'no preference',
     },
   },
+  autoblok: {
+    eyebrow: 'Cars as well',
+    heading: 'Premium cars from Germany and Japan.',
+    body:
+      'Alongside motorcycles we source left-hand-drive BMW, Mercedes-Benz, Audi and Porsche. From Germany within two to four weeks, or through the Japanese auctions for rare specifications and low mileage. Same method, same open books.',
+    links: [
+      { label: 'How the car import works', href: '/en/how-it-works/' },
+      { label: 'Pricing', href: '/en/pricing/' },
+      { label: 'Japanese auction grades explained', href: '/kennisbank/japanse-veiling-grades' },
+    ],
+  },
+
   cta: {
     label: 'The next step',
     headingHtml: 'Ready for your next<br/><span class="accent">acquisition</span>?',
