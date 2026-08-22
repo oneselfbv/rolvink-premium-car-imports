@@ -125,8 +125,18 @@ const tarieven = {
   },
   extra: {
     heading: 'Servicios sueltos',
-    lead: 'No toda consulta requiere un proceso de sourcing completo. Para partes concretas del proceso de importación puede contratar servicios sueltos.',
+    lead: 'No toda consulta requiere un proceso de sourcing completo. Para partes concretas del proceso de importaci\u00f3n puede contratar servicios sueltos. \u00bfVive fuera de los Pa\u00edses Bajos? Nos ocupamos de la inspecci\u00f3n y del asesoramiento, pero no de la matriculaci\u00f3n en su pa\u00eds \u2014 los dos servicios siguientes s\u00ed est\u00e1n a su disposici\u00f3n, a la misma tarifa.',
     items: [
+      {
+        title: 'Revisi\u00f3n de anuncio a distancia',
+        price: '\u20ac 95',
+        body: 'Evaluamos un anuncio concreto: fotos, documentaci\u00f3n, kilometraje, los puntos d\u00e9biles propios de ese modelo y si el precio pedido se sostiene frente a nuestros datos de mercado alem\u00e1n y neerland\u00e9s. Incluye las preguntas que conviene hacerle al vendedor. En dos d\u00edas laborables. Descontable de la inspecci\u00f3n in situ.',
+      },
+      {
+        title: 'Inspecci\u00f3n in situ en Alemania',
+        price: '\u20ac 495',
+        body: 'Vamos hasta all\u00ed, revisamos la moto, la arrancamos y la rodamos si es posible. Recibe un informe con fotos y nuestras conclusiones, m\u00e1s asesoramiento sobre qu\u00e9 ofrecer. Incluido dentro de 250 km de Welsum; m\u00e1s all\u00e1, \u20ac 0,35 por kil\u00f3metro, presupuestado de antemano y solo con su visto bueno. Es una valoraci\u00f3n visual y funcional, no una garant\u00eda t\u00e9cnica frente a defectos ocultos. La tarifa se aplica tambi\u00e9n si nuestro veredicto es negativo \u2014 as\u00ed sigue siendo independiente. Descontable de un proceso de sourcing completo.',
+      },
       {
         title: 'Informe de tasación oficial (matriculación en los Países Bajos)',
         price: '€ 350',
