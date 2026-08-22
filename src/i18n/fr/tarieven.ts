@@ -127,8 +127,18 @@ const tarieven: TarievenDict = {
   },
   extra: {
     heading: "Prestations à la carte",
-    lead: "Toutes les questions n'exigent pas une prestation de sourcing complète. Pour certaines parties du processus d'importation, vous pouvez nous solliciter à la carte.",
+    lead: "Toutes les questions n'exigent pas une prestation de sourcing complète. Pour certaines parties du processus d'importation, vous pouvez nous solliciter à la carte. Vous résidez hors des Pays-Bas ? Nous assurons l'inspection et le conseil, mais pas l'immatriculation dans votre pays — les deux prestations ci-dessous vous sont ouvertes, au même tarif.",
     items: [
+      {
+        title: "Vérification d'annonce à distance",
+        price: "€ 95",
+        body: "Nous évaluons une annonce précise : photos, documents, kilométrage, les points faibles propres au modèle et la cohérence du prix demandé face à nos données de marché allemand et néerlandais. Avec les questions à poser vous-même au vendeur. Sous deux jours ouvrés. Déductible d'une inspection sur place.",
+      },
+      {
+        title: "Inspection sur place en Allemagne",
+        price: "€ 495",
+        body: "Nous nous déplaçons, examinons la moto, la démarrons et l'essayons si possible. Vous recevez un rapport photo avec nos constats et un conseil d'enchère. Inclus dans un rayon de 250 km autour de Welsum ; au-delà, € 0,35 par kilomètre, chiffré à l'avance et uniquement après votre accord. Il s'agit d'une évaluation visuelle et fonctionnelle, pas d'une garantie technique contre les vices cachés. Le tarif s'applique même si notre avis est négatif — c'est ce qui le garde indépendant. Déductible d'une prestation de sourcing complète.",
+      },
       {
         title: "Rapport d'expertise DRZ (taxe BPM néerlandaise)",
         price: "€ 350",
