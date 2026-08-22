@@ -62,31 +62,31 @@ const home = {
   },
   services: {
     label: 'Nuestro servicio',
-    heading: 'Un proceso de la A a la Z.',
-    intro: 'Tres disciplinas, un proceso integrado. Para el plan completo paso a paso, vea cómo trabajamos.',
-    linkLabel: 'Vea el proceso en 8 pasos',
-    linkHref: '/es/como-trabajamos/',
+    heading: 'De la A a la Z.',
+    intro: 'Tres pasos, un solo proceso continuo. El detalle completo est\u00e1 en la p\u00e1gina de motos.',
+    linkLabel: 'Vea el proceso de motos',
+    linkHref: '/es/motos/',
     cards: [
       {
         num: '01',
-        title: 'Sourcing',
-        body: 'Búsqueda dirigida en subastas japonesas y concesionarios premium alemanes, guiada por su perfil exacto. Candidatos con nuestro análisis.',
-        img: '/images/traject-auction.jpg',
-        alt: 'BMW M3 (G80) de frente con faros LED amarillos — sourcing de versiones premium',
+        title: 'B\u00fasqueda',
+        body: 'B\u00fasqueda dirigida en mobile.de y Kleinanzeigen.de seg\u00fan su perfil. Recibe candidatas con nuestra lectura: qu\u00e9 encaja, qu\u00e9 no y cu\u00e1nto vale realmente.',
+        img: '/images/moto-airhead.jpg',
+        alt: 'B\u00f3xer BMW cl\u00e1sico \u2014 b\u00fasqueda dirigida en el mercado alem\u00e1n',
       },
       {
         num: '02',
-        title: 'Entrega',
-        body: 'Importación completa con despacho de aduana y toda la documentación. Entrega a domicilio en los Países Bajos y alrededores de serie; resto de Europa — incluida España — bajo petición, con orientación en la matriculación e ITV.',
-        img: '/images/traject-transport.jpg',
-        alt: 'Porsche 911 sobre un remolque portacoches — importación y entrega',
+        title: 'Revisi\u00f3n y recogida',
+        body: 'Vista en persona y revisada seg\u00fan los puntos d\u00e9biles de ese modelo. Despu\u00e9s, transporte en nuestro remolque asegurado \u2014 dos motos por viaje.',
+        img: '/images/moto-r1250gs.jpg',
+        alt: 'BMW R 1250 GS \u2014 inspecci\u00f3n in situ y transporte',
       },
       {
         num: '03',
-        title: 'Posventa',
-        body: 'Detailing opcional a través de socios seleccionados. Acompañamiento en la eventual correspondencia de garantía. Una línea directa — sin call center.',
-        img: '/images/traject-handover.jpg',
-        alt: 'Mano con la llave de un Mercedes-Benz en la entrega de llaves',
+        title: 'Matriculaci\u00f3n y seguimiento',
+        body: 'Inspecci\u00f3n t\u00e9cnica, impuesto de matriculaci\u00f3n y matr\u00edcula neerlandesa. Despu\u00e9s, l\u00ednea directa con Theo \u2014 sin centralita.',
+        img: '/images/moto-rninet.jpg',
+        alt: 'BMW R nineT \u2014 importaci\u00f3n completada',
       },
     ],
   },
@@ -96,10 +96,10 @@ const home = {
     intro:
       'Somos un servicio joven y preferimos mostrar un hueco honesto antes que referencias inventadas. Lo que ya enseñamos hoy: exactamente cómo trabajamos y cuánto cuesta un proceso — hasta el último euro.',
     pijlers: [
-      'Solo grade 4+, sin historial de daños',
-      'Coste final transparente antes de cada puja',
-      'Solo pujamos con su luz verde explícita',
-      'Personal — una línea directa con Theo en Welsum',
+      'Tarifa fija por adelantado \u2014 sin margen sobre el precio de compra',
+      'Solo pujamos con su visto bueno expl\u00edcito',
+      'Los puntos d\u00e9biles del modelo, dichos antes de comprar',
+      'Personal \u2014 l\u00ednea directa con Theo en Welsum',
     ],
     caseLabels: [] as string[], // klantverhaal-kaarten verborgen tot er echte referenties zijn,
     caseAriaSuffix: 'disponible próximamente',
@@ -113,19 +113,19 @@ const home = {
     linkSecondaryHref: undefined as string | undefined,
   },
   moto: {
-    eyebrow: 'También sobre dos ruedas',
-    heading: 'Motos, con la misma obsesión.',
+    eyebrow: 'Lo que hacemos',
+    heading: 'Motos BMW de Alemania, buscadas y recogidas en persona.',
     body:
-      'Buscamos motos BMW en el mercado alemán — de una R 1250 GS reciente a las airhead clásicas, con más de 14.000 motos BMW a la venta cada día. Evaluamos los puntos débiles de cada modelo, negociamos de su lado y transportamos la moto nosotros mismos: asegurada, en nuestro propio remolque para dos motos, con entrega en toda Europa.',
+      "Cada d\u00eda hay m\u00e1s de 14.000 motos BMW a la venta en Alemania \u2014 desde una R 1250 GS reciente hasta una airhead cl\u00e1sica \u2014 con diferencias de precio que llegan a unos \u20ac 5.000. La buscamos, la revisamos in situ seg\u00fan los puntos d\u00e9biles propios de ese modelo y la recogemos con nuestro propio remolque. La importaci\u00f3n completa vale para la matriculaci\u00f3n neerlandesa; fuera de los Pa\u00edses Bajos ofrecemos inspecci\u00f3n y asesoramiento.",
     points: [
-      'Encargo de búsqueda desde €1.250 — pagado por fases',
-      'Transporte asegurado en remolque propio, dos motos por viaje',
-      'Acompañamiento en la matriculación en su país',
+      'Proceso completo desde \u20ac 1.250 \u2014 pago por fases',
+      'Transporte propio y asegurado, dos motos por viaje',
+      'Inspecci\u00f3n, tr\u00e1mites y matriculaci\u00f3n neerlandesa incluidos',
     ],
     linkLabel: 'Vea el servicio de motos',
     linkHref: '/es/motos/',
     img: '/images/moto-hero.jpg',
-    imgAlt: 'Carretera de montaña al atardecer — servicio de motos Rolvink',
+    imgAlt: 'Carretera de monta\u00f1a a la hora dorada \u2014 servicio de motos Rolvink',
   },
   tiers: {
     eyebrow: 'Nuestras fuentes',
@@ -203,9 +203,9 @@ const home = {
     intro:
       '¿Todavía sin un ejemplar concreto a la vista? Cuéntenos qué busca. En cuanto aparezca un candidato adecuado en una subasta, se lo señalamos — con la hoja de inspección, fotos y nuestro cálculo. Sin compromiso, sin presión comercial.',
     usps: [
-      'Solo pujamos con su luz verde explícita',
-      'Solo grade 4+ y sin historial de daños',
-      'Una línea directa con Theo — sin call center',
+      'Solo pujamos con su visto bueno expl\u00edcito',
+      'Revisada seg\u00fan los puntos d\u00e9biles de ese modelo',
+      'L\u00ednea directa con Theo \u2014 sin centralita',
     ],
     honeypotLabel: 'Deje este campo vacío',
     requiredNoteHtml:
@@ -258,6 +258,18 @@ const home = {
       waNone: 'sin preferencia',
     },
   },
+  autoblok: {
+    eyebrow: 'Tambi\u00e9n coches',
+    heading: 'Coches premium de Alemania y Jap\u00f3n.',
+    body:
+      'Adem\u00e1s de motos buscamos coches con volante a la izquierda de BMW, Mercedes-Benz, Audi y Porsche. Desde Alemania en dos a cuatro semanas, o a trav\u00e9s de las subastas japonesas para versiones raras y kilometrajes bajos. El mismo m\u00e9todo, los mismos libros abiertos.',
+    links: [
+      { label: 'C\u00f3mo trabajamos', href: '/es/como-trabajamos/' },
+      { label: 'Tarifas', href: '/es/tarifas/' },
+      { label: 'Las clasificaciones de las subastas japonesas', href: '/kennisbank/japanse-veiling-grades' },
+    ],
+  },
+
   cta: {
     label: 'El siguiente paso',
     headingHtml: '¿Listo para su próxima<br/><span class="accent">adquisición</span>?',
