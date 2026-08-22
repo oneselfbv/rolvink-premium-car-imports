@@ -1,7 +1,7 @@
 // DE — gemeinsame Chrome-Texte (Header, Footer, Sticky-CTA, Consent).
 const ui = {
   topbar: {
-    tagline: 'Persönliches Sourcing — Japan & Deutschland',
+    tagline: 'Wir kaufen BMW-Motorräder — Abholung mit eigenem Anhänger',
     ctaLabel: 'Suchauftrag starten →',
     ctaHref: '/de/#zoekprofiel',
   },
@@ -11,8 +11,8 @@ const ui = {
     navAria: 'Hauptmenü',
     homeHref: '/de/',
     nav: [
-      { href: '/de/ablauf/', label: 'Ablauf' },
       { href: '/de/motorraeder/', label: 'Motorräder' },
+      { href: '/de/ablauf/', label: 'Ablauf' },
       { href: '/de/preise/', label: 'Preise' },
       { href: '/de/beispiel-import/', label: 'Beispiel-Import' },
       { href: '/de/ueber-uns/', label: 'Über uns' },
