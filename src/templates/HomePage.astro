@@ -1,19 +1,19 @@
 ---
-// Homepage-template — gedeeld door alle talen. Secties localiseren zichzelf
-// via Astro.currentLocale; Orientatie (kennisbank-links) is NL-only.
+// Homepage-template voor NL/EN/ES/FR. Sinds het focusbesluit van 22 aug 2026 is dit
+// een MOTORPAGINA: hero -> propositie -> traject -> vertrouwen -> gidsen (NL) ->
+// compact auto-blok -> zoekprofiel -> CTA. De auto-secties (bronmarkten, veiling-
+// grades, veilingsignalen) staan bewust NIET meer op de homepage; ze leefden daar
+// naast een motorkop en dat las nergens naar. Duitsland heeft een eigen template
+// (HomePageDE.astro) met een verkopers-propositie.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
-import ObsessionSection from '../components/ObsessionSection.astro';
+import MotorenSectie from '../components/MotorenSectie.astro';
 import ServiceStrip from '../components/ServiceStrip.astro';
 import Vertrouwen from '../components/Vertrouwen.astro';
-import TiersSection from '../components/TiersSection.astro';
-import GradesSection from '../components/GradesSection.astro';
-import VeilingSignalen from '../components/VeilingSignalen.astro';
-import Zoekprofiel from '../components/Zoekprofiel.astro';
-import EditorialQuote from '../components/EditorialQuote.astro';
-import CTASection from '../components/CTASection.astro';
 import OrientatieSection from '../components/OrientatieSection.astro';
-import MotorenSectie from '../components/MotorenSectie.astro';
+import AutoBlok from '../components/AutoBlok.astro';
+import Zoekprofiel from '../components/Zoekprofiel.astro';
+import CTASection from '../components/CTASection.astro';
 import { homeDict, pick, asLocale } from '../i18n';
 const locale = asLocale(Astro.currentLocale);
 const t = pick(homeDict, Astro.currentLocale);
@@ -22,14 +22,10 @@ const t = pick(homeDict, Astro.currentLocale);
 <BaseLayout title={t.meta.title} description={t.meta.description} i18nKey="home">
   <HeroSection />
   <MotorenSectie />
-  <ObsessionSection />
   <ServiceStrip />
   <Vertrouwen />
-  <TiersSection />
-  <GradesSection />
   {locale === 'nl' && <OrientatieSection />}
-  <VeilingSignalen />
-  <EditorialQuote />
+  <AutoBlok />
   <Zoekprofiel />
   <CTASection />
 </BaseLayout>
