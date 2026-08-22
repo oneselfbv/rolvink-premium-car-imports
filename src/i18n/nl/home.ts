@@ -64,30 +64,30 @@ const home = {
   services: {
     label: 'Onze service',
     heading: 'Een traject van A tot Z.',
-    intro: 'Drie disciplines, één gestroomlijnd traject. Voor het volledige stappenplan ziet u onze werkwijze.',
-    linkLabel: 'Bekijk de werkwijze in 8 stappen',
-    linkHref: '/werkwijze',
+    intro: 'Drie stappen, \u00e9\u00e9n doorlopend traject. Het volledige stappenplan staat op de motoren-pagina.',
+    linkLabel: 'Bekijk het motoren-traject',
+    linkHref: '/motoren',
     cards: [
       {
         num: '01',
-        title: 'Sourcing',
-        body: 'Gerichte zoektocht op Japanse veilingen en bij Duitse premium-dealers, gestuurd door uw exacte profiel. Kandidaten met onze duiding.',
-        img: '/images/traject-auction.jpg',
-        alt: 'BMW M3 (G80) head-on met gele LED-koplampen — sourcing van premium-uitvoeringen',
+        title: 'Zoeken',
+        body: 'Gerichte zoektocht op mobile.de en Kleinanzeigen.de, gestuurd door uw profiel. U krijgt kandidaten met onze duiding: wat klopt, wat niet, en wat het exemplaar realistisch waard is.',
+        img: '/images/moto-airhead.jpg',
+        alt: 'Klassieke BMW-boxer \u2014 gerichte zoektocht in het Duitse aanbod',
       },
       {
         num: '02',
-        title: 'Levering',
-        body: 'Volledige import, BPM-aangifte, RDW-keuring en kentekenregistratie. Aflevering aan huis tot 200 km vanaf Welsum.',
-        img: '/images/traject-transport.jpg',
-        alt: 'Porsche 911 op autotransport-trailer — import en aflevering',
+        title: 'Beoordelen en ophalen',
+        body: 'Ter plaatse bekeken op de zwakke punten van dat model. Daarna transport op onze eigen verzekerde trailer \u2014 twee motoren per rit, dus de rit is te combineren.',
+        img: '/images/moto-r1250gs.jpg',
+        alt: 'BMW R 1250 GS \u2014 beoordeling ter plaatse en transport',
       },
       {
         num: '03',
-        title: 'Nazorg',
-        body: 'Optionele detailing door geselecteerde partners. Begeleiding bij eventuele garantie-correspondentie. Een directe lijn — geen call-center.',
-        img: '/images/traject-handover.jpg',
-        alt: 'Hand met Mercedes-Benz autosleutel bij sleuteloverdracht',
+        title: 'Kenteken en nazorg',
+        body: 'RDW-keuring, motor-BPM-aangifte en kentekenregistratie. Daarna een directe lijn met Theo \u2014 geen call-center.',
+        img: '/images/moto-rninet.jpg',
+        alt: 'BMW R nineT \u2014 afgerond traject met Nederlands kenteken',
       },
     ],
   },
@@ -97,10 +97,10 @@ const home = {
     intro:
       'We zijn een jonge service en tonen liever een eerlijke witte plek dan verzonnen referenties. Wat we nú al laten zien: precies hoe we werken en wat een traject kost — tot op de euro.',
     pijlers: [
-      'Alleen grade 4+, geen schade-historie',
-      'Transparante landed-cost vóór elk bod',
+      'Vaste prijs vooraf \u2014 geen marge op de aanschafprijs',
       'Wij bieden pas met uw expliciete groen licht',
-      'Persoonlijk — een directe lijn met Theo in Welsum',
+      'De modelspecifieke zwakke punten benoemd v\u00f3\u00f3r u koopt',
+      'Persoonlijk \u2014 een directe lijn met Theo in Welsum',
     ],
     caseLabels: [] as string[], // klantverhaal-kaarten verborgen tot er echte referenties zijn,
     caseAriaSuffix: 'volgt binnenkort',
@@ -114,19 +114,19 @@ const home = {
     linkSecondaryHref: '/referenties/' as string | undefined,
   },
   moto: {
-    eyebrow: 'Ook op twee wielen',
-    heading: 'Motoren, met dezelfde obsessie.',
+    eyebrow: 'Wat wij doen',
+    heading: 'BMW-motoren uit Duitsland, zelf gezocht en opgehaald.',
     body:
-      "Wij importeren BMW-motoren uit Duitsland — van een frisse R 1250 GS tot een klassieke airhead. Meer dan 14.000 BMW-motoren staan er dagelijks te koop bij onze oosterburen, met prijsvoordelen die oplopen tot zo'n €5.000. Transport doen we zelf: verzekerd, op onze eigen motortrailer met plek voor twee motoren. Binnen 1 tot 3 weken staat er een Nederlands kenteken op.",
+      "Dagelijks staan er meer dan 14.000 BMW-motoren te koop bij onze oosterburen \u2014 van een frisse R 1250 GS tot een klassieke airhead \u2014 met prijsverschillen die kunnen oplopen tot zo'n \u20ac 5.000. Wij zoeken hem, beoordelen hem ter plaatse op de zwakke punten van dat specifieke model, en halen hem op met onze eigen trailer. Binnen 1 tot 3 weken staat er een Nederlands kenteken op.",
     points: [
-      'Sourcing-traject vanaf €1.250 — gefaseerd betaald',
+      'Volledig traject vanaf \u20ac 1.250 \u2014 gefaseerd betaald',
       'Eigen verzekerd transport, twee motoren per rit',
       'RDW, motor-BPM en kenteken volledig geregeld',
     ],
     linkLabel: 'Bekijk de motoren-service',
     linkHref: '/motoren',
     img: '/images/moto-hero.jpg',
-    imgAlt: 'Open bergweg bij gouden uur — motoren-service Rolvink',
+    imgAlt: 'Open bergweg bij gouden uur \u2014 motoren-service Rolvink',
   },
   tiers: {
     eyebrow: 'Onze bronnen',
@@ -205,8 +205,8 @@ const home = {
       "Nog geen exemplaar op het oog? Vertel ons wat u zoekt. Zodra er een passende kandidaat op een veiling verschijnt, signaleren wij het — met sheet, foto's en onze doorrekening. Vrijblijvend, geen verkoopdruk.",
     usps: [
       'Wij bieden pas met uw expliciete groen licht',
-      'Alleen grade 4+ en geen schade-historie',
-      'Een directe lijn met Theo — geen call-center',
+      'Beoordeeld op de zwakke punten van dat model',
+      'Een directe lijn met Theo \u2014 geen call-center',
     ],
     honeypotLabel: 'Laat dit veld leeg',
     requiredNoteHtml:
@@ -259,6 +259,18 @@ const home = {
       waNone: 'geen voorkeur',
     },
   },
+  autoblok: {
+    eyebrow: "Ook auto's",
+    heading: "Premium auto's uit Duitsland en Japan.",
+    body:
+      "Naast motoren sourcen wij LHD-auto's van BMW, Mercedes-Benz, Audi en Porsche. Uit Duitsland binnen twee tot vier weken, of via de Japanse veilingen voor zeldzame uitvoeringen en lage kilometerstanden. Dezelfde werkwijze, dezelfde open boeken.",
+    links: [
+      { label: 'Zo werkt de auto-import', href: '/werkwijze' },
+      { label: 'Duitsland of Japan? Route-advies', href: '/route-advies' },
+      { label: 'Japanse veiling-grades uitgelegd', href: '/kennisbank/japanse-veiling-grades' },
+    ],
+  },
+
   cta: {
     label: 'De volgende stap',
     headingHtml: 'Klaar voor uw volgende<br/><span class="accent">aanwinst</span>?',
