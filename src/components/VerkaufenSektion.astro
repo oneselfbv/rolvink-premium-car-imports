@@ -1,0 +1,42 @@
+---
+// DE-only: verkopers-sectie op de Duitse homepage. Duitsland is voor Rolvink
+// een INKOOP-markt (motoren zijn daar goedkoper dan in NL), dus de Duitse
+// homepage richt zich op verkopers, niet op kopers.
+import deHome from '../i18n/de/home';
+const t = deHome.verkaufen;
+---
+
+<section class="verkaufen" id="verkaufen">
+  <div class="container">
+    <div class="vk-head">
+      <div class="vk-eyebrow">{t.eyebrow}</div>
+      <h2>{t.heading}</h2>
+      <p class="vk-lead">{t.lead}</p>
+    </div>
+    <div class="vk-grid">
+      {t.items.map((it) => (
+        <article class="vk-card">
+          <div class="vk-num">{it.num}</div>
+          <h3>{it.title}</h3>
+          <p>{it.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .verkaufen { padding: var(--space-section-top) 0 var(--space-section-bottom); }
+  .vk-head { max-width: 640px; margin-bottom: 48px; }
+  .vk-eyebrow { color: var(--color-copper); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 18px; font-weight: 500; }
+  .verkaufen h2 { font-size: 48px; line-height: 1.05; margin-bottom: 20px; font-weight: 600; }
+  .vk-lead { font-size: 18px; line-height: 1.6; color: var(--color-charcoal-soft, #4a4a4a); }
+  .vk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+  .vk-card { border-top: 1px solid rgba(0,0,0,0.12); padding-top: 20px; }
+  .vk-num { color: var(--color-copper); font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px; font-weight: 600; }
+  .vk-card h3 { font-size: 20px; margin-bottom: 10px; font-weight: 600; }
+  .vk-card p { font-size: 15px; line-height: 1.6; color: var(--color-charcoal-soft, #4a4a4a); }
+  @media (max-width: 720px) {
+    .verkaufen h2 { font-size: 34px; }
+  }
+</style>
