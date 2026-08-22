@@ -285,6 +285,17 @@ const home = {
       },
     ],
   },
+  autoblok: {
+    eyebrow: 'Auch Automobile',
+    heading: 'Premium-Automobile aus Deutschland und Japan.',
+    body:
+      'Neben Motorr\u00e4dern sourcen wir Linkslenker von BMW, Mercedes-Benz, Audi und Porsche \u2014 aus Deutschland oder \u00fcber die japanischen Auktionen.',
+    links: [
+      { label: 'Ablauf', href: '/de/ablauf/' },
+      { label: 'Preise', href: '/de/preise/' },
+    ],
+  },
+
   cta: {
     label: 'Der nächste Schritt',
     headingHtml: 'Motorrad steht<br/>zum <span class="accent">Verkauf</span>?',
