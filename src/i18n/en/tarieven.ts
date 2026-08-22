@@ -125,8 +125,18 @@ const tarieven = {
   },
   extra: {
     heading: 'Individual services',
-    lead: 'Not every question requires a full sourcing service. For specific parts of the import process you can engage us for individual services.',
+    lead: 'Not every question requires a full sourcing service. For specific parts of the import process you can engage us for individual services. Living outside the Netherlands? We handle the inspection and the advice, but not the registration in your own country \u2014 the two services below are open to you at the same rate.',
     items: [
+      {
+        title: 'Remote listing check',
+        price: '\u20ac 95',
+        body: 'We assess one specific listing: photos, paperwork, mileage, the known weak points of that model, and whether the asking price holds up against our German and Dutch market data. Includes the questions you should put to the seller yourself. Within two working days. Deductible from an on-site inspection.',
+      },
+      {
+        title: 'On-site inspection in Germany',
+        price: '\u20ac 495',
+        body: 'We drive out, look the bike over, start it and ride it where possible. You receive a photo report with our findings plus bidding advice. Within 250 km of Welsum included; beyond that \u20ac 0.35 per kilometre, quoted in advance and only after your approval. This is a visual and functional assessment, not a technical warranty against hidden defects. The fee applies even when our verdict is negative \u2014 that is what keeps it independent. Deductible from a full sourcing service.',
+      },
       {
         title: 'DRZ valuation report (Dutch BPM appraisal)',
         price: '€ 350',
