@@ -125,8 +125,18 @@ const tarieven = {
   },
   extra: {
     heading: 'Losse diensten',
-    lead: 'Niet elke vraag vereist een volledig sourcing-traject. Voor specifieke onderdelen van het importproces kunt u losse diensten afnemen.',
+    lead: 'Niet elke vraag vereist een volledig sourcing-traject. Voor specifieke onderdelen van het importproces kunt u losse diensten afnemen. Woont u buiten Nederland? Dan verzorgen wij de inspectie en het advies, maar niet de registratie in uw eigen land — die twee diensten hieronder staan wél voor u open, tegen hetzelfde tarief.',
     items: [
+      {
+        title: 'Advertentiecheck op afstand',
+        price: '\u20ac 95',
+        body: "Wij beoordelen \u00e9\u00e9n concrete advertentie: foto's, papieren, kilometerstand, de modelspecifieke aandachtspunten en of de vraagprijs klopt tegen onze Duitse en Nederlandse marktdata. U krijgt de vragen erbij die u de verkoper zelf moet stellen. Binnen twee werkdagen. Verrekenbaar met de inspectie op locatie.",
+      },
+      {
+        title: 'Inspectie op locatie in Duitsland',
+        price: '\u20ac 495',
+        body: 'Wij rijden erheen, bekijken de motor, starten hem en rijden een stuk als dat kan. U ontvangt een fotorapport met onze bevindingen plus een biedadvies. Binnen 250 km van Welsum inbegrepen; daarbuiten \u20ac 0,35 per kilometer, vooraf begroot en pas na uw akkoord. Het is een visuele en functionele beoordeling, geen technische garantie op verborgen gebreken. Ook bij een negatief oordeel geldt het tarief \u2014 zo blijft ons oordeel onafhankelijk. Verrekenbaar met een volledig sourcing-traject.',
+      },
       {
         title: 'DRZ-taxatierapport voor tegenbewijsregeling',
         price: '€ 350',
