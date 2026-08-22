@@ -1,0 +1,18 @@
+---
+// Duitse homepage — bewust anders dan de andere talen. Duitsland is een
+// INKOOP-markt: Duitsers hoeven geen motor uit Duitsland te importeren, en
+// import NL -> DE kunnen we niet afhandelen (Zulassung/TUEV is geen NL-proces).
+// Daarom: verkopers-propositie in plaats van de koperspagina.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import VerkaufenSektion from '../components/VerkaufenSektion.astro';
+import CTASection from '../components/CTASection.astro';
+import { homeDict, pick } from '../i18n';
+const t = pick(homeDict, Astro.currentLocale);
+---
+
+<BaseLayout title={t.meta.title} description={t.meta.description} i18nKey="home">
+  <HeroSection />
+  <VerkaufenSektion />
+  <CTASection />
+</BaseLayout>

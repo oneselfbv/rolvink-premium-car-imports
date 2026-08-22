@@ -21,11 +21,11 @@ const t = pick(homeDict, Astro.currentLocale);
 
 <BaseLayout title={t.meta.title} description={t.meta.description} i18nKey="home">
   <HeroSection />
+  <MotorenSectie />
   <ObsessionSection />
   <ServiceStrip />
   <Vertrouwen />
   <TiersSection />
-  <MotorenSectie />
   <GradesSection />
   {locale === 'nl' && <OrientatieSection />}
   <VeilingSignalen />
