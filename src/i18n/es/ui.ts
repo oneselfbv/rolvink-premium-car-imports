@@ -12,11 +12,17 @@ const ui = {
     homeHref: '/es/',
     nav: [
       { href: '/es/motos/', label: 'Motos' },
-      { href: '/es/como-trabajamos/', label: 'Cómo trabajamos' },
       { href: '/es/tarifas/', label: 'Tarifas' },
-      { href: '/es/ejemplo-importacion/', label: 'Ejemplo de importación' },
+      {
+        href: '/es/como-trabajamos/',
+        label: 'Coches',
+        children: [
+          { href: '/es/como-trabajamos/', label: 'Cómo trabajamos (coches)' },
+          { href: '/es/ejemplo-importacion/', label: 'Ejemplo de importación' },
+        ],
+      },
       { href: '/es/sobre-nosotros/', label: 'Sobre nosotros' },
-    ],
+    ] as Array<{ href: string; label: string; children?: Array<{ href: string; label: string }> }>,
   },
   sticky: {
     regionAria: 'Acciones rápidas',
@@ -39,7 +45,7 @@ const ui = {
   },
   footer: {
     blurb:
-      'Un servicio personal de sourcing de coches y motos premium de Alemania, Europa y Japón. Welsum, Países Bajos.',
+      'Un servicio personal de sourcing de motos de Alemania y, bajo petición, coches premium de Europa y Japón. Welsum, Países Bajos.',
     columns: [
       {
         title: 'Servicio',

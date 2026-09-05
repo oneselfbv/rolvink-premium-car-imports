@@ -12,20 +12,16 @@ const home = {
     ctaPrimaryHref: '#zoekprofiel',
     ctaSecondary: 'vea el servicio de motos',
     ctaSecondaryHref: '/es/motos/',
-    ctaMoto: '¿busca un coche? Vea cómo trabajamos',
-    ctaMotoHref: '/es/como-trabajamos/',
     focusLabel: 'Nuestro enfoque',
     brands: [
-      { label: 'BMW Motorrad', href: '/es/motos/' },
-      { label: 'BMW' },
-      { label: 'Mercedes-Benz' },
-      { label: 'Audi' },
-      { label: 'Porsche' },
+      { label: 'Todas las marcas \u2014 BMW como especialidad', href: '/es/motos/' },
+      { label: 'Bóxer clásicas (airheads)' },
+      { label: 'GS, serie R y serie K' },
     ] as Array<{ label: string; href?: string }>,
     sourceLabel: 'Buscamos en',
     sources: [
-      { label: 'Europa' },
-      { label: 'Japón' },
+      { label: 'mobile.de y Kleinanzeigen' },
+      { label: 'Revisada in situ en Alemania' },
     ] as Array<{ label: string; href?: string }>,
   },
   obsession: {
@@ -114,9 +110,9 @@ const home = {
   },
   moto: {
     eyebrow: 'Lo que hacemos',
-    heading: 'Motos BMW de Alemania, buscadas y recogidas en persona.',
+    heading: 'Motos de Alemania, buscadas y recogidas en persona.',
     body:
-      "Cada d\u00eda hay m\u00e1s de 14.000 motos BMW a la venta en Alemania \u2014 desde una R 1250 GS reciente hasta una airhead cl\u00e1sica \u2014 con diferencias de precio que llegan a unos \u20ac 5.000. La buscamos, la revisamos in situ seg\u00fan los puntos d\u00e9biles propios de ese modelo y la recogemos con nuestro propio remolque. La importaci\u00f3n completa vale para la matriculaci\u00f3n neerlandesa; fuera de los Pa\u00edses Bajos ofrecemos inspecci\u00f3n y asesoramiento.",
+      "La oferta alemana es mucho mayor que la neerlandesa \u2014 solo de BMW hay m\u00e1s de 14.000 motos a la venta cada d\u00eda, desde una R 1250 GS reciente hasta una airhead cl\u00e1sica \u2014 con diferencias de precio que llegan a unos \u20ac 5.000. La buscamos, la revisamos in situ seg\u00fan los puntos d\u00e9biles propios de ese modelo y la recogemos con nuestro propio remolque. La importaci\u00f3n completa vale para la matriculaci\u00f3n neerlandesa; fuera de los Pa\u00edses Bajos ofrecemos inspecci\u00f3n y asesoramiento.",
     points: [
       'Proceso completo desde \u20ac 1.250 \u2014 pago por fases',
       'Transporte propio y asegurado, dos motos por viaje',
@@ -124,8 +120,8 @@ const home = {
     ],
     linkLabel: 'Vea el servicio de motos',
     linkHref: '/es/motos/',
-    img: '/images/moto-hero.jpg',
-    imgAlt: 'Carretera de monta\u00f1a a la hora dorada \u2014 servicio de motos Rolvink',
+    img: '/images/moto-r1300gs.jpg',
+    imgAlt: 'BMW R 1300 GS en una carretera costera — servicio de motos Rolvink',
   },
   tiers: {
     eyebrow: 'Nuestras fuentes',
@@ -201,7 +197,7 @@ const home = {
     label: 'Sin prisa, con precisión',
     headingHtml: 'Déjenos su <span class="accent">perfil de búsqueda</span>.',
     intro:
-      '¿Todavía sin un ejemplar concreto a la vista? Cuéntenos qué busca. En cuanto aparezca un candidato adecuado en una subasta, se lo señalamos — con la hoja de inspección, fotos y nuestro cálculo. Sin compromiso, sin presión comercial.',
+      '¿Todavía sin un ejemplar concreto a la vista? Cuéntenos qué busca. En cuanto aparezca un candidato adecuado — en Alemania o, para coches, en una subasta japonesa — se lo señalamos, con fotos y nuestro cálculo. Sin compromiso, sin presión comercial.',
     usps: [
       'Solo pujamos con su visto bueno expl\u00edcito',
       'Revisada seg\u00fan los puntos d\u00e9biles de ese modelo',
@@ -215,14 +211,14 @@ const home = {
       naam: { label: 'Su nombre', placeholder: 'Nombre' },
       email: { label: 'Correo electrónico', placeholder: 'nombre@ejemplo.es' },
       telefoon: { label: 'Teléfono', placeholder: '+34 612 34 56 78' },
-      merk: { label: 'Marca', choose: 'Elija…', unsure: 'Aún no lo sé' },
-      model: { label: 'Modelo / versión', placeholder: 'p. ej. SL 500, M3, Cayman S' },
+      merk: { label: 'Marca', choose: 'Elija…', moto: 'Moto (cualquier marca)', unsure: 'Aún no lo sé' },
+      model: { label: 'Modelo / versión', placeholder: 'p. ej. R 100 GS, Africa Twin, Bonneville — o M3, SL 500' },
       budget: {
         label: 'Presupuesto (llave en mano)',
         choose: 'Elija…',
-        options: ['hasta € 15.000', '€ 15.000 – 25.000', '€ 25.000 – 40.000', '€ 40.000 – 75.000', '€ 75.000+'],
+        options: ['hasta € 5.000', '€ 5.000 – 10.000', '€ 10.000 – 20.000', '€ 20.000 – 40.000', '€ 40.000+'],
       },
-      bron: { label: 'Mercado de origen', none: 'Sin preferencia', options: ['Japón', 'Alemania / Europa'] },
+      bron: { label: 'Mercado de origen', none: 'Sin preferencia', options: ['Alemania / Europa', 'Japón (solo coches)'] },
       termijn: {
         label: 'Plazo',
         choose: 'Elija…',
@@ -259,10 +255,10 @@ const home = {
     },
   },
   autoblok: {
-    eyebrow: 'Tambi\u00e9n coches',
-    heading: 'Coches premium de Alemania y Jap\u00f3n.',
+    eyebrow: 'También coches, bajo petición',
+    heading: 'Coches premium de Alemania y Japón.',
     body:
-      'Adem\u00e1s de motos buscamos coches con volante a la izquierda de BMW, Mercedes-Benz, Audi y Porsche. Desde Alemania en dos a cuatro semanas, o a trav\u00e9s de las subastas japonesas para versiones raras y kilometrajes bajos. El mismo m\u00e9todo, los mismos libros abiertos.',
+      'Bajo petición también buscamos coches con volante a la izquierda de BMW, Mercedes-Benz, Audi y Porsche — desde Alemania o a través de las subastas japonesas. El mismo método, los mismos libros abiertos.',
     links: [
       { label: 'C\u00f3mo trabajamos', href: '/es/como-trabajamos/' },
       { label: 'Tarifas', href: '/es/tarifas/' },
