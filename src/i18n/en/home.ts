@@ -7,25 +7,21 @@ const home = {
   },
   hero: {
     h1Html: 'Motorcycles imported<br/>from <span class="accent">Germany</span>.',
-    lead: 'Found in person, inspected on site and collected with our own trailer — two bikes per run. Premium cars from Germany and Japan as well.',
+    lead: 'Found in person, inspected on site and collected with our own trailer — two bikes per run. Delivered with Dutch registration.',
     ctaPrimary: 'Start your search',
     ctaPrimaryHref: '#zoekprofiel',
     ctaSecondary: 'see the motorcycle service',
     ctaSecondaryHref: '/en/motorcycles/',
-    ctaMoto: 'looking for a car? See how it works',
-    ctaMotoHref: '/en/how-it-works/',
     focusLabel: 'Our focus',
     brands: [
-      { label: 'BMW Motorrad', href: '/en/motorcycles/' },
-      { label: 'BMW' },
-      { label: 'Mercedes-Benz' },
-      { label: 'Audi' },
-      { label: 'Porsche' },
+      { label: 'All brands \u2014 BMW is our specialism', href: '/en/motorcycles/' },
+      { label: 'Classic boxers (airheads)' },
+      { label: 'GS, R-series and K-series' },
     ] as Array<{ label: string; href?: string }>,
-    sourceLabel: 'We source from',
+    sourceLabel: 'We search on',
     sources: [
-      { label: 'Europe' },
-      { label: 'Japan' },
+      { label: 'mobile.de and Kleinanzeigen' },
+      { label: 'Inspected on site in Germany' },
     ] as Array<{ label: string; href?: string }>,
   },
   obsession: {
@@ -114,9 +110,9 @@ const home = {
   },
   moto: {
     eyebrow: 'What we do',
-    heading: 'BMW motorcycles from Germany, found and collected in person.',
+    heading: 'Motorcycles from Germany, found and collected in person.',
     body:
-      "More than 14,000 BMW motorcycles are for sale in Germany on any given day \u2014 from a fresh R 1250 GS to a classic airhead \u2014 with price gaps running up to around \u20ac 5,000. We find it, inspect it on site against the known weak points of that particular model, and collect it on our own trailer. Full import handling applies to Dutch registration; elsewhere we inspect and advise.",
+      "The German market is many times larger than the Dutch one \u2014 more than 14,000 BMW motorcycles alone on any given day, from a fresh R 1250 GS to a classic airhead \u2014 with price gaps running up to around \u20ac 5,000. We find it, inspect it on site against the known weak points of that particular model, and collect it on our own trailer. Full import handling applies to Dutch registration; elsewhere we inspect and advise.",
     points: [
       'Full service from \u20ac 1,250 \u2014 paid in stages',
       'Our own insured transport, two bikes per run',
@@ -124,8 +120,8 @@ const home = {
     ],
     linkLabel: 'See the motorcycle service',
     linkHref: '/en/motorcycles/',
-    img: '/images/moto-hero.jpg',
-    imgAlt: 'Open mountain road at golden hour \u2014 Rolvink motorcycle service',
+    img: '/images/moto-r1300gs.jpg',
+    imgAlt: 'BMW R 1300 GS on a coastal road — Rolvink motorcycle service',
   },
   tiers: {
     eyebrow: 'Our sources',
@@ -201,7 +197,7 @@ const home = {
     label: 'No rush, but sharp',
     headingHtml: 'Leave your <span class="accent">search profile</span>.',
     intro:
-      'No specific example in mind yet? Tell us what you are looking for. As soon as a matching candidate appears at auction, we flag it — with the sheet, photos and our full cost calculation. No obligation, no sales pressure.',
+      'No specific example in mind yet? Tell us what you are looking for. As soon as a matching candidate turns up — in Germany or, for cars, at a Japanese auction — we flag it, with photos and our full cost calculation. No obligation, no sales pressure.',
     usps: [
       'We only bid once you give the explicit green light',
       'Checked against the weak points of that model',
@@ -215,14 +211,14 @@ const home = {
       naam: { label: 'Your name', placeholder: 'First name' },
       email: { label: 'Email address', placeholder: 'name@example.com' },
       telefoon: { label: 'Phone', placeholder: '+31 6 12 34 56 78' },
-      merk: { label: 'Brand', choose: 'Choose…', unsure: 'Not sure yet' },
-      model: { label: 'Model / specification', placeholder: 'e.g. SL 500, M3, Cayman S' },
+      merk: { label: 'Brand', choose: 'Choose…', moto: 'Motorcycle (any brand)', unsure: 'Not sure yet' },
+      model: { label: 'Model / specification', placeholder: 'e.g. R 100 GS, Africa Twin, Bonneville — or M3, SL 500' },
       budget: {
         label: 'Budget (on the road)',
         choose: 'Choose…',
-        options: ['up to € 15.000', '€ 15.000 – 25.000', '€ 25.000 – 40.000', '€ 40.000 – 75.000', '€ 75.000+'],
+        options: ['up to € 5.000', '€ 5.000 – 10.000', '€ 10.000 – 20.000', '€ 20.000 – 40.000', '€ 40.000+'],
       },
-      bron: { label: 'Source market', none: 'No preference', options: ['Japan', 'Germany / Europe'] },
+      bron: { label: 'Source market', none: 'No preference', options: ['Germany / Europe', 'Japan (cars only)'] },
       termijn: {
         label: 'Timeline',
         choose: 'Choose…',
@@ -259,10 +255,10 @@ const home = {
     },
   },
   autoblok: {
-    eyebrow: 'Cars as well',
+    eyebrow: 'Cars too, on request',
     heading: 'Premium cars from Germany and Japan.',
     body:
-      'Alongside motorcycles we source left-hand-drive BMW, Mercedes-Benz, Audi and Porsche. From Germany within two to four weeks, or through the Japanese auctions for rare specifications and low mileage. Same method, same open books.',
+      'On request we also source left-hand-drive BMW, Mercedes-Benz, Audi and Porsche — from Germany or through the Japanese auctions. Same method, same open books.',
     links: [
       { label: 'How the car import works', href: '/en/how-it-works/' },
       { label: 'Pricing', href: '/en/pricing/' },

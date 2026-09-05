@@ -12,11 +12,17 @@ const ui = {
     homeHref: '/en/',
     nav: [
       { href: '/en/motorcycles/', label: 'Motorcycles' },
-      { href: '/en/how-it-works/', label: 'How it works' },
       { href: '/en/pricing/', label: 'Pricing' },
-      { href: '/en/example-import/', label: 'Example import' },
+      {
+        href: '/en/how-it-works/',
+        label: 'Cars',
+        children: [
+          { href: '/en/how-it-works/', label: 'How the car import works' },
+          { href: '/en/example-import/', label: 'Example import' },
+        ],
+      },
       { href: '/en/about/', label: 'About' },
-    ],
+    ] as Array<{ href: string; label: string; children?: Array<{ href: string; label: string }> }>,
   },
   sticky: {
     regionAria: 'Quick actions',
@@ -39,7 +45,7 @@ const ui = {
   },
   footer: {
     blurb:
-      'A personal sourcing service for premium cars and motorcycles from Germany, Europe and Japan. Welsum, the Netherlands.',
+      'A personal sourcing service for motorcycles from Germany and, on request, premium cars from Europe and Japan. Welsum, the Netherlands.',
     columns: [
       {
         title: 'Service',
