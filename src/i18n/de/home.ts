@@ -13,8 +13,6 @@ const home = {
     ctaPrimaryHref: '/de/kontakt/',
     ctaSecondary: 'was wir kaufen',
     ctaSecondaryHref: '#verkaufen',
-    ctaMoto: '',
-    ctaMotoHref: '/de/motorraeder/',
     focusLabel: 'Wir kaufen',
     brands: [
       { label: 'BMW Boxer / Airhead' },
@@ -124,8 +122,8 @@ const home = {
     ],
     linkLabel: 'Zum Motorrad-Service',
     linkHref: '/de/motorraeder/',
-    img: '/images/moto-hero.jpg',
-    imgAlt: 'Offene Bergstraße zur goldenen Stunde — Rolvink Motorrad-Service',
+    img: '/images/moto-r1300gs.jpg',
+    imgAlt: 'BMW R 1300 GS an der Küste — Rolvink Motorrad-Service',
   },
   tiers: {
     eyebrow: 'Unsere Quellen',
@@ -215,7 +213,7 @@ const home = {
       naam: { label: 'Ihr Name', placeholder: 'Vorname' },
       email: { label: 'E-Mail-Adresse', placeholder: 'name@beispiel.de' },
       telefoon: { label: 'Telefon', placeholder: '+49 151 23456789' },
-      merk: { label: 'Marke', choose: 'Bitte wählen…', unsure: 'Noch unentschieden' },
+      merk: { label: 'Marke', choose: 'Bitte wählen…', moto: 'Motorrad (alle Marken)', unsure: 'Noch unentschieden' },
       model: { label: 'Modell / Ausführung', placeholder: 'z. B. SL 500, M3, Cayman S' },
       budget: {
         label: 'Budget (fahrbereit geliefert)',

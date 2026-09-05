@@ -12,11 +12,17 @@ const ui = {
     homeHref: '/de/',
     nav: [
       { href: '/de/motorraeder/', label: 'Motorräder' },
-      { href: '/de/ablauf/', label: 'Ablauf' },
       { href: '/de/preise/', label: 'Preise' },
-      { href: '/de/beispiel-import/', label: 'Beispiel-Import' },
+      {
+        href: '/de/ablauf/',
+        label: 'Autos',
+        children: [
+          { href: '/de/ablauf/', label: 'Ablauf Auto-Import' },
+          { href: '/de/beispiel-import/', label: 'Beispiel-Import' },
+        ],
+      },
       { href: '/de/ueber-uns/', label: 'Über uns' },
-    ],
+    ] as Array<{ href: string; label: string; children?: Array<{ href: string; label: string }> }>,
   },
   sticky: {
     regionAria: 'Schnellaktionen',
@@ -39,7 +45,7 @@ const ui = {
   },
   footer: {
     blurb:
-      'Ein persönlicher Sourcing-Service für Premium-Automobile und Motorräder — aus Japan und vom deutschen Markt. Welsum, Niederlande.',
+      'Ein persönlicher Sourcing-Service für Motorräder vom deutschen Markt und, auf Anfrage, Premium-Automobile aus Europa und Japan. Welsum, Niederlande.',
     columns: [
       {
         title: 'Service',
