@@ -14,11 +14,17 @@ const ui: UiDict = {
     homeHref: "/fr/",
     nav: [
       { href: "/fr/motos/", label: "Motos" },
-      { href: "/fr/notre-methode/", label: "Notre méthode" },
       { href: "/fr/tarifs/", label: "Tarifs" },
-      { href: "/fr/exemple-importation/", label: "Exemple d'importation" },
+      {
+        href: "/fr/notre-methode/",
+        label: "Voitures",
+        children: [
+          { href: "/fr/notre-methode/", label: "Notre méthode (voitures)" },
+          { href: "/fr/exemple-importation/", label: "Exemple d'importation" },
+        ],
+      },
       { href: "/fr/a-propos/", label: "À propos" },
-    ],
+    ] as Array<{ href: string; label: string; children?: Array<{ href: string; label: string }> }>,
   },
   sticky: {
     regionAria: "Actions rapides",
@@ -41,7 +47,7 @@ const ui: UiDict = {
   },
   footer: {
     blurb:
-      "Un service de sourcing personnalisé de voitures et motos premium en provenance d'Allemagne, d'Europe et du Japon. Welsum, Pays-Bas.",
+      "Un service de sourcing personnalisé de motos en provenance d'Allemagne et, sur demande, de voitures premium d'Europe et du Japon. Welsum, Pays-Bas.",
     columns: [
       {
         title: "Services",

@@ -14,18 +14,14 @@ const home: HomeDict = {
     ctaPrimaryHref: "#zoekprofiel",
     ctaSecondary: "découvrez le service motos",
     ctaSecondaryHref: "/fr/motos/",
-    ctaMoto: "vous cherchez une voiture ? Notre méthode",
-    ctaMotoHref: "/fr/notre-methode/",
     focusLabel: "Notre spécialité",
     brands: [
-      { label: "BMW Motorrad", href: "/fr/motos/" },
-      { label: "BMW" },
-      { label: "Mercedes-Benz" },
-      { label: "Audi" },
-      { label: "Porsche" },
+      { label: "Toutes marques \u2014 BMW, notre spécialité", href: "/fr/motos/" },
+      { label: "Boxers classiques (airheads)" },
+      { label: "GS, série R et série K" },
     ] as Array<{ label: string; href?: string }>,
-    sourceLabel: "Nos marchés sources",
-    sources: [{ label: "Europe" }, { label: "Japon" }] as Array<{ label: string; href?: string }>,
+    sourceLabel: "Nous cherchons sur",
+    sources: [{ label: "mobile.de et Kleinanzeigen" }, { label: "Inspectée sur place en Allemagne" }] as Array<{ label: string; href?: string }>,
   },
   obsession: {
     eyebrow: "Notre obsession",
@@ -113,9 +109,9 @@ const home: HomeDict = {
   },
   moto: {
     eyebrow: "Ce que nous faisons",
-    heading: "Des motos BMW d'Allemagne, cherch\u00e9es et ramen\u00e9es par nos soins.",
+    heading: "Des motos d'Allemagne, cherch\u00e9es et ramen\u00e9es par nos soins.",
     body:
-      "Chaque jour, plus de 14 000 motos BMW sont en vente en Allemagne \u2014 d'une R 1250 GS r\u00e9cente \u00e0 une airhead classique \u2014 avec des \u00e9carts de prix pouvant atteindre quelque 5 000 \u20ac. Nous la cherchons, l'inspectons sur place selon les points faibles propres au mod\u00e8le et la ramenons sur notre propre remorque. L'importation compl\u00e8te vaut pour une immatriculation n\u00e9erlandaise ; ailleurs, nous inspectons et conseillons.",
+      "L'offre allemande est bien plus vaste que la n\u00e9erlandaise \u2014 rien que chez BMW, plus de 14 000 motos en vente chaque jour, d'une R 1250 GS r\u00e9cente \u00e0 une airhead classique \u2014 avec des \u00e9carts de prix pouvant atteindre quelque 5 000 \u20ac. Nous la cherchons, l'inspectons sur place selon les points faibles propres au mod\u00e8le et la ramenons sur notre propre remorque. L'importation compl\u00e8te vaut pour une immatriculation n\u00e9erlandaise ; ailleurs, nous inspectons et conseillons.",
     points: [
       "Prestation compl\u00e8te \u00e0 partir de 1 250 \u20ac \u2014 paiement \u00e9chelonn\u00e9",
       "Transport assur\u00e9 par nos soins, deux motos par trajet",
@@ -123,8 +119,8 @@ const home: HomeDict = {
     ],
     linkLabel: "D\u00e9couvrez le service motos",
     linkHref: "/fr/motos/",
-    img: "/images/moto-hero.jpg",
-    imgAlt: "Route de montagne \u00e0 l'heure dor\u00e9e \u2014 service motos Rolvink",
+    img: "/images/moto-r1300gs.jpg",
+    imgAlt: "BMW R 1300 GS sur une route côtière — service motos Rolvink",
   },
   tiers: {
     eyebrow: "Nos sources",
@@ -199,7 +195,7 @@ const home: HomeDict = {
     label: "Sans hâte, mais avec précision",
     headingHtml: `Déposez votre <span class="accent">profil de recherche</span>.`,
     intro:
-      "Pas encore d'exemplaire en vue ? Dites-nous ce que vous cherchez. Dès qu'une candidate correspondante apparaît aux enchères, nous vous la signalons — avec procès-verbal, photos et notre chiffrage. Sans engagement, sans pression commerciale.",
+      "Pas encore d'exemplaire en vue ? Dites-nous ce que vous cherchez. Dès qu'une candidate correspondante apparaît — en Allemagne ou, pour les voitures, aux enchères japonaises — nous vous la signalons, avec photos et notre chiffrage. Sans engagement, sans pression commerciale.",
     usps: [
       "Nous n'ench\u00e9rissons qu'avec votre feu vert explicite",
       "Contr\u00f4l\u00e9e sur les points faibles du mod\u00e8le",
@@ -213,14 +209,14 @@ const home: HomeDict = {
       naam: { label: "Votre nom", placeholder: "Prénom" },
       email: { label: "Adresse e-mail", placeholder: "nom@exemple.fr" },
       telefoon: { label: "Téléphone", placeholder: "+33 6 12 34 56 78" },
-      merk: { label: "Marque", choose: "Choisir…", unsure: "Pas encore décidé" },
-      model: { label: "Modèle / version", placeholder: "p. ex. SL 500, M3, Cayman S" },
+      merk: { label: "Marque", choose: "Choisir…", moto: "Moto (toutes marques)", unsure: "Pas encore décidé" },
+      model: { label: "Modèle / version", placeholder: "p. ex. R 100 GS, Africa Twin, Bonneville — ou M3, SL 500" },
       budget: {
         label: "Budget (véhicule livré)",
         choose: "Choisir…",
-        options: ["jusqu'à € 15.000", "€ 15.000 – 25.000", "€ 25.000 – 40.000", "€ 40.000 – 75.000", "€ 75.000+"],
+        options: ["jusqu'à € 5.000", "€ 5.000 – 10.000", "€ 10.000 – 20.000", "€ 20.000 – 40.000", "€ 40.000+"],
       },
-      bron: { label: "Marché source", none: "Sans préférence", options: ["Japon", "Allemagne / Europe"] },
+      bron: { label: "Marché source", none: "Sans préférence", options: ["Allemagne / Europe", "Japon (voitures uniquement)"] },
       termijn: {
         label: "Délai",
         choose: "Choisir…",
@@ -257,10 +253,10 @@ const home: HomeDict = {
     },
   },
   autoblok: {
-    eyebrow: "Aussi des voitures",
+    eyebrow: "Aussi des voitures, sur demande",
     heading: "Voitures premium d'Allemagne et du Japon.",
     body:
-      "\u00c0 c\u00f4t\u00e9 des motos, nous sourcons des BMW, Mercedes-Benz, Audi et Porsche en conduite \u00e0 gauche. D'Allemagne en deux \u00e0 quatre semaines, ou via les ench\u00e8res japonaises pour les versions rares et les faibles kilom\u00e9trages. M\u00eame m\u00e9thode, m\u00eames comptes ouverts.",
+      "Sur demande, nous sourçons aussi des BMW, Mercedes-Benz, Audi et Porsche en conduite à gauche — d'Allemagne ou via les enchères japonaises. Même méthode, mêmes comptes ouverts.",
     links: [
       { label: "Notre m\u00e9thode", href: "/fr/notre-methode/" },
       { label: "Tarifs", href: "/fr/tarifs/" },
