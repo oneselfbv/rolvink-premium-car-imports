@@ -1,6 +1,7 @@
 ---
-// Homepage hero — full-bleed donkere auto-visual (BMW M3 sunset) + lichte tekst
-// Gradient-overlay: donker links (leesbare tekst) -> lichter rechts (auto schemert door)
+// Homepage hero — full-bleed motor-visual (boxers op een bergweg, moto-hero) + lichte tekst.
+// Sinds 5 sept 2026 géén autofoto meer: de homepage is een motorpagina, auto's zijn ondergeschikt.
+// Gradient-overlay: donker links (leesbare tekst) -> lichter rechts (foto schemert door)
 // Taal: kiest zijn teksten via Astro.currentLocale uit src/i18n (NL = ongewijzigd).
 import { homeDict, pick } from '../i18n';
 const t = pick(homeDict, Astro.currentLocale).hero;
@@ -17,9 +18,6 @@ const t = pick(homeDict, Astro.currentLocale).hero;
         <div class="hero-cta-row">
           <a href={t.ctaPrimaryHref} class="cta-primary">{t.ctaPrimary}<span class="arrow">→</span></a>
           <a href={t.ctaSecondaryHref} class="hero-secondary-link">{t.ctaSecondary} <span class="arrow-small">→</span></a>
-          {t.ctaMoto && (
-            <a href={t.ctaMotoHref} class="hero-secondary-link">{t.ctaMoto} <span class="arrow-small">→</span></a>
-          )}
         </div>
       </div>
       <aside class="hero-side">
@@ -56,10 +54,9 @@ const t = pick(homeDict, Astro.currentLocale).hero;
   }
   .hero-photo {
     position: absolute; inset: 0; z-index: 0;
-    background-image: url("/images/hero-911.jpg");
-    background-image: image-set(url("/images/hero-911.webp") type("image/webp"), url("/images/hero-911.jpg") type("image/jpeg"));
+    background-image: url("/images/moto-hero.jpg");
     background-size: cover;
-    background-position: center 50%;
+    background-position: center 60%;
   }
   .hero-photo::after {
     content: ""; position: absolute; inset: 0;
@@ -99,7 +96,7 @@ const t = pick(homeDict, Astro.currentLocale).hero;
   .hero-block { padding: 18px 0; border-top: 1px solid rgba(245,241,234,0.16); }
   .hero-block:last-child { border-bottom: 1px solid rgba(245,241,234,0.16); }
   .hero-block-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 10px; font-weight: 600; }
-  .hero-list li { font-family: var(--font-serif); font-size: 17px; font-weight: 500; letter-spacing: 0.04em; padding: 2px 0; line-height: 1.4; }
+  .hero-list li { font-family: var(--font-serif); font-size: 17px; font-weight: 500; letter-spacing: 0.04em; padding: 2px 0; line-height: 1.4; color: var(--color-cream); }
   .hero-list a { color: var(--color-cream); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
   .hero-list a::after { content: "→"; color: var(--color-copper); opacity: 0; transform: translateX(-6px); transition: opacity 0.2s, transform 0.2s; font-size: 14px; }
   .hero-list a:hover { color: var(--color-copper); }

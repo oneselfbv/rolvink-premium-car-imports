@@ -50,7 +50,20 @@ const t = pick(uiDict, Astro.currentLocale);
       <nav id="primary-nav" class="primary-nav" aria-label={t.header.navAria}>
         <ul>
           {t.header.nav.map((item) => (
-            <li><a href={item.href}>{item.label}</a></li>
+            item.children ? (
+              <li class="nav-sub">
+                <button type="button" class="nav-sub-toggle" aria-expanded="false" aria-haspopup="true">
+                  {item.label}<span class="nav-caret" aria-hidden="true"></span>
+                </button>
+                <ul class="nav-sub-menu">
+                  {item.children.map((c) => (
+                    <li><a href={c.href}>{c.label}</a></li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              <li><a href={item.href}>{item.label}</a></li>
+            )
           ))}
           <li class="nav-lang-row" aria-hidden="false">
             {LOCALES.map((l) => (
@@ -81,6 +94,30 @@ const t = pick(uiDict, Astro.currentLocale);
     body.classList.toggle('menu-open');
   });
 
+  // Submenu ("Auto's"): klik opent/sluit; buiten klikken of Escape sluit. Hover/focus
+  // opent op desktop via CSS; op mobiel staat het submenu altijd open.
+  document.querySelectorAll('.nav-sub').forEach((sub) => {
+    const btn = sub.querySelector('.nav-sub-toggle');
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = sub.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-sub.is-open').forEach((sub) => {
+      sub.classList.remove('is-open');
+      sub.querySelector('.nav-sub-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    document.querySelectorAll('.nav-sub.is-open').forEach((sub) => {
+      sub.classList.remove('is-open');
+      sub.querySelector('.nav-sub-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
   // Close menu when clicking a nav link (mobile UX)
   nav?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
@@ -101,6 +138,31 @@ const t = pick(uiDict, Astro.currentLocale);
 
   /* Taalwisselaar in het mobiele menu */
   .nav-lang-row { display: none; }
+
+  /* Submenu "Auto's" (desktop): knop in de menustijl + uitklaplijst */
+  .nav-sub { position: relative; }
+  .nav-sub-toggle {
+    background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+    font: inherit; color: inherit; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .nav-sub-toggle:hover { color: var(--color-copper); }
+  .nav-caret {
+    width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+    transform: translateY(-2px) rotate(45deg); transition: transform 0.2s;
+  }
+  .nav-sub.is-open .nav-caret { transform: translateY(1px) rotate(-135deg); }
+  .nav-sub-menu {
+    display: none; position: absolute; top: calc(100% + 14px); left: -18px; min-width: 220px;
+    background: var(--color-cream); border: 1px solid var(--color-border-soft);
+    box-shadow: 0 12px 32px rgba(20, 18, 15, 0.12); padding: 8px 0; margin: 0; list-style: none; z-index: 150;
+  }
+  .nav-sub-menu::before { content: ""; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+  .nav-sub-menu li { display: block; }
+  .nav-sub-menu a { display: block; padding: 10px 18px; white-space: nowrap; font-size: 14px; }
+  .nav-sub-menu a:hover { background: var(--color-cream-warm); }
+  .nav-sub:hover .nav-sub-menu,
+  .nav-sub:focus-within .nav-sub-menu,
+  .nav-sub.is-open .nav-sub-menu { display: block; }
 
   /* Smal scherm: tagline wijkt zodat taalkeuze + CTA passen */
   @media (max-width: 640px) {
@@ -159,6 +221,7 @@ const t = pick(uiDict, Astro.currentLocale);
       transition: transform 0.3s ease;
       z-index: 200;
       visibility: hidden;
+      overflow-y: auto;
     }
     .primary-nav.is-open {
       transform: translateX(0);
@@ -167,7 +230,7 @@ const t = pick(uiDict, Astro.currentLocale);
     .primary-nav ul {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 26px;
       text-align: center;
       padding: 0;
       margin: 0;
@@ -177,6 +240,30 @@ const t = pick(uiDict, Astro.currentLocale);
       font-size: 28px;
       letter-spacing: 0.04em;
       color: var(--color-charcoal-dark);
+    }
+    /* Submenu op mobiel: label + kinderen altijd zichtbaar, geen hover/klik nodig */
+    .nav-sub-toggle {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      color: var(--color-charcoal-dark);
+      cursor: default;
+      pointer-events: none;
+      gap: 0;
+    }
+    .nav-caret { display: none; }
+    .primary-nav .nav-sub-menu {
+      display: flex; flex-direction: column; gap: 0; position: static; min-width: 0;
+      background: none; border: 0; box-shadow: none; padding: 10px 0 0; margin: 0;
+    }
+    .nav-sub-menu::before { display: none; }
+    .nav-sub-menu li { padding: 0; }
+    .primary-nav .nav-sub-menu a {
+      font-family: var(--font-sans, inherit);
+      font-size: 16px;
+      letter-spacing: 0.06em;
+      padding: 4px 0;
+      opacity: 0.8;
     }
     .nav-lang-row {
       display: flex;

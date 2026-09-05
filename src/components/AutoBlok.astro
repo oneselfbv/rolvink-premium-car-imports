@@ -1,17 +1,18 @@
 ---
-// Compact 'ook auto's'-blok op de homepage. Sinds het focusbesluit van 22 aug 2026
-// is de homepage een motorpagina; de auto-lijn staat hier als secundaire lijn met
-// links naar de bestaande autopagina's, zodat die hun interne linkwaarde houden.
+// Compacte 'ook auto's'-strook op de homepage. Sinds het focusbesluit van 22 aug 2026
+// is de homepage een motorpagina; de auto-lijn blijft bewust staan maar ONDERGESCHIKT
+// (besluit Theo 5 sept 2026): één lage strook onder het zoekprofiel, kleine kop, geen
+// eigen foto's of grid. De links houden de interne linkwaarde naar de autopagina's.
 import { homeDict, pick } from '../i18n';
 const t = pick(homeDict, Astro.currentLocale).autoblok;
 ---
 
-<section class="autoblok">
+<section class="autoblok" aria-labelledby="autoblok-heading">
   <div class="container">
     <div class="ab-inner">
       <div class="ab-text">
-        <div class="ab-eyebrow">{t.eyebrow}</div>
-        <h2>{t.heading}</h2>
+        <span class="ab-eyebrow">{t.eyebrow}</span>
+        <h2 id="autoblok-heading">{t.heading}</h2>
         <p>{t.body}</p>
       </div>
       <ul class="ab-links">
@@ -24,19 +25,18 @@ const t = pick(homeDict, Astro.currentLocale).autoblok;
 </section>
 
 <style>
-  .autoblok { padding: 72px 0; background: var(--color-cream-warm); }
-  .ab-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
-  .ab-eyebrow { color: var(--color-copper-text); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; font-weight: 500; }
-  .autoblok h2 { font-size: 34px; line-height: 1.12; font-weight: 600; margin-bottom: 16px; }
-  .ab-text p { font-size: 17px; line-height: 1.65; color: var(--color-text-secondary); max-width: 620px; }
-  .ab-links { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--color-copper-text); }
-  .ab-links li { padding: 0; }
-  .ab-links a { display: block; padding: 14px 20px; text-decoration: none; color: var(--color-text-primary); font-size: 16px; border-bottom: 1px solid var(--color-border-soft); transition: background 0.2s; }
-  .ab-links li:last-child a { border-bottom: 0; }
-  .ab-links a:hover { background: var(--color-white); }
+  .autoblok { padding: 36px 0; background: var(--color-cream-warm); border-top: 1px solid var(--color-border-soft); }
+  .ab-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .ab-text { max-width: 640px; }
+  .ab-eyebrow { display: block; color: var(--color-copper-text); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; font-weight: 500; }
+  .autoblok h2 { font-size: 20px !important; line-height: 1.25; font-weight: 600; margin: 0 0 6px; }
+  .ab-text p { font-size: 15px; line-height: 1.55; color: var(--color-text-secondary); margin: 0; }
+  .ab-links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; flex-shrink: 0; }
+  .ab-links a { font-size: 14px; font-weight: 500; color: var(--color-text-primary); text-decoration: none; white-space: nowrap; }
+  .ab-links a:hover { color: var(--color-copper-text); }
   .ab-arrow { color: var(--color-copper-text); }
   @media (max-width: 900px) {
-    .ab-inner { grid-template-columns: 1fr; gap: 28px; }
-    .autoblok h2 { font-size: 27px; }
+    .ab-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .ab-links { flex-direction: column; gap: 8px; }
   }
 </style>
