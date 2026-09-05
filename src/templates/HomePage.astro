@@ -1,7 +1,7 @@
 ---
 // Homepage-template voor NL/EN/ES/FR. Sinds het focusbesluit van 22 aug 2026 is dit
 // een MOTORPAGINA: hero -> propositie -> traject -> vertrouwen -> gidsen (NL) ->
-// compact auto-blok -> zoekprofiel -> CTA. De auto-secties (bronmarkten, veiling-
+// zoekprofiel -> lage auto-strook (ondergeschikt, besluit 5 sept 2026) -> CTA. De auto-secties (bronmarkten, veiling-
 // grades, veilingsignalen) staan bewust NIET meer op de homepage; ze leefden daar
 // naast een motorkop en dat las nergens naar. Duitsland heeft een eigen template
 // (HomePageDE.astro) met een verkopers-propositie.
@@ -25,7 +25,7 @@ const t = pick(homeDict, Astro.currentLocale);
   <ServiceStrip />
   <Vertrouwen />
   {locale === 'nl' && <OrientatieSection />}
-  <AutoBlok />
   <Zoekprofiel />
+  <AutoBlok />
   <CTASection />
 </BaseLayout>
