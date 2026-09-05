@@ -4,29 +4,25 @@ const home = {
   meta: {
     title: 'Motorimport uit Duitsland — persoonlijk gezocht en opgehaald | Rolvink',
     description:
-      "Wij zoeken uw motor in Duitsland, bekijken hem ter plekke en halen hem op met eigen trailer. Daarnaast premium auto's uit Duitsland en Japan.",
+      "Wij zoeken uw motor in Duitsland, bekijken hem ter plekke en halen hem op met eigen trailer — RDW, motor-BPM en kenteken geregeld. Ook auto's, op verzoek.",
   },
   hero: {
     h1Html: 'Motoren importeren<br/>uit <span class="accent">Duitsland</span>.',
-    lead: 'Zelf gezocht, ter plekke bekeken en met eigen trailer opgehaald — twee motoren per rit. Daarnaast premium auto\'s uit Duitsland en Japan.',
+    lead: 'Zelf gezocht, ter plekke bekeken en met eigen trailer opgehaald — twee motoren per rit. Met Nederlands kenteken afgeleverd.',
     ctaPrimary: 'Start uw zoekopdracht',
     ctaPrimaryHref: '#zoekprofiel',
     ctaSecondary: 'bekijk de motoren-service',
     ctaSecondaryHref: '/motoren',
-    ctaMoto: 'auto zoeken? Bekijk de werkwijze',
-    ctaMotoHref: '/werkwijze',
     focusLabel: 'Onze focus',
     brands: [
-      { label: 'BMW Motorrad', href: '/motoren' },
-      { label: 'BMW', href: '/merk/bmw' },
-      { label: 'Mercedes-Benz', href: '/merk/mercedes-benz' },
-      { label: 'Audi', href: '/merk/audi' },
-      { label: 'Porsche', href: '/merk/porsche' },
+      { label: 'Alle merken \u2014 BMW als specialisme', href: '/motoren' },
+      { label: 'Klassieke boxers (airheads)', href: '/kennisbank/bmw-r80-r100-airhead-koopgids' },
+      { label: 'GS, R-serie en K-serie', href: '/kennisbank/bmw-boxermotoren-gids' },
     ] as Array<{ label: string; href?: string }>,
-    sourceLabel: 'Wij sourcen uit',
+    sourceLabel: 'Wij zoeken op',
     sources: [
-      { label: 'Europa', href: '/bron/europa' },
-      { label: 'Japan', href: '/bron/japan' },
+      { label: 'mobile.de en Kleinanzeigen', href: '/kennisbank/bmw-motor-importeren-duitsland' },
+      { label: 'Ter plekke bekeken in Duitsland' },
     ] as Array<{ label: string; href?: string }>,
   },
   obsession: {
@@ -115,9 +111,9 @@ const home = {
   },
   moto: {
     eyebrow: 'Wat wij doen',
-    heading: 'BMW-motoren uit Duitsland, zelf gezocht en opgehaald.',
+    heading: 'Motoren uit Duitsland, zelf gezocht en opgehaald.',
     body:
-      "Dagelijks staan er meer dan 14.000 BMW-motoren te koop bij onze oosterburen \u2014 van een frisse R 1250 GS tot een klassieke airhead \u2014 met prijsverschillen die kunnen oplopen tot zo'n \u20ac 5.000. Wij zoeken hem, beoordelen hem ter plaatse op de zwakke punten van dat specifieke model, en halen hem op met onze eigen trailer. Binnen 1 tot 3 weken staat er een Nederlands kenteken op.",
+      "Het Duitse aanbod is vele malen groter dan het Nederlandse \u2014 alleen al meer dan 14.000 BMW-motoren per dag, van een frisse R 1250 GS tot een klassieke airhead \u2014 met prijsverschillen die kunnen oplopen tot zo'n \u20ac 5.000. Wij zoeken hem, beoordelen hem ter plaatse op de zwakke punten van dat specifieke model, en halen hem op met onze eigen trailer. Binnen 1 tot 3 weken staat er een Nederlands kenteken op.",
     points: [
       'Volledig traject vanaf \u20ac 1.250 \u2014 gefaseerd betaald',
       'Eigen verzekerd transport, twee motoren per rit',
@@ -125,8 +121,8 @@ const home = {
     ],
     linkLabel: 'Bekijk de motoren-service',
     linkHref: '/motoren',
-    img: '/images/moto-hero.jpg',
-    imgAlt: 'Open bergweg bij gouden uur \u2014 motoren-service Rolvink',
+    img: '/images/moto-r1300gs.jpg',
+    imgAlt: 'BMW R 1300 GS aan de kust — motoren-service Rolvink',
   },
   tiers: {
     eyebrow: 'Onze bronnen',
@@ -202,7 +198,7 @@ const home = {
     label: 'Geen haast, wel scherp',
     headingHtml: 'Laat uw <span class="accent">zoekprofiel</span> achter.',
     intro:
-      "Nog geen exemplaar op het oog? Vertel ons wat u zoekt. Zodra er een passende kandidaat op een veiling verschijnt, signaleren wij het — met sheet, foto's en onze doorrekening. Vrijblijvend, geen verkoopdruk.",
+      "Nog geen exemplaar op het oog? Vertel ons wat u zoekt. Zodra er een passende kandidaat opduikt — in Duitsland of, voor auto's, op een Japanse veiling — signaleren wij het, met foto's en onze doorrekening. Vrijblijvend, geen verkoopdruk.",
     usps: [
       'Wij bieden pas met uw expliciete groen licht',
       'Beoordeeld op de zwakke punten van dat model',
@@ -216,14 +212,14 @@ const home = {
       naam: { label: 'Uw naam', placeholder: 'Voornaam' },
       email: { label: 'E-mailadres', placeholder: 'naam@voorbeeld.nl' },
       telefoon: { label: 'Telefoon', placeholder: '06 12 34 56 78' },
-      merk: { label: 'Merk', choose: 'Kies…', unsure: 'Nog niet zeker' },
-      model: { label: 'Model / uitvoering', placeholder: 'bv. SL 500, M3, Cayman S' },
+      merk: { label: 'Merk', choose: 'Kies…', moto: 'Motor (alle merken)', unsure: 'Nog niet zeker' },
+      model: { label: 'Model / uitvoering', placeholder: 'bv. R 100 GS, Africa Twin, Bonneville — of M3, SL 500' },
       budget: {
         label: 'Budget (rijklaar)',
         choose: 'Kies…',
-        options: ['tot € 15.000', '€ 15.000 – 25.000', '€ 25.000 – 40.000', '€ 40.000 – 75.000', '€ 75.000+'],
+        options: ['tot € 5.000', '€ 5.000 – 10.000', '€ 10.000 – 20.000', '€ 20.000 – 40.000', '€ 40.000+'],
       },
-      bron: { label: 'Bronmarkt', none: 'Geen voorkeur', options: ['Japan', 'Duitsland / Europa'] },
+      bron: { label: 'Bronmarkt', none: 'Geen voorkeur', options: ['Duitsland / Europa', 'Japan (alleen auto\'s)'] },
       termijn: {
         label: 'Termijn',
         choose: 'Kies…',
@@ -260,10 +256,10 @@ const home = {
     },
   },
   autoblok: {
-    eyebrow: "Ook auto's",
-    heading: "Premium auto's uit Duitsland en Japan.",
+    eyebrow: 'Ook auto\'s, op verzoek',
+    heading: 'Premium auto\'s uit Duitsland en Japan.',
     body:
-      "Naast motoren sourcen wij LHD-auto's van BMW, Mercedes-Benz, Audi en Porsche. Uit Duitsland binnen twee tot vier weken, of via de Japanse veilingen voor zeldzame uitvoeringen en lage kilometerstanden. Dezelfde werkwijze, dezelfde open boeken.",
+      'Op verzoek sourcen wij ook LHD-auto\'s van BMW, Mercedes-Benz, Audi en Porsche — uit Duitsland of via de Japanse veilingen. Dezelfde werkwijze, dezelfde open boeken.',
     links: [
       { label: 'Zo werkt de auto-import', href: '/werkwijze' },
       { label: 'Duitsland of Japan? Route-advies', href: '/route-advies' },

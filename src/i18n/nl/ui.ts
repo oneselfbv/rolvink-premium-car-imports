@@ -14,14 +14,21 @@ const ui = {
     homeHref: '/',
     nav: [
       { href: '/motoren', label: 'Motoren' },
-      { href: '/werkwijze', label: 'Werkwijze' },
-      { href: '/selectie', label: 'Selectie' },
-      { href: '/route-advies', label: 'Route-advies' },
-      { href: '/bpm-calculator', label: 'BPM-tool' },
-      { href: '/tarieven', label: 'Tarieven' },
       { href: '/kennisbank', label: 'Kennisbank' },
+      { href: '/tarieven', label: 'Tarieven' },
+      {
+        href: '/werkwijze',
+        label: "Auto's",
+        children: [
+          { href: '/werkwijze', label: 'Werkwijze auto-import' },
+          { href: '/selectie', label: 'Selectie' },
+          { href: '/route-advies', label: 'Route-advies' },
+          { href: '/bpm-calculator', label: 'BPM-tool' },
+          { href: '/voorbeeld-traject', label: 'Voorbeeld-traject' },
+        ],
+      },
       { href: '/over', label: 'Over' },
-    ],
+    ] as Array<{ href: string; label: string; children?: Array<{ href: string; label: string }> }>,
   },
   sticky: {
     regionAria: 'Snelle acties',
@@ -44,7 +51,7 @@ const ui = {
   },
   footer: {
     blurb:
-      "Een persoonlijke sourcing-service voor premium auto's en motoren uit Duitsland, Europa en Japan. Welsum, Nederland.",
+      "Een persoonlijke sourcing-service voor motoren uit Duitsland en, op verzoek, premium auto's uit Europa en Japan. Welsum, Nederland.",
     columns: [
       {
         title: 'Service',
